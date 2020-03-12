@@ -40,7 +40,7 @@ class SoarUtils:
 
     def remove_tree_from_wm(wme_table):
         """
-        Given a wme_table filled by SoarUtils.update_wm_from_tree, removes all wmes from working memory 
+        Given a wme_table filled by SoarUtils.update_wm_from_tree, removes all wmes from working memory
 
         Intermediate nodes are sml.Identifiers, which are removed from the table
         Leaves are SoarWME's which are kept in the table but .remove_from_wm() is called on them
@@ -74,7 +74,7 @@ class SoarUtils:
            (<preds> ^predicate red ^predicate cube ^predicate block)
 
         Will return the following dictionary:
-        { 
+        {
             '__root__': O32 (identifier for <obj>)
             'id' : 5 (int),
             'volume': 23.3 (float),
@@ -125,23 +125,62 @@ class SoarUtils:
 
         return child_wmes
 
-    def wm_graph_to_str(wm_graph):
+    def print_wm_graph(wm_graph):
         """
-        Given a wm_graph produced by extract_wm_graph, returns a nicely formatted string representation of it
+        Given a wm_graph produced by extract_wm_graph, prints it in a pretty format
 
         :param wm_graph: A dictionary representing a wm graph produced by extract_wm_graph
         """
-        return SoarUtils._wm_value_to_str(wm_graph, "", set())
+        print(SoarUtils._wm_value_to_str(wm_graph, "", set()))
 
-    def _wm_value_to_str(val, indent, ignore_ids):
+
+    def _print_wm_graph(wm_graph, indent=0, ignore_ids=None):
         """
-        recursive helper function which returns a string representation of any given value type
-        (str, int, float, list, dict)
+        internal recursive version of print_wm_graph with indent and ignore_ids specified
+        Given a wm_graph produced by extract_wm_graph, prints it in a pretty format
 
         :param wm_graph: A dictionary representing a wm graph produced by extract_wm_graph
-        :param indent: a string of spaces to indent the current level
+        :param indent: Number of spaces to indent the current level
         :param ignore_ids: A set of Identifiers to not print
         """
+        if ignore_ids is None:
+            ignore_ids = set()
+
+        prefix = " " * indent
+
+        root_id = wm_graph['__root__']
+        if root_id in ignore_ids:
+            return
+        ignore_ids.add(root_id)
+
+        for attr, val in wm_graph.items():
+            if attr == '__root__':
+                continue
+            if isinstance(val, list):
+                # Print a multi-valued attribute
+                print(prefix + attr + ": [")
+                for v in val:
+                    if isinstance(v, dict):
+                        if len(val) == 1:
+                            print(prefix + val['__root__'] + "{ }")
+                        print(prefix + "  {")
+                        SoarUtils._print_wm_graph(v, indent+4, ignore_ids)
+                        print(prefix + "  }")
+                    else:
+                        print(prefix + "  " + str(v))
+                print(prefix + "]")
+            elif isinstance(val, dict):
+                # Print a child identifier recursively
+                if len(val) == 1:
+                    print(prefix + attr + ": " + val['__root__'] + "{ }")
+                else:
+                    print(prefix + attr + ": " + val['__root__'] + " {")
+                    SoarUtils._print_wm_graph(val, indent + 2, ignore_ids)
+                    print(prefix + "}")
+            else:
+                print(prefix + attr + ": " + str(val))
+
+    def _wm_value_to_str(val, indent, ignore_ids):
         if isinstance(val, str):
             return val
         if isinstance(val, int):
@@ -173,7 +212,7 @@ class SoarUtils:
 
 
 
-        
+
 
 
 
