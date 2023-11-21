@@ -71,6 +71,7 @@ class SoarClient():
         self.settings = kwargs
         self.config_filename = config_filename
         self._read_config_file()
+        self.settings = self._postprocess_settings(dict(self.settings))
         self._apply_settings()
 
         self.connected = False
@@ -207,6 +208,10 @@ class SoarClient():
                 # Add settings from config file if not overridden in kwargs
                 if key not in self.kwarg_keys:
                     self.settings[key] = args[2]
+
+    def _postprocess_settings(self, settings):
+        """Client may override this and return a modified settings dict"""
+        return settings
 
     def _apply_settings(self):
         """ Set up the SoarClient object by copying settings or filling in default values """
