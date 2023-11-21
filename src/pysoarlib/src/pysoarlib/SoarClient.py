@@ -55,7 +55,7 @@ class SoarClient():
         use_time_connector = true|false (default=false)
             If true, will create a TimeConnector to add time info the the input-link
             See the Readme or TimeConnector.py for additional settings to control its behavior
-        
+
         Note: Still need to call connect() to register event handlers
         """
 
@@ -104,7 +104,7 @@ class SoarClient():
         return self.connectors.get(name, None)
 
     def add_print_event_handler(self, handler):
-        """ calls the given handler during each soar print event, 
+        """ calls the given handler during each soar print event,
             where handler is a method taking a single string argument """
         self.print_event_handlers.append(handler)
 
@@ -119,12 +119,12 @@ class SoarClient():
 
     def stop(self):
         """ Tell the running thread to stop
-        
+
         Note: Non-blocking, agent may run for a bit after this call finishes"""
         self.queue_stop = True
 
     def execute_command(self, cmd, print_res=False):
-        """ Execute a soar command and return result, 
+        """ Execute a soar command and return result,
             write output to print_handler if print_res is True """
         result = self.agent.ExecuteCommandLine(cmd).strip()
         if print_res:
@@ -270,6 +270,8 @@ class SoarClient():
                 self.print_handler(result)
             elif self.source_output == "summary":
                 self._summarize_smem_source(result)
+            if not self.agent.GetLastCommandLineResult():
+                raise ValueError("Error sourcing smem file: " + self.smem_source + "\n" + result)
 
         if self.agent_source != None:
             if self.source_output != "none":
@@ -279,6 +281,8 @@ class SoarClient():
                 self.print_handler(result)
             elif self.source_output == "summary":
                 self._summarize_source(result)
+            if not self.agent.GetLastCommandLineResult():
+                raise ValueError("Error sourcing production file: " + self.agent_source + "\n" + result)
         else:
             self.print_handler("agent_source not specified, no rules are being sourced")
 
