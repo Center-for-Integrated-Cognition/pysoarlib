@@ -198,18 +198,15 @@ class SoarClient():
             return
 
         # Add any settings in the config file (if it exists)
-        try:
-            with open(self.config_filename, 'r') as fin:
-                config_args = [ line.split() for line in fin ]
+        with open(self.config_filename, 'r') as fin:
+            config_args = [ line.split() for line in fin ]
 
-            for args in config_args:
-                if len(args) == 3 and args[1] == '=':
-                    key = args[0].replace("-", "_")
-                    # Add settings from config file if not overridden in kwargs
-                    if key not in self.kwarg_keys:
-                        self.settings[key] = args[2]
-        except IOError:
-            pass
+        for args in config_args:
+            if len(args) == 3 and args[1] == '=':
+                key = args[0].replace("-", "_")
+                # Add settings from config file if not overridden in kwargs
+                if key not in self.kwarg_keys:
+                    self.settings[key] = args[2]
 
     def _apply_settings(self):
         """ Set up the SoarClient object by copying settings or filling in default values """
