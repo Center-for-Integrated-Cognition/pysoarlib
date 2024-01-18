@@ -1,4 +1,6 @@
-from pysoarlib import *
+from pysoarlib.AgentConnector import AgentConnector
+from pysoarlib.SoarClient import SoarClient
+from pysoarlib.SoarWME import SoarWME
 
 
 class SimpleConnector(AgentConnector):

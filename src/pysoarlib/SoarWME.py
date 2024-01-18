@@ -77,10 +77,10 @@ class SoarWME(WMInterface):
     def _update_wm_impl(self):
         """If the value has changed, will update soar's working memory with the new value"""
         if self.changed:
-            self.wme.Update(self.val)
+            self.wme.Update(self.val)  # type: ignore
             self.changed = False
 
     def _remove_from_wm_impl(self):
         """Will remove the wme from soar's working memory"""
-        self.wme.DestroyWME()
+        self.wme.DestroyWME()  # type: ignore
         self.wme = None

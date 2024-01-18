@@ -1,3 +1,6 @@
+import Python_sml_ClientInterface as sml
+
+
 def remove_tree_from_wm(wme_table):
     """
     Given a wme_table filled by SoarUtils.update_wm_from_tree, removes all wmes from working memory

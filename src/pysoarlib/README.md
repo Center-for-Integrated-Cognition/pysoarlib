@@ -282,4 +282,6 @@ multiple calls to this function. `root_name` specifies a prefix for each wme nam
 Given a wme_table filled by `SoarUtils.update_wm_from_tree`, removes all wmes from working memory 
 
 
+## Python Types
 
+Type warnings have been suppressed in many places because the sml library is not typed. TODO: would be nice to fix this.

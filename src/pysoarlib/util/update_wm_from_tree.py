@@ -24,7 +24,7 @@ def update_wm_from_tree(root_id, root_name, input_dict, wme_table):
             if child_name not in wme_table:
                 wme_table[child_name] = root_id.CreateIdWME(attribute)
             child_id = wme_table[child_name]
-            SoarUtils.update_wm_from_tree(child_id, child_name, input_val, wme_table)
+            update_wm_from_tree(child_id, child_name, input_val, wme_table)
             continue
 
         value = input_val()

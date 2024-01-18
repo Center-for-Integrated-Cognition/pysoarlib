@@ -5,7 +5,6 @@ import traceback
 from time import sleep
 
 import Python_sml_ClientInterface as sml
-from .SoarWME import SoarWME
 from .TimeConnector import TimeConnector
 
 
@@ -61,8 +60,9 @@ class SoarClient:
         Note: Still need to call connect() to register event handlers
         """
 
-        self.print_handler = print_handler
-        if print_handler == None:
+        if print_handler is not None:
+            self.print_handler = print_handler
+        else:
             self.print_handler = print
         self.print_event_handlers = []
 
@@ -129,7 +129,7 @@ class SoarClient:
     def execute_command(self, cmd, print_res=False):
         """Execute a soar command and return result,
         write output to print_handler if print_res is True"""
-        result = self.agent.ExecuteCommandLine(cmd).strip()
+        result = self.agent.ExecuteCommandLine(cmd).strip()  # type: ignore
         if print_res:
             self.print_handler(cmd)
             self.print_handler(result)
@@ -140,15 +140,15 @@ class SoarClient:
         if self.connected:
             return
 
-        self.run_event_callback_id = self.agent.RegisterForRunEvent(
+        self.run_event_callback_id = self.agent.RegisterForRunEvent(  # type: ignore
             sml.smlEVENT_BEFORE_INPUT_PHASE, SoarClient._run_event_handler, self
         )
 
-        self.print_event_callback_id = self.agent.RegisterForPrintEvent(
+        self.print_event_callback_id = self.agent.RegisterForPrintEvent(  # type: ignore
             sml.smlEVENT_PRINT, SoarClient._print_event_handler, self
         )
 
-        self.init_agent_callback_id = self.kernel.RegisterForAgentEvent(
+        self.init_agent_callback_id = self.kernel.RegisterForAgentEvent(  # type: ignore
             sml.smlEVENT_BEFORE_AGENT_REINITIALIZED,
             SoarClient._init_agent_handler,
             self,
@@ -168,15 +168,15 @@ class SoarClient:
             return
 
         if self.run_event_callback_id != -1:
-            self.agent.UnregisterForRunEvent(self.run_event_callback_id)
+            self.agent.UnregisterForRunEvent(self.run_event_callback_id)  # type: ignore
             self.run_event_callback_id = -1
 
         if self.print_event_callback_id != -1:
-            self.agent.UnregisterForPrintEvent(self.print_event_callback_id)
+            self.agent.UnregisterForPrintEvent(self.print_event_callback_id)  # type: ignore
             self.print_event_callback_id = -1
 
         if self.init_agent_callback_id != -1:
-            self.kernel.UnregisterForAgentEvent(self.init_agent_callback_id)
+            self.kernel.UnregisterForAgentEvent(self.init_agent_callback_id)  # type: ignore
             self.init_agent_callback_id = -1
 
         for connector in self.connectors.values():
@@ -193,7 +193,7 @@ class SoarClient:
     def kill(self):
         """Will destroy the current agent + kernel, cleans up everything"""
         self._destroy_soar_agent()
-        self.kernel.Shutdown()
+        self.kernel.Shutdown()  # type: ignore
         self.kernel = None
 
     #### Internal Methods
@@ -245,7 +245,7 @@ class SoarClient:
         return val
 
     def _run_thread(self):
-        self.agent.ExecuteCommandLine("run")
+        self.agent.ExecuteCommandLine("run")  # type: ignore
         self.is_running = False
 
     def _create_soar_agent(self):
@@ -257,29 +257,29 @@ class SoarClient:
                 self.print_handler("ERROR: Cannot open log file " + self.log_filename)
 
         if self.remote_connection:
-            self.agent = self.kernel.GetAgentByIndex(0)
+            self.agent = self.kernel.GetAgentByIndex(0)  # type: ignore
         else:
-            self.agent = self.kernel.CreateAgent(self.agent_name)
+            self.agent = self.kernel.CreateAgent(self.agent_name)  # type: ignore
             self._source_agent()
 
         if self.spawn_debugger:
-            success = self.agent.SpawnDebugger(self.kernel.GetListenerPort())
+            success = self.agent.SpawnDebugger(self.kernel.GetListenerPort())  # type: ignore
 
         self.agent.ExecuteCommandLine("w " + str(self.watch_level))
 
     def _source_agent(self):
-        self.agent.ExecuteCommandLine("smem --set database memory")
-        self.agent.ExecuteCommandLine("epmem --set database memory")
+        self.agent.ExecuteCommandLine("smem --set database memory")  # type: ignore
+        self.agent.ExecuteCommandLine("epmem --set database memory")  # type: ignore
 
         if self.smem_source != None:
             if self.source_output != "none":
                 self.print_handler("------------- SOURCING SMEM ---------------")
-            result = self.agent.ExecuteCommandLine("source " + self.smem_source)
+            result = self.agent.ExecuteCommandLine("source " + self.smem_source)  # type: ignore
             if self.source_output == "full":
                 self.print_handler(result)
             elif self.source_output == "summary":
                 self._summarize_smem_source(result)
-            if not self.agent.GetLastCommandLineResult():
+            if not self.agent.GetLastCommandLineResult():  # type: ignore
                 raise ValueError(
                     "Error sourcing smem file: " + self.smem_source + "\n" + result
                 )
@@ -287,14 +287,14 @@ class SoarClient:
         if self.agent_source != None:
             if self.source_output != "none":
                 self.print_handler("--------- SOURCING PRODUCTIONS ------------")
-            result = self.agent.ExecuteCommandLine(
+            result = self.agent.ExecuteCommandLine(  # type: ignore
                 "source " + self.agent_source + " -v"
             )
             if self.source_output == "full":
                 self.print_handler(result)
             elif self.source_output == "summary":
                 self._summarize_source(result)
-            if not self.agent.GetLastCommandLineResult():
+            if not self.agent.GetLastCommandLineResult():  # type: ignore
                 raise ValueError(
                     "Error sourcing production file: "
                     + self.agent_source
@@ -343,9 +343,9 @@ class SoarClient:
         self._on_init_soar()
         self.disconnect()
         if self.spawn_debugger:
-            self.agent.KillDebugger()
+            self.agent.KillDebugger()  # type: ignore
         if not self.remote_connection:
-            self.kernel.DestroyAgent(self.agent)
+            self.kernel.DestroyAgent(self.agent)  # type: ignore
         self.agent = None
         if self.log_writer is not None:
             self.log_writer.close()
@@ -367,14 +367,14 @@ class SoarClient:
     def _on_input_phase(self, input_link):
         try:
             if self.queue_stop:
-                self.agent.StopSelf()
+                self.agent.StopSelf()  # type: ignore
                 self.queue_stop = False
 
             for connector in self.connectors.values():
                 connector.on_input_phase(input_link)
 
-            if self.agent.IsCommitRequired():
-                self.agent.Commit()
+            if self.agent.IsCommitRequired():  # type: ignore
+                self.agent.Commit()  # type: ignore
         except:
             self.print_handler("ERROR IN RUN HANDLER")
             self.print_handler(traceback.format_exc())

@@ -1,3 +1,4 @@
+from pysoarlib.SoarClient import SoarClient
 from pysoarlib.util import parse_wm_printout
 
 
@@ -5,7 +6,7 @@ class PrintoutIdentifier:
     """Represents an identifier that was parsed from a soar print command via parse_wm_printout
     and implements the IdentifierExtensions interface for it"""
 
-    def create(client, id, depth):
+    def create(self, client: SoarClient, id, depth):
         """Will print the given identifier to the given depth and wrap the result in a PrintoutIdentifier"""
         printout = client.execute_command("p " + id + " -d " + str(depth))
         if printout.strip().startswith("There is no identifier"):
@@ -29,14 +30,14 @@ class PrintoutIdentifier:
         return self._get_value(attr)
 
     def GetChildInt(self, attr):
-        val = self._get_value(attr)
+        val: int = self._get_value(attr)  # type: ignore
         try:
             return int(val)
         except ValueError:
             return None
 
     def GetChildFloat(self, attr):
-        val = self._get_value(attr)
+        val: float = self._get_value(attr)  # type: ignore
         try:
             return float(val)
         except ValueError:

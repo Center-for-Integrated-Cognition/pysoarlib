@@ -25,14 +25,15 @@ __all__ = [
 # Extend the sml Identifier class definition with additional utility methods
 from .IdentifierExtensions import *
 
-sml.Identifier.GetChildString = get_child_str
-sml.Identifier.GetChildInt = get_child_int
-sml.Identifier.GetChildFloat = get_child_float
-sml.Identifier.GetChildId = get_child_id
-sml.Identifier.GetAllChildIds = get_all_child_ids
-sml.Identifier.GetAllChildValues = get_all_child_values
-sml.Identifier.GetAllChildWmes = get_all_child_wmes
-sml.Identifier.__lt__ = (
+# PyLance says: these members are not known, so they cannot be assigned. So we ignore types for now.
+sml.Identifier.GetChildString = get_child_str  # type: ignore
+sml.Identifier.GetChildInt = get_child_int  # type: ignore
+sml.Identifier.GetChildFloat = get_child_float  # type: ignore
+sml.Identifier.GetChildId = get_child_id  # type: ignore
+sml.Identifier.GetAllChildIds = get_all_child_ids  # type: ignore
+sml.Identifier.GetAllChildValues = get_all_child_values  # type: ignore
+sml.Identifier.GetAllChildWmes = get_all_child_wmes  # type: ignore
+sml.Identifier.__lt__ = (  # type: ignore
     lambda self, other: self.GetIdentifierSymbol() < other.GetIdentifierSymbol()
 )
 

@@ -4,9 +4,7 @@ A Connector can be added to a SoarClient and can handle input/output
     while taking care of specific SML calls and event registering
 """
 
-from __future__ import print_function
-
-import traceback, sys
+import traceback
 
 
 class AgentConnector(object):
@@ -79,7 +77,7 @@ class AgentConnector(object):
         pass
 
     @staticmethod
-    def _output_event_handler(self, agent_name, att_name, wme):
+    def _output_event_handler(self, agent_name, att_name, wme):  # type: ignore (we register the handler so that self is pass in as the first argument; TODO: why static?)
         """OutputHandler callback for when a command is put on the output link"""
         try:
             if wme.IsJustAdded() and wme.IsIdentifier():
