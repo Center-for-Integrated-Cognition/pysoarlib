@@ -13,10 +13,18 @@ Also adds helper methods to the Identifier class to access children more easily
 """
 import Python_sml_ClientInterface as sml
 
-__all__ = ["WMInterface", "SoarWME", "SVSCommands", "AgentConnector", "SoarClient", "TimeConnector"]
+__all__ = [
+    "WMInterface",
+    "SoarWME",
+    "SVSCommands",
+    "AgentConnector",
+    "SoarClient",
+    "TimeConnector",
+]
 
 # Extend the sml Identifier class definition with additional utility methods
 from .IdentifierExtensions import *
+
 sml.Identifier.GetChildString = get_child_str
 sml.Identifier.GetChildInt = get_child_int
 sml.Identifier.GetChildFloat = get_child_float
@@ -24,7 +32,9 @@ sml.Identifier.GetChildId = get_child_id
 sml.Identifier.GetAllChildIds = get_all_child_ids
 sml.Identifier.GetAllChildValues = get_all_child_values
 sml.Identifier.GetAllChildWmes = get_all_child_wmes
-sml.Identifier.__lt__ = lambda self, other: self.GetIdentifierSymbol() < other.GetIdentifierSymbol()
+sml.Identifier.__lt__ = (
+    lambda self, other: self.GetIdentifierSymbol() < other.GetIdentifierSymbol()
+)
 
 from .WMInterface import WMInterface
 from .SoarWME import SoarWME
@@ -32,5 +42,3 @@ from .SVSCommands import SVSCommands
 from .AgentConnector import AgentConnector
 from .SoarClient import SoarClient
 from .TimeConnector import TimeConnector
-
-

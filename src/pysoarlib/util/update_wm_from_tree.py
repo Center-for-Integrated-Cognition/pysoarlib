@@ -1,5 +1,6 @@
 from pysoarlib import SoarWME
 
+
 def update_wm_from_tree(root_id, root_name, input_dict, wme_table):
     """
     Recursively update WMEs that have a sub-tree structure rooted at the given identifier.
@@ -32,4 +33,3 @@ def update_wm_from_tree(root_id, root_name, input_dict, wme_table):
         wme = wme_table[child_name]
         wme.set_value(value)
         wme.update_wm(root_id)
-

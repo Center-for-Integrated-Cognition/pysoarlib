@@ -2,14 +2,15 @@ import Python_sml_ClientInterface as sml
 
 ### Note: Helper class used by extract_wm_graph
 
-class WMNode:
-    """ Represents a node in the working memory graph wrapping an Identifier and containing links to child wmes
 
-        node.id = root_id (Identifier)
-        node.symbol = string (The root_id symbol e.g. O34)
-        node['attr'] = WMNode   # for identifiers
-        node['attr'] = constant # for string, double, or int value
-        node['attr'] = [ val1, val2, ... ] # for multi-valued attributes (values can be constants or WMNodes)
+class WMNode:
+    """Represents a node in the working memory graph wrapping an Identifier and containing links to child wmes
+
+    node.id = root_id (Identifier)
+    node.symbol = string (The root_id symbol e.g. O34)
+    node['attr'] = WMNode   # for identifiers
+    node['attr'] = constant # for string, double, or int value
+    node['attr'] = [ val1, val2, ... ] # for multi-valued attributes (values can be constants or WMNodes)
     """
 
     def __init__(self, soar_id):
@@ -18,19 +19,19 @@ class WMNode:
         self.children = {}
 
     def attributes(self):
-        """ Returns a list of all child wme attribute strings """
+        """Returns a list of all child wme attribute strings"""
         return list(self.children.keys())
 
     # Supports dictionary syntax (read only)
     def __getitem__(self, attr):
-        """ Returns the value of the wme (node, attr, val)
-            where a value can be a int, double, string, WMNode,
-            or a list of such values for a multi-valued attribute """
+        """Returns the value of the wme (node, attr, val)
+        where a value can be a int, double, string, WMNode,
+        or a list of such values for a multi-valued attribute"""
         return self.children.get(attr, None)
 
     def __str__(self):
-        """ Returns a nicely formatted string representation of the node and all its children 
-            (Warning: will be a lot of text for large graphs) """
+        """Returns a nicely formatted string representation of the node and all its children
+        (Warning: will be a lot of text for large graphs)"""
         return self.__str_helper__("", set())
 
     def __str_helper__(self, indent, ignore_ids):
@@ -42,12 +43,19 @@ class WMNode:
 
         s = var + " {\n"
         for a, v in self.children.items():
-            s += indent + "  " + a + ": " + _wm_value_to_str(v, indent + "  ", ignore_ids) + "\n"
+            s += (
+                indent
+                + "  "
+                + a
+                + ": "
+                + _wm_value_to_str(v, indent + "  ", ignore_ids)
+                + "\n"
+            )
         s += indent + "}"
         return s
 
     def _extract_children(self, max_depth, node_map):
-        """ Internal helper method to recursively extract graph structure for a node's children """
+        """Internal helper method to recursively extract graph structure for a node's children"""
         if max_depth == 0:
             return
 
@@ -64,7 +72,7 @@ class WMNode:
                     # If not, recursively create and extract the children
                     wme_val = WMNode(child_id)
                     node_map[wme_val.symbol] = wme_val
-                    wme_val._extract_children(max_depth-1, node_map)
+                    wme_val._extract_children(max_depth - 1, node_map)
 
             elif wme.GetValueType() == "int":
                 wme_val = wme.ConvertToIntElement().GetValue()
@@ -76,8 +84,9 @@ class WMNode:
             self._add_child_wme(attr, wme_val)
 
     def _add_child_wme(self, attr, value):
-        """ Adds the child wme to the children dictionary
-            If there are multiple values for a given attr, move them into a list instead of replacing """
+        """Adds the child wme to the children dictionary
+        If there are multiple values for a given attr, move them into a list instead of replacing
+        """
         if attr in self.children:
             cur_val = self.children[attr]
             if isinstance(cur_val, list):
@@ -85,10 +94,11 @@ class WMNode:
                 cur_val.append(value)
             else:
                 # This is the second value for the attr, replace current value with a list
-                self.children[attr] = [ cur_val, value ]
+                self.children[attr] = [cur_val, value]
         else:
             # First time we've seen this attr, just add to dictionary
             self.children[attr] = value
+
 
 def _wm_value_to_str(val, indent, ignore_ids):
     """
@@ -105,9 +115,11 @@ def _wm_value_to_str(val, indent, ignore_ids):
     if isinstance(val, float):
         return str(val)
     if isinstance(val, list):
-        return "[ " + ", ".join(_wm_value_to_str(i, indent, ignore_ids) for i in val) + " ]"
+        return (
+            "[ "
+            + ", ".join(_wm_value_to_str(i, indent, ignore_ids) for i in val)
+            + " ]"
+        )
     if isinstance(val, WMNode):
         return val.__str_helper__(indent, ignore_ids)
     return ""
-
-

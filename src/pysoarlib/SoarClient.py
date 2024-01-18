@@ -8,10 +8,12 @@ import Python_sml_ClientInterface as sml
 from .SoarWME import SoarWME
 from .TimeConnector import TimeConnector
 
-class SoarClient():
-    """ A wrapper class for creating and using a soar SML Agent """
+
+class SoarClient:
+    """A wrapper class for creating and using a soar SML Agent"""
+
     def __init__(self, print_handler=None, config_filename=None, **kwargs):
-        """ Will create a soar kernel and agent
+        """Will create a soar kernel and agent
 
         print_handler determines how output is printed, defaults to python print
         config_filename if specified will read config info (kwargs) from a file
@@ -93,40 +95,40 @@ class SoarClient():
         self._create_soar_agent()
 
     def add_connector(self, name, connector):
-        """ Adds an AgentConnector to the agent """
+        """Adds an AgentConnector to the agent"""
         self.connectors[name] = connector
 
     def has_connector(self, name):
-        """ Returns True if the agent has an AgentConnector with the given name """
-        return (name in self.connectors)
+        """Returns True if the agent has an AgentConnector with the given name"""
+        return name in self.connectors
 
     def get_connector(self, name):
-        """ Returns the AgentConnector with the given name, or None """
+        """Returns the AgentConnector with the given name, or None"""
         return self.connectors.get(name, None)
 
     def add_print_event_handler(self, handler):
-        """ calls the given handler during each soar print event,
-            where handler is a method taking a single string argument """
+        """calls the given handler during each soar print event,
+        where handler is a method taking a single string argument"""
         self.print_event_handlers.append(handler)
 
     def start(self):
-        """ Will start the agent (uses another thread, so non-blocking) """
+        """Will start the agent (uses another thread, so non-blocking)"""
         if self.is_running:
             return
 
         self.is_running = True
-        thread = Thread(target = SoarClient._run_thread, args = (self, ))
+        thread = Thread(target=SoarClient._run_thread, args=(self,))
         thread.start()
 
     def stop(self):
-        """ Tell the running thread to stop
+        """Tell the running thread to stop
 
         Note: Non-blocking, agent may run for a bit after this call finishes"""
         self.queue_stop = True
 
     def execute_command(self, cmd, print_res=False):
-        """ Execute a soar command and return result,
-            write output to print_handler if print_res is True """
+        """Execute a soar command and return result,
+        write output to print_handler if print_res is True"""
         result = self.agent.ExecuteCommandLine(cmd).strip()
         if print_res:
             self.print_handler(cmd)
@@ -134,18 +136,23 @@ class SoarClient():
         return result
 
     def connect(self):
-        """ Register event handlers for agent and connectors """
+        """Register event handlers for agent and connectors"""
         if self.connected:
             return
 
         self.run_event_callback_id = self.agent.RegisterForRunEvent(
-            sml.smlEVENT_BEFORE_INPUT_PHASE, SoarClient._run_event_handler, self)
+            sml.smlEVENT_BEFORE_INPUT_PHASE, SoarClient._run_event_handler, self
+        )
 
         self.print_event_callback_id = self.agent.RegisterForPrintEvent(
-                sml.smlEVENT_PRINT, SoarClient._print_event_handler, self)
+            sml.smlEVENT_PRINT, SoarClient._print_event_handler, self
+        )
 
         self.init_agent_callback_id = self.kernel.RegisterForAgentEvent(
-                sml.smlEVENT_BEFORE_AGENT_REINITIALIZED, SoarClient._init_agent_handler, self)
+            sml.smlEVENT_BEFORE_AGENT_REINITIALIZED,
+            SoarClient._init_agent_handler,
+            self,
+        )
 
         for connector in self.connectors.values():
             connector.connect()
@@ -156,7 +163,7 @@ class SoarClient():
             self.start()
 
     def disconnect(self):
-        """ Unregister event handlers for agent and connectors """
+        """Unregister event handlers for agent and connectors"""
         if not self.connected:
             return
 
@@ -178,20 +185,20 @@ class SoarClient():
         self.connected = False
 
     def reset(self):
-        """ Will destroy the current agent and create + source a new one """
+        """Will destroy the current agent and create + source a new one"""
         self._destroy_soar_agent()
         self._create_soar_agent()
         self.connect()
 
     def kill(self):
-        """ Will destroy the current agent + kernel, cleans up everything """
+        """Will destroy the current agent + kernel, cleans up everything"""
         self._destroy_soar_agent()
         self.kernel.Shutdown()
         self.kernel = None
 
-#### Internal Methods
+    #### Internal Methods
     def _read_config_file(self):
-        """ Will read the given config file and update self.settings as necessary (wont overwrite kwarg settings)
+        """Will read the given config file and update self.settings as necessary (wont overwrite kwarg settings)
 
         config_filename is a text file with lines of the form 'setting = value'"""
 
@@ -199,11 +206,11 @@ class SoarClient():
             return
 
         # Add any settings in the config file (if it exists)
-        with open(self.config_filename, 'r') as fin:
-            config_args = [ line.split() for line in fin ]
+        with open(self.config_filename, "r") as fin:
+            config_args = [line.split() for line in fin]
 
         for args in config_args:
-            if len(args) == 3 and args[1] == '=':
+            if len(args) == 3 and args[1] == "=":
                 key = args[0].replace("-", "_")
                 # Add settings from config file if not overridden in kwargs
                 if key not in self.kwarg_keys:
@@ -214,7 +221,7 @@ class SoarClient():
         return settings
 
     def _apply_settings(self):
-        """ Set up the SoarClient object by copying settings or filling in default values """
+        """Set up the SoarClient object by copying settings or filling in default values"""
         self.agent_name = self.settings.get("agent_name", "soaragent")
         self.agent_source = self.settings.get("agent_source", None)
         self.smem_source = self.settings.get("smem_source", None)
@@ -245,7 +252,7 @@ class SoarClient():
         self.log_writer = None
         if self.enable_log:
             try:
-                self.log_writer = open(self.log_filename, 'w')
+                self.log_writer = open(self.log_filename, "w")
             except:
                 self.print_handler("ERROR: Cannot open log file " + self.log_filename)
 
@@ -273,18 +280,27 @@ class SoarClient():
             elif self.source_output == "summary":
                 self._summarize_smem_source(result)
             if not self.agent.GetLastCommandLineResult():
-                raise ValueError("Error sourcing smem file: " + self.smem_source + "\n" + result)
+                raise ValueError(
+                    "Error sourcing smem file: " + self.smem_source + "\n" + result
+                )
 
         if self.agent_source != None:
             if self.source_output != "none":
                 self.print_handler("--------- SOURCING PRODUCTIONS ------------")
-            result = self.agent.ExecuteCommandLine("source " + self.agent_source + " -v")
+            result = self.agent.ExecuteCommandLine(
+                "source " + self.agent_source + " -v"
+            )
             if self.source_output == "full":
                 self.print_handler(result)
             elif self.source_output == "summary":
                 self._summarize_source(result)
             if not self.agent.GetLastCommandLineResult():
-                raise ValueError("Error sourcing production file: " + self.agent_source + "\n" + result)
+                raise ValueError(
+                    "Error sourcing production file: "
+                    + self.agent_source
+                    + "\n"
+                    + result
+                )
         else:
             self.print_handler("agent_source not specified, no rules are being sourced")
 
@@ -292,18 +308,20 @@ class SoarClient():
     def _summarize_smem_source(self, printout):
         summary = []
         n_added = 0
-        for line in printout.split('\n'):
+        for line in printout.split("\n"):
             if line == "Knowledge added to semantic memory.":
                 n_added += 1
             else:
                 summary.append(line)
-        self.print_handler('\n'.join(summary))
-        self.print_handler("Knowledge added to semantic memory. [" + str(n_added) + " times]")
+        self.print_handler("\n".join(summary))
+        self.print_handler(
+            "Knowledge added to semantic memory. [" + str(n_added) + " times]"
+        )
 
     # Prints a summary of the agent source command instead of every line (source_output = summary)
     def _summarize_source(self, printout):
         summary = []
-        for line in printout.split('\n'):
+        for line in printout.split("\n"):
             if line.startswith("Sourcing"):
                 continue
             if line.startswith("warnings is now"):
@@ -312,7 +330,7 @@ class SoarClient():
             if all(c in "#* " for c in line):
                 continue
             summary.append(line)
-        self.print_handler('\n'.join(summary))
+        self.print_handler("\n".join(summary))
 
     def _on_init_soar(self):
         for connector in self.connectors.values():
@@ -352,7 +370,6 @@ class SoarClient():
                 self.agent.StopSelf()
                 self.queue_stop = False
 
-
             for connector in self.connectors.values():
                 connector.on_input_phase(input_link)
 
@@ -361,7 +378,6 @@ class SoarClient():
         except:
             self.print_handler("ERROR IN RUN HANDLER")
             self.print_handler(traceback.format_exc())
-
 
     @staticmethod
     def _print_event_handler(eventID, self, agent, message):
@@ -377,5 +393,3 @@ class SoarClient():
         except:
             self.print_handler("ERROR IN PRINT HANDLER")
             self.print_handler(traceback.format_exc())
-
-

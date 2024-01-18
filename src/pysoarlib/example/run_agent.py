@@ -1,5 +1,6 @@
 from pysoarlib import *
 
+
 class SimpleConnector(AgentConnector):
     def __init__(self, client):
         AgentConnector.__init__(self, client)
@@ -18,12 +19,13 @@ class SimpleConnector(AgentConnector):
     def on_output_event(self, command_name, root_id):
         if command_name == "increase-number":
             self.process_increase_command(root_id)
-    
+
     def process_increase_command(self, root_id):
         number = root_id.GetChildInt("number")
         if number:
             self.num.set_value(self.num.val + number)
         root_id.AddStatusComplete()
+
 
 client = SoarClient(config_filename="example.config", write_to_stdout=True)
 client.add_connector("simple", SimpleConnector(client))
