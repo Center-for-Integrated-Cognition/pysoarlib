@@ -99,7 +99,7 @@ Each line in the file should be 'setting = value'
 
 Example File:    
 ```
-agent_name = Rosie    
+agent_name = THOR-Soar    
 agent_source = agent.soar    
 spawn_debugger = false    
 ```
