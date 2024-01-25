@@ -1,5 +1,4 @@
-from __future__ import print_function
-
+from pathlib import Path
 from threading import Thread
 import traceback
 from time import sleep
@@ -199,22 +198,36 @@ class SoarClient:
     #### Internal Methods
     def _read_config_file(self):
         """Will read the given config file and update self.settings as necessary (wont overwrite kwarg settings)
-
-        config_filename is a text file with lines of the form 'setting = value'"""
+        config_filename is a text file with lines of the form 'setting = value' and '#' for comments.
+        """
 
         if self.config_filename is None:
             return
 
         # Add any settings in the config file (if it exists)
-        with open(self.config_filename, "r") as fin:
-            config_args = [line.split() for line in fin]
+        # split into lines and remove comments and leading/trailing whitespace
+        line_number = 0
+        for line in Path(self.config_filename).read_text().splitlines():
+            line_number += 1
+            line = line.split("#")[0].strip()
+            if len(line) == 0:
+                continue
 
-        for args in config_args:
-            if len(args) == 3 and args[1] == "=":
-                key = args[0].replace("-", "_")
-                # Add settings from config file if not overridden in kwargs
-                if key not in self.kwarg_keys:
-                    self.settings[key] = args[2]
+            args = [a.strip() for a in line.split("=", 1)]
+            if len(args) != 2:
+                raise ValueError(
+                    f"Missing '=' in config file {self.config_filename} on line {line_number}. "
+                    + "Did you mean to comment it out with '#'?"
+                )
+
+            key = args[0].replace("-", "_")
+            if key in self.kwarg_keys:
+                print(
+                    f"INFO: Ignoring config file setting {key} (already set in kwargs)"
+                )
+                continue
+
+            self.settings[key] = args[1]
 
     def _postprocess_settings(self, settings):
         """Client may override this and return a modified settings dict"""
