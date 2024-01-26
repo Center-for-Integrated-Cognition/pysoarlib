@@ -4,57 +4,17 @@ import traceback
 from time import sleep
 
 import Python_sml_ClientInterface as sml
+from pysoarlib.Config import Config
 from .TimeConnector import TimeConnector
 
 
 class SoarClient:
     """A wrapper class for creating and using a soar SML Agent"""
 
-    def __init__(self, print_handler=None, config_filename=None, **kwargs):
+    def __init__(self, print_handler=None, config: Config = Config()):
         """Will create a soar kernel and agent
 
         print_handler determines how output is printed, defaults to python print
-        config_filename if specified will read config info (kwargs) from a file
-            Config file is a text file with lines of the form 'setting = value'
-
-        ============== kwargs =============
-
-        agent_name = [string] (default=soaragent)
-            Name to give the SML Agent when it is created
-
-        agent_source = [filename] (default=None)
-            Soar file to source when the agent is created
-
-        smem_source = [filename] (default=None)
-            Soar file with smem add commands to source the agent is created
-
-        source_output = full|summary|none (default=summary)
-            Determines how much output is printed when sourcing files
-
-        watch_level = [int] (default=1)
-            The watch level to use (controls amount of info printed, 0=none, 5=all)
-
-        start_running = true|false (default=false)
-            If true, will immediately start the agent running
-
-        spawn_debugger = true|false (default=false)
-            If true, will spawn the java soar debugger
-
-        write_to_stdout = true|false (default=false)
-            If true, will print all soar output to the given print_handler (default is python print)
-
-        enable_log = true|false
-            If true, will write all soar output to a file given by log_filename
-
-        log_filename = [filename] (default = agent-log.txt)
-            Specify the name of the log file to write
-
-        remote_connection = true|false (default=false)
-            If true, will connect to a remote kernel instead of creating a new one
-
-        use_time_connector = true|false (default=false)
-            If true, will create a TimeConnector to add time info the the input-link
-            See the Readme or TimeConnector.py for additional settings to control its behavior
 
         Note: Still need to call connect() to register event handlers
         """
@@ -67,13 +27,7 @@ class SoarClient:
 
         self.connectors = {}
 
-        # Gather settings, filling in defaults as needed
-        self.kwarg_keys = set(kwargs.keys())
-        self.settings = kwargs
-        self.config_filename = config_filename
-        self._read_config_file()
-        self.settings = self._postprocess_settings(dict(self.settings))
-        self._apply_settings()
+        self.config = config
 
         self.connected = False
         self.is_running = False
@@ -83,14 +37,14 @@ class SoarClient:
         self.print_event_callback_id = -1
         self.init_agent_callback_id = -1
 
-        if self.remote_connection:
+        if self.config.remote_connection:
             self.kernel = sml.Kernel.CreateRemoteConnection()
         else:
             self.kernel = sml.Kernel.CreateKernelInNewThread()
             self.kernel.SetAutoCommit(False)
 
-        if self.use_time_connector:
-            self.add_connector("time", TimeConnector(self, **self.settings))
+        if self.config.use_time_connector:
+            self.add_connector("time", TimeConnector(self, **self.config.__dict__))
         self._create_soar_agent()
 
     def add_connector(self, name, connector):
@@ -158,7 +112,7 @@ class SoarClient:
 
         self.connected = True
 
-        if self.start_running:
+        if self.config.start_running:
             self.start()
 
     def disconnect(self):
@@ -196,123 +150,61 @@ class SoarClient:
         self.kernel = None
 
     #### Internal Methods
-    def _read_config_file(self):
-        """Will read the given config file and update self.settings as necessary (wont overwrite kwarg settings)
-        config_filename is a text file with lines of the form 'setting = value' and '#' for comments.
-        """
-
-        if self.config_filename is None:
-            return
-
-        # Add any settings in the config file (if it exists)
-        # split into lines and remove comments and leading/trailing whitespace
-        line_number = 0
-        for line in Path(self.config_filename).read_text().splitlines():
-            line_number += 1
-            line = line.split("#")[0].strip()
-            if len(line) == 0:
-                continue
-
-            args = [a.strip() for a in line.split("=", 1)]
-            if len(args) != 2:
-                raise ValueError(
-                    f"Missing '=' in config file {self.config_filename} on line {line_number}. "
-                    + "Did you mean to comment it out with '#'?"
-                )
-
-            key = args[0].replace("-", "_")
-            if key in self.kwarg_keys:
-                print(
-                    f"INFO: Ignoring config file setting {key} (already set in kwargs)"
-                )
-                continue
-
-            self.settings[key] = args[1]
-
-    def _postprocess_settings(self, settings):
-        """Client may override this and return a modified settings dict"""
-        return settings
-
-    def _apply_settings(self):
-        """Set up the SoarClient object by copying settings or filling in default values"""
-        self.agent_name = self.settings.get("agent_name", "soaragent")
-        self.agent_source = self.settings.get("agent_source", None)
-        self.smem_source = self.settings.get("smem_source", None)
-
-        self.source_output = self.settings.get("source_output", "summary")
-        self.watch_level = int(self.settings.get("watch_level", 1))
-        self.remote_connection = self._parse_bool_setting("remote_connection", False)
-        self.spawn_debugger = self._parse_bool_setting("spawn_debugger", False)
-        self.start_running = self._parse_bool_setting("start_running", False)
-        self.write_to_stdout = self._parse_bool_setting("write_to_stdout", False)
-        self.enable_log = self._parse_bool_setting("enable_log", False)
-        self.log_filename = self.settings.get("log_filename", "agent-log.txt")
-        self.use_time_connector = self._parse_bool_setting("use_time_connector", False)
-
-    def _parse_bool_setting(self, name, default):
-        if name not in self.settings:
-            return default
-        val = self.settings[name]
-        if type(val) == str:
-            return val.lower() == "true"
-        return val
-
     def _run_thread(self):
         self.agent.ExecuteCommandLine("run")  # type: ignore
         self.is_running = False
 
     def _create_soar_agent(self):
         self.log_writer = None
-        if self.enable_log:
+        if self.config.enable_log:
             try:
-                self.log_writer = open(self.log_filename, "w")
+                self.log_writer = open(self.config.log_filename, "w")
             except:
-                self.print_handler("ERROR: Cannot open log file " + self.log_filename)
+                self.print_handler(
+                    "ERROR: Cannot open log file " + self.config.log_filename
+                )
 
-        if self.remote_connection:
+        if self.config.remote_connection:
             self.agent = self.kernel.GetAgentByIndex(0)  # type: ignore
         else:
-            self.agent = self.kernel.CreateAgent(self.agent_name)  # type: ignore
+            self.agent = self.kernel.CreateAgent(self.config.agent_name)  # type: ignore
             self._source_agent()
 
-        if self.spawn_debugger:
+        if self.config.spawn_debugger:
             success = self.agent.SpawnDebugger(self.kernel.GetListenerPort())  # type: ignore
 
-        self.agent.ExecuteCommandLine("w " + str(self.watch_level))
+        self.agent.ExecuteCommandLine(f"w {self.config.watch_level}")
 
     def _source_agent(self):
         self.agent.ExecuteCommandLine("smem --set database memory")  # type: ignore
         self.agent.ExecuteCommandLine("epmem --set database memory")  # type: ignore
 
-        if self.smem_source != None:
-            if self.source_output != "none":
+        if self.config.smem_source != None:
+            if self.config.source_output != "none":
                 self.print_handler("------------- SOURCING SMEM ---------------")
-            result = self.agent.ExecuteCommandLine("source " + self.smem_source)  # type: ignore
-            if self.source_output == "full":
+            result = self.agent.ExecuteCommandLine("source " + self.config.smem_source)  # type: ignore
+            if self.config.source_output == "full":
                 self.print_handler(result)
-            elif self.source_output == "summary":
+            elif self.config.source_output == "summary":
                 self._summarize_smem_source(result)
             if not self.agent.GetLastCommandLineResult():  # type: ignore
                 raise ValueError(
-                    "Error sourcing smem file: " + self.smem_source + "\n" + result
+                    f"Error sourcing smem file: {self.config.smem_source}\n{result}"
                 )
 
-        if self.agent_source != None:
-            if self.source_output != "none":
+        if self.config.agent_source != None:
+            if self.config.source_output != "none":
                 self.print_handler("--------- SOURCING PRODUCTIONS ------------")
             result = self.agent.ExecuteCommandLine(  # type: ignore
-                "source " + self.agent_source + " -v"
+                f"source {self.config.agent_source} -v"
             )
-            if self.source_output == "full":
+            if self.config.source_output == "full":
                 self.print_handler(result)
-            elif self.source_output == "summary":
+            elif self.config.source_output == "summary":
                 self._summarize_source(result)
             if not self.agent.GetLastCommandLineResult():  # type: ignore
                 raise ValueError(
-                    "Error sourcing production file: "
-                    + self.agent_source
-                    + "\n"
-                    + result
+                    f"Error sourcing production file: {self.config.agent_source}\n{result}"
                 )
         else:
             self.print_handler("agent_source not specified, no rules are being sourced")
@@ -327,9 +219,7 @@ class SoarClient:
             else:
                 summary.append(line)
         self.print_handler("\n".join(summary))
-        self.print_handler(
-            "Knowledge added to semantic memory. [" + str(n_added) + " times]"
-        )
+        self.print_handler(f"Knowledge added to semantic memory. [{n_added} times]")
 
     # Prints a summary of the agent source command instead of every line (source_output = summary)
     def _summarize_source(self, printout):
@@ -355,9 +245,9 @@ class SoarClient:
             sleep(0.01)
         self._on_init_soar()
         self.disconnect()
-        if self.spawn_debugger:
+        if self.config.spawn_debugger:
             self.agent.KillDebugger()  # type: ignore
-        if not self.remote_connection:
+        if not self.config.remote_connection:
             self.kernel.DestroyAgent(self.agent)  # type: ignore
         self.agent = None
         if self.log_writer is not None:

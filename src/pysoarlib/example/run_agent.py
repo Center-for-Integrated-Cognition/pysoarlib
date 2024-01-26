@@ -1,6 +1,11 @@
+from pathlib import Path
 from pysoarlib.AgentConnector import AgentConnector
+from pysoarlib.Config import Config
 from pysoarlib.SoarClient import SoarClient
 from pysoarlib.SoarWME import SoarWME
+
+CUR_DIR = Path(__file__).parent
+TEST_AGENT = CUR_DIR / "test-agent.soar"
 
 
 class SimpleConnector(AgentConnector):
@@ -29,7 +34,14 @@ class SimpleConnector(AgentConnector):
         root_id.AddStatusComplete()
 
 
-client = SoarClient(config_filename="example.config", write_to_stdout=True)
+config = Config(
+    agent_name="simple",
+    agent_source=TEST_AGENT,
+    source_output="summary",
+    spawn_debugger=False,
+    write_to_stdout=True,
+)
+client = SoarClient(config)
 client.add_connector("simple", SimpleConnector(client))
 client.connect()
 
