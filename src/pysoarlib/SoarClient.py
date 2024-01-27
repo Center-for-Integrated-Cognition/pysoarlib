@@ -172,6 +172,8 @@ class SoarClient:
 
         if self.config.spawn_debugger:
             success = self.agent.SpawnDebugger(self.kernel.GetListenerPort())  # type: ignore
+            if not success:
+                self.print_handler("Failed to spawn debugger")
 
         self.agent.ExecuteCommandLine(f"w {self.config.watch_level}")
 
@@ -210,7 +212,7 @@ class SoarClient:
             self.print_handler("agent_source not specified, no rules are being sourced")
 
     # Prints a summary of the smem source command instead of every line (source_output = summary)
-    def _summarize_smem_source(self, printout):
+    def _summarize_smem_source(self, printout: str):
         summary = []
         n_added = 0
         for line in printout.split("\n"):
@@ -222,7 +224,7 @@ class SoarClient:
         self.print_handler(f"Knowledge added to semantic memory. [{n_added} times]")
 
     # Prints a summary of the agent source command instead of every line (source_output = summary)
-    def _summarize_source(self, printout):
+    def _summarize_source(self, printout: str):
         summary = []
         for line in printout.split("\n"):
             if line.startswith("Sourcing"):
@@ -255,7 +257,7 @@ class SoarClient:
             self.log_writer = None
 
     @staticmethod
-    def _init_agent_handler(eventID, self, info):
+    def _init_agent_handler(eventID, self: "SoarClient", info):
         try:
             self._on_init_soar()
         except:
@@ -263,7 +265,7 @@ class SoarClient:
             self.print_handler(traceback.format_exc())
 
     @staticmethod
-    def _run_event_handler(eventID, self, agent, phase):
+    def _run_event_handler(eventID, self: "SoarClient", agent, phase):
         if eventID == sml.smlEVENT_BEFORE_INPUT_PHASE:
             self._on_input_phase(agent.GetInputLink())
 
@@ -283,9 +285,9 @@ class SoarClient:
             self.print_handler(traceback.format_exc())
 
     @staticmethod
-    def _print_event_handler(eventID, self, agent, message):
+    def _print_event_handler(eventID, self: "SoarClient", agent, message: str):
         try:
-            if self.write_to_stdout:
+            if self.config.write_to_stdout:
                 message = message.strip()
                 self.print_handler(message)
             if self.log_writer:

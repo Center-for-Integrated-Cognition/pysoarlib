@@ -86,4 +86,4 @@ class AgentConnector(object):
         except:
             self.client.print_handler("ERROR IN OUTPUT EVENT HANDLER")
             self.client.print_handler(traceback.format_exc())
-            self.client.print_handler("--------- END ---------------")
+            self.client.print_handler("--------------- END TRACE ---------------")
