@@ -3,7 +3,7 @@ from threading import Thread
 import traceback
 from time import sleep
 
-import Python_sml_ClientInterface as sml
+from pysoarlib.util.sml import sml
 from pysoarlib.Config import Config
 from .TimeConnector import TimeConnector
 

@@ -11,7 +11,8 @@ Also adds helper methods to the Identifier class to access children more easily
 (See IdentifierExtensions)
 
 """
-import Python_sml_ClientInterface as sml
+
+from pysoarlib.util.sml import sml
 
 __all__ = [
     "WMInterface",

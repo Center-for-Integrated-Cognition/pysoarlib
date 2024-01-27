@@ -1,4 +1,4 @@
-import Python_sml_ClientInterface as sml
+from pysoarlib.util.sml import sml
 
 
 def remove_tree_from_wm(wme_table):

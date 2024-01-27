@@ -1,5 +1,3 @@
-import Python_sml_ClientInterface as sml
-
 ### Note: Helper class used by extract_wm_graph
 
 
