@@ -4,13 +4,15 @@ This module is not intended to be imported directly,
 Importing the pysoarlib module will cause these to be added to the Identifier class
 Note that the methods will use CamelCase, so get_child_str => GetChildStr
 """
+
 _INTEGER_VAL = "int"
 _FLOAT_VAL = "double"
 _STRING_VAL = "string"
 
 
 def get_child_str(self, attribute):
-    """Given id and attribute, returns value for WME as string (self ^attribute value)"""
+    """Given id and attribute, returns value for WME as string (self ^attribute value)
+    Note: returns None for empty strings"""
     wme = self.FindByAttribute(attribute, 0)
     if wme == None or len(wme.GetValueAsString()) == 0:
         return None
@@ -20,24 +22,36 @@ def get_child_str(self, attribute):
 def get_child_int(self, attribute):
     """Given id and attribute, returns integer value for WME (self ^attribute value)"""
     wme = self.FindByAttribute(attribute, 0)
-    if wme == None or wme.GetValueType() != _INTEGER_VAL:
+    if wme == None:
         return None
+    elif wme.GetValueType() != _INTEGER_VAL:
+        raise ValueError(
+            f"Expected integer value for {attribute}, got {wme.GetValueType()} ({wme.GetValueAsString()})"
+        )
     return wme.ConvertToIntElement().GetValue()
 
 
 def get_child_float(self, attribute):
     """Given id and attribute, returns float value for WME (self ^attribute value)"""
     wme = self.FindByAttribute(attribute, 0)
-    if wme == None or wme.GetValueType() != _FLOAT_VAL:
+    if wme == None:
         return None
+    elif wme.GetValueType() != _FLOAT_VAL:
+        raise ValueError(
+            f"Expected float value for {attribute}, got {wme.GetValueType()} ({wme.GetValueAsString()})"
+        )
     return wme.ConvertToFloatElement().GetValue()
 
 
 def get_child_id(self, attribute):
     """Given id and attribute, returns identifier value of WME (self ^attribute child_id)"""
     wme = self.FindByAttribute(attribute, 0)
-    if wme == None or not wme.IsIdentifier():
+    if wme == None:
         return None
+    if not wme.IsIdentifier():
+        raise ValueError(
+            f"Expected identifier value for {attribute}, got {wme.GetValueType()} ({wme.GetValueAsString()})"
+        )
     return wme.ConvertToIdentifier()
 
 
