@@ -7,7 +7,7 @@ A Connector can be added to a SoarClient and can handle input/output
 import traceback
 
 
-class AgentConnector(object):
+class AgentConnector:
     """Base Class for handling input/output for a soar agent
 
     Input:
