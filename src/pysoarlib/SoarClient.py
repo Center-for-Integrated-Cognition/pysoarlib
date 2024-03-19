@@ -184,7 +184,7 @@ class SoarClient:
         if self.config.smem_source != None:
             if self.config.source_output != "none":
                 self.print_handler("------------- SOURCING SMEM ---------------")
-            result = self.agent.ExecuteCommandLine("source " + self.config.smem_source)  # type: ignore
+            result = self.agent.ExecuteCommandLine(f"source {{{self.config.smem_source.as_posix()}}}")  # type: ignore
             if self.config.source_output == "full":
                 self.print_handler(result)
             elif self.config.source_output == "summary":
@@ -198,7 +198,7 @@ class SoarClient:
             if self.config.source_output != "none":
                 self.print_handler("--------- SOURCING PRODUCTIONS ------------")
             result = self.agent.ExecuteCommandLine(  # type: ignore
-                f"source {self.config.agent_source} -v"
+                f"source {{{self.config.agent_source.as_posix()}}} -v"
             )
             if self.config.source_output == "full":
                 self.print_handler(result)
