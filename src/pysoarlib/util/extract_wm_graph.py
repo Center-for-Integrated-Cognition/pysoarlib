@@ -1,4 +1,4 @@
-from .WMNode import WMNode
+from pysoarlib.util.WMNode import WMNode
 
 
 def extract_wm_graph(root_id, max_depth=-1):

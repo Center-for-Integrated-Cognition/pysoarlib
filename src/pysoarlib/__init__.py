@@ -24,7 +24,7 @@ __all__ = [
 ]
 
 # Extend the sml Identifier class definition with additional utility methods
-from .IdentifierExtensions import *
+from pysoarlib.IdentifierExtensions import *
 
 # PyLance says: these members are not known, so they cannot be assigned. So we ignore types for now.
 sml.Identifier.GetChildString = get_child_str  # type: ignore
@@ -38,9 +38,9 @@ sml.Identifier.__lt__ = (  # type: ignore
     lambda self, other: self.GetIdentifierSymbol() < other.GetIdentifierSymbol()
 )
 
-from .WMInterface import WMInterface
-from .SoarWME import SoarWME
-from .SVSCommands import SVSCommands
-from .AgentConnector import AgentConnector
-from .SoarClient import SoarClient
-from .TimeConnector import TimeConnector
+from pysoarlib.WMInterface import WMInterface
+from pysoarlib.SoarWME import SoarWME
+from pysoarlib.SVSCommands import SVSCommands
+from pysoarlib.AgentConnector import AgentConnector
+from pysoarlib.SoarClient import SoarClient
+from pysoarlib.TimeConnector import TimeConnector

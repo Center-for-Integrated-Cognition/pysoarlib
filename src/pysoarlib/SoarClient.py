@@ -5,7 +5,7 @@ from time import sleep
 
 from pysoarlib.util.sml import sml
 from pysoarlib.Config import Config
-from .TimeConnector import TimeConnector
+from pysoarlib.TimeConnector import TimeConnector
 
 
 class SoarClient:

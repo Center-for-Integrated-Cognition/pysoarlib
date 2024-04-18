@@ -3,7 +3,7 @@ This module defines a utility class called SoarWME
 which wraps SML code for adding/removing Soar Working Memory Elements (WME)
 """
 
-from .WMInterface import WMInterface
+from pysoarlib.WMInterface import WMInterface
 
 
 class SoarWME(WMInterface):

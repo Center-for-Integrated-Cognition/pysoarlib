@@ -3,8 +3,8 @@ import datetime
 
 current_time_ms = lambda: int(round(time.time() * 1000))
 
-from .AgentConnector import AgentConnector
-from .SoarWME import SoarWME
+from pysoarlib.AgentConnector import AgentConnector
+from pysoarlib.SoarWME import SoarWME
 
 
 class TimeConnector(AgentConnector):
