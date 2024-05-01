@@ -77,12 +77,12 @@ class AgentConnector:
         pass
 
     @staticmethod
-    def _output_event_handler(self, agent_name, att_name, wme):  # type: ignore (we register the handler so that self is pass in as the first argument; TODO: why static?)
+    def _output_event_handler(self, agent_name, command_name, wme):  # type: ignore (we register the handler so that self is pass in as the first argument; TODO: why static?)
         """OutputHandler callback for when a command is put on the output link"""
         try:
             if wme.IsJustAdded() and wme.IsIdentifier():
                 root_id = wme.ConvertToIdentifier()
-                self.on_output_event(att_name, root_id)
+                self.on_output_event(command_name, root_id)
         except:
             self.client.print_handler("ERROR IN OUTPUT EVENT HANDLER")
             self.client.print_handler(traceback.format_exc())
