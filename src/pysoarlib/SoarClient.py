@@ -70,7 +70,9 @@ class SoarClient:
             return
 
         self.is_running = True
-        thread = Thread(target=SoarClient._run_thread, args=(self,))
+        thread = Thread(
+            target=SoarClient._run_thread, name="Soar run thread", args=(self,)
+        )
         thread.start()
 
     def stop(self):
