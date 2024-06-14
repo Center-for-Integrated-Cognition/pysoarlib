@@ -2,6 +2,7 @@ from pathlib import Path
 from threading import Thread
 import traceback
 from time import sleep
+from typing import Optional
 
 from pysoarlib.util.sml import sml
 from pysoarlib.Config import Config
@@ -64,14 +65,14 @@ class SoarClient:
         where handler is a method taking a single string argument"""
         self.print_event_handlers.append(handler)
 
-    def start(self):
+    def start(self, steps: Optional[int] = None):
         """Will start the agent (uses another thread, so non-blocking)"""
         if self.is_running:
             return
 
         self.is_running = True
         thread = Thread(
-            target=SoarClient._run_thread, name="Soar run thread", args=(self,)
+            target=SoarClient._run_thread, name="Soar run thread", args=(self, steps)
         )
         thread.start()
 
@@ -152,8 +153,11 @@ class SoarClient:
         self.kernel = None
 
     #### Internal Methods
-    def _run_thread(self):
-        self.agent.ExecuteCommandLine("run")  # type: ignore
+    def _run_thread(self, steps: Optional[int]):
+        if steps is None:
+            self.agent.ExecuteCommandLine("run")  # type: ignore
+        else:
+            self.agent.ExecuteCommandLine(f"run {steps}")  # type: ignore
         self.is_running = False
 
     def _create_soar_agent(self):
