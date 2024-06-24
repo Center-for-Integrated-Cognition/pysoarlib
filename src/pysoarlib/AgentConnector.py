@@ -6,6 +6,8 @@ A Connector can be added to a SoarClient and can handle input/output
 
 import traceback
 
+from pysoarlib.util.sml import sml
+
 
 class AgentConnector:
     """Base Class for handling input/output for a soar agent
@@ -33,7 +35,7 @@ class AgentConnector:
         """Will cause the connector to handle commands with the given name on the output-link"""
         if self.connected:
             self.output_handler_ids[command_name] = self.client.agent.AddOutputHandler(
-                command_name, AgentConnector._output_event_handler, self
+                command_name, _output_event_handler, self
             )
         else:
             self.output_handler_ids[command_name] = -1
@@ -45,7 +47,7 @@ class AgentConnector:
 
         for command_name in self.output_handler_ids:
             self.output_handler_ids[command_name] = self.client.agent.AddOutputHandler(
-                command_name, AgentConnector._output_event_handler, self
+                command_name, _output_event_handler, self
             )
 
         self.connected = True
@@ -76,14 +78,16 @@ class AgentConnector:
         """
         pass
 
-    @staticmethod
-    def _output_event_handler(self, agent_name, command_name, wme):  # type: ignore (we register the handler so that self is pass in as the first argument; TODO: why static?)
-        """OutputHandler callback for when a command is put on the output link"""
-        try:
-            if wme.IsJustAdded() and wme.IsIdentifier():
-                root_id = wme.ConvertToIdentifier()
-                self.on_output_event(command_name, root_id)
-        except:
-            self.client.print_handler("ERROR IN OUTPUT EVENT HANDLER")
-            self.client.print_handler(traceback.format_exc())
-            self.client.print_handler("--------------- END TRACE ---------------")
+
+def _output_event_handler(
+    self: AgentConnector, agent_name: str, command_name: str, wme: sml.WMElement
+):
+    """OutputHandler callback for when a command is put on the output link"""
+    try:
+        if wme.IsJustAdded() and wme.IsIdentifier():
+            root_id = wme.ConvertToIdentifier()
+            self.on_output_event(command_name, root_id)
+    except:
+        self.client.print_handler("ERROR IN OUTPUT EVENT HANDLER")
+        self.client.print_handler(traceback.format_exc())
+        self.client.print_handler("--------------- END TRACE ---------------")

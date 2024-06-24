@@ -5,23 +5,27 @@ Importing the pysoarlib module will cause these to be added to the Identifier cl
 Note that the methods will use CamelCase, so get_child_str => GetChildStr
 """
 
+from typing import List
+from pysoarlib.util.sml import sml
+
+
 _INTEGER_VAL = "int"
 _FLOAT_VAL = "double"
 _STRING_VAL = "string"
 
 
-def get_child_str(self, attribute):
+def get_child_str(self: sml.Identifier, attribute: str) -> str | None:
     """Given id and attribute, returns value for WME as string (self ^attribute value)
     Note: returns None for empty strings"""
-    wme = self.FindByAttribute(attribute, 0)
+    wme: sml.WMElement | None = self.FindByAttribute(attribute, 0)
     if wme == None or len(wme.GetValueAsString()) == 0:
         return None
     return wme.GetValueAsString()
 
 
-def get_child_int(self, attribute):
+def get_child_int(self: sml.Identifier, attribute: str) -> int | None:
     """Given id and attribute, returns integer value for WME (self ^attribute value)"""
-    wme = self.FindByAttribute(attribute, 0)
+    wme: sml.WMElement | None = self.FindByAttribute(attribute, 0)
     if wme == None:
         return None
     elif wme.GetValueType() != _INTEGER_VAL:
@@ -31,9 +35,9 @@ def get_child_int(self, attribute):
     return wme.ConvertToIntElement().GetValue()
 
 
-def get_child_float(self, attribute):
+def get_child_float(self: sml.Identifier, attribute: str) -> float | None:
     """Given id and attribute, returns float value for WME (self ^attribute value)"""
-    wme = self.FindByAttribute(attribute, 0)
+    wme: sml.WMElement | None = self.FindByAttribute(attribute, 0)
     if wme == None:
         return None
     elif wme.GetValueType() != _FLOAT_VAL:
@@ -43,9 +47,9 @@ def get_child_float(self, attribute):
     return wme.ConvertToFloatElement().GetValue()
 
 
-def get_child_id(self, attribute):
+def get_child_id(self: sml.Identifier, attribute: str) -> sml.Identifier | None:
     """Given id and attribute, returns identifier value of WME (self ^attribute child_id)"""
-    wme = self.FindByAttribute(attribute, 0)
+    wme: sml.WMElement | None = self.FindByAttribute(attribute, 0)
     if wme == None:
         return None
     if not wme.IsIdentifier():
@@ -55,7 +59,7 @@ def get_child_id(self, attribute):
     return wme.ConvertToIdentifier()
 
 
-def get_all_child_ids(self, attribute=None):
+def get_all_child_ids(self: sml.Identifier, attribute: str | None = None):
     """Given id and attribute, returns a list of child identifiers from all WME's matching (self ^attribute child_id)
 
     If no attribute is specified, all child identifiers are returned
@@ -70,7 +74,7 @@ def get_all_child_ids(self, attribute=None):
     return child_ids
 
 
-def get_all_child_values(self, attribute=None):
+def get_all_child_values(self: sml.Identifier, attribute: str | None = None):
     """Given id and attribute, returns a list of strings of non-identifier values from all WME's matching (self ^attribute value)
 
     If no attribute is specified, all child values (non-identifiers) are returned
@@ -85,12 +89,12 @@ def get_all_child_values(self, attribute=None):
     return child_values
 
 
-def get_all_child_wmes(self):
+def get_all_child_wmes(self: sml.Identifier) -> List[sml.WMElement]:
     """Returns a list of (attr, val) tuples representing all wmes rooted at this identifier
     val will either be an Identifier or a string, depending on its type"""
     wmes = []
     for index in range(self.GetNumberChildren()):
-        wme = self.GetChild(index)
+        wme: sml.WMElement = self.GetChild(index)
         if wme.IsIdentifier():
             wmes.append((wme.GetAttribute(), wme.ConvertToIdentifier()))
         else:

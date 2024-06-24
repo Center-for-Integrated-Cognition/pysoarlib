@@ -3,8 +3,10 @@ This module defines a utility interface called WMInterface
 which defines a standard interface for adding and removing things from working memory
 """
 
+from abc import ABC, abstractmethod
 
-class WMInterface(object):
+
+class WMInterface(ABC):
     """An interface standardizing how to add/remove items from working memory"""
 
     def __init__(self):
@@ -39,14 +41,14 @@ class WMInterface(object):
 
     ### Internal Methods - To be implemented by derived classes
 
+    @abstractmethod
     def _add_to_wm_impl(self, parent_id):
         """Method to implement in derived class - add to working memory"""
-        pass
 
+    @abstractmethod
     def _update_wm_impl(self):
         """Method to implement in derived class - update working memory"""
-        pass
 
+    @abstractmethod
     def _remove_from_wm_impl(self):
         """Method to implement in derived class - remove from working memory"""
-        pass
