@@ -12,7 +12,7 @@ from pysoarlib.TimeConnector import TimeConnector
 class SoarClient:
     """A wrapper class for creating and using a soar SML Agent"""
 
-    def __init__(self, print_handler=None, config: Config = Config()):
+    def __init__(self, config: Config, print_handler=None):
         """Will create a soar kernel and agent
 
         print_handler determines how output is printed, defaults to python print

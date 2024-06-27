@@ -1,11 +1,14 @@
 # PySoarLib
+
 ## Aaron Mininger
+
 ### 2018
 
-This is a python library module with code to help make working with Soar SML in python 
-just a little bit easier. 
+This is a python library module with code to help make working with Soar SML in python
+just a little bit easier.
 
 Methods do have docstrings, to read help information open a python shell and type
+
 ```
 import pysoarlib
 help(pysoarlib)
@@ -23,57 +26,58 @@ help(pysoarlib.SoarClient)
 * [util](#util)
 
 <a name="soarclient"></a>
+
 # SoarClient
+
 Defines a class used for creating a soar agent, sending commands, running it, etc.
 There are a number of settings that you can use to configure the client (see following subsection) and
 can specify either by including them in the config file or by giving as keyword arguments
-in the constructor. 
+in the constructor.
 
-`SoarClient(config_filename=None, print_handler=None, **kwargs)`     
-Will create the soar kernel and agent, as well as source the agent files. 
-`print_handler` specifies how output is handled (defaults to python print) and 
-`config_filename` names a file with client settings in it
+`SoarClient(config=Config(), print_handler=None, **kwargs)`
+Will create the soar kernel and agent, as well as source the agent files.
+`print_handler` specifies how output is handled (defaults to python print) and
+`config` contains the client settings.
 
-
-`add_connector(AgentConnector, name:str)`    
+`add_connector(AgentConnector, name:str)`
 Adds the given connector and will invoke callbacks on it (such as on_input_phase)
 
-`get_connector(name:str)`    
+`get_connector(name:str)`
 Returns a connector of the given name, or None
 
-`has_connector(name:str) -> Boolean`    
+`has_connector(name:str) -> Boolean`
 Returns true if the given connector exists
 
-`add_print_event_handler(handler)`   
+`add_print_event_handler(handler)`
 Will call the given handler during each soar print event (handler should be a method taking 1 string)
 
-`connect()`     
+`connect()`
 Will register callbacks (call before running)
 
-`disconnect()`     
+`disconnect()`
 Will deregister callbacks
 
-`start()`     
+`start()`
 Will cause the agent to start running in new thread (non-blocking)
 
-`stop()`     
+`stop()`
 Will stop the agent
 
-`execute_command(cmd:str, print_res:bool=False)`     
+`execute_command(cmd:str, print_res:bool=False)`
 Sends the given command to the agent and returns the result as a string. If print_res=True it also prints the output using print_handler
 
-`restart()`    
+`restart()`
 Completely destroys the agent and creates + sources a new one
 
-`kill()`     
+`kill()`
 Will stop the agent and destroy the agent/kernel
 
-
 ## Config Settings (kwargs or config file)
+
 <a name="configsettings"></a>
 
-These can be passed as keyword arguments to the SoarClient constructor, 
-or you can create a config file that contains these settings. 
+These can be passed as keyword arguments to the SoarClient constructor,
+or you can create a config file that contains these settings.
 
 | Argument           | Type     | Default    | Description                              |
 | ------------------ | -------- | ---------- | ---------------------------------------- |
@@ -97,97 +101,99 @@ or you can create a config file that contains these settings.
 Instead of passing as arguments, you can include them in a file specified by config_filename
 Each line in the file should be 'setting = value'
 
-Example File:    
+Example File:
+
 ```
 agent_name = THOR-Soar    
 agent_source = agent.soar    
 spawn_debugger = false    
 ```
 
-
 <a name="agentconnector"></a>
+
 # AgentConnector
+
 Defines an abstract base class for creating classes that connect to Soar's input/output links
 
-`AgentConnector(client:SoarClient)`     
+`AgentConnector(client:SoarClient)`
 
-
-`add_output_command(command_name:str)`     
+`add_output_command(command_name:str)`
 Will register a handler that listens to output link commands with the given name
 
-`add_print_event_handler(handler:func)`     
-Will register a print event handler (function taking 1 string argument) that will be called whenever a soar print event occurs. 
+`add_print_event_handler(handler:func)`
+Will register a print event handler (function taking 1 string argument) that will be called whenever a soar print event occurs.
 
-`on_init_soar()`     
+`on_init_soar()`
 Event Handler called when init-soar happens (need to release SML working memory objects)
 
-`on_input_phase(input_link:Identifier)`     
+`on_input_phase(input_link:Identifier)`
 Event Handler called every input phase
 
-`on_output_event(command_name, root_id)`     
+`on_output_event(command_name, root_id)`
 Event Handler called when a new output link command is created `(<output-link> ^command_name <root_id>)`
 
-
-
-
-
 <a name="idextensions"></a>
-# IdentifierExtensions 
+
+# IdentifierExtensions
+
 These add a few helper methods to the sml.Identifier class:
 (Do not need to import directly, come with any import from module)
 
-`Identifier.GetChildString(attribute:str)`     
+`Identifier.GetChildString(attribute:str)`
 Given an attribute, will look for a child WME of the form `(<id> ^attribute <value>)` and return the value as a string
 
-`Identifier.GetChildInt(attribute:str)`     
+`Identifier.GetChildInt(attribute:str)`
 Given an attribute, will look for a child IntegerWME of the form `(<id> ^attribute <value>)` and return the value as an integer
 
-`Identifier.GetChildFloat(attribute:str)`     
+`Identifier.GetChildFloat(attribute:str)`
 Given an attribute, will look for a child FloatWME of the form `(<id> ^attribute <value>)` and return the value as an float
 
-`Identifier.GetChildId(attribute:str)`     
+`Identifier.GetChildId(attribute:str)`
 Given an attribute, will look for a child WME of the form `(<id> ^attribute <child_id>)` and return an Identifier with child_id as the root
 
-`Identifier.GetAllChildIds(attribute:str=None)`     
+`Identifier.GetAllChildIds(attribute:str=None)`
 Given an attribute, returns a list of Identifiers from all child WME's matching `(<id> ^attribute <child_id>)`
 If no attribute is specified, all child Identifiers are returned
 
-`Identifier.GetAllChildValues(attribute:str=None)`     
+`Identifier.GetAllChildValues(attribute:str=None)`
 Given an attribute, returns a list of strings from all child WME's matching `(<id> ^attribute <value>)`
 If no attribute is specified, all child WME values (non-identifiers) are returned
 
-`Identifier.GetAllChildWmes()`     
+`Identifier.GetAllChildWmes()`
 Returns a list of (attr, val) tuples representing all wmes rooted at this identifier.
 val will either be an Identifier or a string, depending on its type """
 
-
 <a name="wminterface"></a>
-# WMInterface:    
+
+# WMInterface
+
 An interface class which defines a standard way of adding/removing structures from working memory:
 
-`is_added()`    
+`is_added()`
 Returns True if the structure is currently added to working memory
 
-`add_to_wm(parent_id)`    
+`add_to_wm(parent_id)`
 Adds the structure to working memory under the given identifier
 
-`update_wm(parent_id=None)`    
-Applies any changes to working memory    
+`update_wm(parent_id=None)`
+Applies any changes to working memory
 Note, if a `parent_id` is given and the item is not yet added to wm, it will add it
 
-`remove_from_wm()`    
+`remove_from_wm()`
 Removes the structure from working memory
 
-
 <a name="soarwme"></a>
-# SoarWME:    
+
+# SoarWME
+
 A class which can represent a WMElement with an `(<id> ^att value)` but takes care of actually interfacing with working memory
 
 You can update its value whenever you want, it will not affect working memory. To change working memory, call `add_to_wm`, `update_wm`, and `remove_from_wm` during an event callback (like BEFORE_INPUT_PHASE)
 
-
 <a name="svscommands"></a>
-# SVSCommands:
+
+# SVSCommands
+
 A collection of helper functions to create string commands that can be send to SVS
 Here pos, rot, and scl are lists of 3 numbers (like [1, 2.5, 3.1])
 
@@ -201,12 +207,13 @@ Here pos, rot, and scl are lists of 3 numbers (like [1, 2.5, 3.1])
 * `delete_tag(obj_id, tag_name)`
 
 <a name="timeconnector"></a>
-# TimeConnector
-An AgentConnector that will create time info on the input-link. 
-Includes elapsed time since the agent started, and can have a real-time or simulated wall clock. 
-It is enabled through the client setting `use-time-connector=True`
-There are several settings that control its behavior as described in [Config Settings](#timesettings). 
 
+# TimeConnector
+
+An AgentConnector that will create time info on the input-link.
+Includes elapsed time since the agent started, and can have a real-time or simulated wall clock.
+It is enabled through the client setting `use-time-connector=True`
+There are several settings that control its behavior as described in [Config Settings](#timesettings).
 
 ```
 # Will add and update the following on the input-link:
@@ -223,6 +230,7 @@ There are several settings that control its behavior as described in [Config Set
 ```
 
 Also, if using a simulated clock, the agent can change the time itself using an output command:
+
 ```
 ([out] ^set-time [cmd])
 ([cmd] ^hour 9
@@ -231,22 +239,23 @@ Also, if using a simulated clock, the agent can change the time itself using an 
 ```
 
 <a name="util"></a>
+
 # pysoarlib.util
+
 Package containing several utility functions for reading/writing working memory through sml structures.
 
-#### `parse_wm_printout(text:str)`   
+#### `parse_wm_printout(text:str)`
 
-Given a printout of soar's working memory (p S1 -d 4), parses it into a dictionary of wmes, 
+Given a printout of soar's working memory (p S1 -d 4), parses it into a dictionary of wmes,
 where the keys are identifiers, and the values are lists of wme triples rooted at that id.
 
 You can wrap the result with a PrintoutIdentifier(wmes, root_id) which will provide an Identifier-like
 iterface for crawling over the graph structure. It provides all the methods in the IdentifierExtensions interface.
 
-
 #### `extract_wm_graph(root_id, max_depth)`
 
 Recursively explores all working memory reachable from the given root_id (up to max_depth),
-builds up a graph structure representing all that information. 
+builds up a graph structure representing all that information.
 
 Note: max_depth is optional (defaults to no depth limit), and the function is smart about handling cycles (will not recurse forever)
 
@@ -262,12 +271,11 @@ node['attr'] = [ val1, val2, ... ] # for multi-valued attributes
 str(node) - will pretty-print the node and all children recursively
 ```
 
-
 #### `update_wm_from_tree(root_id, root_name, input_dict, wme_table)`
 
-Will update working memory using the given `input_dict` as the provided structure rooted at `root_id`. 
+Will update working memory using the given `input_dict` as the provided structure rooted at `root_id`.
 Created wme's are stored in the given `wme_table`, which should be a dictionary that is kept across
-multiple calls to this function. `root_name` specifies a prefix for each wme name in the wme_table. 
+multiple calls to this function. `root_name` specifies a prefix for each wme name in the wme_table.
 
 ```
 # input_dict should have the following structure:
@@ -277,10 +285,9 @@ multiple calls to this function. `root_name` specifies a prefix for each wme nam
 }
 ```
 
-#### `remove_tree_from_wm(wme_table)`    
-      
-Given a wme_table filled by `SoarUtils.update_wm_from_tree`, removes all wmes from working memory 
+#### `remove_tree_from_wm(wme_table)`
 
+Given a wme_table filled by `SoarUtils.update_wm_from_tree`, removes all wmes from working memory
 
 ## Python Types
 
