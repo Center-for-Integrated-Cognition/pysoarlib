@@ -39,6 +39,9 @@ class Config:
     remote_connection = true|false (default=false)
         If true, will connect to a remote kernel instead of creating a new one
 
+    label_dialog_source = true|false (default=false)
+        If true, will label messages in chat gui with source (Agent, User)
+
     use_time_connector = true|false (default=false)
         If true, will create a TimeConnector to add time info the the input-link
         See the Readme or TimeConnector.py for additional settings to control its behavior
@@ -50,6 +53,7 @@ class Config:
     source_output: Literal["summary"] | Literal["none"] | Literal["full"] = "summary"
     watch_level: Literal[1] | Literal[2] | Literal[3] | Literal[4] | Literal[5] = 1
     remote_connection: bool = False
+    label_dialog_source: bool = False
     spawn_debugger: bool = False
     start_running: bool = False
     write_to_stdout: bool = False
