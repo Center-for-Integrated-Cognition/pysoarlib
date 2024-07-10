@@ -180,11 +180,15 @@ class SoarClient:
             self._source_agent()
 
         if self.config.spawn_debugger:
-            success = self.agent.SpawnDebugger(self.kernel.GetListenerPort())  # type: ignore
-            if not success:
-                self.print_handler("Failed to spawn debugger")
+            self.spawn_debugger()
 
         self.agent.ExecuteCommandLine(f"w {self.config.watch_level}")
+
+    def spawn_debugger(self):
+        success = self.agent.SpawnDebugger(self.kernel.GetListenerPort())  # type: ignore
+        if not success:
+            self.print_handler("Failed to spawn debugger")
+        return success
 
     def _source_agent(self):
         self.agent.ExecuteCommandLine("smem --set database memory")  # type: ignore
