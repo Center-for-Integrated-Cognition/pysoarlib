@@ -172,7 +172,7 @@ class SoarClient:
 
         if self.config.remote_connection:
             if self.config.agent_name:
-                self.agent = self.kernel.GetAgent(self.config.agent_name)
+                self.agent = self.kernel.GetAgent(self.config.agent_name)  # type: ignore
             else:
                 self.agent = self.kernel.GetAgentByIndex(0)  # type: ignore
         else:
