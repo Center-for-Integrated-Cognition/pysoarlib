@@ -185,9 +185,15 @@ class SoarClient:
         self.agent.ExecuteCommandLine(f"w {self.config.watch_level}")
 
     def spawn_debugger(self):
-        success = self.agent.SpawnDebugger(self.kernel.GetListenerPort())  # type: ignore
+        success = self.agent.SpawnDebugger()  # type: ignore
         if not success:
             self.print_handler("Failed to spawn debugger")
+        return success
+
+    def kill_debugger(self):
+        success = self.agent.KillDebugger()  # type: ignore
+        if not success:
+            self.print_handler("Failed to kill debugger")
         return success
 
     def _source_agent(self):
