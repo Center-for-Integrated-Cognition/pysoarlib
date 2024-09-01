@@ -85,7 +85,7 @@ class SoarClient:
     def execute_command(self, cmd, print_res=False):
         """Execute a soar command and return result,
         write output to print_handler if print_res is True"""
-        result = self.agent.ExecuteCommandLine(cmd).strip()  # type: ignore
+        result = self.agent.ExecuteCommandLine(cmd, True).strip()  # type: ignore
         if print_res:
             self.print_handler(cmd)
             self.print_handler(result)
@@ -146,6 +146,18 @@ class SoarClient:
         self._create_soar_agent()
         self.connect()
 
+    def full_init(self):
+        """Initialize everything about the agent."""
+        if self.agent is None:
+            raise ValueError("Cannot do full_init because agent is None")
+        self.agent.ExecuteCommandLine("init-soar", True)
+        self.agent.ExecuteCommandLine("smem --clear", True)
+        self.agent.ExecuteCommandLine("epmem --init", True)
+        self.agent.ExecuteCommandLine("svs S1.scene.clear", True)
+        self.agent.ExecuteCommandLine("production excise --all", True)
+        self.source_agent()
+        self.apply_watch_level()
+
     def kill(self):
         """Will destroy the current agent + kernel, cleans up everything"""
         self._destroy_soar_agent()
@@ -155,9 +167,9 @@ class SoarClient:
     #### Internal Methods
     def _run_thread(self, steps: Optional[int]):
         if steps is None:
-            self.agent.ExecuteCommandLine("run")  # type: ignore
+            self.agent.ExecuteCommandLine("run", True)  # type: ignore
         else:
-            self.agent.ExecuteCommandLine(f"run {steps}")  # type: ignore
+            self.agent.ExecuteCommandLine(f"run {steps}", True)  # type: ignore
         self.is_running = False
 
     def _create_soar_agent(self):
@@ -177,12 +189,18 @@ class SoarClient:
                 self.agent = self.kernel.GetAgentByIndex(0)  # type: ignore
         else:
             self.agent = self.kernel.CreateAgent(self.config.agent_name)  # type: ignore
-            self._source_agent()
+            self.source_agent()
 
         if self.config.spawn_debugger:
             self.spawn_debugger()
 
-        self.agent.ExecuteCommandLine(f"w {self.config.watch_level}")
+        self.apply_watch_level()
+
+    def apply_watch_level(self):
+        if self.agent is None:
+            raise ValueError("Cannot apply watch level because agent is None")
+            return
+        self.agent.ExecuteCommandLine(f"w {self.config.watch_level}", True)
 
     def spawn_debugger(self):
         success = self.agent.SpawnDebugger()  # type: ignore
@@ -196,9 +214,9 @@ class SoarClient:
             self.print_handler("Failed to kill debugger")
         return success
 
-    def _source_agent(self):
-        self.agent.ExecuteCommandLine("smem --set database memory")  # type: ignore
-        self.agent.ExecuteCommandLine("epmem --set database memory")  # type: ignore
+    def source_agent(self):
+        self.agent.ExecuteCommandLine("smem --set database memory", True)  # type: ignore
+        self.agent.ExecuteCommandLine("epmem --set database memory", True)  # type: ignore
 
         if self.config.smem_source != None:
             if self.config.source_output != "none":
@@ -217,7 +235,7 @@ class SoarClient:
             if self.config.source_output != "none":
                 self.print_handler("--------- SOURCING PRODUCTIONS ------------")
             result = self.agent.ExecuteCommandLine(  # type: ignore
-                f"source {{{self.config.agent_source.as_posix()}}} -v"
+                f"source {{{self.config.agent_source.as_posix()}}} -v", True
             )
             if self.config.source_output == "full":
                 self.print_handler(result)
