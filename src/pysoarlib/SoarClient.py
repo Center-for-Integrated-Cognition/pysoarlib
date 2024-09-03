@@ -146,15 +146,17 @@ class SoarClient:
         self._create_soar_agent()
         self.connect()
 
-    def full_init(self):
-        """Initialize everything about the agent."""
+    def full_init(self, excise_productions=False):
+        """Initialize everything about the agent; production exicision is only
+        performed if excise_productions is True."""
         if self.agent is None:
             raise ValueError("Cannot do full_init because agent is None")
         self.agent.ExecuteCommandLine("init-soar", True)
         self.agent.ExecuteCommandLine("smem --clear", True)
         self.agent.ExecuteCommandLine("epmem --init", True)
         self.agent.ExecuteCommandLine("svs S1.scene.clear", True)
-        self.agent.ExecuteCommandLine("production excise --all", True)
+        if excise_productions:
+            self.agent.ExecuteCommandLine("production excise --all", True)
         self.source_agent()
         self.apply_watch_level()
 
