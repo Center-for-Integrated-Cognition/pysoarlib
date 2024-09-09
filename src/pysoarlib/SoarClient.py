@@ -1,4 +1,3 @@
-from pathlib import Path
 from threading import Thread
 import traceback
 from time import sleep
