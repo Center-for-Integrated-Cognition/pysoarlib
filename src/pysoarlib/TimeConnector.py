@@ -31,7 +31,7 @@ class TimeConnector(AgentConnector):
         sim_clock: bool [default=False]
             If true, uses a simulated clock that starts at 8AM and advances a fixed amount every DC
             If false, will use the local real time
-        clock_step_ms: int [default=5000]
+        clock_step_ms: int [default=50]
             If using the simulated clock, this is the number of milliseconds it will increase every DC
 
     """
