@@ -63,4 +63,4 @@ class Config:
     write_to_stdout: bool = False
     enable_log: bool = False
     log_filename: str = "agent-log.txt"
-    use_time_connector: bool = True
+    use_time_connector: bool = False
