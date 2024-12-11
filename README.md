@@ -1,15 +1,17 @@
 # PySoarLib
 
-## Aaron Mininger
+The original author is Aaron Mininger, and the repository is [here](https://github.com/amininger/pysoarlib).
 
-### 2018
+This fork is maintained by developers at The Center for Integrated Cognitition.
+
+## Overview
 
 This is a python library module with code to help make working with Soar SML in python
 just a little bit easier.
 
-Methods do have docstrings, to read help information open a python shell and type
+Methods do have docstrings; to read help information open a python shell and type
 
-```
+```python
 import pysoarlib
 help(pysoarlib)
 help(pysoarlib.SoarClient)
@@ -27,7 +29,7 @@ help(pysoarlib.SoarClient)
 
 <a name="soarclient"></a>
 
-# SoarClient
+## SoarClient
 
 Defines a class used for creating a soar agent, sending commands, running it, etc.
 There are a number of settings that you can use to configure the client (see following subsection) and
@@ -72,7 +74,7 @@ Completely destroys the agent and creates + sources a new one
 `kill()`
 Will stop the agent and destroy the agent/kernel
 
-## Config Settings (kwargs or config file)
+### Config Settings (kwargs or config file)
 
 <a name="configsettings"></a>
 
@@ -92,7 +94,7 @@ or you can create a config file that contains these settings.
 | `print_handler`    | method   | print      | A method taking 1 string arg, handles agent output |
 | `enable_log`       | bool     | false      | If true, writes all soar/agent output to a file |
 | `log_filename`     | filename | agent-log.txt | The name of the log file to create |
-| **time settings** <a name="timesettings"></a> |          |            |               |
+| **time settings** |          |            |               |
 | `use_time_connector`| bool    | false      | If true, creates a TimeConnector to put time info on the input-link |
 | `clock_include_ms` | bool     | true       | Will include milliseconds for elapsed and clock times |
 | `sim_clock`        | bool     | false      | If false, the clock shows real time. If true, it advances a fixed amount each DC |
@@ -103,15 +105,15 @@ Each line in the file should be 'setting = value'
 
 Example File:
 
-```
-agent_name = THOR-Soar    
-agent_source = agent.soar    
-spawn_debugger = false    
+```toml
+agent_name = THOR-Soar
+agent_source = agent.soar
+spawn_debugger = false
 ```
 
 <a name="agentconnector"></a>
 
-# AgentConnector
+## AgentConnector
 
 Defines an abstract base class for creating classes that connect to Soar's input/output links
 
@@ -134,7 +136,7 @@ Event Handler called when a new output link command is created `(<output-link> ^
 
 <a name="idextensions"></a>
 
-# IdentifierExtensions
+## IdentifierExtensions
 
 These add a few helper methods to the sml.Identifier class:
 (Do not need to import directly, come with any import from module)
@@ -165,7 +167,7 @@ val will either be an Identifier or a string, depending on its type """
 
 <a name="wminterface"></a>
 
-# WMInterface
+## WMInterface
 
 An interface class which defines a standard way of adding/removing structures from working memory:
 
@@ -184,7 +186,7 @@ Removes the structure from working memory
 
 <a name="soarwme"></a>
 
-# SoarWME
+## SoarWME
 
 A class which can represent a WMElement with an `(<id> ^att value)` but takes care of actually interfacing with working memory
 
@@ -192,7 +194,7 @@ You can update its value whenever you want, it will not affect working memory. T
 
 <a name="svscommands"></a>
 
-# SVSCommands
+## SVSCommands
 
 A collection of helper functions to create string commands that can be send to SVS
 Here pos, rot, and scl are lists of 3 numbers (like [1, 2.5, 3.1])
@@ -208,14 +210,14 @@ Here pos, rot, and scl are lists of 3 numbers (like [1, 2.5, 3.1])
 
 <a name="timeconnector"></a>
 
-# TimeConnector
+## TimeConnector
 
 An AgentConnector that will create time info on the input-link.
 Includes elapsed time since the agent started, and can have a real-time or simulated wall clock.
 It is enabled through the client setting `use-time-connector=True`
 There are several settings that control its behavior as described in [Config Settings](#timesettings).
 
-```
+```soar
 # Will add and update the following on the input-link:
 ([il] ^time [t])
 ([t] ^seconds [secs] # real-time seconds elapsed since start of agent
@@ -231,20 +233,20 @@ There are several settings that control its behavior as described in [Config Set
 
 Also, if using a simulated clock, the agent can change the time itself using an output command:
 
-```
+```soar
 ([out] ^set-time [cmd])
 ([cmd] ^hour 9
        ^minute 15
-       ^second 30) # optional 
+       ^second 30) # optional
 ```
 
 <a name="util"></a>
 
-# pysoarlib.util
+## pysoarlib.util
 
 Package containing several utility functions for reading/writing working memory through sml structures.
 
-#### `parse_wm_printout(text:str)`
+### `parse_wm_printout(text:str)`
 
 Given a printout of soar's working memory (p S1 -d 4), parses it into a dictionary of wmes,
 where the keys are identifiers, and the values are lists of wme triples rooted at that id.
@@ -252,43 +254,43 @@ where the keys are identifiers, and the values are lists of wme triples rooted a
 You can wrap the result with a PrintoutIdentifier(wmes, root_id) which will provide an Identifier-like
 iterface for crawling over the graph structure. It provides all the methods in the IdentifierExtensions interface.
 
-#### `extract_wm_graph(root_id, max_depth)`
+### `extract_wm_graph(root_id, max_depth)`
 
 Recursively explores all working memory reachable from the given root_id (up to max_depth),
 builds up a graph structure representing all that information.
 
 Note: max_depth is optional (defaults to no depth limit), and the function is smart about handling cycles (will not recurse forever)
 
-```
+```python
 # Returns a WMNode object wrapping the root_id and containing links to children
 node.id = root_id (Identifier)
 node.symbol = string (The root_id symbol e.g. O34)
 node.attributes() - returns a list of child attribute strings
 node['attr'] = WMNode   # for child identifiers
 node['attr'] = constant # for string, double, or int value
-node['attr'] = [ val1, val2, ... ] # for multi-valued attributes 
+node['attr'] = [ val1, val2, ... ] # for multi-valued attributes
                (values can be constants or WMNodes)
 str(node) - will pretty-print the node and all children recursively
 ```
 
-#### `update_wm_from_tree(root_id, root_name, input_dict, wme_table)`
+### `update_wm_from_tree(root_id, root_name, input_dict, wme_table)`
 
 Will update working memory using the given `input_dict` as the provided structure rooted at `root_id`.
 Created wme's are stored in the given `wme_table`, which should be a dictionary that is kept across
 multiple calls to this function. `root_name` specifies a prefix for each wme name in the wme_table.
 
-```
+```python
 # input_dict should have the following structure:
 {
-  'attr1': getter() <- The value will be the result of calling the given getter function
-  'attr2': dict   <- The value will be a child identifier with its own recursive substructure
+  'attr1': getter() # The value will be the result of calling the given getter function
+  'attr2': dict     # The value will be a child identifier with its own recursive substructure
 }
 ```
 
-#### `remove_tree_from_wm(wme_table)`
+### `remove_tree_from_wm(wme_table)`
 
 Given a wme_table filled by `SoarUtils.update_wm_from_tree`, removes all wmes from working memory
 
 ## Python Types
 
-Type warnings have been suppressed in many places because the sml library is not typed. TODO: would be nice to fix this.
+Type warnings have been suppressed in many places because the sml library is not typed.
