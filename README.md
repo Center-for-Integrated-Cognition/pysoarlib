@@ -17,18 +17,6 @@ help(pysoarlib)
 help(pysoarlib.SoarClient)
 ```
 
-* [SoarClient](#soarclient)
-* [Config Settings](#configsettings)
-* [AgentConnector](#agentconnector)
-* [IdentifierExtensions](#idextensions)
-* [WMInterface](#wminterface)
-* [SoarWME](#soarwme)
-* [SVSCommands](#svscommands)
-* [TimeConnector](#timeconnector)
-* [util](#util)
-
-<a name="soarclient"></a>
-
 ## SoarClient
 
 Defines a class used for creating a soar agent, sending commands, running it, etc.
@@ -74,9 +62,7 @@ Completely destroys the agent and creates + sources a new one
 `kill()`
 Will stop the agent and destroy the agent/kernel
 
-### Config Settings (kwargs or config file)
-
-<a name="configsettings"></a>
+### Config Settings
 
 These can be passed as keyword arguments to the SoarClient constructor,
 or you can create a config file that contains these settings.
@@ -111,8 +97,6 @@ agent_source = agent.soar
 spawn_debugger = false
 ```
 
-<a name="agentconnector"></a>
-
 ## AgentConnector
 
 Defines an abstract base class for creating classes that connect to Soar's input/output links
@@ -133,8 +117,6 @@ Event Handler called every input phase
 
 `on_output_event(command_name, root_id)`
 Event Handler called when a new output link command is created `(<output-link> ^command_name <root_id>)`
-
-<a name="idextensions"></a>
 
 ## IdentifierExtensions
 
@@ -165,8 +147,6 @@ If no attribute is specified, all child WME values (non-identifiers) are returne
 Returns a list of (attr, val) tuples representing all wmes rooted at this identifier.
 val will either be an Identifier or a string, depending on its type """
 
-<a name="wminterface"></a>
-
 ## WMInterface
 
 An interface class which defines a standard way of adding/removing structures from working memory:
@@ -184,15 +164,11 @@ Note, if a `parent_id` is given and the item is not yet added to wm, it will add
 `remove_from_wm()`
 Removes the structure from working memory
 
-<a name="soarwme"></a>
-
 ## SoarWME
 
 A class which can represent a WMElement with an `(<id> ^att value)` but takes care of actually interfacing with working memory
 
 You can update its value whenever you want, it will not affect working memory. To change working memory, call `add_to_wm`, `update_wm`, and `remove_from_wm` during an event callback (like BEFORE_INPUT_PHASE)
-
-<a name="svscommands"></a>
 
 ## SVSCommands
 
@@ -208,14 +184,12 @@ Here pos, rot, and scl are lists of 3 numbers (like [1, 2.5, 3.1])
 * `change_tag(obj_id, tag_name, tag_value)`
 * `delete_tag(obj_id, tag_name)`
 
-<a name="timeconnector"></a>
-
 ## TimeConnector
 
 An AgentConnector that will create time info on the input-link.
 Includes elapsed time since the agent started, and can have a real-time or simulated wall clock.
 It is enabled through the client setting `use-time-connector=True`
-There are several settings that control its behavior as described in [Config Settings](#timesettings).
+There are several settings that control its behavior as described in [Config Settings](#config-settings).
 
 ```soar
 # Will add and update the following on the input-link:
@@ -239,8 +213,6 @@ Also, if using a simulated clock, the agent can change the time itself using an 
        ^minute 15
        ^second 30) # optional
 ```
-
-<a name="util"></a>
 
 ## pysoarlib.util
 
