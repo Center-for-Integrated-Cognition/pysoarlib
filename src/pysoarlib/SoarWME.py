@@ -3,7 +3,12 @@ This module defines a utility class called SoarWME
 which wraps SML code for adding/removing Soar Working Memory Elements (WME)
 """
 
+import logging
+
 from pysoarlib.WMInterface import WMInterface
+
+
+logger = logging.getLogger(__name__)
 
 
 class SoarWME(WMInterface):
@@ -62,12 +67,15 @@ class SoarWME(WMInterface):
     ### Internal Methods
 
     def _create_int_wme(self, id, att, val):
+        logger.debug(f"Creating int wme: {att} {val}")
         return id.CreateIntWME(att, val)
 
     def _create_float_wme(self, id, att, val):
+        logger.debug(f"Creating float wme: {att} {val}")
         return id.CreateFloatWME(att, val)
 
     def _create_string_wme(self, id, att, val):
+        logger.debug(f"Creating string wme: {att} {val}")
         return id.CreateStringWME(att, str(val))
 
     def _add_to_wm_impl(self, parent_id):
@@ -77,10 +85,12 @@ class SoarWME(WMInterface):
     def _update_wm_impl(self):
         """If the value has changed, will update soar's working memory with the new value"""
         if self.changed:
+            logger.debug(f"Updating wme: {self.att} {self.val}")
             self.wme.Update(self.val)  # type: ignore
             self.changed = False
 
     def _remove_from_wm_impl(self):
         """Will remove the wme from soar's working memory"""
+        logger.debug(f"Removing wme: {self.att} {self.val}")
         self.wme.DestroyWME()  # type: ignore
         self.wme = None

@@ -1,3 +1,4 @@
+import logging
 from threading import Thread
 import traceback
 from time import sleep
@@ -6,6 +7,10 @@ from typing import Optional
 from pysoarlib.util.sml import sml
 from pysoarlib.Config import Config
 from pysoarlib.TimeConnector import TimeConnector
+
+# This is used for info relevant to developing the Python code;
+# agent-related info is available via other configured loggers
+logger = logging.getLogger(__name__)
 
 
 class SoarClient:
@@ -20,8 +25,10 @@ class SoarClient:
         """
 
         if print_handler is not None:
+            logger.info("Using provided print handler")
             self.print_handler = print_handler
         else:
+            logger.info("No print handler provided, using python print")
             self.print_handler = print
         self.print_event_handlers = []
 
@@ -38,8 +45,10 @@ class SoarClient:
         self.init_agent_callback_id = -1
 
         if self.config.remote_connection:
+            logger.info("Creating remote Soar kernel connection...")
             self.kernel = sml.Kernel.CreateRemoteConnection()
         else:
+            logger.info("Creating Soar kernel in new thread...")
             self.kernel = sml.Kernel.CreateKernelInNewThread()
             self.kernel.SetAutoCommit(False)
 
@@ -50,6 +59,7 @@ class SoarClient:
     def add_connector(self, name, connector):
         """Adds an AgentConnector to the agent"""
         self.connectors[name] = connector
+        logger.info(f"Added connector {name}")
 
     def has_connector(self, name):
         """Returns True if the agent has an AgentConnector with the given name"""
@@ -63,6 +73,7 @@ class SoarClient:
         """calls the given handler during each soar print event,
         where handler is a method taking a single string argument"""
         self.print_event_handlers.append(handler)
+        logger.info("Added print event handler")
 
     def start(self, steps: Optional[int] = None):
         """Will start the agent (uses another thread, so non-blocking)"""
@@ -73,6 +84,7 @@ class SoarClient:
         thread = Thread(
             target=SoarClient._run_thread, name="Soar run thread", args=(self, steps)
         )
+        logger.info("Starting Soar thread...")
         thread.start()
 
     def stop(self):
@@ -95,6 +107,7 @@ class SoarClient:
         if self.connected:
             return
 
+        logger.info("Registering Soar event handlers...")
         self.run_event_callback_id = self.agent.RegisterForRunEvent(  # type: ignore
             sml.smlEVENT_BEFORE_INPUT_PHASE, SoarClient._run_event_handler, self
         )
@@ -109,7 +122,8 @@ class SoarClient:
             self,
         )
 
-        for connector in self.connectors.values():
+        for name, connector in self.connectors.items():
+            logger.info(f"Calling connect() on connector {name}...")
             connector.connect()
 
         self.connected = True
@@ -122,6 +136,7 @@ class SoarClient:
         if not self.connected:
             return
 
+        logger.info("Unregistering Soar event handlers...")
         if self.run_event_callback_id != -1:
             self.agent.UnregisterForRunEvent(self.run_event_callback_id)  # type: ignore
             self.run_event_callback_id = -1
@@ -134,7 +149,8 @@ class SoarClient:
             self.kernel.UnregisterForAgentEvent(self.init_agent_callback_id)  # type: ignore
             self.init_agent_callback_id = -1
 
-        for connector in self.connectors.values():
+        for name, connector in self.connectors.items():
+            logger.info(f"Calling disconnect() on connector {name}...")
             connector.disconnect()
 
         self.connected = False
@@ -150,6 +166,7 @@ class SoarClient:
         performed if excise_productions is True."""
         if self.agent is None:
             raise ValueError("Cannot do full_init because agent is None")
+        logger.info("Re-initializing Soar agent...")
         self.agent.ExecuteCommandLine("init-soar", True)
         self.agent.ExecuteCommandLine("smem --clear", True)
         self.agent.ExecuteCommandLine("epmem --init", True)
@@ -162,26 +179,30 @@ class SoarClient:
     def kill(self):
         """Will destroy the current agent + kernel, cleans up everything"""
         self._destroy_soar_agent()
+        logger.info("Shutting down Soar kernel...")
         self.kernel.Shutdown()  # type: ignore
         self.kernel = None
 
     #### Internal Methods
     def _run_thread(self, steps: Optional[int]):
         if steps is None:
+            logger.info("Running Soar agent forever...")
             self.agent.ExecuteCommandLine("run", True)  # type: ignore
         else:
+            logger.info(f"Running Soar agent for {steps} steps...")
             self.agent.ExecuteCommandLine(f"run {steps}", True)  # type: ignore
         self.is_running = False
 
     def _create_soar_agent(self):
+        logger.info("Creating Soar agent...")
         self.log_writer = None
         if self.config.enable_log:
             try:
                 self.log_writer = open(self.config.log_filename, "w")
             except:
-                self.print_handler(
-                    "ERROR: Cannot open log file " + self.config.log_filename
-                )
+                message = "ERROR: Cannot open log file " + self.config.log_filename
+                self.print_handler(message)
+                logger.error(message)
 
         if self.config.remote_connection:
             if self.config.agent_name:
@@ -198,24 +219,29 @@ class SoarClient:
         self.apply_watch_level()
 
     def apply_watch_level(self):
+        logger.info(f"Applying watch level {self.config.watch_level}...")
         if self.agent is None:
             raise ValueError("Cannot apply watch level because agent is None")
-            return
         self.agent.ExecuteCommandLine(f"w {self.config.watch_level}", True)
 
     def spawn_debugger(self):
+        logger.info(f"Spawning debugger...")
         success = self.agent.SpawnDebugger()  # type: ignore
         if not success:
             self.print_handler("Failed to spawn debugger")
+        logger.info(f"Debugger spawned: {success}")
         return success
 
     def kill_debugger(self):
+        logger.info(f"Killing debugger...")
         success = self.agent.KillDebugger()  # type: ignore
         if not success:
             self.print_handler("Failed to kill debugger")
+        logger.info(f"Debugger killed: {success}")
         return success
 
     def source_agent(self):
+        logger.info("Sourcing agent...")
         self.agent.ExecuteCommandLine("smem --set database memory", True)  # type: ignore
         self.agent.ExecuteCommandLine("epmem --set database memory", True)  # type: ignore
 
@@ -248,22 +274,25 @@ class SoarClient:
                 )
         else:
             self.print_handler("agent_source not specified, no rules are being sourced")
+            logger.warning("agent_source not specified, no rules are being sourced")
 
     # Prints a summary of the smem source command instead of every line (source_output = summary)
     def _summarize_smem_source(self, printout: str):
-        summary = []
+        summary_lines = []
         n_added = 0
         for line in printout.split("\n"):
             if line == "Knowledge added to semantic memory.":
                 n_added += 1
             else:
-                summary.append(line)
-        self.print_handler("\n".join(summary))
-        self.print_handler(f"Knowledge added to semantic memory. [{n_added} times]")
+                summary_lines.append(line)
+        summary_lines.append(f"Knowledge added to semantic memory. [{n_added} times]")
+        summary = "\n".join(summary_lines)
+        self.print_handler(summary)
+        logger.info(summary)
 
     # Prints a summary of the agent source command instead of every line (source_output = summary)
     def _summarize_source(self, printout: str):
-        summary = []
+        summary_lines = []
         for line in printout.split("\n"):
             if line.startswith("Sourcing"):
                 continue
@@ -272,25 +301,32 @@ class SoarClient:
             # Line is only * or # characters
             if all(c in "#* " for c in line):
                 continue
-            summary.append(line)
-        self.print_handler("\n".join(summary))
+            summary_lines.append(line)
+        summary = "\n".join(summary_lines)
+        self.print_handler(summary)
+        logger.info(summary)
 
     def _on_init_soar(self):
-        for connector in self.connectors.values():
+        for name, connector in self.connectors.items():
+            logger.info(f"Calling on_init_soar on connector {name}...")
             connector.on_init_soar()
 
     def _destroy_soar_agent(self):
+        logger.info("Stopping Soar agent...")
         self.stop()
         while self.is_running:
             sleep(0.01)
         self._on_init_soar()
         self.disconnect()
         if self.config.spawn_debugger:
+            logger.info("Killing debugger...")
             self.agent.KillDebugger()  # type: ignore
         if not self.config.remote_connection:
+            logger.info("Destroying agent...")
             self.kernel.DestroyAgent(self.agent)  # type: ignore
         self.agent = None
         if self.log_writer is not None:
+            logger.info("Closing log file...")
             self.log_writer.close()
             self.log_writer = None
 
@@ -299,8 +335,9 @@ class SoarClient:
         try:
             self._on_init_soar()
         except:
-            self.print_handler("ERROR IN INIT AGENT")
-            self.print_handler(traceback.format_exc())
+            message = "ERROR IN INIT AGENT\n" + traceback.format_exc()
+            self.print_handler(message)
+            logger.error(message)
 
     @staticmethod
     def _run_event_handler(eventID, self: "SoarClient", agent, phase):
@@ -310,21 +347,26 @@ class SoarClient:
     def _on_input_phase(self, input_link):
         try:
             if self.queue_stop:
+                logger.info("Stop requested. Stopping agent...")
                 self.agent.StopSelf()  # type: ignore
                 self.queue_stop = False
 
-            for connector in self.connectors.values():
+            for name, connector in self.connectors.items():
+                logger.debug(f"Calling on_input_phase() on connector {name}...")
                 connector.on_input_phase(input_link)
 
             if self.agent.IsCommitRequired():  # type: ignore
+                logger.debug("Committing WM changes...")
                 self.agent.Commit()  # type: ignore
         except:
-            self.print_handler("ERROR IN RUN HANDLER")
-            self.print_handler(traceback.format_exc())
+            message = "ERROR IN INPUT PHASE\n" + traceback.format_exc()
+            self.print_handler(message)
+            logger.error(message)
 
     @staticmethod
     def _print_event_handler(eventID, self: "SoarClient", agent, message: str):
         try:
+            logger.info(f"Agent print event: {message.strip()}")
             if self.config.write_to_stdout:
                 message = message.strip()
                 self.print_handler(message)
@@ -334,5 +376,6 @@ class SoarClient:
             for ph in self.print_event_handlers:
                 ph(message)
         except:
-            self.print_handler("ERROR IN PRINT HANDLER")
-            self.print_handler(traceback.format_exc())
+            message = "ERROR IN PRINT HANDLER\n" + traceback.format_exc()
+            self.print_handler(message)
+            logger.error(message)
