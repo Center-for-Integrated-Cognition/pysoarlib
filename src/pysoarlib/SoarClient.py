@@ -12,6 +12,8 @@ from pysoarlib.TimeConnector import TimeConnector
 # agent-related info is available via other configured loggers
 logger = logging.getLogger(__name__)
 
+DEFAULT_AGENT_NAME = "soaragent"
+
 
 class SoarClient:
     """A wrapper class for creating and using a soar SML Agent"""
@@ -96,10 +98,12 @@ class SoarClient:
     def execute_command(self, cmd, print_res=False):
         """Execute a soar command and return result,
         write output to print_handler if print_res is True"""
+        logger.debug(f"Executing Soar command: {cmd}")
         result = self.agent.ExecuteCommandLine(cmd, True).strip()  # type: ignore
         if print_res:
             self.print_handler(cmd)
             self.print_handler(result)
+        logger.debug(f"Soar command result: {result}")
         return result
 
     def connect(self):
@@ -167,12 +171,12 @@ class SoarClient:
         if self.agent is None:
             raise ValueError("Cannot do full_init because agent is None")
         logger.info("Re-initializing Soar agent...")
-        self.agent.ExecuteCommandLine("init-soar", True)
-        self.agent.ExecuteCommandLine("smem --clear", True)
-        self.agent.ExecuteCommandLine("epmem --init", True)
-        self.agent.ExecuteCommandLine("svs S1.scene.clear", True)
+        self.execute_command("init-soar", True)
+        self.execute_command("smem --clear", True)
+        self.execute_command("epmem --init", True)
+        self.execute_command("svs S1.scene.clear", True)
         if excise_productions:
-            self.agent.ExecuteCommandLine("production excise --all", True)
+            self.execute_command("production excise --all", True)
         self.source_agent()
         self.apply_watch_level()
 
@@ -186,15 +190,13 @@ class SoarClient:
     #### Internal Methods
     def _run_thread(self, steps: Optional[int]):
         if steps is None:
-            logger.info("Running Soar agent forever...")
-            self.agent.ExecuteCommandLine("run", True)  # type: ignore
+            self.execute_command("run", True)  # type: ignore
         else:
-            logger.info(f"Running Soar agent for {steps} steps...")
-            self.agent.ExecuteCommandLine(f"run {steps}", True)  # type: ignore
+            self.execute_command(f"run {steps}", True)  # type: ignore
         self.is_running = False
 
     def _create_soar_agent(self):
-        logger.info("Creating Soar agent...")
+        logger.info("Creating/connecting Soar agent...")
         self.log_writer = None
         if self.config.enable_log:
             try:
@@ -207,8 +209,21 @@ class SoarClient:
         if self.config.remote_connection:
             if self.config.agent_name:
                 self.agent = self.kernel.GetAgent(self.config.agent_name)  # type: ignore
+                if self.agent is None:
+                    raise ValueError(
+                        f"Error: Connected to remote kernel, but could not find specified agent '{self.config.agent_name}'"
+                    )
             else:
                 self.agent = self.kernel.GetAgentByIndex(0)  # type: ignore
+                if self.agent is None:
+                    raise ValueError(
+                        "Error: Connected to remote kernel, but could not find any agents"
+                    )
+                print(
+                    f"Connected to remote kernel. Using first agent found: '{self.agent.GetAgentName()}'"
+                )
+            if self.config.source_remote_agent:
+                self.source_agent()
         else:
             self.agent = self.kernel.CreateAgent(self.config.agent_name)  # type: ignore
             self.source_agent()
@@ -219,10 +234,9 @@ class SoarClient:
         self.apply_watch_level()
 
     def apply_watch_level(self):
-        logger.info(f"Applying watch level {self.config.watch_level}...")
         if self.agent is None:
             raise ValueError("Cannot apply watch level because agent is None")
-        self.agent.ExecuteCommandLine(f"w {self.config.watch_level}", True)
+        self.execute_command(f"w {self.config.watch_level}", True)
 
     def spawn_debugger(self):
         logger.info(f"Spawning debugger...")
@@ -242,13 +256,13 @@ class SoarClient:
 
     def source_agent(self):
         logger.info("Sourcing agent...")
-        self.agent.ExecuteCommandLine("smem --set database memory", True)  # type: ignore
-        self.agent.ExecuteCommandLine("epmem --set database memory", True)  # type: ignore
+        self.execute_command("smem --set database memory", True)  # type: ignore
+        self.execute_command("epmem --set database memory", True)  # type: ignore
 
         if self.config.smem_source != None:
             if self.config.source_output != "none":
                 self.print_handler("------------- SOURCING SMEM ---------------")
-            result = self.agent.ExecuteCommandLine(f"source {{{self.config.smem_source.as_posix()}}}")  # type: ignore
+            result = self.execute_command(f"source {{{self.config.smem_source.as_posix()}}}")  # type: ignore
             if self.config.source_output == "full":
                 self.print_handler(result)
             elif self.config.source_output == "summary":
@@ -261,7 +275,7 @@ class SoarClient:
         if self.config.agent_source != None:
             if self.config.source_output != "none":
                 self.print_handler("--------- SOURCING PRODUCTIONS ------------")
-            result = self.agent.ExecuteCommandLine(  # type: ignore
+            result = self.execute_command(  # type: ignore
                 f"source {{{self.config.agent_source.as_posix()}}} -v", True
             )
             if self.config.source_output == "full":
