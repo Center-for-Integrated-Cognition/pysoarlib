@@ -1,0 +1,32 @@
+World context:
+{
+    "target" = [
+        {
+            "next-port" : "port-A",
+            "previous-port" : "port-B",
+            "port-achieved" : False,
+            "source-sensor" : "ais-sensor",
+            "source-agent" : "C1",
+            "direction" : "north",
+            "heading" : 0,
+            "speed-100" : 0,
+            "priority" : 0,
+            "type" : "value",
+            "id" : "Bluesky",
+            "x-100" : 100,
+            "y-100" : 0
+            "x" : 1,
+            "y" : "0"
+        }
+    ]
+}
+Question: What kind of ship is the BlueSky?
+Answer:
+{
+    "id" : "Bluesky",
+    "field : "type"
+}
+World context:
+?argument2
+Question: ?argument1
+Answer:

@@ -21,6 +21,7 @@ __all__ = [
     "AgentConnector",
     "SoarClient",
     "TimeConnector",
+    "LMConnector"
 ]
 
 # Extend the sml Identifier class definition with additional utility methods
@@ -44,3 +45,4 @@ from pysoarlib.SVSCommands import SVSCommands
 from pysoarlib.AgentConnector import AgentConnector
 from pysoarlib.SoarClient import SoarClient
 from pysoarlib.TimeConnector import TimeConnector
+from pysoarlib.connectors.language_model.LMConnector import LMConnector

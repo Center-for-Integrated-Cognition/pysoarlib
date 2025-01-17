@@ -1,0 +1,1 @@
+Generate goals by translating the given sentence into a set of simple desired goals in JSON using the provided world state in JSON as context. Desireds can be ordered by adding one as a next-desired. If a goal desire includes putting something in an object that can be opened or closed add a final goal desired of it being closed.

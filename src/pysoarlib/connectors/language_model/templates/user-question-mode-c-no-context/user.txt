@@ -1,0 +1,26 @@
+Data representation:
+{
+    "next-port" : "port-A",
+    "previous-port" : "port-B",
+    "port-achieved" : "value",
+    "source-sensor" : "value",
+    "source-agent" : "value",
+    "direction" : north,
+    "heading" : 0,
+    "speed-100" : 0,
+    "priority" : 0,
+    "type" : "value",
+    "id" : "Bluesky",
+    "x-100" : 100,
+    "y-100" : 0
+    "x" : 1,
+    "y" : "0"
+}
+Question: What kind of ship is the BlueSky?
+Answer:
+{
+    "id" : "value",
+    "field : "type"
+}
+Question: ?argument1
+Answer:
