@@ -9,7 +9,7 @@ World context:
             "source-agent" : "C1",
             "direction" : "north",
             "heading" : 0,
-            "speed" : 0,
+            "speed" : 5,
             "priority" : 0,
             "type" : "value",
             "id" : "Bluesky",
@@ -20,23 +20,8 @@ World context:
         }
     ]
 }
-Question: What kind of ship is the Bluesky?
-Answer:
-{
-    "id" : "Bluesky",
-    "field : "type"
-}
-Question: What are the x,y points of the Bluesky?
-Answer:
-{
-    "id" : "Bluesky",
-    "field : ["x" , "y"]
-}
-Question: What is twice the speed of the Bluesky?
-Answer:
-{
-    "calculation" : 0
-}
+Question: How fast is the Bluesky accelerating?
+Answer: No information is provided about the acceleration of the Bluesky.
 World context:
 ?argument2
 Question: ?argument1

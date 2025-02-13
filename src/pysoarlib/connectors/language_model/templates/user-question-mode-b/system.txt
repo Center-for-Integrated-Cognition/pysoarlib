@@ -1,1 +1,1 @@
-Answer succinctly in a single sentence.
+Respond in json with a formatted query.

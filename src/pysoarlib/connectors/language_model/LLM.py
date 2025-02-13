@@ -49,6 +49,18 @@ class LLM:
             output += line + "\n"
         return output.rstrip();
 
+    def get_config(self, type):
+        """
+        get template from folder for prompt given type
+        """
+        dir ="templates/" + type + "/config.json"
+        dirname = os.path.dirname(__file__)
+        filename = os.path.join(dirname, dir)
+        
+        with open(filename) as file:
+            config = json.load(file)
+
+        return config
     
     def get_template(self, type):
         """
@@ -386,7 +398,7 @@ class LLM:
                 json_object[attr] = processed_value
         return json_object
     
-    def parse_user_question_mode_b(self, query, type, arguments):
+    def parse_user_question_mode_a(self, query, type, arguments):
         soar_context = arguments[1]
         #json_context = self.soar_to_json(soar_context)
         json_context = self.soar_identifier_to_json(soar_context)
@@ -411,7 +423,7 @@ class LLM:
         self.response = lmr
         return self.response
 
-    def parse_user_question_mode_c(self, query, type, arguments):
+    def parse_user_question_mode_b(self, query, type, arguments):
         argument_count = len(arguments)
         # if two arguments using json context
         if argument_count == 2:
@@ -443,12 +455,12 @@ class LLM:
         number_responses = 5 #how to set, with arguments or seperate field? seperate field better...
         results = []
 
-        if type == "user-question-mode-b":
-            return self.parse_user_question_mode_b(query, type, arguments)
+        if type == "user-question-mode-a":
+            return self.parse_user_question_mode_a(query, type, arguments)
         
 
-        if "user-question-mode-c" in type:
-            return self.parse_user_question_mode_c(query, type, arguments)
+        if "user-question-mode-b" in type:
+            return self.parse_user_question_mode_b(query, type, arguments)
 
         if "context-history-desireds" in type or "sentence-history-desireds" in type or "sentence-desireds-sequence" in type:
             arguments.append(self.command_history)
@@ -470,7 +482,9 @@ class LLM:
             self.response = lmr
             return self.response;
 
-        #self.api = "o1"
+
+        #right now uses langchain... 
+
         if self.api == "langchain":
             llm_response = self.prompt_llm_langchain_multi_response(prompt, system_prompt, number_responses)
         #openai 01
@@ -531,6 +545,98 @@ class LLM:
 
         return self.response;
 
+    def parse_request_new(self, query, type, arguments, sequence_number):
+        """
+        handle LLM request by constructing prompt and getting response from LLM
+        return LMResponse with response
+        """
+        config = self.get_config(type)        
 
+        number_responses = config["number-of-responses"] #how to set, with arguments or seperate field? seperate field better...
+        results = []
 
+        if config["append-history"]:
+            arguments.append(self.command_history)
+
+        if type == "user-question-mode-a":
+            return self.parse_user_question_mode_a(query, type, arguments)
+
+        if "user-question-mode-b" in type:
+            return self.parse_user_question_mode_b(query, type, arguments)    
+
+        prompt, system_prompt = self.construct_prompt(type, arguments)
+        response_type = self.get_response_type(type)
+
+        if config["use-world-context"]:
+            json_context = self.world_connector.get_json_world_representation()
+            json_string = json.dumps(json_context, indent=4)
+            prompt= prompt.replace("?context", json_string)
+        
+        if config["response-type"] == "json":
+            #hard coding for now
+            lmr = self.prompt_llm_langchain_json(arguments[0], prompt, system_prompt, query, response_type, sequence_number)
+            self.response = lmr
+            return self.response;
+
+        #right now uses langchain... 
+        #self.api = "o1"
+        if self.api == "langchain":
+            llm_response = self.prompt_llm_langchain_multi_response(prompt, system_prompt, number_responses)
+        #openai 01
+        elif self.api == "o1":
+            llm_response = self.prompt_llm_langchain_o1(prompt, system_prompt)
+            prob = 1.0 #no logprobs for o1 yet
+            content = llm_response.choices[0].message.content
+            result = LMResult(content, response_type, prob, 1)
+            results.append(result)
+            lmr = LMResponse(None, query, results, sequence_number)
+            self.response = lmr
+            return self.response;
+
+        print("initial response:" + llm_response.content)
+        #TODO need to adapt STARS joining for multi word response
+        if number_responses == 1:
+            logprob = llm_response.response_metadata['logprobs']['content'][0]['logprob']
+            prob = np.exp(float(logprob))
+            result = LMResult(llm_response.content, response_type, prob, 1)
+            results.append(result)
+        else:
+            top_logprobs = llm_response.response_metadata
+            complete_generation = False
+            if int(top_logprobs['token_usage']['completion_tokens']) > 0:
+                complete_generation = True
+                results = self.complete_toplogprob_generation(llm_response, response_type, prompt, system_prompt)
+            else:
+                top = top_logprobs['logprobs']['content'][0]['top_logprobs']
+                order = 1
+                for result in top:
+                    logprob = result['logprob']
+                    content = result['token']
+                    prob = np.exp(float(logprob))
+                    result = LMResult(content, response_type, prob, order)
+                    results.append(result)
+                    order = order + 1
+
+        #get response from anthropic
+        #TODO disable for now
+        # anthropic_response = self.prompt_llm_langchain_anthropic(prompt, system_prompt)
+        # prob = 0.5 #no logprobs for anthropic yet
+        # content = anthropic_response.content
+
+        # #only add result if unique
+        # add_new_result = True
+        # for result in results:
+        #     if result.response == content:
+        #         add_new_result = False 
+        # if add_new_result:
+        #     result = LMResult(content, response_type, prob, 6)
+        #     results.append(result)
+            
+        for result in results:
+            print("Response: " + result.response)
+        
+        lmr = LMResponse(None, query, results, sequence_number)
+        self.response = lmr
+
+        return self.response;
 

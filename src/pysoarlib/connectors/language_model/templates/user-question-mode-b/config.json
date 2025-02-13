@@ -1,0 +1,8 @@
+{
+    "response-type": "json",
+    "use-world-context": false,
+    "append-history": false,
+    "number-of-responses": 1,
+    "api": "langchain",
+    "model": "gpt-4o"
+}

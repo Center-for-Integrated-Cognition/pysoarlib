@@ -120,7 +120,8 @@ class LMConnector(AgentConnector):
             return
        
         print("Running request for type " + request_type + " with argument " + str(arguments))
-        self.response = self.lm.parse_request(None,request_type, arguments, sequence_number)
+        #self.response = self.lm.parse_request(None,request_type, arguments, sequence_number)
+        self.response = self.lm.parse_request_new(None,request_type, arguments, sequence_number)
        
         self.lm_failsafe += 1
         root_id.CreateStringWME("status", "complete")
