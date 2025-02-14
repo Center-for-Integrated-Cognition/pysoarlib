@@ -24,7 +24,7 @@ import openai
 #     from langsmith import Client
 # except ImportError:
 #     pass
-
+meta_template = "?examples?world-context?soar-context?history-context?repair-prompt?prompt?output"
 
 class LLM:
 
@@ -61,6 +61,19 @@ class LLM:
             config = json.load(file)
 
         return config
+    
+    def get_llm_template(self, type):
+        """
+        get template from folder for prompt given type
+        """
+        dir ="templates/llm-templates/" + type + ".json"
+        dirname = os.path.dirname(__file__)
+        filename = os.path.join(dirname, dir)
+        
+        with open(filename) as file:
+            template_config = json.load(file)
+
+        return template_config
     
     def get_template(self, type):
         """
@@ -638,5 +651,181 @@ class LLM:
         lmr = LMResponse(None, query, results, sequence_number)
         self.response = lmr
 
+        return self.response;
+
+    def get_examples(self, config):
+        """
+        get prompt examples from file(s) specified by config
+        """
+        examples = ""
+        if config["examples"] and config["domain"]:
+            first = True
+            for example in config["examples"]:
+                print("example:" + example)
+                dir ="templates/examples/" + config["domain"] + "/" + example + ".txt"
+                dirname = os.path.dirname(__file__)
+                filename = os.path.join(dirname, dir)
+                if not first:
+                    examples += "\n"
+                    first = False
+                examples += self.get_str_from_file(filename)
+        return examples
+    
+    def get_prompt_template(self, type):
+        """
+        get template from folder for prompt given type
+        """
+        dir ="templates/prompt-templates/" + type + ".txt"
+        dirname = os.path.dirname(__file__)
+        filename = os.path.join(dirname, dir)
+        template = self.get_str_from_file(filename)
+        return template
+    
+    def get_output_template(self, type):
+        """
+        get template from folder for prompt given type
+        """
+        dir ="templates/output-template/" + type + ".txt"
+        dirname = os.path.dirname(__file__)
+        filename = os.path.join(dirname, dir)
+        template = self.get_str_from_file(filename)
+        return template
+    
+    def instantiate_prompt(self, config, arguments):
+        """
+        retrieve prompt format and instantiate argument slots with given argument 
+        """
+
+        prompt = self.get_prompt_template(config["prompt-template"])
+        
+        i = 1
+        for arg in arguments:
+             variable = "?argument" + str(i)
+             prompt= prompt.replace(variable, str(arg))
+             i+=1
+        return prompt;
+
+    def get_template_system_prompt(self, type):
+        """
+        return system prompt template given type
+        """
+        dir ="templates/system-prompts/" + type + ".txt"
+        dirname = os.path.dirname(__file__)
+        filename = os.path.join(dirname, dir)
+        prompt = self.get_str_from_file(filename)
+        return prompt
+
+    def instantiate_llm_template(self, type, arguments, config, soar_state_context):
+        """
+        instantiate llm templates based on config
+        """
+        template = meta_template
+        examples = self.get_examples(config)
+        world_context = ""
+        soar_context = ""
+        history_context = ""
+        repair_prompt = ""
+        prompt = "\n" + self.instantiate_prompt(config, arguments)
+        output = "\n" + self.get_output_template(config["output-template"])
+
+        if config["world-context"]:
+            json_context = self.world_connector.get_json_world_representation()
+            world_context = "\nWorld State:\n" + json.dumps(json_context, indent=4)
+
+        if config["soar-context"] and soar_state_context:
+            json_context = self.soar_identifier_to_json(soar_state_context)
+            soar_context = "\nWorld Context:\n" + json.dumps(json_context)
+
+        if config["history-context"]:
+            history_context = self.command_history #TODO specify different ways to record history (dialog, actions, messages)
+
+        #replace all template variables
+        template = template.replace("?examples", examples)
+        template = template.replace("?world-context", world_context)
+        template = template.replace("?soar-context", soar_context)
+        template = template.replace("?history-context", history_context)
+        template = template.replace("?repair-prompt", repair_prompt)
+        template = template.replace("?prompt", prompt)
+        template = template.replace("?output", output)
+
+        return template
+    
+    
+    # llm_response = self.prompt_llm_langchain_multi_response(prompt, system_prompt, number_responses)
+    #     print("initial response:" + llm_response.content)
+
+    #     #logprob = llm_response.response_metadata['logprobs']['content'][0]['logprob']
+    #     #prob = np.exp(float(logprob))
+
+
+
+    #prompt_llm_langchain_json(arguments[0], prompt, system_prompt, query, response_type, sequence_number)
+    def prompt_langchain(self, user_prompt, system_prompt, query, config, sequence_number, dialog):
+        temperature = config["temperature"]
+        model = config["model"]
+        num_results = config["number-of-results"]
+        if model == "gpt-4o": #use specific model for stability
+            model = "gpt-4o-2024-08-06"
+
+        if config["response-type"] == "json":
+            llm = ChatOpenAI(model_name=model, temperature=temperature).bind(response_format={"type": "json_object"})
+        else:
+            if num_results == 1:
+                llm = ChatOpenAI(model_name=model, temperature=temperature).bind(logprobs=True) #don't need top logprobs for one result
+            else:
+                llm = ChatOpenAI(model_name=model, temperature=temperature).bind(logprobs=True).bind(top_logprobs=num_results)
+
+        system_input = system_prompt
+        user_input = user_prompt
+
+        message = [
+            ("system", system_input),
+            ("human", user_input),
+        ]
+
+        print("System prompt:")
+        print(system_input)
+        print("User prompt:")
+        print(user_input)
+
+        response = llm.invoke(message)
+
+        
+        content = response.content
+
+        if "dialog" in config["history-context"]:
+            self.command_history = self.command_history + "\nInput:" + dialog + "\n"
+        results = []
+        if config["response-type"] == "json":
+            json_object = json.loads(content)
+            print(json_object)
+            
+            result = LMResult(json_object, "json", 1.0, 1)
+            results.append(result)
+            
+            if "state" in config["history-context"]:
+                self.command_history = self.command_history + "World update: " + str(json_object).replace("desired", "relation")
+        else:
+            print("Response:" + content)
+            result = LMResult(content, config["response-type"], 1.0, 1) #todo fix probability access
+            results.append(result)
+        
+        return LMResponse(None, query, results, sequence_number)
+
+    def process_request(self, query, type, arguments, sequence_number, soar_state_context):
+        """
+        handle LLM request by constructing prompt and getting response from LLM
+        return LMResponse with response
+        """
+        template_config = self.get_llm_template(type)        
+
+        #number_responses = template_config["number-of-responses"] #how to set, with arguments or seperate field? seperate field better...
+
+        user_prompt = self.instantiate_llm_template(type, arguments, template_config, soar_state_context)
+        system_prompt = self.get_template_system_prompt(template_config["system-prompt"])
+
+        
+        #if config["api"] == "langchain": all langchain for now
+        self.response = self.prompt_langchain(user_prompt, system_prompt, query, template_config, sequence_number, arguments[0])
         return self.response;
 

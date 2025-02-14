@@ -1,0 +1,7 @@
+?examples
+?world-context
+?soar-context
+?history-context
+?repair-prompt
+?prompt
+?response-type

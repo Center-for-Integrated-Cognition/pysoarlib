@@ -86,14 +86,10 @@ class LMConnector(AgentConnector):
         argument_count = query_id.FindByAttribute("argument-count", 0).ConvertToIntElement().GetValue()
 
         sequence_number = query_id.FindByAttribute("sequence-number", 0).ConvertToIntElement().GetValue()
-       
-        # arguments = []
-        # i = 1
-        # while (i <= argument_count):
-        #     argnum = "argument" + str(i)
-        #     argument = root_id.FindByAttribute(argnum, 0).GetValueAsString()
-        #     arguments.append(argument)
-        #     i+=1
+
+        context = None
+        if (root_id.GetChildId("state-context")):
+            context = root_id.GetChildId("state-context")
 
         arguments = []
         i = 1
@@ -121,7 +117,8 @@ class LMConnector(AgentConnector):
        
         print("Running request for type " + request_type + " with argument " + str(arguments))
         #self.response = self.lm.parse_request(None,request_type, arguments, sequence_number)
-        self.response = self.lm.parse_request_new(None,request_type, arguments, sequence_number)
+        #self.response = self.lm.parse_request_new(None,request_type, arguments, sequence_number)
+        self.response = self.lm.process_request(None,request_type, arguments, sequence_number, context)
        
         self.lm_failsafe += 1
         root_id.CreateStringWME("status", "complete")

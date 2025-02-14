@@ -1,0 +1,22 @@
+{
+    "llm-template": "context-history-desired",
+    "examples": [
+        "clean-pot-counter"
+    ],
+    "domain": "thor-soar",
+    "system-prompt": "json-goals",
+    "world-context": true,
+    "soar-context": false,
+    "history-context": [
+        "state",
+        "dialog"
+    ],
+    "prompt-template": "input-1-argument",
+    "repair-prompt": false,
+    "response-type": "json",
+    "output-template": "json-desireds",
+    "model": "gpt-4o",
+    "api": "langchain",
+    "number-of-results": 1,
+    "temperature": 0.0
+}
