@@ -793,8 +793,7 @@ class LLM:
         
         content = response.content
 
-        if "dialog" in config["history-context"]:
-            self.command_history = self.command_history + "\nInput:" + dialog + "\n"
+        
         results = []
         if config["response-type"] == "json":
             json_object = json.loads(content)
@@ -802,11 +801,18 @@ class LLM:
             
             result = LMResult(json_object, "json", 1.0, 1)
             results.append(result)
+
+            if "dialog" in config["history-context"]:
+                self.command_history = self.command_history + "\nInput:" + dialog + "\n"
             
             if "state" in config["history-context"]:
                 self.command_history = self.command_history + "World update: " + str(json_object).replace("desired", "relation")
         else:
             print("Response:" + content)
+
+            if "dialog" in config["history-context"]:
+                self.command_history = self.command_history + "\nQuestion:" + dialog + "\n" #fix generality
+                self.command_history = self.command_history + "Answer:" + content # + "\n"
             result = LMResult(content, config["response-type"], 1.0, 1) #todo fix probability access
             results.append(result)
         
@@ -817,7 +823,21 @@ class LLM:
         handle LLM request by constructing prompt and getting response from LLM
         return LMResponse with response
         """
-        template_config = self.get_llm_template(type)        
+        template_config = self.get_llm_template(type)
+
+        #Special case: multiple possible modes
+        #in the future prompt llm for best way to treat (or try multiple)
+        #right now simple hard coded tests
+        selected_type = ""
+        if "select-from-templates" in template_config:
+            for template in template_config["select-from-templates"]:
+                if template == "thor-question-mode-A" and arguments[0][-1] == "?":
+                    selected_type = "thor-question-mode-A"
+                if template == "context-history-desireds" and arguments[0][-1] != "?":
+                    selected_type = "context-history-desireds"
+        if selected_type:
+            type = selected_type
+            template_config = self.get_llm_template(selected_type)
 
         #number_responses = template_config["number-of-responses"] #how to set, with arguments or seperate field? seperate field better...
 

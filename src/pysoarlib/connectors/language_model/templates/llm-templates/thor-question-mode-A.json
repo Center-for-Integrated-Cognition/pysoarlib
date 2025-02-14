@@ -7,7 +7,9 @@
     "system-prompt": "succinct",
     "world-context": true,
     "soar-context": false,
-    "history-context": [],
+    "history-context": [
+        "dialog"
+    ],
     "prompt-template": "question-1-argument",
     "repair-prompt": false,
     "response-type": "string",
