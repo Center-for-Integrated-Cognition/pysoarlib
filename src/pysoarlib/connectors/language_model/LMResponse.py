@@ -5,42 +5,18 @@
 
 import json
 
-from pysoarlib.WMInterface import WMInterface
-
-# class LMResponse(WMInterface):
-#     def __init__(self, id, prompt, response = "", response_type = "string", probability = 0):
-#         WMInterface.__init__(self)
-#         self.id = id
-#         self.prompt = prompt
-#         self.response = response
-#         self.response_type = response_type
-#         self.probability = probability
-
-#     def _add_to_wm_impl(self, parent_id):
-#         self.identifier = parent_id.CreateIdWME("response")
-#         self.identifier.CreateStringWME("id", self.id)
-
-#         if self.response_type == "string":
-#             self.identifier.CreateStringWME("response", self.response)
-#         elif self.response_type == "int":
-#             self.identifier.CreateIntWME("response", int(self.response))
-#         elif self.response_type == "float":
-#             self.identifier.CreateFloatWME("response", float(self.response))
-   
-#     def _update_wm_impl(self):
-#         pass
-   
-#     def _remove_from_wm_impl(self):
-#         self.identifier.DestroyWME()
-#         self.identifier = None
+#from pysoarlib.WMInterface import WMInterface
+from pysoarlib.connectors.Response import Response
 
 
 
-class LMResponse(WMInterface):
-    def __init__(self, connector, query, results, sequence_number = 0):
-        WMInterface.__init__(self)
+
+#class LMResponse(WMInterface):
+class LMResponse(Response):
+    def __init__(self, query, results, sequence_number = 0):
+        Response.__init__(self, query, results)
         #CommunicatorResponse.__init__(self, connector, query, results)
-        self.connector = connector
+        #self.connector = connector
         self.results = results
         self.sequence_number = sequence_number
         # self.response = results.response
@@ -86,14 +62,33 @@ class LMResponse(WMInterface):
         # else:
         #     parent_id.CreateStringWME(attribute, str(json_object))
         
-    def _add_to_wm_impl(self, parent_id):
+    # def _add_to_wm_impl(self, parent_id):
+    #     """  For now, LMResult only allows for one result. """
+    #     self.identifier = parent_id.CreateIdWME("responses")
+    #     results_count = len(self.results)
+    #     self.identifier.CreateIntWME("result-count", results_count)
+    #     self.identifier.CreateIntWME("sequence-number", self.sequence_number)
+    #     for result in self.results:
+    #         result_wme = self.identifier.CreateIdWME("result")
+    #         result_wme.CreateFloatWME("probability", result.probability)
+    #         result_wme.CreateIntWME("order", int(result.order))
+    #         match result.response_type:
+    #             case "string":
+    #                 result_wme.CreateStringWME("response", result.response)
+    #             case "int":
+    #                 result_wme.CreateIntWME("response", int(result.response))
+    #             case "float":
+    #                 result_wme.CreateFloatWME("response", float(result.response))
+    #             case "json":
+    #                 response_wme = result_wme.CreateIdWME("response")
+    #                 self.add_json_to_soar_input(response_wme, result.response)
+
+    def _add_to_wm_impl(self, results_wme):
         """  For now, LMResult only allows for one result. """
-        self.identifier = parent_id.CreateIdWME("responses")
         results_count = len(self.results)
-        self.identifier.CreateIntWME("result-count", results_count)
-        self.identifier.CreateIntWME("sequence-number", self.sequence_number)
+        results_wme.CreateIntWME("result-count", results_count)
         for result in self.results:
-            result_wme = self.identifier.CreateIdWME("result")
+            result_wme = results_wme.CreateIdWME("result")
             result_wme.CreateFloatWME("probability", result.probability)
             result_wme.CreateIntWME("order", int(result.order))
             match result.response_type:
@@ -107,7 +102,7 @@ class LMResponse(WMInterface):
                     response_wme = result_wme.CreateIdWME("response")
                     self.add_json_to_soar_input(response_wme, result.response)
 
-    
+   
     def _update_wm_impl(self):
         pass
     

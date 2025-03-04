@@ -168,7 +168,7 @@ class LLM:
         if sentence:
             self.command_history = self.command_history + "\nInput:" + sentence + "\n"
             self.command_history = self.command_history + "World update: " + str(json_object).replace("desired", "relation")
-        return LMResponse(None, query, results,sequence_number)
+        return LMResponse(query, results,sequence_number)
     
 
 
@@ -432,7 +432,7 @@ class LLM:
         #prob = np.exp(float(logprob))
         result = LMResult(llm_response.content, response_type, 0.8, 1)
         results.append(result)
-        lmr = LMResponse(None, query, results)
+        lmr = LMResponse(query, results)
         self.response = lmr
         return self.response
 
@@ -453,7 +453,7 @@ class LLM:
 
         #llm_response = self.prompt_llm_langchain_multi_response(prompt, system_prompt, number_responses)
         lmr = self.prompt_llm_langchain_json("", prompt, system_prompt, query, response_type)
-        #lmr = LMResponse(None, query, results)
+        #lmr = LMResponse(query, results)
         self.response = lmr
         return self.response;
     
@@ -491,7 +491,7 @@ class LLM:
         if response_type == "json":
             #hard coding for now
             lmr = self.prompt_llm_langchain_json(arguments[0], prompt, system_prompt, query, response_type, sequence_number)
-            #lmr = LMResponse(None, query, results)
+            #lmr = LMResponse(query, results)
             self.response = lmr
             return self.response;
 
@@ -507,7 +507,7 @@ class LLM:
             content = llm_response.choices[0].message.content
             result = LMResult(content, response_type, prob, 1)
             results.append(result)
-            lmr = LMResponse(None, query, results, sequence_number)
+            lmr = LMResponse(query, results, sequence_number)
             self.response = lmr
             return self.response;
 
@@ -553,11 +553,13 @@ class LLM:
         for result in results:
             print("Response: " + result.response)
         
-        lmr = LMResponse(None, query, results, sequence_number)
+        lmr = LMResponse(query, results, sequence_number)
         self.response = lmr
 
         return self.response;
 
+
+#################################
     def parse_request_new(self, query, type, arguments, sequence_number):
         """
         handle LLM request by constructing prompt and getting response from LLM
@@ -602,7 +604,7 @@ class LLM:
             content = llm_response.choices[0].message.content
             result = LMResult(content, response_type, prob, 1)
             results.append(result)
-            lmr = LMResponse(None, query, results, sequence_number)
+            lmr = LMResponse(query, results, sequence_number)
             self.response = lmr
             return self.response;
 
@@ -648,7 +650,7 @@ class LLM:
         for result in results:
             print("Response: " + result.response)
         
-        lmr = LMResponse(None, query, results, sequence_number)
+        lmr = LMResponse(query, results, sequence_number)
         self.response = lmr
 
         return self.response;
@@ -751,15 +753,9 @@ class LLM:
         return template
     
     
-    # llm_response = self.prompt_llm_langchain_multi_response(prompt, system_prompt, number_responses)
-    #     print("initial response:" + llm_response.content)
-
-    #     #logprob = llm_response.response_metadata['logprobs']['content'][0]['logprob']
-    #     #prob = np.exp(float(logprob))
 
 
 
-    #prompt_llm_langchain_json(arguments[0], prompt, system_prompt, query, response_type, sequence_number)
     def prompt_langchain(self, user_prompt, system_prompt, query, config, sequence_number, dialog):
         temperature = config["temperature"]
         model = config["model"]
@@ -816,14 +812,16 @@ class LLM:
             result = LMResult(content, config["response-type"], 1.0, 1) #todo fix probability access
             results.append(result)
         
-        return LMResponse(None, query, results, sequence_number)
+        return LMResponse(query, results, sequence_number)
 
-    def process_request(self, query, type, arguments, sequence_number, soar_state_context):
+
+    #def process_request(self, query, type, arguments, sequence_number, soar_state_context):
+    def process_request(self, query):
         """
         handle LLM request by constructing prompt and getting response from LLM
         return LMResponse with response
         """
-        template_config = self.get_llm_template(type)
+        template_config = self.get_llm_template(query.type)
 
         #Special case: multiple possible modes
         #in the future prompt llm for best way to treat (or try multiple)
@@ -831,21 +829,20 @@ class LLM:
         selected_type = ""
         if "select-from-templates" in template_config:
             for template in template_config["select-from-templates"]:
-                if template == "thor-question-mode-A" and arguments[0][-1] == "?":
+                if template == "thor-question-mode-A" and query.arguments[0][-1] == "?":
                     selected_type = "thor-question-mode-A"
-                if template == "context-history-desireds" and arguments[0][-1] != "?":
+                if template == "context-history-desireds" and query.arguments[0][-1] != "?":
                     selected_type = "context-history-desireds"
         if selected_type:
             type = selected_type
             template_config = self.get_llm_template(selected_type)
 
-        #number_responses = template_config["number-of-responses"] #how to set, with arguments or seperate field? seperate field better...
-
-        user_prompt = self.instantiate_llm_template(type, arguments, template_config, soar_state_context)
+        user_prompt = self.instantiate_llm_template(query.type, query.arguments, template_config, query.context)
         system_prompt = self.get_template_system_prompt(template_config["system-prompt"])
 
         
         #if config["api"] == "langchain": all langchain for now
-        self.response = self.prompt_langchain(user_prompt, system_prompt, query, template_config, sequence_number, arguments[0])
+        #todo change to just pass query
+        self.response = self.prompt_langchain(user_prompt, system_prompt, query, template_config, query.sequence_number, query.arguments[0])
         return self.response;
 
