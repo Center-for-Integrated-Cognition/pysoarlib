@@ -736,7 +736,7 @@ class LLM:
 
         if config["soar-context"] and soar_state_context:
             json_context = self.soar_identifier_to_json(soar_state_context)
-            soar_context = "\nWorld Context:\n" + json.dumps(json_context)
+            soar_context = "\nWorld Context:\n" + json.dumps(json_context, indent=4)
 
         if config["history-context"]:
             history_context = self.command_history #TODO specify different ways to record history (dialog, actions, messages)
@@ -793,7 +793,7 @@ class LLM:
         results = []
         if config["response-type"] == "json":
             json_object = json.loads(content)
-            print(json_object)
+            print(json.dumps(json_object, indent=4))
             
             result = LMResult(json_object, "json", 1.0, 1)
             results.append(result)

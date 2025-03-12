@@ -1,2 +1,2 @@
 Convert the input description into a hierarchical JSON structure.
-node types: attribute-of, apply-property, subtraction, addition
+node types: attribute-of, apply-property, subtraction, addition, haversine-formula, when

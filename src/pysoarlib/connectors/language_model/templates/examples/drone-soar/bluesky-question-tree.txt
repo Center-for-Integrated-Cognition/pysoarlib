@@ -13,10 +13,8 @@ World context:
             "priority" : 0,
             "type" : "oil-tanker",
             "id" : "Bluesky",
-            "x-100" : 100,
-            "y-100" : 0
-            "x" : 1,
-            "y" : "0"
+            "latitude" : 30.0,
+            "longitude" : 127.0
         }
     ]
 }
@@ -43,4 +41,59 @@ Output:
     "argument3": "Bluesky"
   },
   "argument2": "direction"
+}
+Input: When the Bluesky was going south what port was the Bluesky going to?
+Output:
+{
+  "node": "node1",
+  "type": "attribute-of",
+  "argument-count": 2,
+  "negation": false,
+  "results": {
+    "node": "node1-results"
+  },
+  "argument1": {
+    "node": "node2",
+    "type": "apply-property",
+    "argument-count": 3,
+    "negation": false,
+    "results": {
+      "node": "node2-results"
+    },
+    "argument1": {
+      "node": "node3",
+      "type": "when",
+      "argument-count": 1,
+      "negation": false,
+      "results": {
+        "node": "node3-results"
+      },
+      "argument1": {
+        "node": "node4",
+        "type": "apply-property",
+        "argument-count": 3,
+        "negation": false,
+        "results": {
+          "node": "node4-results"
+        },
+        "argument1": {
+          "node": "node5",
+          "type": "apply-property",
+          "argument-count": 3,
+          "negation": false,
+          "results": {
+            "node": "node5-results"
+          },
+          "argument1": "STATE",
+          "argument2": "id",
+          "argument3": "Bluesky"
+        },
+        "argument2": "direction",
+        "argument3": "south"
+      }
+    },
+    "argument2": "id",
+    "argument3": "Bluesky"
+  },
+  "argument2": "next-port"
 }
