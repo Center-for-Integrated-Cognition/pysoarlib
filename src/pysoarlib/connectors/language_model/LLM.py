@@ -831,6 +831,8 @@ class LLM:
             for template in template_config["select-from-templates"]:
                 if template == "thor-question-mode-A" and query.arguments[0][-1] == "?":
                     selected_type = "thor-question-mode-A"
+                if template == "thor-question-dag" and query.arguments[0][-1] == "?":
+                    selected_type = "thor-question-dag"
                 if template == "context-history-desireds" and query.arguments[0][-1] != "?":
                     selected_type = "context-history-desireds"
         if selected_type:

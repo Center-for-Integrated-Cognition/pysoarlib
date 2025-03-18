@@ -1,6 +1,6 @@
 {
     "select-from-templates": [
-        "thor-question-mode-A",
+        "thor-question-dag",
         "context-history-desireds"
     ]
 }

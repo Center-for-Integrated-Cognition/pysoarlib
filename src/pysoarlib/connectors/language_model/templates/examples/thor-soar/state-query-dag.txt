@@ -1,0 +1,131 @@
+World state:
+{
+    "objects": [
+        {
+            "object-handle": "CounterTop19",
+            "category": "countertop",
+            "reachable": false,
+            "temperature": "room-temp",
+            "receptacle": "surface"
+        },
+        {
+            "object-handle": "Pot49",
+            "category": "pot",
+            "reachable": false,
+            "temperature": "room-temp",
+            "receptacle": "receptacle",
+            "grabbable": true,
+            "dirtyable": true,
+            "dirty": true,
+            "contents": "empty",
+            "liquid": "none",
+            "mass": "0.57",
+            "material": "metal"
+        }
+    ],
+    "relations": {
+        "on": [
+            {
+                "argument1": {
+                    "object-handle": "Pot49"
+                },
+                "argument2": {
+                    "object-handle": "CounterTop19"
+                }
+            }
+        ],
+        "holding-object": {
+            "object-handle": "none"
+        }
+    }
+}
+Input: What is the temperature of the pot?
+Output:
+{
+  "node": "node1",
+  "type": "attribute-of",
+  "argument-count": 2,
+  "negation": false,
+  "results": {
+    "node": "node1-results"
+  },
+  "argument1": {
+    "node": "node2",
+    "type": "apply-property",
+    "argument-count": 3,
+    "negation": false,
+    "results": {
+      "node": "node2-results"
+    },
+    "argument1": "STATE",
+    "argument2": "category",
+    "argument3": "pot"
+  },
+  "argument2": "temperature"
+}
+Input: When an apple was in the fridge was the pot dirty?
+Output:
+{
+  "node": "node1",
+  "type": "attribute-of",
+  "argument-count": 2,
+  "negation": false,
+  "results": {
+    "node": "node1-results"
+  },
+  "argument1": {
+    "node": "node2",
+    "type": "apply-property",
+    "argument-count": 3,
+    "negation": false,
+    "results": {
+      "node": "node2-results"
+    },
+    "argument1": {
+      "node": "node3",
+      "type": "when",
+      "argument-count": 1,
+      "negation": false,
+      "results": {
+        "node": "node3-results"
+      },
+      "argument1": {
+        "node": "node4",
+        "type": "apply-relation",
+        "argument-count": 3,
+        "negation": false,
+        "results": {
+          "node": "node4-results"
+        },
+        "argument1": {
+          "node": "node5",
+          "type": "apply-property",
+          "argument-count": 3,
+          "negation": false,
+          "results": {
+            "node": "node5-results"
+          },
+          "argument1": "STATE",
+          "argument2": "category",
+          "argument3": "apple"
+        },
+        "argument2": {
+          "node": "node6",
+          "type": "apply-property",
+          "argument-count": 3,
+          "negation": false,
+          "results": {
+            "node": "node6-results"
+          },
+          "argument1": "STATE",
+          "argument2": "category",
+          "argument3": "fridge"
+        },
+        "argument3": "in"
+      }
+    },
+    "argument2": "category",
+    "argument3": "pot"
+  },
+  "argument2": "dirty"
+}

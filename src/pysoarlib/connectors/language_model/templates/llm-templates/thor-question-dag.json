@@ -1,0 +1,21 @@
+{
+    "llm-template": "thor-question-dag",
+    "examples": [
+        "state-query-dag"
+    ],
+    "domain": "thor-soar",
+    "system-prompt": "json-tree",
+    "world-context": true,
+    "soar-context": false,
+    "history-context": [
+        "dialog"
+    ],
+    "prompt-template": "input-1-argument",
+    "repair-prompt": false,
+    "response-type": "json",
+    "output-template": "output",
+    "model": "gpt-4o",
+    "api": "langchain",
+    "number-of-results": 1,
+    "temperature": 0.0
+}
