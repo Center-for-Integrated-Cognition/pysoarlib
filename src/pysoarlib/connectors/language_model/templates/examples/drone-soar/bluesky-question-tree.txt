@@ -9,7 +9,8 @@ World context:
             "source-agent" : "C1",
             "direction" : "north",
             "heading" : 0,
-            "speed" : 0,
+            "speed" : 10,
+            "speed-units": "knots",
             "priority" : 0,
             "type" : "oil-tanker",
             "id" : "Bluesky",
@@ -42,7 +43,30 @@ Output:
   },
   "argument2": "direction"
 }
-Input: When the Bluesky was going south what port was the Bluesky going to?
+Input: How many ships are going north?
+Output:
+{
+  "node": "node1",
+  "type": "count",
+  "argument-count": 1,
+  "negation": false,
+  "results": {
+    "node": "node1-results"
+  },
+  "argument1": {
+    "node": "node2",
+    "type": "apply-property",
+    "argument-count": 3,
+    "negation": false,
+    "results": {
+      "node": "node2-results"
+    },
+    "argument1": "STATE",
+    "argument2": "direction",
+    "argument3": "north"
+  }
+}
+Input: When the Bluesky was heading south where was the Bluesky going?
 Output:
 {
   "node": "node1",
@@ -96,4 +120,162 @@ Output:
     "argument3": "Bluesky"
   },
   "argument2": "next-port"
+}
+Input: How fast is the Shinkai in kph?
+Output:
+{
+    "node": "node1",
+    "type": "convert-units",
+    "argument-count": 3,
+    "negation": false,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "attribute-of",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": "STATE",
+            "argument2": "id",
+            "argument3": "Shinkai"
+        },
+        "argument2": "speed"
+    },
+    "argument2": "knots",
+    "argument3": "kph"
+}
+Input: How many km apart are the two ships?
+Output:
+{
+    "node": "node1",
+    "type": "haversine-formula",
+    "argument-count": 2,
+    "negation": false,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "apply-property",
+        "argument-count": 3,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": "STATE",
+        "argument2": "id",
+        "argument3": "Seabreeze"
+    },
+    "argument2": {
+        "node": "node3",
+        "type": "apply-property",
+        "argument-count": 3,
+        "negation": false,
+        "results": {
+            "node": "node3-results"
+        },
+        "argument1": "STATE",
+        "argument2": "id",
+        "argument3": "Shinkai"
+    }
+}
+Input: What is the max heading of the ships going north?
+Output:
+{
+    "node": "node1",
+    "type": "max",
+    "argument-count": 1,
+    "negation": false,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "attribute-of",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+          "node": "node2-results"
+        },
+        "argument1": {
+          "node": "node3",
+          "type": "apply-property",
+          "argument-count": 3,
+          "negation": false,
+          "results": {
+            "node": "node3-results"
+          },
+          "argument1": "STATE",
+          "argument2": "direction",
+          "argument3": "north"
+        },
+        "argument2": "heading"
+    }
+}
+Input: While the Bluesky was traveling to port-A what was the speed of the Bluesky?
+Output:
+{
+  "node": "node1",
+  "type": "attribute-of",
+  "argument-count": 2,
+  "negation": false,
+  "results": {
+    "node": "node1-results"
+  },
+  "argument1": {
+    "node": "node2",
+    "type": "apply-property",
+    "argument-count": 3,
+    "negation": false,
+    "results": {
+      "node": "node2-results"
+    },
+    "argument1": {
+      "node": "node3",
+      "type": "while",
+      "argument-count": 1,
+      "negation": false,
+      "results": {
+        "node": "node3-results"
+      },
+      "argument1": {
+        "node": "node4",
+        "type": "apply-property",
+        "argument-count": 3,
+        "negation": false,
+        "results": {
+          "node": "node4-results"
+        },
+        "argument1": {
+          "node": "node5",
+          "type": "apply-property",
+          "argument-count": 3,
+          "negation": false,
+          "results": {
+            "node": "node5-results"
+          },
+          "argument1": "STATE",
+          "argument2": "id",
+          "argument3": "Bluesky"
+        },
+        "argument2": "next-port",
+        "argument3": "port-A"
+      }
+    },
+    "argument2": "id",
+    "argument3": "Bluesky"
+  },
+  "argument2": "speed"
 }
