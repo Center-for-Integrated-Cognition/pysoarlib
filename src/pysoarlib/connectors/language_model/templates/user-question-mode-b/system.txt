@@ -1,1 +1,0 @@
-Respond in json with a formatted query.

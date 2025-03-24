@@ -1,4 +1,0 @@
-World context:
-?argument2
-Question: ?argument1
-Answer:

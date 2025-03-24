@@ -1,1 +1,0 @@
-Generate goals by translating the given sentence into a set of simple desired goals in JSON using the provided world state in JSON as context.
