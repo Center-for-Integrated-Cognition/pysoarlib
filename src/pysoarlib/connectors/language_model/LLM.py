@@ -754,7 +754,36 @@ class LLM:
     
     
 
+    # def prompt_llm_langchain_multi_response(self, prompt, system_prompt, num_results):
+    #     """
+    #     prompt llm using supplied prompts
+    #     return response
+    #     """
 
+    #     temperature = self.temperature
+    #     model = self.model
+    #     #model = "gpt-3.5-turbo-instruct"
+    #     if num_results == 1:
+    #         llm = ChatOpenAI(model_name=model, temperature=temperature).bind(logprobs=True) #don't need top logprobs for one result
+    #     else:
+    #         llm = ChatOpenAI(model_name=model, temperature=temperature).bind(logprobs=True).bind(top_logprobs=num_results)
+        
+    #     system_input = system_prompt
+    #     user_input = prompt
+
+    #     message = [
+    #         ("system", system_input),
+    #         ("human", user_input),
+    #     ]
+
+    #     print("System prompt:" + system_input)
+    #     print("User prompt:" + user_input)
+
+    #     response = llm.invoke(message)
+
+    #     #print("Response:" + response.content)
+
+    #     return response
 
     def prompt_langchain(self, user_prompt, system_prompt, query, config, sequence_number, dialog):
         temperature = config["temperature"]
@@ -803,7 +832,7 @@ class LLM:
             
             if "state" in config["history-context"]:
                 self.command_history = self.command_history + "World update: " + str(json_object).replace("desired", "relation")
-        else:
+        elif num_results == 1:
             print("Response:" + content)
 
             if "dialog" in config["history-context"]:
@@ -811,6 +840,25 @@ class LLM:
                 self.command_history = self.command_history + "Answer:" + content # + "\n"
             result = LMResult(content, config["response-type"], 1.0, 1) #todo fix probability access
             results.append(result)
+        else: #TODO handle multi json response
+            top_logprobs = response.response_metadata
+            complete_generation = False
+            if int(top_logprobs['token_usage']['completion_tokens']) > 0:
+                complete_generation = True
+                results = self.complete_toplogprob_generation(response, config["response-type"], user_input, system_prompt)
+            else:
+                top = top_logprobs['logprobs']['content'][0]['top_logprobs']
+                order = 1
+                for result in top:
+                    logprob = result['logprob']
+                    content = result['token']
+                    prob = np.exp(float(logprob))
+                    result = LMResult(content, config["response-type"], prob, order)
+                    results.append(result)
+                    order = order + 1
+  
+            for result in results:
+                print("Response: " + result.response)
         
         return LMResponse(query, results, sequence_number)
 
