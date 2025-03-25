@@ -1,5 +1,5 @@
 {
-    "llm-template": "drone-question-tree",
+    "llm-template": "drone-question-dag",
     "examples": [
         "bluesky-question-tree"
     ],
