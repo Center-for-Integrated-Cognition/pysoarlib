@@ -16,6 +16,7 @@ class Response(WMInterface):
         self.sequence_number = query.sequence_number
         self.query = query
         self.results = results
+        self.identifier = None
     
     def add_to_wm(self, parent_id):
         id = parent_id.GetValueAsString()

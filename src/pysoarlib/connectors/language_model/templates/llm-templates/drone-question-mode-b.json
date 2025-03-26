@@ -1,5 +1,5 @@
 {
-    "llm-template": "drone-question-mode-B",
+    "llm-template": "drone-question-mode-b",
     "examples": [
         "bluesky-type-points-speed"
     ],
