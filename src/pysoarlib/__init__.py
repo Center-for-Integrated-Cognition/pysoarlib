@@ -1,4 +1,4 @@
-""" Helper classes and functions for creating a soar agent and working with SML
+"""Helper classes and functions for creating a soar agent and working with SML
 
 Depends on the Python_sml_ClientInterface, so make sure that SOAR_HOME is on the PYTHONPATH
 
@@ -21,7 +21,7 @@ __all__ = [
     "AgentConnector",
     "SoarClient",
     "TimeConnector",
-    "LMConnector"
+    "LMConnector",
 ]
 
 # Extend the sml Identifier class definition with additional utility methods
@@ -45,4 +45,9 @@ from pysoarlib.SVSCommands import SVSCommands
 from pysoarlib.AgentConnector import AgentConnector
 from pysoarlib.SoarClient import SoarClient
 from pysoarlib.TimeConnector import TimeConnector
-from pysoarlib.connectors.language_model.LMConnector import LMConnector
+
+# only works if langchain_openai is installed
+try:
+    from pysoarlib.connectors.language_model.LMConnector import LMConnector
+except ImportError:
+    pass
