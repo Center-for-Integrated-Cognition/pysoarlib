@@ -1,0 +1,17 @@
+{
+    "llm-template": "drone-predict-next-port-no-previous",
+    "examples": [],
+    "domain": "drone-soar",
+    "system-prompt": "destination-word",
+    "world-context": false,
+    "soar-context": false,
+    "history-context": [],
+    "prompt-template": "expected-destination-no-previous",
+    "repair-prompt": false,
+    "response-type": "string",
+    "output-template": "str-answer",
+    "model": "gpt-4o",
+    "api": "langchain",
+    "number-of-results": 5,
+    "temperature": 0.0
+}

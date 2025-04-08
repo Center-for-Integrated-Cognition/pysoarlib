@@ -791,12 +791,13 @@ class LLM:
         num_results = config["number-of-results"]
         if model == "gpt-4o": #use specific model for stability
             model = "gpt-4o-2024-08-06"
-
+        #print ("Model:" + model)
         if config["response-type"] == "json":
             llm = ChatOpenAI(model_name=model, temperature=temperature).bind(response_format={"type": "json_object"})
         else:
             if num_results == 1:
-                llm = ChatOpenAI(model_name=model, temperature=temperature).bind(logprobs=True) #don't need top logprobs for one result
+                llm = ChatOpenAI(model_name=model)# reasoning_effort="low")#, temperature=temperature)
+                #.bind(logprobs=True) #don't need top logprobs for one result
             else:
                 llm = ChatOpenAI(model_name=model, temperature=temperature).bind(logprobs=True).bind(top_logprobs=num_results)
 
@@ -822,7 +823,7 @@ class LLM:
         results = []
         if config["response-type"] == "json":
             json_object = json.loads(content)
-            print(json.dumps(json_object, indent=4))
+            #print(json.dumps(json_object, indent=4))
             
             result = LMResult(json_object, "json", 1.0, 1)
             results.append(result)
@@ -857,8 +858,8 @@ class LLM:
                     results.append(result)
                     order = order + 1
   
-            for result in results:
-                print("Response: " + result.response)
+            #for result in results:
+                #print("Response: " + result.response)
         
         return LMResponse(query, results, sequence_number)
 

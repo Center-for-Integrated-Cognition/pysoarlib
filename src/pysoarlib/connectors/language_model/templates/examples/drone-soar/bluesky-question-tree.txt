@@ -121,7 +121,7 @@ Output:
   },
   "argument2": "next-port"
 }
-Input: How fast is the Shinkai in kph?
+Input: How fast is the Shinkai in km/h?
 Output:
 {
     "node": "node1",
