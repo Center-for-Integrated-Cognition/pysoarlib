@@ -789,15 +789,17 @@ class LLM:
         temperature = config["temperature"]
         model = config["model"]
         num_results = config["number-of-results"]
-        if model == "gpt-4o": #use specific model for stability
-            model = "gpt-4o-2024-08-06"
-        #print ("Model:" + model)
+        # if model == "gpt-4o": #use specific model for stability
+        #     model = "gpt-4o-2024-08-06"
+        print ("Model:" + model)
         if config["response-type"] == "json":
             llm = ChatOpenAI(model_name=model, temperature=temperature).bind(response_format={"type": "json_object"})
         else:
             if num_results == 1:
-                llm = ChatOpenAI(model_name=model)# reasoning_effort="low")#, temperature=temperature)
-                #.bind(logprobs=True) #don't need top logprobs for one result
+                if model == "gpt-4o":
+                    llm = ChatOpenAI(model_name=model, temperature=temperature) #.bind(logprobs=True) 
+                else:
+                    llm = ChatOpenAI(model_name=model)# reasoning_effort="low")#
             else:
                 llm = ChatOpenAI(model_name=model, temperature=temperature).bind(logprobs=True).bind(top_logprobs=num_results)
 
@@ -816,14 +818,14 @@ class LLM:
 
         response = llm.invoke(message)
 
-        
+        #print(response)
         content = response.content
 
         
         results = []
         if config["response-type"] == "json":
             json_object = json.loads(content)
-            #print(json.dumps(json_object, indent=4))
+            print(json.dumps(json_object, indent=4))
             
             result = LMResult(json_object, "json", 1.0, 1)
             results.append(result)
@@ -884,6 +886,8 @@ class LLM:
                     selected_type = "thor-question-dag"
                 if template == "context-history-desireds" and query.arguments[0][-1] != "?":
                     selected_type = "context-history-desireds"
+                if template == "thor-goal-dag" and query.arguments[0][-1] != "?":
+                    selected_type = "thor-goal-dag"
         if selected_type:
             type = selected_type
             template_config = self.get_llm_template(selected_type)
