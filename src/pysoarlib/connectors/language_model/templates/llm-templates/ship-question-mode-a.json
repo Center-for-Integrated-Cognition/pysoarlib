@@ -1,18 +1,18 @@
 {
-    "llm-template": "drone-question-dag",
+    "llm-template": "ship-question-mode-a",
     "example-context": "context-bluesky",
     "examples": [
-        "bluesky-question-tree"
+        "bluesky-accelerating"
     ],
-    "domain": "drone-soar",
-    "system-prompt": "json-tree",
+    "domain": "ship",
+    "system-prompt": "succinct",
     "world-context": false,
     "soar-context": true,
     "history-context": [],
-    "prompt-template": "input-1-argument",
+    "prompt-template": "question-1-argument",
     "repair-prompt": false,
-    "response-type": "json",
-    "output-template": "output",
+    "response-type": "string",
+    "output-template": "str-answer",
     "model": "gpt-4o",
     "api": "langchain",
     "number-of-results": 1,

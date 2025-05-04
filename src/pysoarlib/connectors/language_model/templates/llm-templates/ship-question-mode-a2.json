@@ -1,19 +1,20 @@
 {
-    "llm-template": "drone-question-mode-b",
-    "example-context": "context-bluesky",
+    "llm-template": "ship-question-mode-a2",
+    "example-context": "context-bluesky-oceanic",
     "examples": [
-        "kind-of-ship-B1",
-        "position-of-bluesky-B1",
-        "speed-of-bluesky-B1"
+        "direction-blueksy-A2",
+        "how-many-north-A2",
+        "speed-of-bluesky-kph-A2",
+        "distance-apart-km-A2"
     ],
-    "domain": "drone-soar",
-    "system-prompt": "json-query",
+    "domain": "ship",
+    "system-prompt": "succinct",
     "world-context": false,
     "soar-context": true,
     "history-context": [],
     "prompt-template": "question-1-argument",
     "repair-prompt": false,
-    "response-type": "json",
+    "response-type": "string",
     "output-template": "str-answer",
     "model": "gpt-4o",
     "api": "langchain",
