@@ -666,7 +666,7 @@ class LLM:
             dirname = os.path.dirname(__file__)
             filename = os.path.join(dirname, dir)
 
-            examples += self.get_str_from_file(filename)
+            examples += self.get_str_from_file(filename) + "\n"
         
         if config["examples"] and config["domain"]:
             first = True
