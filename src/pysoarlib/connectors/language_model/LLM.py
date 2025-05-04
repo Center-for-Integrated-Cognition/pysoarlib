@@ -660,10 +660,18 @@ class LLM:
         get prompt examples from file(s) specified by config
         """
         examples = ""
+
+        if "example-context" in config:
+            dir ="templates/examples/" + config["domain"] + "/" + config["example-context"] + ".txt"
+            dirname = os.path.dirname(__file__)
+            filename = os.path.join(dirname, dir)
+
+            examples += self.get_str_from_file(filename)
+        
         if config["examples"] and config["domain"]:
             first = True
             for example in config["examples"]:
-                print("example:" + example)
+                #print("example:" + example)
                 dir ="templates/examples/" + config["domain"] + "/" + example + ".txt"
                 dirname = os.path.dirname(__file__)
                 filename = os.path.join(dirname, dir)

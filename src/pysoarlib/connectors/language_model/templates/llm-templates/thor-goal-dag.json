@@ -1,5 +1,6 @@
 {
     "llm-template": "thor-goal-dag",
+    "example-context": "context-pot-counter",
     "examples": [
         "state-goal-dag"
     ],

@@ -1,5 +1,6 @@
 {
     "llm-template": "thor-question-dag",
+    "example-context": "context-pot-counter",
     "examples": [
         "state-query-dag"
     ],

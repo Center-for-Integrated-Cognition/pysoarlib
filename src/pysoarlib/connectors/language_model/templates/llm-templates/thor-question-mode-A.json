@@ -1,5 +1,6 @@
 {
     "llm-template": "thor-question-mode-A",
+    "example-context": "context-pot-counter",
     "examples": [
         "state-query"
     ],

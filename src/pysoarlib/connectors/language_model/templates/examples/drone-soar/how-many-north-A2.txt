@@ -1,0 +1,2 @@
+Question: How many ships are going north?
+Answer: One ship is traveling north.

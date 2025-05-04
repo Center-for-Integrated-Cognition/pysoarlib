@@ -1,5 +1,6 @@
 {
     "llm-template": "drone-question-dag",
+    "example-context": "context-bluesky",
     "examples": [
         "bluesky-question-tree"
     ],

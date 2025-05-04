@@ -1,7 +1,8 @@
 {
     "llm-template": "drone-question-mode-combined",
+    "example-context": "context-bluesky",
     "examples": [
-        "bluesky-type-response-and-query"
+        "kind-of-ship-combined-A1-B1"
     ],
     "domain": "drone-soar",
     "system-prompt": "json-query",

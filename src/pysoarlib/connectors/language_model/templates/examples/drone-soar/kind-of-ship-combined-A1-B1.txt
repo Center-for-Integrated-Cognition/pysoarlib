@@ -1,0 +1,10 @@
+Question: What kind of ship is the Bluesky?
+Answer:
+{
+    "single-word-response": "oil-tanker",
+    "response": "The Bluesky is an oil-tanker",
+    query: {
+        "id" : "Bluesky",
+        "field : "type"
+    }
+}

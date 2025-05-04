@@ -1,5 +1,6 @@
 {
     "llm-template": "drone-question-mode-a",
+    "example-context": "context-bluesky",
     "examples": [
         "bluesky-accelerating"
     ],
