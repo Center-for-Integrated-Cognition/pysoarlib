@@ -34,7 +34,7 @@ class QueryConnector(AgentConnector):
        # """  A dictionary of connector wmes  """
        # self.connector_names = self.communicator.connectors.keys()
        # self.connector_ids = {}
-        
+
 
     # def on_init_soar(self):
     #     # print("on_init_soar")
@@ -65,13 +65,13 @@ class QueryConnector(AgentConnector):
     #     """
     #     if command_name == "language-model":#"lm-request":
     #         if self.response != None:
-    #             self.response.remove_from_wm()      
+    #             self.response.remove_from_wm()
     #             self.response = None
 
     #         self.process_lm_request(root_id)
     #     if command_name == "delete-lm-response":#"lm-request":
     #         if self.response != None:
-    #             self.response.remove_from_wm()      
+    #             self.response.remove_from_wm()
     #             self.response = None
     #         root_id.CreateStringWME("status", "complete")
 
@@ -142,12 +142,14 @@ class QueryConnector(AgentConnector):
     def remember_response(self, response):
         sequence_number = response.sequence_number
         self.responses[sequence_number] = response
-    
+
     def delete_response(self, sequence_number):
-        response = self.responses[sequence_number]
-        response.remove_from_wm()
-        self.responses.pop(sequence_number)
-    
+        """ Don't try to delete it if it's not there """
+        if len(self.responses) > sequence_number:
+            response = self.responses[sequence_number]
+            response.remove_from_wm()
+            self.responses.pop(sequence_number)
+
     def process_query_command(self, root_id):
         """
         Processes query from output-link command
@@ -167,7 +169,7 @@ class QueryConnector(AgentConnector):
             root_id.CreateStringWME("error-info", "query has no type")
             self.client.print_handler("Error - outputlink query has no type")
             return
-        
+
         #Use sequence-number as unique id of response
         sequence_number = query_id.FindByAttribute("sequence-number", 0).ConvertToIntElement().GetValue()
         # print(sequence_number)
@@ -178,7 +180,7 @@ class QueryConnector(AgentConnector):
         context = None
         if query_id.FindByAttribute("context", 0):
             context = query_id.FindByAttribute("context", 0).ConvertToIdentifier()
-        
+
         arguments = []
         i = 1
         while (i <= argument_count):

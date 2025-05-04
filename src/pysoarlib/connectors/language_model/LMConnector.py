@@ -15,12 +15,12 @@ class LMConnector(QueryConnector):
         self.add_output_command("language-model")
         self.add_output_command("delete-lm-response")
         #self.add_output_command("lm-request")
-       
+
         self.response = None
         self.temperature = 0
         self.model = model
         self.lm = LLM(world_connector, self.temperature, self.model)
-        
+
 
         self.lm_id = None
         self.lm_failsafe = 0 #to prevent accidental exhaustion of tokens
@@ -36,6 +36,7 @@ class LMConnector(QueryConnector):
         if self.lm_id != None:
             self.lm_id.DestroyWME()
             self.lm_id = None
+            self.needs_setup = True
 
     def on_input_phase(self, input_link):
         """
@@ -60,7 +61,7 @@ class LMConnector(QueryConnector):
         """
         if command_name == "language-model":#"lm-request":
             if self.response != None:
-                self.response.remove_from_wm()      
+                self.response.remove_from_wm()
                 self.response = None
 
             self.process_lm_query(root_id)
@@ -70,17 +71,17 @@ class LMConnector(QueryConnector):
                 sequence_number = root_id.FindByAttribute("sequence-number", 0).ConvertToIntElement().GetValue()
                 self.delete_response(sequence_number)
             elif self.response != None:
-                self.response.remove_from_wm()      
+                self.response.remove_from_wm()
                 self.response = None
             root_id.CreateStringWME("status", "complete")
 
-   
+
     # def process_lm_request(self, root_id):
     #     """
     #     Processes lm request getting parameters from output-link command
     #     result is new response created (that will be added on input-phase)
     #     """
-       
+
     #     #Get request type
     #     query_id = root_id.GetChildId("query")
     #     request_type = query_id.FindByAttribute("type", 0).GetValueAsString()
@@ -89,7 +90,7 @@ class LMConnector(QueryConnector):
     #         root_id.CreateStringWME("error-info", "lm-request has no type")
     #         self.client.print_handler("LMConnector: Error - lm-request has no type")
     #         return
-       
+
     #     #Use wme as unique id of response (maybe not necessary)
     #     #root_wme = root_id.GetValueAsString()
 
@@ -125,16 +126,16 @@ class LMConnector(QueryConnector):
     #     if self.lm_failsafe > 1000:
     #         print("HIT FAIL SAFETY limit stop running language model")
     #         return
-       
+
     #     print("Running request for type " + request_type + " with argument " + str(arguments))
     #     #self.response = self.lm.parse_request(None,request_type, arguments, sequence_number)
     #     #self.response = self.lm.parse_request_new(None,request_type, arguments, sequence_number)
     #     self.response = self.lm.process_request(None,request_type, arguments, sequence_number, context)
-       
+
     #     self.lm_failsafe += 1
     #     root_id.CreateStringWME("status", "complete")
     #     return
-    
+
 
 
     def process_lm_query(self, root_id):
@@ -142,7 +143,7 @@ class LMConnector(QueryConnector):
         Processes lm request getting parameters from output-link command
         result is new response created (that will be added on input-phase)
         """
-       
+
         #Get query
         query = self.process_query_command(root_id)
 
@@ -150,7 +151,7 @@ class LMConnector(QueryConnector):
         if self.lm_failsafe > 500:
             print("HIT FAIL SAFETY limit stop running language model")
             return
-       
+
         print("Running request for type " + query.type + " with argument " + str(query.arguments))
 
         #self.response = self.lm.process_request(query,request_type, arguments, sequence_number, context)
@@ -164,21 +165,21 @@ class LMConnector(QueryConnector):
 #     def __init__(self, communicator, model):
 #         """  Get registered with the Communicator  """
 #         ExternalConnector.__init__(self, communicator, "language-model")
-        
+
 #         self.temperature = 0
 #         self.model = model
 #         self.lm = LLM(self, self.temperature, self.model)
 
 #         self.lm_failsafe = 0 #to prevent accidental exhaustion of tokens
 
-    
+
 #     def execute(self, query):
 #         """
 #         Processes lm request getting parameters from output-link command
 #         result is new response created (that will be added on input-phase)
 #         """
 
-#         #Prevent over access of LM to avoid depleting tokens due to bug 
+#         #Prevent over access of LM to avoid depleting tokens due to bug
 #         if self.lm_failsafe > 300:
 #             print("HIT FAIL SAFETY limit (300) stop running language model")
 #             return
