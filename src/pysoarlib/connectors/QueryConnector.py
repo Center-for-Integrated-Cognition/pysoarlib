@@ -145,7 +145,7 @@ class QueryConnector(AgentConnector):
 
     def delete_response(self, sequence_number):
         """ Don't try to delete it if it's not there """
-        if len(self.responses) > sequence_number:
+        if sequence_number in self.responses.keys():
             response = self.responses[sequence_number]
             response.remove_from_wm()
             self.responses.pop(sequence_number)
