@@ -2,6 +2,8 @@
 This module defines a set of methods that generate SVS string commands
 """
 
+from typing import List, Optional
+
 
 class SVSCommands:
     """Contains static methods that generate SVS string commands
@@ -11,17 +13,17 @@ class SVSCommands:
     """
 
     @staticmethod
-    def pos_to_str(pos):
+    def pos_to_str(pos: List[float]):
         """Returns a string of 3 space-separated position values"""
         return "{:f} {:f} {:f}".format(pos[0], pos[1], pos[2])
 
     @staticmethod
-    def rot_to_str(rot):
+    def rot_to_str(rot: List[float]):
         """Returns a string of 3 space-separated rotation values"""
         return "{:f} {:f} {:f}".format(rot[0], rot[1], rot[2])
 
     @staticmethod
-    def scl_to_str(scl):
+    def scl_to_str(scl: List[float]):
         """Returns a string of 3 space-separated scale values"""
         return "{:f} {:f} {:f}".format(scl[0], scl[1], scl[2])
 
@@ -34,7 +36,13 @@ class SVSCommands:
         return "0.5 0.5 0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5 -0.5"
 
     @staticmethod
-    def add_node(node_id, pos=None, rot=None, scl=None, parent="world"):
+    def add_node(
+        node_id,
+        pos: Optional[List[float]] = None,
+        rot: Optional[List[float]] = None,
+        scl: Optional[List[float]] = None,
+        parent="world",
+    ):
         """Returns an SVS command for adding a graph node to the scene (no geometry)"""
         cmd = "add {:s} {:s} ".format(node_id, parent)
         if pos:
@@ -46,7 +54,13 @@ class SVSCommands:
         return cmd
 
     @staticmethod
-    def add_box(obj_id, pos=None, rot=None, scl=None, parent="world"):
+    def add_box(
+        obj_id,
+        pos: Optional[List[float]] = None,
+        rot: Optional[List[float]] = None,
+        scl: Optional[List[float]] = None,
+        parent="world",
+    ):
         """Returns an SVS command for adding a bounding box object to the scene"""
         cmd = "add {:s} {:s} v {:s}".format(obj_id, parent, SVSCommands.bbox_verts())
         if pos:
@@ -58,17 +72,17 @@ class SVSCommands:
         return cmd
 
     @staticmethod
-    def change_pos(obj_id, pos):
+    def change_pos(obj_id, pos: List[float]):
         """Returns an SVS command for changing the position of an svs object"""
         return "change {:s} p {:s}".format(obj_id, SVSCommands.pos_to_str(pos))
 
     @staticmethod
-    def change_rot(obj_id, rot):
+    def change_rot(obj_id, rot: List[float]):
         """Returns an SVS command for changing the rotation of an svs object"""
         return "change {:s} r {:s}".format(obj_id, SVSCommands.rot_to_str(rot))
 
     @staticmethod
-    def change_scl(obj_id, scl):
+    def change_scl(obj_id, scl: List[float]):
         """Returns an SVS command for changing the scale of an svs object"""
         return "change {:s} s {:s}".format(obj_id, SVSCommands.scl_to_str(scl))
 
