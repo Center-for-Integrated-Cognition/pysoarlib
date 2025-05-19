@@ -1,5 +1,6 @@
 {
     "llm-template": "context-history-desired",
+    "example-context": "context-pot-counter",
     "examples": [
         "clean-pot-counter"
     ],

@@ -1,0 +1,47 @@
+Input: The goal is that the dirty pot is in the fridge.
+Output:
+{
+    "node": "node1",
+    "type": "apply-relation",
+    "argument-count": 3,
+    "negation": false,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "apply-property",
+        "argument-count": 3,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": "STATE",
+            "argument2": "category",
+            "argument3": "pot"
+        },
+        "argument2": "dirty",
+        "argument3": "true"
+    },
+    "argument2": {
+        "node": "node4",
+        "type": "apply-property",
+        "argument-count": 3,
+        "negation": false,
+        "results": {
+            "node": "node4-results"
+        },
+        "argument1": "STATE",
+        "argument2": "category",
+        "argument3": "fridge"
+    },
+    "argument3": "in"
+}

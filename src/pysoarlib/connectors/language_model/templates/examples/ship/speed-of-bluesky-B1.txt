@@ -1,0 +1,5 @@
+Question: What is twice the speed of the Bluesky?
+Answer:
+{
+    "calculation" : 20
+}

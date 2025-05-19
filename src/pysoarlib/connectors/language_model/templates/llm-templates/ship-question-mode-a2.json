@@ -1,9 +1,13 @@
 {
-    "llm-template": "drone-question-mode-a",
+    "llm-template": "ship-question-mode-a2",
+    "example-context": "context-bluesky-oceanic",
     "examples": [
-        "bluesky-accelerating"
+        "direction-blueksy-A2",
+        "how-many-north-A2",
+        "speed-of-bluesky-kph-A2",
+        "distance-apart-km-A2"
     ],
-    "domain": "drone-soar",
+    "domain": "ship",
     "system-prompt": "succinct",
     "world-context": false,
     "soar-context": true,

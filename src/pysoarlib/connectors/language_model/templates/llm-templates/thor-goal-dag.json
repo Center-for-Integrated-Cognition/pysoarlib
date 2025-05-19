@@ -1,12 +1,13 @@
 {
-    "llm-template": "drone-question-dag",
+    "llm-template": "thor-goal-dag",
+    "example-context": "context-pot-counter",
     "examples": [
-        "bluesky-question-tree"
+        "state-goal-dag"
     ],
-    "domain": "drone-soar",
+    "domain": "thor-soar",
     "system-prompt": "json-tree",
-    "world-context": false,
-    "soar-context": true,
+    "world-context": true,
+    "soar-context": false,
     "history-context": [],
     "prompt-template": "input-1-argument",
     "repair-prompt": false,

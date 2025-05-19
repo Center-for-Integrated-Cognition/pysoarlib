@@ -275,8 +275,12 @@ class SoarClient:
         if self.config.agent_source != None:
             if self.config.source_output != "none":
                 self.print_handler("--------- SOURCING PRODUCTIONS ------------")
+            if self.config.source_output != "none":
+                verbose = " -v"
+            else:
+                verbose = ""
             result = self.execute_command(  # type: ignore
-                f"source {{{self.config.agent_source.as_posix()}}} -v", True
+                f"source {{{self.config.agent_source.as_posix()}}} {verbose}", True
             )
             if self.config.source_output == "full":
                 self.print_handler(result)

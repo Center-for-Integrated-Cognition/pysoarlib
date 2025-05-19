@@ -1,0 +1,6 @@
+Question: What kind of ship is the Bluesky?
+Answer:
+{
+    "id" : "Bluesky",
+    "field : "type"
+}

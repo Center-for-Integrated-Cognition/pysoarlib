@@ -1,9 +1,12 @@
 {
-    "llm-template": "drone-question-mode-combined",
+    "llm-template": "ship-question-mode-b",
+    "example-context": "context-bluesky",
     "examples": [
-        "bluesky-type-response-and-query"
+        "kind-of-ship-B1",
+        "position-of-bluesky-B1",
+        "speed-of-bluesky-B1"
     ],
-    "domain": "drone-soar",
+    "domain": "ship",
     "system-prompt": "json-query",
     "world-context": false,
     "soar-context": true,

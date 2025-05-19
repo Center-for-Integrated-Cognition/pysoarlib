@@ -1,16 +1,14 @@
 {
-    "llm-template": "thor-question-mode-A",
-    "example-context": "context-pot-counter",
+    "llm-template": "ship-question-mode-a",
+    "example-context": "context-bluesky",
     "examples": [
-        "state-query"
+        "bluesky-accelerating"
     ],
-    "domain": "thor-soar",
+    "domain": "ship",
     "system-prompt": "succinct",
-    "world-context": true,
-    "soar-context": false,
-    "history-context": [
-        "dialog"
-    ],
+    "world-context": false,
+    "soar-context": true,
+    "history-context": [],
     "prompt-template": "question-1-argument",
     "repair-prompt": false,
     "response-type": "string",
