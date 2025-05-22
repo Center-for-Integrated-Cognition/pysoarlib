@@ -37,6 +37,7 @@ class LLM:
         self.world_connector = world_connector
         self.api = api
         self.command_history = ""
+        self.test_mode = False # This can be set to True to inhibit printouts
 
     def get_str_from_file(self, filename):
         """ strip text from file given filename
@@ -819,10 +820,11 @@ class LLM:
             ("human", user_input),
         ]
 
-        print("System prompt:")
-        print(system_input)
-        print("User prompt:")
-        print(user_input)
+        if not self.test_mode:
+            print("System prompt:")
+            print(system_input)
+            print("User prompt:")
+            print(user_input)
 
         response = llm.invoke(message)
 

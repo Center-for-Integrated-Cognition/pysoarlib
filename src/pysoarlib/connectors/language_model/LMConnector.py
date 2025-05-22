@@ -25,6 +25,14 @@ class LMConnector(QueryConnector):
         self.lm_id = None
         self.lm_failsafe = 0 #to prevent accidental exhaustion of tokens
 
+    """
+    This method is called by the Tester to set things in test mode.
+    """
+    def set_test_mode(self, callback):
+        self.test_mode = True
+        self.test_callback = callback
+        self.lm.test_mode = True
+
     def on_init_soar(self):
         """
         on init remove existing responses, input-link WM id if they already exist
@@ -159,6 +167,11 @@ class LMConnector(QueryConnector):
         self.lm_failsafe += 1
         self.remember_response(self.response)
         root_id.CreateStringWME("status", "complete")
+
+        """ In test mode, send the response to the Tester """
+        if self.test_mode:
+            self.test_callback(self.response)
+
         return
 
 # class LMConnector(ExternalConnector):
