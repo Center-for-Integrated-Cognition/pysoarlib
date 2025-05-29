@@ -2,7 +2,7 @@
     "llm-template": "ship-question-mode-a2",
     "example-context": "context-bluesky-oceanic",
     "examples": [
-        "direction-blueksy-A2",
+        "direction-bluesky-A2",
         "how-many-north-A2",
         "speed-of-bluesky-kph-A2",
         "distance-apart-km-A2"

@@ -25,6 +25,8 @@ class LMConnector(QueryConnector):
         self.lm_id = None
         self.lm_failsafe = 0 #to prevent accidental exhaustion of tokens
 
+        self.test_mode = False
+
     """
     This method is called by the Tester to set things in test mode.
     """
