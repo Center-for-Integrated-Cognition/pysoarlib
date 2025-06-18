@@ -311,3 +311,46 @@ Output:
         "argument2": "speed"
       }
 }
+Input: Which ship is closest to port-A?
+Output:
+{
+    "node": "node1",
+    "type": "min",
+    "argument-count": 1,
+    "negation": false,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "haversine-formula",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": "STATE",
+            "argument2": "category",
+            "argument3": "ship"
+        },
+        "argument2": {
+            "node": "node4",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node4-results"
+            },
+            "argument1": "STATE",
+            "argument2": "id",
+            "argument3": "port-A"
+        }
+}

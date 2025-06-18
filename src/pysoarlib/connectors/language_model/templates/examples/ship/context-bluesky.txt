@@ -1,6 +1,6 @@
 World context:
 {
-    "target" = [
+    "object" = [
         {
             "next-port" : "port-A",
             "previous-port" : "port-B",
@@ -15,7 +15,8 @@ World context:
             "type" : "oil-tanker",
             "id" : "Bluesky",
             "latitude" : 30.0,
-            "longitude" : 127.0
+            "longitude" : 127.0,
+            "category" : "ship"
         }
     ]
 }

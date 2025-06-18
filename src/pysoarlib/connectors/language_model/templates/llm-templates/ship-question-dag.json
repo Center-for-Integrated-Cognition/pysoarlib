@@ -1,6 +1,6 @@
 {
     "llm-template": "ship-question-dag",
-    "example-context": "context-bluesky",
+    "example-context": "context-bluesky-port",
     "examples": [
         "bluesky-question-tree"
     ],
