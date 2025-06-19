@@ -678,7 +678,7 @@ class LLM:
                 filename = os.path.join(dirname, dir)
                 if not first:
                     examples += "\n"
-                    first = False
+                first = False
                 examples += self.get_str_from_file(filename)
         return examples
     
