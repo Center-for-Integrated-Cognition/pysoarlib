@@ -1,0 +1,31 @@
+World context:
+{
+    "object" = [
+        {
+            "next-port" : "port-A",
+            "previous-port" : "port-B",
+            "port-achieved" : False,
+            "source-sensor" : "ais-sensor",
+            "source-agent" : "C1",
+            "direction" : "north",
+            "heading" : 0,
+            "speed" : 10,
+            "speed-units": "knots",
+            "priority" : 0,
+            "type" : "oil-tanker",
+            "id" : "Bluesky",
+            "latitude" : 30.0,
+            "longitude" : 127.0,
+            "category" : "ship"
+        },
+        {
+            "longitude": 129.525,
+            "latitude": 33.4,
+            "country": "Japan",
+            "y": 1050,
+            "x": 1350,
+            "id": "port-A",
+            "category": "port"
+        },
+    ]
+}
