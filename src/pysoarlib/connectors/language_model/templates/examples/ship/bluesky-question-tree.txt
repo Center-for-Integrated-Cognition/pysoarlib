@@ -5,6 +5,7 @@ Output:
   "type": "attribute-of",
   "argument-count": 2,
   "negation": false,
+  "answer-node": true,
   "results": {
     "node": "node1-results"
   },
@@ -29,6 +30,7 @@ Output:
   "type": "count",
   "argument-count": 1,
   "negation": false,
+  "answer-node": true,
   "results": {
     "node": "node1-results"
   },
@@ -52,6 +54,7 @@ Output:
   "type": "attribute-of",
   "argument-count": 2,
   "negation": false,
+  "answer-node": true,
   "results": {
     "node": "node1-results"
   },
@@ -100,13 +103,14 @@ Output:
   },
   "argument2": "next-port"
 }
-Input: How fast is the Shinkai in km/h?
+Input: How fast is the Blueksy in km/h?
 Output:
 {
     "node": "node1",
     "type": "convert-units",
     "argument-count": 3,
     "negation": false,
+    "answer-node": true,
     "results": {
         "node": "node1-results"
     },
@@ -128,20 +132,21 @@ Output:
             },
             "argument1": "STATE",
             "argument2": "id",
-            "argument3": "Shinkai"
+            "argument3": "Bluesky"
         },
         "argument2": "speed"
     },
     "argument2": "knots",
     "argument3": "kph"
 }
-Input: How many km apart are the two ships?
+Input: How many km apart are the Bluesky and port-A?
 Output:
 {
     "node": "node1",
     "type": "haversine-formula",
     "argument-count": 2,
     "negation": false,
+    "answer-node": true,
     "results": {
         "node": "node1-results"
     },
@@ -155,7 +160,7 @@ Output:
         },
         "argument1": "STATE",
         "argument2": "id",
-        "argument3": "Seabreeze"
+        "argument3": "Bluesky"
     },
     "argument2": {
         "node": "node3",
@@ -167,7 +172,7 @@ Output:
         },
         "argument1": "STATE",
         "argument2": "id",
-        "argument3": "Shinkai"
+        "argument3": "port-A"
     }
 }
 Input: What is the max heading of the ships going north?
@@ -177,6 +182,7 @@ Output:
     "type": "max",
     "argument-count": 1,
     "negation": false,
+    "answer-node": true,
     "results": {
         "node": "node1-results"
     },
@@ -210,6 +216,7 @@ Output:
   "type": "and",
   "argument-count": 2,
   "negation": false,
+  "answer-node": true,
   "results": {
     "node": "node1-results"
   },
@@ -254,6 +261,7 @@ Output:
     "type": "max",
     "argument-count": 1,
     "negation": false,
+    "answer-node": true,
     "results": {
         "node": "node1-results"
     },
@@ -334,6 +342,7 @@ Output:
             "type": "apply-property",
             "argument-count": 3,
             "negation": false,
+            "answer-node": true,
             "results": {
                 "node": "node3-results"
             },
@@ -353,4 +362,39 @@ Output:
             "argument2": "id",
             "argument3": "port-A"
         }
+}
+Input: Are any ships going faster than 20 knots?
+Output:
+{
+    "node": "node1",
+    "type": "greater-than",
+    "argument-count": 2,
+    "negation": false,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "attribute-of",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "answer-node": true,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": "STATE",
+            "argument2": "category",
+            "argument3": "ship"
+        },
+        "argument2": "speed"
+    },
+    "argument2": 20
 }
