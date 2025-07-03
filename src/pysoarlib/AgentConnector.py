@@ -1,4 +1,4 @@
-""" Generic Base Class for interfacing with a soar agent's input/output links
+"""Generic Base Class for interfacing with a soar agent's input/output links
 
 A Connector can be added to a SoarClient and can handle input/output
     while taking care of specific SML calls and event registering
@@ -84,8 +84,11 @@ def _output_event_handler(
 ):
     """OutputHandler callback for when a command is put on the output link"""
     try:
-        if wme.IsJustAdded() and wme.IsIdentifier():
-            root_id = wme.ConvertToIdentifier()
+        if wme.IsJustAdded():
+            if wme.IsIdentifier():
+                root_id = wme.ConvertToIdentifier()
+            else:
+                root_id = wme
             self.on_output_event(command_name, root_id)
     except:
         self.client.print_handler("ERROR IN OUTPUT EVENT HANDLER")
