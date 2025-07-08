@@ -445,13 +445,14 @@ Output:
     },
     "argument2": 200
 }
-Input: What's the ETA in port-A for the Bluesky if it maintains its current speed?
+Input: What's the ETA (estimated time of arrival) in port-A for the Bluesky if it maintains its current speed?
 Output:
 {
     "node": "node1",
     "type": "divide",
     "argument-count": 2,
     "negation": false,
+    "answer-node": true,
     "results": {
         "node": "node1-results"
     },
@@ -556,4 +557,375 @@ Output:
         "argument2": "speed"
     },
     "argument2": 20
+}
+Input: How many oil tankers are going south and also within 150 nautical miles of port-A?
+Output:
+{
+    "node": "node1",
+    "type": "count",
+    "argument-count": 1,
+    "negation": false,
+    "answer-node": true,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "less-than",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "haversine-formula",
+            "argument-count": 2,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": {
+                "node": "node4",
+                "type": "apply-property",
+                "argument-count": 3,
+                "negation": false,
+                "results": {
+                    "node": "node4-results"
+                },
+                "argument1": {
+                    "node": "node5",
+                    "type": "apply-property",
+                    "argument-count": 3,
+                    "negation": false,
+                    "results": {
+                        "node": "node5-results"
+                    },
+                    "argument1": "STATE",
+                    "argument2": "type",
+                    "argument3": "oil-tanker"
+                },
+                "argument2": "direction",
+                "argument3": "south"
+            },
+            "argument2": {
+                "node": "node6",
+                "type": "apply-property",
+                "argument-count": 3,
+                "negation": false,
+                "results": {
+                    "node": "node6-results"
+                },
+                "argument1": "STATE",
+                "argument2": "id",
+                "argument3": "port-A"
+            }
+        },
+        "argument2": {
+            "node": "node7",
+            "type": "convert-units",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node7-results"
+            },
+            "argument1": 150,
+            "argument2": "nautical-mile",
+            "argument3": "km"
+        }
+    }
+}
+Input: Of all the ships in the Tsushima Strait, which is the fastest?
+Output:
+{
+    "node": "node1",
+    "type": "max",
+    "argument-count": 1,
+    "negation": false,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "attribute-of",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "answer-node": true,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": "STATE",
+            "argument2": "area",
+            "argument3": "Tsushima Strait"
+        },
+        "argument2": "speed"
+    }
+}
+Input: How long did it take Shinkai to go from Tshushima to Nagasaki?
+Output:
+{
+    "node": "node1",
+    "type": "difference",
+    "argument-count": 2,
+    "negation": false,
+    "answer-node": true,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "attribute-of",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1":{
+                "node": "node4",
+                "type": "when",
+                "argument-count": 1,
+                "negation": false,
+                "results": {
+                    "node": "node4-results"
+                },
+                "argument1": {
+                    "node": "node5",
+                    "type": "apply-property",
+                    "argument-count": 3,
+                    "negation": false,
+                    "results": {
+                        "node": "node5-results"
+                    },
+                    "argument1": {
+                        "node": "node6",
+                        "type": "apply-property",
+                        "argument-count": 3,
+                        "negation": false,
+                        "results": {
+                            "node": "node6-results"
+                        },
+                        "argument1": "STATE",
+                        "argument2": "id",
+                        "argument3": "Shinkai"
+                    },
+                    "argument2": "current-port",
+                    "argument3": "Tshushima"
+                }
+            },
+            "argument2": "category",
+            "argument3": "time"
+        },
+        "argument2": "total-elapsed-minutes"
+    },
+    "argument2": {
+        "node": "node7",
+        "type": "attribute-of",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node7-results"
+        },
+        "argument1": {
+            "node": "node8",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node8-results"
+            },
+            "argument1":{
+                "node": "node9",
+                "type": "when",
+                "argument-count": 1,
+                "negation": false,
+                "results": {
+                    "node": "node9-results"
+                },
+                "argument1": {
+                    "node": "node10",
+                    "type": "apply-property",
+                    "argument-count": 3,
+                    "negation": false,
+                    "results": {
+                        "node": "node10-results"
+                    },
+                    "argument1": {
+                        "node": "node11",
+                        "type": "apply-property",
+                        "argument-count": 3,
+                        "negation": false,
+                        "results": {
+                            "node": "node11-results"
+                        },
+                        "argument1": "STATE",
+                        "argument2": "id",
+                        "argument3": "Shinkai"
+                    },
+                    "argument2": "current-port",
+                    "argument3": "Nagasaki"
+                }
+            },
+            "argument2": "category",
+            "argument3": "time"
+        },
+        "argument2": "total-elapsed-minutes"
+    }
+}
+Input: Which ship will arrive at its destination port first?
+Output:
+{
+    "node": "node1",
+    "type": "min",
+    "argument-count": 1,
+    "negation": false,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "divide",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "haversine-formula",
+            "argument-count": 2,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": {
+                "node": "node4",
+                "type": "apply-property",
+                "argument-count": 3,
+                "negation": false,
+                "answer-node": true,
+                "results": {
+                    "node": "node4-results"
+                },
+                "argument1": "STATE",
+                "argument2": "category",
+                "argument3": "ship"
+            },
+            "argument2": {
+                "node": "node5",
+                "type": "apply-property",
+                "argument-count": 3,
+                "negation": false,
+                "results": {
+                    "node": "node5-results"
+                },
+                "argument1": "STATE",
+                "argument2": "id",
+                "argument3": {
+                    "node": "node6",
+                    "type": "attribute-of",
+                    "argument-count": 2,
+                    "negation": false,
+                    "results": {
+                        "node": "node6-results"
+                    },
+                    "argument1": "node4",
+                    "argument2": "next-port"
+                }
+            }
+        },
+        "argument2": {
+            "node": "node7",
+            "type": "convert-units",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node7-results"
+            },
+            "argument1": {
+                "node": "node8",
+                "type": "attribute-of",
+                "argument-count": 2,
+                "negation": false,
+                "results": {
+                    "node": "node8-results"
+                },
+                "argument1": "node4",
+                "argument2": "speed"
+            },
+            "argument2": "knots",
+            "argument3": "kph"
+        }
+    }
+}
+Input: Is any port farther south than the Shinkai?
+Output:
+{
+    "node": "node1",
+    "type": "less-than",
+    "argument-count": 2,
+    "negation": false,
+    "answer-node": true,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "attribute-of",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": "STATE",
+            "argument2": "category",
+            "argument3": "port"
+        },
+        "argument2": "latitude"
+    },
+    "argument2": {
+        "node": "node4",
+        "type": "attribute-of",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node4-results"
+        },
+        "argument1": {
+            "node": "node5",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node5-results"
+            },
+            "argument1": "STATE",
+            "argument2": "id",
+            "argument3": "Shinkai"
+        },
+        "argument2": "latitude"
+    }
 }
