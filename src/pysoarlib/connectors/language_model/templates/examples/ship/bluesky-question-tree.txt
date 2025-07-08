@@ -216,7 +216,6 @@ Output:
   "type": "and",
   "argument-count": 2,
   "negation": false,
-  "answer-node": true,
   "results": {
     "node": "node1-results"
   },
@@ -225,6 +224,7 @@ Output:
     "type": "attribute-of",
     "argument-count": 2,
     "negation": false,
+    "answer-node": true,
     "results": {
       "node": "node2-results"
     },
@@ -247,6 +247,7 @@ Output:
     "type": "attribute-of",
     "argument-count": 2,
     "negation": false,
+    "answer-node": true,
     "results": {
       "node": "node4-results"
     },
@@ -363,7 +364,7 @@ Output:
             "argument3": "port-A"
         }
 }
-Input: Are any ships going faster than 20 knots?
+Input: Which ships going faster than 20 knots?
 Output:
 {
     "node": "node1",
@@ -393,6 +394,164 @@ Output:
             "argument1": "STATE",
             "argument2": "category",
             "argument3": "ship"
+        },
+        "argument2": "speed"
+    },
+    "argument2": 20
+}
+Input: List the ports within 200 km of the current position of Bluesky.
+Output:
+{
+    "node": "node1",
+    "type": "less-than",
+    "argument-count": 2,
+    "negation": false,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "haversine-formula",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": "STATE",
+            "argument2": "id",
+            "argument3": "Bluesky"
+        },
+        "argument2": {
+            "node": "node4",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "answer-node": true,
+            "results": {
+                "node": "node4-results"
+            },
+            "argument1": "STATE",
+            "argument2": "category",
+            "argument3": "port"
+        }
+    },
+    "argument2": 200
+}
+Input: What's the ETA in port-A for the Bluesky if it maintains its current speed?
+Output:
+{
+    "node": "node1",
+    "type": "divide",
+    "argument-count": 2,
+    "negation": false,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "haversine-formula",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": "STATE",
+            "argument2": "id",
+            "argument3": "Bluesky"
+        },
+        "argument2": {
+            "node": "node4",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node4-results"
+            },
+            "argument1": "STATE",
+            "argument2": "id",
+            "argument3": "port-A"
+        }
+    },
+    "argument2": {
+        "node": "node5",
+        "type": "convert-units",
+        "argument-count": 3,
+        "negation": false,
+        "results": {
+            "node": "node5-results"
+        },
+        "argument1": {
+            "node": "node6",
+            "type": "attribute-of",
+            "argument-count": 2,
+            "negation": false,
+            "results": {
+                "node": "node6-results"
+            },
+            "argument1": "node3",
+            "argument2": "speed"
+        },
+        "argument2": "knots",
+        "argument3": "kph"
+    }
+}
+Input: Are any ships carrying crude oil moving faster than 10 knots?
+Output:
+{
+    "node": "node1",
+    "type": "greater-than",
+    "argument-count": 2,
+    "negation": false,
+    "answer-node": true,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "attribute-of",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": {
+                "node": "node4",
+                "type": "apply-property",
+                "argument-count": 3,
+                "negation": false,
+                "results": {
+                    "node": "node4-results"
+                },
+                "argument1": "STATE",
+                "argument2": "category",
+                "argument3": "ship"
+            },
+            "argument2": "cargo",
+            "argument3": "oil"
         },
         "argument2": "speed"
     },
