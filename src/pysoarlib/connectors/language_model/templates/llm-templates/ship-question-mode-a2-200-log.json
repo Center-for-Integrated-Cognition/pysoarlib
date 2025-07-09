@@ -1,0 +1,24 @@
+{
+    "llm-template": "ship-question-mode-a2-200-log",
+    "example-context": "context-bluesky-oceanic",
+    "examples": [
+        "direction-bluesky-A2",
+        "how-many-north-A2",
+        "speed-of-bluesky-kph-A2",
+        "distance-apart-km-A2",
+        "message-log-200"
+    ],
+    "domain": "ship",
+    "system-prompt": "succinct",
+    "world-context": false,
+    "soar-context": true,
+    "history-context": [],
+    "prompt-template": "question-1-argument",
+    "repair-prompt": false,
+    "response-type": "string",
+    "output-template": "str-answer",
+    "model": "gpt-4o",
+    "api": "langchain",
+    "number-of-results": 1,
+    "temperature": 0.0
+}
