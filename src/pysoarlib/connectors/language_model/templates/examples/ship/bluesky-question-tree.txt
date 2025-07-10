@@ -209,7 +209,7 @@ Output:
         "argument2": "heading"
     }
 }
-Input: What is the position of the Bluesky?
+Input: Where is the Bluesky?
 Output:
 {
   "node": "node1",
@@ -669,7 +669,7 @@ Output:
         "argument2": "speed"
     }
 }
-Input: How long did it take Shinkai to go from Tshushima to Nagasaki?
+Input: How long did it take Bluesky to go from port-A to port-B?
 Output:
 {
     "node": "node1",
@@ -722,10 +722,10 @@ Output:
                         },
                         "argument1": "STATE",
                         "argument2": "id",
-                        "argument3": "Shinkai"
+                        "argument3": "Bluesky"
                     },
                     "argument2": "current-port",
-                    "argument3": "Tshushima"
+                    "argument3": "port-A"
                 }
             },
             "argument2": "category",
@@ -775,10 +775,10 @@ Output:
                         },
                         "argument1": "STATE",
                         "argument2": "id",
-                        "argument3": "Shinkai"
+                        "argument3": "Bluesky"
                     },
                     "argument2": "current-port",
-                    "argument3": "Nagasaki"
+                    "argument3": "port-B"
                 }
             },
             "argument2": "category",
@@ -873,7 +873,7 @@ Output:
         }
     }
 }
-Input: Is any port farther south than the Shinkai?
+Input: Is any port farther south than the Bluesky?
 Output:
 {
     "node": "node1",
@@ -924,8 +924,74 @@ Output:
             },
             "argument1": "STATE",
             "argument2": "id",
-            "argument3": "Shinkai"
+            "argument3": "Bluesky"
         },
         "argument2": "latitude"
     }
+}
+Input: While the Bluesky was docked at port-A, was the Oceanic going north?
+Output:
+{
+    "node": "node1",
+    "type": "equal",
+    "argument-count": 2,
+    "negation": false,
+    "answer-node": true,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "attribute-of",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": {
+                "node": "node4",
+                "type": "while",
+                "argument-count": 1,
+                "negation": false,
+                "results": {
+                    "node": "node4-results"
+                },
+                "argument1": {
+                    "node": "node5",
+                    "type": "apply-property",
+                    "argument-count": 3,
+                    "negation": false,
+                    "results": {
+                        "node": "node5-results"
+                    },
+                    "argument1": {
+                        "node": "node6",
+                        "type": "apply-property",
+                        "argument-count": 3,
+                        "negation": false,
+                        "results": {
+                            "node": "node6-results"
+                        },
+                        "argument1": "STATE",
+                        "argument2": "id",
+                        "argument3": "Bluesky"
+                    },
+                    "argument2": "current-port",
+                    "argument3": "port-A"
+                }
+            },
+            "argument2": "id",
+            "argument3": "Oceanic"
+        },
+        "argument2": "direction"
+    },
+    "argument2": "north"
 }
