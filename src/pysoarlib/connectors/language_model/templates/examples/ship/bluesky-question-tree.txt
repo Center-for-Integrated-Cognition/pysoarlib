@@ -1,107 +1,107 @@
 Input: What direction is the Bluesky going?
 Output:
 {
-  "node": "node1",
-  "type": "attribute-of",
-  "argument-count": 2,
-  "negation": false,
-  "answer-node": true,
-  "results": {
-    "node": "node1-results"
-  },
-  "argument1": {
-    "node": "node2",
-    "type": "apply-property",
-    "argument-count": 3,
+    "node": "node1",
+    "type": "attribute-of",
+    "argument-count": 2,
     "negation": false,
+    "answer-node": true,
     "results": {
-      "node": "node2-results"
-    },
-    "argument1": "STATE",
-    "argument2": "id",
-    "argument3": "Bluesky"
-  },
-  "argument2": "direction"
-}
-Input: How many ships are going north?
-Output:
-{
-  "node": "node1",
-  "type": "count",
-  "argument-count": 1,
-  "negation": false,
-  "answer-node": true,
-  "results": {
-    "node": "node1-results"
-  },
-  "argument1": {
-    "node": "node2",
-    "type": "apply-property",
-    "argument-count": 3,
-    "negation": false,
-    "results": {
-      "node": "node2-results"
-    },
-    "argument1": "STATE",
-    "argument2": "direction",
-    "argument3": "north"
-  }
-}
-Input: When the Bluesky was heading south where was the Bluesky going?
-Output:
-{
-  "node": "node1",
-  "type": "attribute-of",
-  "argument-count": 2,
-  "negation": false,
-  "answer-node": true,
-  "results": {
-    "node": "node1-results"
-  },
-  "argument1": {
-    "node": "node2",
-    "type": "apply-property",
-    "argument-count": 3,
-    "negation": false,
-    "results": {
-      "node": "node2-results"
+        "node": "node1-results"
     },
     "argument1": {
-      "node": "node3",
-      "type": "when",
-      "argument-count": 1,
-      "negation": false,
-      "results": {
-        "node": "node3-results"
-      },
-      "argument1": {
-        "node": "node4",
+        "node": "node2",
         "type": "apply-property",
         "argument-count": 3,
         "negation": false,
         "results": {
-          "node": "node4-results"
+            "node": "node2-results"
+        },
+        "argument1": "STATE",
+        "argument2": "id",
+        "argument3": "Bluesky"
+    },
+    "argument2": "direction"
+}
+Input: How many ships are going north?
+Output:
+{
+    "node": "node1",
+    "type": "count",
+    "argument-count": 1,
+    "negation": false,
+    "answer-node": true,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "apply-property",
+        "argument-count": 3,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": "STATE",
+        "argument2": "direction",
+        "argument3": "north"
+    }
+}
+Input: When the Bluesky was heading south where was the Bluesky going?
+Output:
+{
+    "node": "node1",
+    "type": "attribute-of",
+    "argument-count": 2,
+    "negation": false,
+    "answer-node": true,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "apply-property",
+        "argument-count": 3,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
         },
         "argument1": {
-          "node": "node5",
-          "type": "apply-property",
-          "argument-count": 3,
-          "negation": false,
-          "results": {
-            "node": "node5-results"
-          },
-          "argument1": "STATE",
-          "argument2": "id",
-          "argument3": "Bluesky"
+            "node": "node3",
+            "type": "when",
+            "argument-count": 1,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": {
+                "node": "node4",
+                "type": "apply-property",
+                "argument-count": 3,
+                "negation": false,
+                "results": {
+                    "node": "node4-results"
+                },
+                "argument1": {
+                    "node": "node5",
+                    "type": "apply-property",
+                    "argument-count": 3,
+                    "negation": false,
+                    "results": {
+                        "node": "node5-results"
+                    },
+                    "argument1": "STATE",
+                    "argument2": "id",
+                    "argument3": "Bluesky"
+                },
+                "argument2": "direction",
+                "argument3": "south"
+            }
         },
-        "argument2": "direction",
-        "argument3": "south"
-      }
+        "argument2": "id",
+        "argument3": "Bluesky"
     },
-    "argument2": "id",
-    "argument3": "Bluesky"
-  },
-  "argument2": "next-port"
+    "argument2": "next-port"
 }
 Input: How fast is the Blueksy in km/h?
 Output:
@@ -192,19 +192,19 @@ Output:
         "argument-count": 2,
         "negation": false,
         "results": {
-          "node": "node2-results"
+            "node": "node2-results"
         },
         "argument1": {
-          "node": "node3",
-          "type": "apply-property",
-          "argument-count": 3,
-          "negation": false,
-          "results": {
-            "node": "node3-results"
-          },
-          "argument1": "STATE",
-          "argument2": "direction",
-          "argument3": "north"
+            "node": "node3",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": "STATE",
+            "argument2": "direction",
+            "argument3": "north"
         },
         "argument2": "heading"
     }
@@ -212,48 +212,48 @@ Output:
 Input: Where is the Bluesky?
 Output:
 {
-  "node": "node1",
-  "type": "and",
-  "argument-count": 2,
-  "negation": false,
-  "results": {
-    "node": "node1-results"
-  },
-  "argument1": {
-    "node": "node2",
-    "type": "attribute-of",
+    "node": "node1",
+    "type": "join",
     "argument-count": 2,
     "negation": false,
-    "answer-node": true,
     "results": {
-      "node": "node2-results"
+        "node": "node1-results"
     },
     "argument1": {
-      "node": "node3",
-      "type": "apply-property",
-      "argument-count": 3,
-      "negation": false,
-      "results": {
-        "node": "node3-results"
-      },
-      "argument1": "STATE",
-      "argument2": "id",
-      "argument3": "Bluesky"
+        "node": "node2",
+        "type": "attribute-of",
+        "argument-count": 2,
+        "negation": false,
+        "answer-node": true,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": "STATE",
+            "argument2": "id",
+            "argument3": "Bluesky"
+        },
+        "argument2": "latitude"
     },
-    "argument2": "latitude"
-  },
-  argument2: {
-    "node": "node4",
-    "type": "attribute-of",
-    "argument-count": 2,
-    "negation": false,
-    "answer-node": true,
-    "results": {
-      "node": "node4-results"
-    },
-    "argument1": "node3",
-    "argument2": "longitude"
-  }
+    argument2: {
+        "node": "node4",
+        "type": "attribute-of",
+        "argument-count": 2,
+        "negation": false,
+        "answer-node": true,
+        "results": {
+            "node": "node4-results"
+        },
+        "argument1": "node3",
+        "argument2": "longitude"
+    }
 }
 Input: While the Bluesky was traveling to port-A what was the max speed of the Bluesky?
 Output:
@@ -272,7 +272,7 @@ Output:
         "argument-count": 2,
         "negation": false,
         "results": {
-          "node": "node2-results"
+            "node": "node2-results"
         },
         "argument1": {
           "node": "node3",
@@ -288,7 +288,7 @@ Output:
             "argument-count": 1,
             "negation": false,
             "results": {
-              "node": "node4-results"
+                "node": "node4-results"
             },
             "argument1": {
               "node": "node5",
@@ -445,7 +445,7 @@ Output:
     },
     "argument2": 200
 }
-Input: What's the ETA (estimated time of arrival) in port-A for the Bluesky if it maintains its current speed?
+Input: What's the ETA/when will Bluesky get to port-A (make sure it is traveling there)?
 Output:
 {
     "node": "node1",
@@ -472,17 +472,28 @@ Output:
             "results": {
                 "node": "node3-results"
             },
-            "argument1": "STATE",
-            "argument2": "id",
-            "argument3": "Bluesky"
-        },
+            "argument1": {
+                "node": "node4",
+                "type": "apply-property",
+                "argument-count": 3,
+                "negation": false,
+                "results": {
+                    "node": "node4-results"
+                },
+                "argument1": "STATE",
+                "argument2": "id",
+                "argument3": "Bluesky"
+            },
+            "argument2": "next-port",
+            "argument3": "port-A"
+        }
         "argument2": {
-            "node": "node4",
+            "node": "node5",
             "type": "apply-property",
             "argument-count": 3,
             "negation": false,
             "results": {
-                "node": "node4-results"
+                "node": "node5-results"
             },
             "argument1": "STATE",
             "argument2": "id",
@@ -490,20 +501,20 @@ Output:
         }
     },
     "argument2": {
-        "node": "node5",
+        "node": "node6",
         "type": "convert-units",
         "argument-count": 3,
         "negation": false,
         "results": {
-            "node": "node5-results"
+            "node": "node6-results"
         },
         "argument1": {
-            "node": "node6",
+            "node": "node7",
             "type": "attribute-of",
             "argument-count": 2,
             "negation": false,
             "results": {
-                "node": "node6-results"
+                "node": "node7-results"
             },
             "argument1": "node3",
             "argument2": "speed"
@@ -557,83 +568,6 @@ Output:
         "argument2": "speed"
     },
     "argument2": 20
-}
-Input: How many oil tankers are going south and also within 150 nautical miles of port-A?
-Output:
-{
-    "node": "node1",
-    "type": "count",
-    "argument-count": 1,
-    "negation": false,
-    "answer-node": true,
-    "results": {
-        "node": "node1-results"
-    },
-    "argument1": {
-        "node": "node2",
-        "type": "less-than",
-        "argument-count": 2,
-        "negation": false,
-        "results": {
-            "node": "node2-results"
-        },
-        "argument1": {
-            "node": "node3",
-            "type": "haversine-formula",
-            "argument-count": 2,
-            "negation": false,
-            "results": {
-                "node": "node3-results"
-            },
-            "argument1": {
-                "node": "node4",
-                "type": "apply-property",
-                "argument-count": 3,
-                "negation": false,
-                "results": {
-                    "node": "node4-results"
-                },
-                "argument1": {
-                    "node": "node5",
-                    "type": "apply-property",
-                    "argument-count": 3,
-                    "negation": false,
-                    "results": {
-                        "node": "node5-results"
-                    },
-                    "argument1": "STATE",
-                    "argument2": "type",
-                    "argument3": "oil-tanker"
-                },
-                "argument2": "direction",
-                "argument3": "south"
-            },
-            "argument2": {
-                "node": "node6",
-                "type": "apply-property",
-                "argument-count": 3,
-                "negation": false,
-                "results": {
-                    "node": "node6-results"
-                },
-                "argument1": "STATE",
-                "argument2": "id",
-                "argument3": "port-A"
-            }
-        },
-        "argument2": {
-            "node": "node7",
-            "type": "convert-units",
-            "argument-count": 3,
-            "negation": false,
-            "results": {
-                "node": "node7-results"
-            },
-            "argument1": 150,
-            "argument2": "nautical-mile",
-            "argument3": "km"
-        }
-    }
 }
 Input: Of all the ships in the Tsushima Strait, which is the fastest?
 Output:
@@ -994,4 +928,557 @@ Output:
         "argument2": "direction"
     },
     "argument2": "north"
+}
+Input: Which target ship is traveling the fastest?
+Output:
+{
+    "node": "node1",
+    "type": "max",
+    "argument-count": 1,
+    "negation": false,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "attribute-of",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "answer-node": true,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": "STATE",
+            "argument2": "category",
+            "argument3": "ship"
+        },
+        "argument2": "speed"
+    }
+}
+Input: Is the Bluesky currently docked at port-A or en route?
+Output:
+{
+    "node": "node1",
+    "type": "or",
+    "argument-count": 2,
+    "negation": false,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "equal",
+        "argument-count": 2,
+        "answer-node": true,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "attribute-of",
+            "argument-count": 2,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": {
+                "node": "node4",
+                "type": "apply-property",
+                "argument-count": 3,
+                "negation": false,
+                "results": {
+                    "node": "node4-results"
+                },
+                "argument1": "STATE",
+                "argument2": "id",
+                "argument3": "Bluesky"
+            },
+            "argument2": "current-port"
+        },
+        "argument2": "port-A"
+    },
+    "argument2": {
+        "node": "node5",
+        "type": "equal",
+        "argument-count": 2,
+        "negation": false,
+        "answer-node": true,
+        "results": {
+            "node": "node5-results"
+        },
+        "argument1": {
+            "node": "node6",
+            "type": "attribute-of",
+            "argument-count": 2,
+            "negation": false,
+            "results": {
+                "node": "node6-results"
+            },
+            "argument1": {
+                "node": "node7",
+                "type": "apply-property",
+                "argument-count": 3,
+                "negation": false,
+                "results": {
+                    "node": "node7-results"
+                },
+                "argument1": "STATE",
+                "argument2": "id",
+                "argument3": "Bluesky"
+            },
+            "argument2": "next-port"
+        },
+        "argument2": "port-A"
+    }
+}
+Input: How close did Bluesky get to Oceanic while it was going South?
+Output:
+{
+    "node": "node1",
+    "type": "min",
+    "argument-count": 1,
+    "negation": false,
+    "answer-node": true,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "haversine-formula",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": {
+                "node": "node4",
+                "type": "while",
+                "argument-count": 1,
+                "negation": false,
+                "results": {
+                    "node": "node4-results"
+                },
+                "argument1": {
+                    "node": "node5",
+                    "type": "apply-property",
+                    "argument-count": 3,
+                    "negation": false,
+                    "results": {
+                        "node": "node5-results"
+                    },
+                    "argument1": {
+                        "node": "node6",
+                        "type": "apply-property",
+                        "argument-count": 3,
+                        "negation": false,
+                        "results": {
+                            "node": "node6-results"
+                        },
+                        "argument1": "STATE",
+                        "argument2": "id",
+                        "argument3": "Bluesky"
+                    },
+                    "argument2": "direction",
+                    "argument3": "south"
+                }
+            },
+            "argument2": "id",
+            "argument3": "Bluesky"
+        },
+        "argument2": {
+            "node": "node7",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node7-results"
+            },
+            "argument1": "node4",
+            "argument2": "id",
+            "argument3": "Oceanic"
+        }
+    }
+}
+Input: When Bluesky was last at port-A, how close did Oceanic get to it?
+Output:
+{
+    "node": "node1",
+    "type": "min",
+    "argument-count": 1,
+    "negation": false,
+    "answer-node": true,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "haversine-formula",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": {
+                "node": "node4",
+                "type": "while",
+                "argument-count": 1,
+                "negation": false,
+                "results": {
+                    "node": "node4-results"
+                },
+                "argument1": {
+                    "node": "node5",
+                    "type": "apply-property",
+                    "argument-count": 3,
+                    "negation": false,
+                    "results": {
+                        "node": "node5-results"
+                    },
+                    "argument1": {
+                        "node": "node6",
+                        "type": "apply-property",
+                        "argument-count": 3,
+                        "negation": false,
+                        "results": {
+                            "node": "node6-results"
+                        },
+                        "argument1": "STATE",
+                        "argument2": "id",
+                        "argument3": "Bluesky"
+                    },
+                    "argument2": "current-port",
+                    "argument3": "port-A"
+                }
+            },
+            "argument2": "id",
+            "argument3": "Bluesky"
+        },
+        "argument2": {
+            "node": "node7",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node7-results"
+            },
+            "argument1": "node4",
+            "argument2": "id",
+            "argument3": "Oceanic"
+        }
+    }
+}
+Input: Is Bluesky within 15 nautical miles of port-A and heading south?
+Output:
+{
+    "node": "node1",
+    "type": "and",
+    "argument-count": 2,
+    "negation": false,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "less-than",
+        "argument-count": 2,
+        "negation": false,
+        "answer-node": true,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "haversine-formula",
+            "argument-count": 2,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": {
+                "node": "node4",
+                "type": "apply-property",
+                "argument-count": 3,
+                "negation": false,
+                "results": {
+                    "node": "node4-results"
+                },
+                "argument1": "STATE",
+                "argument2": "id",
+                "argument3": "Bluesky"
+            },
+            "argument2": {
+                "node": "node5",
+                "type": "apply-property",
+                "argument-count": 3,
+                "negation": false,
+                "results": {
+                    "node": "node5-results"
+                },
+                "argument1": "STATE",
+                "argument2": "id",
+                "argument3": "port-A"
+            }
+        },
+        "argument2": {
+            "node": "node6",
+            "type": "convert-units",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node6-results"
+            },
+            "argument1": 10,
+            "argument2": "nautical-mile",
+            "argument3": "km"
+        }
+    },
+    "argument2": {
+        "node": "node7",
+        "type": "equal",
+        "argument-count": 2,
+        "negation": false,
+        "answer-node": true,
+        "results": {
+            "node": "node7-results"
+        },
+        "argument1": {
+            "node": "node8",
+            "type": "attribute-of",
+            "argument-count": 2,
+            "negation": false,
+            "results": {
+                "node": "node8-results"
+            },
+            "argument1": "node4",
+            "argument2": "direction"
+        },
+        "argument2": "south"
+    }
+}
+Input: Which of the five ports currently has a ship docked?
+Output:
+{
+    "node": "node1",
+    "type": "attribute-of",
+    "argument-count": 2,
+    "negation": false,
+    "answer-node": true,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "apply-property",
+        "argument-count": 3,
+        "negation": false,
+        "results": {
+        "node": "node2-results"
+        },
+        "argument1": "STATE",
+        "argument2": "category",
+        "argument3": "ship"
+    },
+    "argument2": "current-port"
+}
+Input: What ship is north of port-A?
+Output:
+{
+    "node": "node1",
+    "type": "greater-than",
+    "argument-count": 2,
+    "negation": false,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "attribute-of",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "answer-node": true,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": "STATE",
+            "argument2": "category",
+            "argument3": "ship"
+        },
+        "argument2": "latitude"
+    },
+    "argument2": {
+        "node": "node4",
+        "type": "attribute-of",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node4-results"
+        },
+        "argument1": {
+            "node": "node5",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node5-results"
+            },
+            "argument1": "STATE",
+            "argument2": "id",
+            "argument3": "Busan"
+        },
+        "argument2": "latitude"
+    }
+}
+Input: Where was Oceanic when Bluesky arrived at port-A?
+Output:
+{
+    "node": "node1",
+    "type": "join",
+    "argument-count": 2,
+    "negation": false,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "attribute-of",
+        "argument-count": 2,
+        "negation": false,
+        "answer-node": true,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": {
+                "node": "node4",
+                "type": "when",
+                "argument-count": 1,
+                "negation": false,
+                "results": {
+                    "node": "node4-results"
+                },
+                "argument1": {
+                    "node": "node5",
+                    "type": "apply-property",
+                    "argument-count": 3,
+                    "negation": false,
+                    "results": {
+                        "node": "node5-results"
+                    },
+                    "argument1": {
+                        "node": "node6",
+                        "type": "apply-property",
+                        "argument-count": 3,
+                        "negation": false,
+                        "results": {
+                            "node": "node6-results"
+                        },
+                        "argument1": "STATE",
+                        "argument2": "id",
+                        "argument3": "Bluesky"
+                    },
+                    "argument2": "current-port",
+                    "argument3": "port-A"
+                }
+            },
+            "argument2": "id",
+            "argument3": "Bluesky"
+        },
+        "argument2": "latitude"
+    },
+    argument2: {
+        "node": "node7",
+        "type": "attribute-of",
+        "argument-count": 2,
+        "negation": false,
+        "answer-node": true,
+        "results": {
+            "node": "node7-results"
+        },
+        "argument1": "node3",
+        "argument2": "longitude"
+    }
+}
+Input: Which port is closest to the Bluesky?
+{
+    "node": "node1",
+    "type": "min",
+    "argument-count": 1,
+    "negation": false,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "haversine-formula",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": "STATE",
+            "argument2": "id",
+            "argument3": "Bluesky"
+        },
+        "argument2": {
+            "node": "node4",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "answer-node": true,
+            "results": {
+                "node": "node4-results"
+            },
+            "argument1": "STATE",
+            "argument2": "category",
+            "argument3": "port"
+        }
+    }
 }

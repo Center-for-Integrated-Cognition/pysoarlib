@@ -1,3 +1,4 @@
+import time
 from pysoarlib.AgentConnector import AgentConnector
 #from LanguageModelConnector.LLM import LLM
 from pysoarlib.connectors.QueryConnector import QueryConnector
@@ -21,6 +22,8 @@ class LMConnector(QueryConnector):
         self.model = model
         self.lm = LLM(world_connector, self.temperature, self.model)
 
+        self.elapsed_time = 0
+        self.lm_time = 0
 
         self.lm_id = None
         self.lm_failsafe = 0 #to prevent accidental exhaustion of tokens
@@ -62,7 +65,11 @@ class LMConnector(QueryConnector):
         if self.response != None:# and not self.response.is_added():
             #print("adding input")
             self.response.add_to_wm(self.lm_id)
+            current_time = time.time()
+            self.lm_time = current_time - self.elapsed_time
+            print("Lm elapse timed: " + str(self.lm_time) + " seconds")
             self.response = None
+            self.elapsed_time = time.time()
 
 
     def on_output_event(self, command_name, root_id):
@@ -73,9 +80,15 @@ class LMConnector(QueryConnector):
             if self.response != None:
                 self.response.remove_from_wm()
                 self.response = None
-
+            #start time
+            self.elapsed_time = time.time()
             self.process_lm_query(root_id)
         if command_name == "delete-lm-response":#"lm-request":
+            current_time = time.time()
+            soar_time = current_time - self.elapsed_time
+            print("Soar elapsed time: " + str(soar_time) + " seconds")
+            print("Total elapsed time: " + str(self.lm_time + soar_time) + " seconds")
+            #print("DELETE LM response")
             print("DELETE LM responses")
             if root_id.FindByAttribute("sequence-number", 0):
                 sequence_number = root_id.FindByAttribute("sequence-number", 0).ConvertToIntElement().GetValue()
