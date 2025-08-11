@@ -1,0 +1,403 @@
+move,dc,day,hour,minute,total-minute,latitude,longitude,x,y,x-100,y-100,id,entity-type,value,speed,heading,direction,cargo,country,info-type,source-sensor,port-achieved,port-id,previous-port
+0,29,1,0,0,0,33.857143,128.358333,9,8,950,850,Seabreeze,oil-tanker,10,0.0,90,east,crude oil,South Korea,new-target,ais-sensor,false,none,none
+0,30,1,0,0,0,34.085714,129.525,13,7,1350,750,Shinkai,oil-tanker,10,0.0,90,east,refined petroleum,Japan,new-target,ais-sensor,false,none,none
+1,56,1,0,15,15,34.085714,129.525,13,7,1350,750,Shinkai,oil-tanker,10,3.0,270,west,refined petroleum,Japan,update-target,ais-sensor,false,none,none
+1,57,1,0,15,15,33.886857,128.425417,9,8,973,837,Seabreeze,oil-tanker,10,15.0,30,north,crude oil,South Korea,update-target,ais-sensor,false,none,none
+2,66,1,0,30,30,34.085714,129.5075,13,7,1344,750,Shinkai,oil-tanker,10,6.0,270,west,refined petroleum,Japan,update-target,ais-sensor,false,none,none
+2,67,1,0,30,30,33.946286,128.469167,9,8,988,811,Seabreeze,oil-tanker,10,30.0,30,north,crude oil,South Korea,update-target,ais-sensor,false,none,none
+3,101,1,0,45,45,34.005714,128.512917,10,7,1003,785,Seabreeze,oil-tanker,10,30.0,30,north,crude oil,South Korea,update-target,ais-sensor,false,Busan,none
+3,102,1,0,45,45,34.085714,129.49,13,7,1338,750,Shinkai,oil-tanker,10,6.0,270,west,refined petroleum,Japan,update-target,ais-sensor,false,Tsushima,none
+4,111,1,1,0,60,34.085714,129.4725,13,7,1332,750,Shinkai,oil-tanker,10,6.0,270,west,refined petroleum,Japan,update-target,ais-sensor,false,Tsushima,none
+4,112,1,1,0,60,34.065143,128.556667,10,7,1018,759,Seabreeze,oil-tanker,10,30.0,30,north,crude oil,South Korea,update-target,ais-sensor,false,Busan,none
+5,121,1,1,15,75,34.085714,129.455,13,7,1326,750,Shinkai,oil-tanker,10,6.0,270,west,refined petroleum,Japan,update-target,ais-sensor,false,Tsushima,none
+5,122,1,1,15,75,34.124571,128.600417,10,7,1033,733,Seabreeze,oil-tanker,10,30.0,30,north,crude oil,South Korea,update-target,ais-sensor,false,Busan,none
+6,131,1,1,30,90,34.085714,129.4375,13,7,1320,750,Shinkai,oil-tanker,10,6.0,270,west,refined petroleum,Japan,update-target,ais-sensor,false,Tsushima,none
+6,132,1,1,30,90,34.184,128.644167,10,7,1048,707,Seabreeze,oil-tanker,10,30.0,30,north,crude oil,South Korea,update-target,ais-sensor,false,Busan,none
+7,141,1,1,45,105,34.085714,129.42,13,7,1314,750,Shinkai,oil-tanker,10,6.0,270,west,refined petroleum,Japan,update-target,ais-sensor,false,Tsushima,none
+7,142,1,1,45,105,34.243429,128.687917,10,6,1063,681,Seabreeze,oil-tanker,10,30.0,30,north,crude oil,South Korea,update-target,ais-sensor,false,Busan,none
+8,151,1,2,0,120,34.085714,129.4025,13,7,1308,750,Shinkai,oil-tanker,10,6.0,270,west,refined petroleum,Japan,update-target,ais-sensor,false,Tsushima,none
+8,152,1,2,0,120,34.302857,128.731667,10,6,1078,655,Seabreeze,oil-tanker,10,30.0,30,north,crude oil,South Korea,update-target,ais-sensor,false,Busan,none
+9,161,1,2,15,135,34.362286,128.775417,10,6,1093,629,Seabreeze,oil-tanker,10,30.0,30,north,crude oil,South Korea,update-target,ais-sensor,false,Busan,none
+9,162,1,2,15,135,34.085714,129.385,13,7,1302,750,Shinkai,oil-tanker,10,6.0,270,west,refined petroleum,Japan,update-target,ais-sensor,false,Tsushima,none
+10,171,1,2,30,150,34.085714,129.3675,12,7,1296,750,Shinkai,oil-tanker,10,6.0,270,west,refined petroleum,Japan,update-target,ais-sensor,false,Tsushima,none
+10,172,1,2,30,150,34.421714,128.819167,11,6,1108,603,Seabreeze,oil-tanker,10,30.0,30,north,crude oil,South Korea,update-target,ais-sensor,false,Busan,none
+11,182,1,2,45,165,34.085714,129.3675,12,7,1296,750,Shinkai,oil-tanker,10,0.0,270,west,refined petroleum,Japan,update-target,ais-sensor,true,Tsushima,none
+11,183,1,2,45,165,34.458286,128.845417,11,5,1117,587,Seabreeze,oil-tanker,10,18.0,30,north,crude oil,South Korea,update-target,ais-sensor,false,Busan,none
+12,190,1,3,0,180,34.494857,128.871667,11,5,1126,571,Seabreeze,oil-tanker,10,18.0,30,north,crude oil,South Korea,update-target,ais-sensor,false,Busan,none
+12,191,1,3,0,180,34.085714,129.3675,12,7,1296,750,Shinkai,oil-tanker,10,0.0,270,west,refined petroleum,Japan,update-target,ais-sensor,true,Tsushima,none
+13,198,1,3,15,195,34.531429,128.897917,11,5,1135,555,Seabreeze,oil-tanker,10,18.0,30,north,crude oil,South Korea,update-target,ais-sensor,false,Busan,none
+13,199,1,3,15,195,34.085714,129.3675,12,7,1296,750,Shinkai,oil-tanker,10,0.0,270,west,refined petroleum,Japan,update-target,ais-sensor,true,Tsushima,none
+14,206,1,3,30,210,34.085714,129.3675,12,7,1296,750,Shinkai,oil-tanker,10,0.0,270,west,refined petroleum,Japan,update-target,ais-sensor,true,Tsushima,none
+14,207,1,3,30,210,34.568,128.924167,11,5,1144,539,Seabreeze,oil-tanker,10,18.0,30,north,crude oil,South Korea,update-target,ais-sensor,false,Busan,none
+15,214,1,3,45,225,34.604571,128.950417,11,5,1153,523,Seabreeze,oil-tanker,10,18.0,30,north,crude oil,South Korea,update-target,ais-sensor,false,Busan,none
+15,215,1,3,45,225,34.085714,129.3675,12,7,1296,750,Shinkai,oil-tanker,10,0.0,270,west,refined petroleum,Japan,update-target,ais-sensor,true,Tsushima,none
+16,223,1,4,0,240,34.641143,128.976667,11,5,1162,507,Seabreeze,oil-tanker,10,18.0,30,north,crude oil,South Korea,update-target,ais-sensor,false,Busan,none
+16,224,1,4,0,240,34.078857,129.355833,12,7,1292,753,Shinkai,oil-tanker,10,3.0,193,south,refined petroleum,Japan,update-target,ais-sensor,false,none,Tsushima
+17,234,1,4,15,255,34.677714,129.002917,11,4,1171,491,Seabreeze,oil-tanker,10,18.0,30,north,crude oil,South Korea,update-target,ais-sensor,false,Busan,none
+17,235,1,4,15,255,34.065143,129.352917,12,7,1291,759,Shinkai,oil-tanker,10,6.0,193,south,refined petroleum,Japan,update-target,ais-sensor,false,none,Tsushima
+18,253,1,4,30,270,34.051429,129.35,12,7,1290,765,Shinkai,oil-tanker,10,6.0,193,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+18,254,1,4,30,270,34.689143,129.011667,11,4,1174,486,Seabreeze,oil-tanker,10,6.0,30,north,crude oil,South Korea,update-target,ais-sensor,false,Busan,none
+19,263,1,4,45,285,34.037714,129.347083,12,7,1289,771,Shinkai,oil-tanker,10,6.0,193,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+19,264,1,4,45,285,34.700571,129.020417,11,4,1177,481,Seabreeze,oil-tanker,10,6.0,30,north,crude oil,South Korea,update-target,ais-sensor,false,Busan,none
+20,273,1,5,0,300,34.712,129.029167,11,4,1180,476,Seabreeze,oil-tanker,10,6.0,30,north,crude oil,South Korea,update-target,ais-sensor,false,Busan,none
+20,274,1,5,0,300,34.024,129.344167,12,7,1288,777,Shinkai,oil-tanker,10,6.0,193,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+21,283,1,5,15,315,34.010286,129.34125,12,7,1287,783,Shinkai,oil-tanker,10,6.0,193,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+21,284,1,5,15,315,34.723429,129.037917,11,4,1183,471,Seabreeze,oil-tanker,10,6.0,30,north,crude oil,South Korea,update-target,ais-sensor,false,Busan,none
+22,293,1,5,30,330,33.996571,129.338333,12,7,1286,789,Shinkai,oil-tanker,10,6.0,193,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+22,294,1,5,30,330,34.734857,129.046667,11,4,1186,466,Seabreeze,oil-tanker,10,6.0,30,north,crude oil,South Korea,update-target,ais-sensor,false,Busan,none
+23,303,1,5,45,345,33.982857,129.335417,12,7,1285,795,Shinkai,oil-tanker,10,6.0,193,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+23,304,1,5,45,345,34.746286,129.055417,11,4,1189,461,Seabreeze,oil-tanker,10,6.0,30,north,crude oil,South Korea,update-target,ais-sensor,false,Busan,none
+24,313,1,6,0,360,33.969143,129.3325,12,8,1284,801,Shinkai,oil-tanker,10,6.0,193,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+24,314,1,6,0,360,34.757714,129.064167,11,4,1192,456,Seabreeze,oil-tanker,10,6.0,30,north,crude oil,South Korea,update-target,ais-sensor,false,Busan,none
+25,323,1,6,15,375,33.928,129.320833,12,8,1280,819,Shinkai,oil-tanker,10,18.0,193,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+25,324,1,6,15,375,34.769143,129.072917,11,4,1195,451,Seabreeze,oil-tanker,10,6.0,30,north,crude oil,South Korea,update-target,ais-sensor,false,Busan,none
+26,333,1,6,30,390,34.780571,129.081667,11,4,1198,446,Seabreeze,oil-tanker,10,6.0,30,north,crude oil,South Korea,update-target,ais-sensor,false,Busan,none
+26,334,1,6,30,390,33.886857,129.309167,12,8,1276,837,Shinkai,oil-tanker,10,18.0,193,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+27,343,1,6,45,405,33.845714,129.2975,12,8,1272,855,Shinkai,oil-tanker,10,18.0,193,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+27,344,1,6,45,405,34.792,129.090417,12,4,1201,441,Seabreeze,oil-tanker,10,6.0,30,north,crude oil,South Korea,update-target,ais-sensor,false,Busan,none
+28,353,1,7,0,420,33.804571,129.285833,12,8,1268,873,Shinkai,oil-tanker,10,18.0,193,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+28,354,1,7,0,420,34.828571,129.116667,12,4,1210,425,Seabreeze,oil-tanker,10,18.0,30,north,crude oil,South Korea,update-target,ais-sensor,false,Busan,none
+29,363,1,7,15,435,34.865143,129.142917,12,4,1219,409,Seabreeze,oil-tanker,10,18.0,30,north,crude oil,South Korea,update-target,ais-sensor,false,Busan,none
+29,364,1,7,15,435,33.763429,129.274167,12,8,1264,891,Shinkai,oil-tanker,10,18.0,193,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+30,373,1,7,30,450,34.901714,129.169167,12,3,1228,393,Seabreeze,oil-tanker,10,18.0,30,north,crude oil,South Korea,update-target,ais-sensor,false,Busan,none
+30,374,1,7,30,450,33.722286,129.2625,12,9,1260,909,Shinkai,oil-tanker,10,18.0,193,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+31,384,1,7,45,465,33.683429,129.27125,12,9,1263,926,Shinkai,oil-tanker,10,9.0,147,south,refined petroleum,Japan,update-target,ais-sensor,false,none,Tsushima
+31,385,1,7,45,465,34.901714,129.169167,12,3,1228,393,Seabreeze,oil-tanker,10,0.0,30,north,crude oil,South Korea,update-target,ais-sensor,true,Busan,none
+32,393,1,8,0,480,34.901714,129.169167,12,3,1228,393,Seabreeze,oil-tanker,10,0.0,30,north,crude oil,South Korea,update-target,ais-sensor,true,Busan,none
+32,394,1,8,0,480,33.649143,129.300417,12,9,1273,941,Shinkai,oil-tanker,10,18.0,147,south,refined petroleum,Japan,update-target,ais-sensor,false,none,Tsushima
+33,412,1,8,15,495,33.614857,129.329583,12,9,1283,956,Shinkai,oil-tanker,10,18.0,147,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+33,413,1,8,15,495,34.901714,129.169167,12,3,1228,393,Seabreeze,oil-tanker,10,0.0,30,north,crude oil,South Korea,update-target,ais-sensor,true,Busan,none
+34,420,1,8,30,510,33.580571,129.35875,12,9,1293,971,Shinkai,oil-tanker,10,18.0,147,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+34,421,1,8,30,510,34.901714,129.169167,12,3,1228,393,Seabreeze,oil-tanker,10,0.0,30,north,crude oil,South Korea,update-target,ais-sensor,true,Busan,none
+35,428,1,8,45,525,33.546286,129.387917,13,9,1303,986,Shinkai,oil-tanker,10,18.0,147,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+35,429,1,8,45,525,34.901714,129.169167,12,3,1228,393,Seabreeze,oil-tanker,10,0.0,30,north,crude oil,South Korea,update-target,ais-sensor,true,Busan,none
+36,437,1,9,0,540,34.908571,129.18375,12,3,1233,390,Seabreeze,oil-tanker,10,3.0,82,east,crude oil,South Korea,update-target,ais-sensor,false,none,Busan
+36,438,1,9,0,540,33.534857,129.399583,13,9,1307,991,Shinkai,oil-tanker,10,3.0,143,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+37,448,1,9,15,555,33.523429,129.41125,13,9,1311,996,Shinkai,oil-tanker,10,6.0,143,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+37,449,1,9,15,555,34.910857,129.20125,12,3,1239,389,Seabreeze,oil-tanker,10,6.0,82,east,crude oil,South Korea,update-target,ais-sensor,false,none,Busan
+38,467,1,9,30,570,34.913143,129.21875,12,3,1245,388,Seabreeze,oil-tanker,10,6.0,82,east,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+38,468,1,9,30,570,33.512,129.422917,13,10,1315,1001,Shinkai,oil-tanker,10,6.0,143,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+39,478,1,9,45,585,33.512,129.422917,13,10,1315,1001,Shinkai,oil-tanker,10,0.0,143,south,refined petroleum,Japan,update-target,ais-sensor,true,Nagasaki,Tsushima
+39,479,1,9,45,585,34.915429,129.23625,12,3,1251,387,Seabreeze,oil-tanker,10,6.0,82,east,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+40,486,1,10,0,600,34.917714,129.25375,12,3,1257,386,Seabreeze,oil-tanker,10,6.0,82,east,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+40,487,1,10,0,600,33.512,129.422917,13,10,1315,1001,Shinkai,oil-tanker,10,0.0,143,south,refined petroleum,Japan,update-target,ais-sensor,true,Nagasaki,Tsushima
+41,494,1,10,15,615,33.512,129.422917,13,10,1315,1001,Shinkai,oil-tanker,10,0.0,143,south,refined petroleum,Japan,update-target,ais-sensor,true,Nagasaki,Tsushima
+41,495,1,10,15,615,34.92,129.27125,12,3,1263,385,Seabreeze,oil-tanker,10,6.0,82,east,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+42,502,1,10,30,630,34.922286,129.28875,12,3,1269,384,Seabreeze,oil-tanker,10,6.0,82,east,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+42,503,1,10,30,630,33.512,129.422917,13,10,1315,1001,Shinkai,oil-tanker,10,0.0,143,south,refined petroleum,Japan,update-target,ais-sensor,true,Nagasaki,Tsushima
+43,510,1,10,45,645,34.924571,129.30625,12,3,1275,383,Seabreeze,oil-tanker,10,6.0,82,east,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+43,511,1,10,45,645,33.512,129.422917,13,10,1315,1001,Shinkai,oil-tanker,10,0.0,143,south,refined petroleum,Japan,update-target,ais-sensor,true,Nagasaki,Tsushima
+44,519,1,11,0,660,34.926857,129.32375,12,3,1281,382,Seabreeze,oil-tanker,10,6.0,82,east,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+44,520,1,11,0,660,33.509714,129.4375,13,10,1320,1002,Shinkai,oil-tanker,10,3.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,none,Nagasaki
+45,530,1,11,15,675,34.929143,129.34125,12,3,1287,381,Seabreeze,oil-tanker,10,6.0,82,east,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+45,531,1,11,15,675,33.514286,129.455,13,10,1326,1000,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,none,Nagasaki
+46,549,1,11,30,690,34.931429,129.35875,12,3,1293,380,Seabreeze,oil-tanker,10,6.0,82,east,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+46,550,1,11,30,690,33.518857,129.4725,13,9,1332,998,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+47,559,1,11,45,705,34.933714,129.37625,12,3,1299,379,Seabreeze,oil-tanker,10,6.0,82,east,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+47,560,1,11,45,705,33.523429,129.49,13,9,1338,996,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+48,569,1,12,0,720,33.528,129.5075,13,9,1344,994,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+48,570,1,12,0,720,34.936,129.39375,13,3,1305,378,Seabreeze,oil-tanker,10,6.0,82,east,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+49,579,1,12,15,735,34.942857,129.44625,13,3,1323,375,Seabreeze,oil-tanker,10,18.0,82,east,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+49,580,1,12,15,735,33.532571,129.525,13,9,1350,992,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+50,589,1,12,30,750,34.949714,129.49875,13,3,1341,372,Seabreeze,oil-tanker,10,18.0,82,east,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+50,590,1,12,30,750,33.537143,129.5425,13,9,1356,990,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+51,599,1,12,45,765,33.541714,129.56,13,9,1362,988,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+51,600,1,12,45,765,34.956571,129.55125,13,3,1359,369,Seabreeze,oil-tanker,10,18.0,82,east,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+52,609,1,13,0,780,34.963429,129.60375,13,3,1377,366,Seabreeze,oil-tanker,10,18.0,82,east,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+52,610,1,13,0,780,33.546286,129.5775,13,9,1368,986,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+53,619,1,13,15,795,34.970286,129.65625,13,3,1395,363,Seabreeze,oil-tanker,10,18.0,82,east,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+53,620,1,13,15,795,33.550857,129.595,13,9,1374,984,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+54,629,1,13,30,810,34.977143,129.70875,14,3,1413,360,Seabreeze,oil-tanker,10,18.0,82,east,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+54,630,1,13,30,810,33.555429,129.6125,13,9,1380,982,Shinkai,oil-tanker,10,3.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+55,639,1,13,45,825,33.562286,129.627083,13,9,1385,979,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+55,640,1,13,45,825,34.986286,129.79625,14,3,1443,356,Seabreeze,oil-tanker,10,30.0,82,east,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+56,649,1,14,0,840,34.993143,129.88375,14,3,1473,353,Seabreeze,oil-tanker,10,15.0,86,east,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+56,650,1,14,0,840,33.569143,129.641667,13,9,1390,976,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+57,659,1,14,15,855,34.997714,129.97125,15,3,1503,351,Seabreeze,oil-tanker,10,30.0,86,east,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+57,660,1,14,15,855,33.576,129.65625,13,9,1395,973,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+58,669,1,14,30,870,33.582857,129.670833,14,9,1400,970,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+58,670,1,14,30,870,34.972571,130.04125,15,3,1527,362,Seabreeze,oil-tanker,10,15.0,143,south,crude oil,South Korea,update-target,ais-sensor,false,none,Busan
+59,680,1,14,45,885,33.589714,129.685417,14,9,1405,967,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+59,681,1,14,45,885,34.917714,130.09375,15,3,1545,386,Seabreeze,oil-tanker,10,30.0,143,south,crude oil,South Korea,update-target,ais-sensor,false,none,Busan
+60,699,1,15,0,900,33.596571,129.7,14,9,1410,964,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+60,700,1,15,0,900,34.860571,130.143333,15,4,1562,411,Seabreeze,oil-tanker,10,15.0,147,south,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+61,709,1,15,15,915,33.603429,129.714583,14,9,1415,961,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+61,710,1,15,15,915,34.803429,130.19,15,4,1578,436,Seabreeze,oil-tanker,10,30.0,147,south,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+62,719,1,15,30,930,34.746286,130.236667,15,4,1594,461,Seabreeze,oil-tanker,10,30.0,147,south,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+62,720,1,15,30,930,33.610286,129.729167,14,9,1420,958,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+63,729,1,15,45,945,34.689143,130.283333,16,4,1610,486,Seabreeze,oil-tanker,10,30.0,147,south,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+63,730,1,15,45,945,33.617143,129.74375,14,9,1425,955,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+64,739,1,16,0,960,33.624,129.758333,14,9,1430,952,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+64,740,1,16,0,960,34.632,130.33,16,5,1626,511,Seabreeze,oil-tanker,10,30.0,147,south,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+65,749,1,16,15,975,33.630857,129.772917,14,9,1435,949,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+65,750,1,16,15,975,34.568,130.35625,16,5,1635,539,Seabreeze,oil-tanker,10,15.0,175,south,crude oil,South Korea,update-target,ais-sensor,false,none,Busan
+66,760,1,16,30,990,34.499429,130.365,16,5,1638,569,Seabreeze,oil-tanker,10,30.0,175,south,crude oil,South Korea,update-target,ais-sensor,false,none,Busan
+66,761,1,16,30,990,33.637714,129.7875,14,9,1440,946,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+67,779,1,16,45,1005,33.644571,129.802083,14,9,1445,943,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+67,780,1,16,45,1005,34.430857,130.37375,16,5,1641,599,Seabreeze,oil-tanker,10,30.0,175,south,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+68,789,1,17,0,1020,34.362286,130.3825,16,6,1644,629,Seabreeze,oil-tanker,10,30.0,175,south,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+68,790,1,17,0,1020,33.651429,129.816667,14,9,1450,940,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+69,799,1,17,15,1035,33.658286,129.83125,14,9,1455,937,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+69,800,1,17,15,1035,34.321143,130.388333,16,6,1646,647,Seabreeze,oil-tanker,10,18.0,175,south,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+70,809,1,17,30,1050,33.665143,129.845833,14,9,1460,934,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+70,810,1,17,30,1050,34.28,130.394167,16,6,1648,665,Seabreeze,oil-tanker,10,18.0,175,south,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+71,819,1,17,45,1065,33.672,129.860417,14,9,1465,931,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+71,820,1,17,45,1065,34.238857,130.397083,16,6,1649,683,Seabreeze,oil-tanker,10,9.0,179,south,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+72,829,1,18,0,1080,34.197714,130.397083,16,7,1649,701,Seabreeze,oil-tanker,10,18.0,179,south,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+72,830,1,18,0,1080,33.678857,129.875,14,9,1470,928,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+73,839,1,18,15,1095,34.156571,130.397083,16,7,1649,719,Seabreeze,oil-tanker,10,18.0,179,south,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+73,840,1,18,15,1095,33.685714,129.889583,14,9,1475,925,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+74,849,1,18,30,1110,33.692571,129.904167,14,9,1480,922,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+74,850,1,18,30,1110,34.115429,130.397083,16,7,1649,737,Seabreeze,oil-tanker,10,18.0,179,south,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+75,859,1,18,45,1125,34.074286,130.397083,16,7,1649,755,Seabreeze,oil-tanker,10,18.0,179,south,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+75,860,1,18,45,1125,33.699429,129.91875,14,9,1485,919,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+76,869,1,19,0,1140,33.706286,129.933333,14,9,1490,916,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+76,870,1,19,0,1140,34.033143,130.397083,16,7,1649,773,Seabreeze,oil-tanker,10,18.0,179,south,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+77,879,1,19,15,1155,33.992,130.397083,16,7,1649,791,Seabreeze,oil-tanker,10,18.0,179,south,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+77,880,1,19,15,1155,33.713143,129.947917,14,9,1495,913,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+78,889,1,19,30,1170,33.950857,130.397083,16,8,1649,809,Seabreeze,oil-tanker,10,18.0,179,south,crude oil,South Korea,update-target,ais-sensor,false,Fukuoka,Busan
+78,890,1,19,30,1170,33.72,129.9625,15,9,1500,910,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+79,900,1,19,45,1185,33.749714,130.04125,15,8,1527,897,Shinkai,oil-tanker,10,30.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+79,901,1,19,45,1185,33.950857,130.397083,16,8,1649,809,Seabreeze,oil-tanker,10,0.0,179,south,crude oil,South Korea,update-target,ais-sensor,true,Fukuoka,Busan
+80,908,1,20,0,1200,33.754286,130.05875,15,8,1533,895,Shinkai,oil-tanker,10,3.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+80,909,1,20,0,1200,33.950857,130.397083,16,8,1649,809,Seabreeze,oil-tanker,10,0.0,179,south,crude oil,South Korea,update-target,ais-sensor,true,Fukuoka,Busan
+81,916,1,20,15,1215,33.758857,130.07625,15,8,1539,893,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+81,917,1,20,15,1215,33.950857,130.397083,16,8,1649,809,Seabreeze,oil-tanker,10,0.0,179,south,crude oil,South Korea,update-target,ais-sensor,true,Fukuoka,Busan
+82,924,1,20,30,1230,33.763429,130.09375,15,8,1545,891,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+82,925,1,20,30,1230,33.950857,130.397083,16,8,1649,809,Seabreeze,oil-tanker,10,0.0,179,south,crude oil,South Korea,update-target,ais-sensor,true,Fukuoka,Busan
+83,932,1,20,45,1245,33.768,130.11125,15,8,1551,889,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+83,933,1,20,45,1245,33.950857,130.397083,16,8,1649,809,Seabreeze,oil-tanker,10,0.0,179,south,crude oil,South Korea,update-target,ais-sensor,true,Fukuoka,Busan
+84,941,1,21,0,1260,33.772571,130.12875,15,8,1557,887,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+84,942,1,21,0,1260,33.948571,130.388333,16,8,1646,810,Seabreeze,oil-tanker,10,3.0,301,west,crude oil,South Korea,update-target,ais-sensor,false,none,Fukuoka
+85,952,1,21,15,1275,33.955429,130.37375,16,8,1641,807,Seabreeze,oil-tanker,10,6.0,301,west,crude oil,South Korea,update-target,ais-sensor,false,none,Fukuoka
+85,953,1,21,15,1275,33.777143,130.14625,15,8,1563,885,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+86,971,1,21,30,1290,33.781714,130.16375,15,8,1569,883,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+86,972,1,21,30,1290,33.962286,130.359167,16,8,1636,804,Seabreeze,oil-tanker,10,6.0,301,west,crude oil,South Korea,update-target,ais-sensor,false,Busan,Fukuoka
+87,981,1,21,45,1305,33.969143,130.344583,16,8,1631,801,Seabreeze,oil-tanker,10,6.0,301,west,crude oil,South Korea,update-target,ais-sensor,false,Busan,Fukuoka
+87,982,1,21,45,1305,33.786286,130.18125,15,8,1575,881,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+88,991,1,22,0,1320,33.976,130.33,16,7,1626,798,Seabreeze,oil-tanker,10,6.0,301,west,crude oil,South Korea,update-target,ais-sensor,false,Busan,Fukuoka
+88,992,1,22,0,1320,33.790857,130.19875,15,8,1581,879,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+89,1001,1,22,15,1335,33.996571,130.28625,16,7,1611,789,Seabreeze,oil-tanker,10,18.0,301,west,crude oil,South Korea,update-target,ais-sensor,false,Busan,Fukuoka
+89,1002,1,22,15,1335,33.795429,130.21625,15,8,1587,877,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+90,1011,1,22,30,1350,34.017143,130.2425,15,7,1596,780,Seabreeze,oil-tanker,10,18.0,301,west,crude oil,South Korea,update-target,ais-sensor,false,Busan,Fukuoka
+90,1012,1,22,30,1350,33.8,130.23375,15,8,1593,875,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+91,1021,1,22,45,1365,34.037714,130.160833,15,7,1568,771,Seabreeze,oil-tanker,10,15.0,275,west,crude oil,South Korea,update-target,ais-sensor,false,none,Fukuoka
+91,1022,1,22,45,1365,33.804571,130.25125,15,8,1599,873,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+92,1032,1,23,0,1380,34.044571,130.073333,15,7,1538,768,Seabreeze,oil-tanker,10,30.0,275,west,crude oil,South Korea,update-target,ais-sensor,false,none,Fukuoka
+92,1033,1,23,0,1380,33.809143,130.26875,16,8,1605,871,Shinkai,oil-tanker,10,3.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+93,1052,1,23,15,1395,34.051429,129.985833,15,7,1508,765,Seabreeze,oil-tanker,10,30.0,275,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Fukuoka
+93,1053,1,23,15,1395,33.809143,130.26875,16,8,1605,871,Shinkai,oil-tanker,10,0.0,65,east,refined petroleum,Japan,update-target,ais-sensor,true,Fukuoka,Nagasaki
+94,1060,1,23,30,1410,33.809143,130.26875,16,8,1605,871,Shinkai,oil-tanker,10,0.0,65,east,refined petroleum,Japan,update-target,ais-sensor,true,Fukuoka,Nagasaki
+94,1061,1,23,30,1410,34.058286,129.898333,14,7,1478,762,Seabreeze,oil-tanker,10,30.0,275,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Fukuoka
+95,1068,1,23,45,1425,34.062857,129.845833,14,7,1460,760,Seabreeze,oil-tanker,10,18.0,275,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Fukuoka
+95,1069,1,23,45,1425,33.809143,130.26875,16,8,1605,871,Shinkai,oil-tanker,10,0.0,65,east,refined petroleum,Japan,update-target,ais-sensor,true,Fukuoka,Nagasaki
+96,1076,2,0,0,1440,33.809143,130.26875,16,8,1605,871,Shinkai,oil-tanker,10,0.0,65,east,refined petroleum,Japan,update-target,ais-sensor,true,Fukuoka,Nagasaki
+96,1077,2,0,0,1440,34.067429,129.793333,14,7,1442,758,Seabreeze,oil-tanker,10,18.0,275,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Fukuoka
+97,1084,2,0,15,1455,34.072,129.740833,14,7,1424,756,Seabreeze,oil-tanker,10,18.0,275,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Fukuoka
+97,1085,2,0,15,1455,33.809143,130.26875,16,8,1605,871,Shinkai,oil-tanker,10,0.0,65,east,refined petroleum,Japan,update-target,ais-sensor,true,Fukuoka,Nagasaki
+98,1093,2,0,30,1470,34.076571,129.688333,14,7,1406,754,Seabreeze,oil-tanker,10,18.0,275,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Fukuoka
+98,1094,2,0,30,1470,33.818286,130.274583,16,8,1607,867,Shinkai,oil-tanker,10,3.0,336,north,refined petroleum,Japan,update-target,ais-sensor,false,none,Fukuoka
+99,1104,2,0,45,1485,34.081143,129.635833,13,7,1388,752,Seabreeze,oil-tanker,10,18.0,275,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Fukuoka
+99,1105,2,0,45,1485,33.829714,130.26875,16,8,1605,862,Shinkai,oil-tanker,10,6.0,336,north,refined petroleum,Japan,update-target,ais-sensor,false,none,Fukuoka
+100,1123,2,1,0,1500,34.081143,129.618333,13,7,1382,752,Seabreeze,oil-tanker,10,3.0,271,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Fukuoka
+100,1124,2,1,0,1500,33.841143,130.262917,16,8,1603,857,Shinkai,oil-tanker,10,6.0,336,north,refined petroleum,Japan,update-target,ais-sensor,false,Busan,Fukuoka
+101,1133,2,1,15,1515,34.081143,129.600833,13,7,1376,752,Seabreeze,oil-tanker,10,6.0,271,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Fukuoka
+101,1134,2,1,15,1515,33.852571,130.257083,16,8,1601,852,Shinkai,oil-tanker,10,6.0,336,north,refined petroleum,Japan,update-target,ais-sensor,false,Busan,Fukuoka
+102,1143,2,1,30,1530,33.864,130.25125,15,8,1599,847,Shinkai,oil-tanker,10,6.0,336,north,refined petroleum,Japan,update-target,ais-sensor,false,Busan,Fukuoka
+102,1144,2,1,30,1530,34.081143,129.583333,13,7,1370,752,Seabreeze,oil-tanker,10,6.0,271,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Fukuoka
+103,1153,2,1,45,1545,34.081143,129.565833,13,7,1364,752,Seabreeze,oil-tanker,10,6.0,271,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Fukuoka
+103,1154,2,1,45,1545,33.875429,130.245417,15,8,1597,842,Shinkai,oil-tanker,10,6.0,336,north,refined petroleum,Japan,update-target,ais-sensor,false,Busan,Fukuoka
+104,1163,2,2,0,1560,34.081143,129.548333,13,7,1358,752,Seabreeze,oil-tanker,10,6.0,271,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Fukuoka
+104,1164,2,2,0,1560,33.886857,130.239583,15,8,1595,837,Shinkai,oil-tanker,10,6.0,336,north,refined petroleum,Japan,update-target,ais-sensor,false,Busan,Fukuoka
+105,1173,2,2,15,1575,33.898286,130.23375,15,8,1593,832,Shinkai,oil-tanker,10,6.0,336,north,refined petroleum,Japan,update-target,ais-sensor,false,Busan,Fukuoka
+105,1174,2,2,15,1575,34.081143,129.530833,13,7,1352,752,Seabreeze,oil-tanker,10,6.0,271,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Fukuoka
+106,1183,2,2,30,1590,34.081143,129.513333,13,7,1346,752,Seabreeze,oil-tanker,10,6.0,271,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Fukuoka
+106,1184,2,2,30,1590,33.909714,130.227917,15,8,1591,827,Shinkai,oil-tanker,10,6.0,336,north,refined petroleum,Japan,update-target,ais-sensor,false,Busan,Fukuoka
+107,1193,2,2,45,1605,33.923429,130.222083,15,8,1589,821,Shinkai,oil-tanker,10,3.0,332,north,refined petroleum,Japan,update-target,ais-sensor,false,Busan,Fukuoka
+107,1194,2,2,45,1605,34.081143,129.495833,13,7,1340,752,Seabreeze,oil-tanker,10,6.0,271,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Fukuoka
+108,1203,2,3,0,1620,33.934857,130.213333,15,8,1586,816,Shinkai,oil-tanker,10,6.0,332,north,refined petroleum,Japan,update-target,ais-sensor,false,Busan,Fukuoka
+108,1204,2,3,0,1620,34.081143,129.478333,13,7,1334,752,Seabreeze,oil-tanker,10,6.0,271,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Fukuoka
+109,1213,2,3,15,1635,34.081143,129.460833,13,7,1328,752,Seabreeze,oil-tanker,10,6.0,271,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Fukuoka
+109,1214,2,3,15,1635,33.946286,130.204583,15,8,1583,811,Shinkai,oil-tanker,10,6.0,332,north,refined petroleum,Japan,update-target,ais-sensor,false,Busan,Fukuoka
+110,1223,2,3,30,1650,33.957714,130.195833,15,8,1580,806,Shinkai,oil-tanker,10,6.0,332,north,refined petroleum,Japan,update-target,ais-sensor,false,Busan,Fukuoka
+110,1224,2,3,30,1650,34.081143,129.443333,13,7,1322,752,Seabreeze,oil-tanker,10,6.0,271,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Fukuoka
+111,1233,2,3,45,1665,33.969143,130.187083,15,8,1577,801,Shinkai,oil-tanker,10,6.0,332,north,refined petroleum,Japan,update-target,ais-sensor,false,Busan,Fukuoka
+111,1234,2,3,45,1665,34.081143,129.425833,13,7,1316,752,Seabreeze,oil-tanker,10,6.0,271,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Fukuoka
+112,1243,2,4,0,1680,34.081143,129.408333,13,7,1310,752,Seabreeze,oil-tanker,10,6.0,271,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Fukuoka
+112,1244,2,4,0,1680,33.980571,130.178333,15,7,1574,796,Shinkai,oil-tanker,10,6.0,332,north,refined petroleum,Japan,update-target,ais-sensor,false,Busan,Fukuoka
+113,1253,2,4,15,1695,34.081143,129.390833,13,7,1304,752,Seabreeze,oil-tanker,10,6.0,271,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Fukuoka
+113,1254,2,4,15,1695,34.014857,130.114167,15,7,1552,781,Shinkai,oil-tanker,10,15.0,279,west,refined petroleum,Japan,update-target,ais-sensor,false,none,Fukuoka
+114,1264,2,4,30,1710,34.081143,129.373333,12,7,1298,752,Seabreeze,oil-tanker,10,6.0,271,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Fukuoka
+114,1265,2,4,30,1710,34.026286,130.026667,15,7,1522,776,Shinkai,oil-tanker,10,30.0,279,west,refined petroleum,Japan,update-target,ais-sensor,false,none,Fukuoka
+115,1284,2,4,45,1725,34.037714,129.939167,14,7,1492,771,Shinkai,oil-tanker,10,30.0,279,west,refined petroleum,Japan,update-target,ais-sensor,false,Tsushima,Fukuoka
+115,1285,2,4,45,1725,34.081143,129.373333,12,7,1298,752,Seabreeze,oil-tanker,10,0.0,271,west,crude oil,South Korea,update-target,ais-sensor,true,Tsushima,Fukuoka
+116,1292,2,5,0,1740,34.042286,129.886667,14,7,1474,769,Shinkai,oil-tanker,10,9.0,275,west,refined petroleum,Japan,update-target,ais-sensor,false,Tsushima,Fukuoka
+116,1293,2,5,0,1740,34.081143,129.373333,12,7,1298,752,Seabreeze,oil-tanker,10,0.0,271,west,crude oil,South Korea,update-target,ais-sensor,true,Tsushima,Fukuoka
+117,1300,2,5,15,1755,34.081143,129.373333,12,7,1298,752,Seabreeze,oil-tanker,10,0.0,271,west,crude oil,South Korea,update-target,ais-sensor,true,Tsushima,Fukuoka
+117,1301,2,5,15,1755,34.046857,129.834167,14,7,1456,767,Shinkai,oil-tanker,10,18.0,275,west,refined petroleum,Japan,update-target,ais-sensor,false,Tsushima,Fukuoka
+118,1308,2,5,30,1770,34.051429,129.781667,14,7,1438,765,Shinkai,oil-tanker,10,18.0,275,west,refined petroleum,Japan,update-target,ais-sensor,false,Tsushima,Fukuoka
+118,1309,2,5,30,1770,34.081143,129.373333,12,7,1298,752,Seabreeze,oil-tanker,10,0.0,271,west,crude oil,South Korea,update-target,ais-sensor,true,Tsushima,Fukuoka
+119,1316,2,5,45,1785,34.056,129.729167,14,7,1420,763,Shinkai,oil-tanker,10,18.0,275,west,refined petroleum,Japan,update-target,ais-sensor,false,Tsushima,Fukuoka
+119,1317,2,5,45,1785,34.081143,129.373333,12,7,1298,752,Seabreeze,oil-tanker,10,0.0,271,west,crude oil,South Korea,update-target,ais-sensor,true,Tsushima,Fukuoka
+120,1325,2,6,0,1800,34.074286,129.361667,12,7,1294,755,Seabreeze,oil-tanker,10,3.0,194,south,crude oil,South Korea,update-target,ais-sensor,false,none,Tsushima
+120,1326,2,6,0,1800,34.060571,129.676667,14,7,1402,761,Shinkai,oil-tanker,10,18.0,275,west,refined petroleum,Japan,update-target,ais-sensor,false,Tsushima,Fukuoka
+121,1336,2,6,15,1815,34.065143,129.624167,13,7,1384,759,Shinkai,oil-tanker,10,18.0,275,west,refined petroleum,Japan,update-target,ais-sensor,false,Tsushima,Fukuoka
+121,1337,2,6,15,1815,34.060571,129.35875,12,7,1293,761,Seabreeze,oil-tanker,10,6.0,194,south,crude oil,South Korea,update-target,ais-sensor,false,none,Tsushima
+122,1355,2,6,30,1830,34.046857,129.355833,12,7,1292,767,Seabreeze,oil-tanker,10,6.0,194,south,crude oil,South Korea,update-target,ais-sensor,false,Nagasaki,Tsushima
+122,1356,2,6,30,1830,34.067429,129.606667,13,7,1378,758,Shinkai,oil-tanker,10,6.0,275,west,refined petroleum,Japan,update-target,ais-sensor,false,Tsushima,Fukuoka
+123,1365,2,6,45,1845,34.033143,129.352917,12,7,1291,773,Seabreeze,oil-tanker,10,6.0,194,south,crude oil,South Korea,update-target,ais-sensor,false,Nagasaki,Tsushima
+123,1366,2,6,45,1845,34.069714,129.589167,13,7,1372,757,Shinkai,oil-tanker,10,6.0,275,west,refined petroleum,Japan,update-target,ais-sensor,false,Tsushima,Fukuoka
+124,1375,2,7,0,1860,34.019429,129.35,12,7,1290,779,Seabreeze,oil-tanker,10,6.0,194,south,crude oil,South Korea,update-target,ais-sensor,false,Nagasaki,Tsushima
+124,1376,2,7,0,1860,34.072,129.571667,13,7,1366,756,Shinkai,oil-tanker,10,6.0,275,west,refined petroleum,Japan,update-target,ais-sensor,false,Tsushima,Fukuoka
+125,1385,2,7,15,1875,34.074286,129.554167,13,7,1360,755,Shinkai,oil-tanker,10,6.0,275,west,refined petroleum,Japan,update-target,ais-sensor,false,Tsushima,Fukuoka
+125,1386,2,7,15,1875,34.005714,129.347083,12,7,1289,785,Seabreeze,oil-tanker,10,6.0,194,south,crude oil,South Korea,update-target,ais-sensor,false,Nagasaki,Tsushima
+126,1395,2,7,30,1890,34.076571,129.536667,13,7,1354,754,Shinkai,oil-tanker,10,6.0,275,west,refined petroleum,Japan,update-target,ais-sensor,false,Tsushima,Fukuoka
+126,1396,2,7,30,1890,33.992,129.344167,12,7,1288,791,Seabreeze,oil-tanker,10,6.0,194,south,crude oil,South Korea,update-target,ais-sensor,false,Nagasaki,Tsushima
+127,1405,2,7,45,1905,33.978286,129.34125,12,7,1287,797,Seabreeze,oil-tanker,10,6.0,194,south,crude oil,South Korea,update-target,ais-sensor,false,Nagasaki,Tsushima
+127,1406,2,7,45,1905,34.078857,129.519167,13,7,1348,753,Shinkai,oil-tanker,10,6.0,275,west,refined petroleum,Japan,update-target,ais-sensor,false,Tsushima,Fukuoka
+128,1415,2,8,0,1920,33.964571,129.338333,12,8,1286,803,Seabreeze,oil-tanker,10,6.0,194,south,crude oil,South Korea,update-target,ais-sensor,false,Nagasaki,Tsushima
+128,1416,2,8,0,1920,34.081143,129.501667,13,7,1342,752,Shinkai,oil-tanker,10,6.0,275,west,refined petroleum,Japan,update-target,ais-sensor,false,Tsushima,Fukuoka
+129,1425,2,8,15,1935,33.925714,129.326667,12,8,1282,820,Seabreeze,oil-tanker,10,18.0,194,south,crude oil,South Korea,update-target,ais-sensor,false,Nagasaki,Tsushima
+129,1426,2,8,15,1935,34.083429,129.484167,13,7,1336,751,Shinkai,oil-tanker,10,6.0,275,west,refined petroleum,Japan,update-target,ais-sensor,false,Tsushima,Fukuoka
+130,1435,2,8,30,1950,34.083429,129.466667,13,7,1330,751,Shinkai,oil-tanker,10,3.0,271,west,refined petroleum,Japan,update-target,ais-sensor,false,Tsushima,Fukuoka
+130,1436,2,8,30,1950,33.886857,129.315,12,8,1278,837,Seabreeze,oil-tanker,10,18.0,194,south,crude oil,South Korea,update-target,ais-sensor,false,Nagasaki,Tsushima
+131,1445,2,8,45,1965,33.848,129.303333,12,8,1274,854,Seabreeze,oil-tanker,10,18.0,194,south,crude oil,South Korea,update-target,ais-sensor,false,Nagasaki,Tsushima
+131,1446,2,8,45,1965,34.083429,129.449167,13,7,1324,751,Shinkai,oil-tanker,10,6.0,271,west,refined petroleum,Japan,update-target,ais-sensor,false,Tsushima,Fukuoka
+132,1455,2,9,0,1980,34.083429,129.431667,13,7,1318,751,Shinkai,oil-tanker,10,6.0,271,west,refined petroleum,Japan,update-target,ais-sensor,false,Tsushima,Fukuoka
+132,1456,2,9,0,1980,33.809143,129.291667,12,8,1270,871,Seabreeze,oil-tanker,10,18.0,194,south,crude oil,South Korea,update-target,ais-sensor,false,Nagasaki,Tsushima
+133,1465,2,9,15,1995,34.083429,129.414167,13,7,1312,751,Shinkai,oil-tanker,10,6.0,271,west,refined petroleum,Japan,update-target,ais-sensor,false,Tsushima,Fukuoka
+133,1466,2,9,15,1995,33.770286,129.28,12,8,1266,888,Seabreeze,oil-tanker,10,18.0,194,south,crude oil,South Korea,update-target,ais-sensor,false,Nagasaki,Tsushima
+134,1475,2,9,30,2010,34.083429,129.396667,13,7,1306,751,Shinkai,oil-tanker,10,6.0,271,west,refined petroleum,Japan,update-target,ais-sensor,false,Tsushima,Fukuoka
+134,1476,2,9,30,2010,33.731429,129.268333,12,9,1262,905,Seabreeze,oil-tanker,10,18.0,194,south,crude oil,South Korea,update-target,ais-sensor,false,Nagasaki,Tsushima
+135,1485,2,9,45,2025,34.083429,129.379167,13,7,1300,751,Shinkai,oil-tanker,10,6.0,271,west,refined petroleum,Japan,update-target,ais-sensor,false,Tsushima,Fukuoka
+135,1486,2,9,45,2025,33.692571,129.277083,12,9,1265,922,Seabreeze,oil-tanker,10,9.0,148,south,crude oil,South Korea,update-target,ais-sensor,false,none,Tsushima
+136,1496,2,10,0,2040,34.083429,129.361667,12,7,1294,751,Shinkai,oil-tanker,10,6.0,271,west,refined petroleum,Japan,update-target,ais-sensor,false,Tsushima,Fukuoka
+136,1497,2,10,0,2040,33.658286,129.30625,12,9,1275,937,Seabreeze,oil-tanker,10,18.0,148,south,crude oil,South Korea,update-target,ais-sensor,false,none,Tsushima
+137,1516,2,10,15,2055,34.083429,129.361667,12,7,1294,751,Shinkai,oil-tanker,10,0.0,271,west,refined petroleum,Japan,update-target,ais-sensor,true,Tsushima,Fukuoka
+137,1517,2,10,15,2055,33.624,129.335417,12,9,1285,952,Seabreeze,oil-tanker,10,18.0,148,south,crude oil,South Korea,update-target,ais-sensor,false,Nagasaki,Tsushima
+138,1524,2,10,30,2070,34.083429,129.361667,12,7,1294,751,Shinkai,oil-tanker,10,0.0,271,west,refined petroleum,Japan,update-target,ais-sensor,true,Tsushima,Fukuoka
+138,1525,2,10,30,2070,33.589714,129.364583,12,9,1295,967,Seabreeze,oil-tanker,10,18.0,148,south,crude oil,South Korea,update-target,ais-sensor,false,Nagasaki,Tsushima
+139,1532,2,10,45,2085,34.083429,129.361667,12,7,1294,751,Shinkai,oil-tanker,10,0.0,271,west,refined petroleum,Japan,update-target,ais-sensor,true,Tsushima,Fukuoka
+139,1533,2,10,45,2085,33.555429,129.39375,13,9,1305,982,Seabreeze,oil-tanker,10,18.0,148,south,crude oil,South Korea,update-target,ais-sensor,false,Nagasaki,Tsushima
+140,1540,2,11,0,2100,33.544,129.4025,13,9,1308,987,Seabreeze,oil-tanker,10,6.0,148,south,crude oil,South Korea,update-target,ais-sensor,false,Nagasaki,Tsushima
+140,1541,2,11,0,2100,34.083429,129.361667,12,7,1294,751,Shinkai,oil-tanker,10,0.0,271,west,refined petroleum,Japan,update-target,ais-sensor,true,Tsushima,Fukuoka
+141,1548,2,11,15,2115,34.083429,129.361667,12,7,1294,751,Shinkai,oil-tanker,10,0.0,271,west,refined petroleum,Japan,update-target,ais-sensor,true,Tsushima,Fukuoka
+141,1549,2,11,15,2115,33.532571,129.41125,13,9,1311,992,Seabreeze,oil-tanker,10,6.0,148,south,crude oil,South Korea,update-target,ais-sensor,false,Nagasaki,Tsushima
+142,1557,2,11,30,2130,33.521143,129.42,13,9,1314,997,Seabreeze,oil-tanker,10,6.0,148,south,crude oil,South Korea,update-target,ais-sensor,false,Nagasaki,Tsushima
+142,1558,2,11,30,2130,34.076571,129.35,12,7,1290,754,Shinkai,oil-tanker,10,3.0,193,south,refined petroleum,Japan,update-target,ais-sensor,false,none,Tsushima
+143,1568,2,11,45,2145,33.509714,129.42875,13,10,1317,1002,Seabreeze,oil-tanker,10,6.0,148,south,crude oil,South Korea,update-target,ais-sensor,false,Nagasaki,Tsushima
+143,1569,2,11,45,2145,34.062857,129.347083,12,7,1289,760,Shinkai,oil-tanker,10,6.0,193,south,refined petroleum,Japan,update-target,ais-sensor,false,none,Tsushima
+144,1588,2,12,0,2160,34.049143,129.344167,12,7,1288,766,Shinkai,oil-tanker,10,6.0,193,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+144,1589,2,12,0,2160,33.509714,129.42875,13,10,1317,1002,Seabreeze,oil-tanker,10,0.0,148,south,crude oil,South Korea,update-target,ais-sensor,true,Nagasaki,Tsushima
+145,1596,2,12,15,2175,34.035429,129.34125,12,7,1287,772,Shinkai,oil-tanker,10,6.0,193,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+145,1597,2,12,15,2175,33.509714,129.42875,13,10,1317,1002,Seabreeze,oil-tanker,10,0.0,148,south,crude oil,South Korea,update-target,ais-sensor,true,Nagasaki,Tsushima
+146,1604,2,12,30,2190,34.021714,129.338333,12,7,1286,778,Shinkai,oil-tanker,10,6.0,193,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+146,1605,2,12,30,2190,33.509714,129.42875,13,10,1317,1002,Seabreeze,oil-tanker,10,0.0,148,south,crude oil,South Korea,update-target,ais-sensor,true,Nagasaki,Tsushima
+147,1612,2,12,45,2205,34.008,129.335417,12,7,1285,784,Shinkai,oil-tanker,10,6.0,193,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+147,1613,2,12,45,2205,33.509714,129.42875,13,10,1317,1002,Seabreeze,oil-tanker,10,0.0,148,south,crude oil,South Korea,update-target,ais-sensor,true,Nagasaki,Tsushima
+148,1620,2,13,0,2220,33.994286,129.3325,12,7,1284,790,Shinkai,oil-tanker,10,6.0,193,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+148,1621,2,13,0,2220,33.509714,129.42875,13,10,1317,1002,Seabreeze,oil-tanker,10,0.0,148,south,crude oil,South Korea,update-target,ais-sensor,true,Nagasaki,Tsushima
+149,1629,2,13,15,2235,33.507429,129.42875,13,10,1317,1003,Seabreeze,oil-tanker,10,3.0,313,west,crude oil,South Korea,update-target,ais-sensor,false,none,Nagasaki
+149,1630,2,13,15,2235,33.980571,129.329583,12,7,1283,796,Shinkai,oil-tanker,10,6.0,193,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+150,1640,2,13,30,2250,33.516571,129.417083,13,9,1313,999,Seabreeze,oil-tanker,10,6.0,313,west,crude oil,South Korea,update-target,ais-sensor,false,none,Nagasaki
+150,1641,2,13,30,2250,33.966857,129.326667,12,8,1282,802,Shinkai,oil-tanker,10,6.0,193,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+151,1659,2,13,45,2265,33.525714,129.405417,13,9,1309,995,Seabreeze,oil-tanker,10,6.0,313,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Nagasaki
+151,1660,2,13,45,2265,33.925714,129.315,12,8,1278,820,Shinkai,oil-tanker,10,18.0,193,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+152,1669,2,14,0,2280,33.884571,129.303333,12,8,1274,838,Shinkai,oil-tanker,10,18.0,193,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+152,1670,2,14,0,2280,33.534857,129.39375,13,9,1305,991,Seabreeze,oil-tanker,10,6.0,313,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Nagasaki
+153,1679,2,14,15,2295,33.544,129.382083,13,9,1301,987,Seabreeze,oil-tanker,10,6.0,313,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Nagasaki
+153,1680,2,14,15,2295,33.843429,129.291667,12,8,1270,856,Shinkai,oil-tanker,10,18.0,193,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+154,1689,2,14,30,2310,33.553143,129.370417,12,9,1297,983,Seabreeze,oil-tanker,10,6.0,313,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Nagasaki
+154,1690,2,14,30,2310,33.802286,129.28,12,8,1266,874,Shinkai,oil-tanker,10,18.0,193,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+155,1699,2,14,45,2325,33.761143,129.268333,12,8,1262,892,Shinkai,oil-tanker,10,18.0,193,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+155,1700,2,14,45,2325,33.580571,129.3325,12,9,1284,971,Seabreeze,oil-tanker,10,18.0,313,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Nagasaki
+156,1709,2,15,0,2340,33.608,129.294583,12,9,1271,959,Seabreeze,oil-tanker,10,18.0,313,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Nagasaki
+156,1710,2,15,0,2340,33.72,129.256667,12,9,1258,910,Shinkai,oil-tanker,10,18.0,193,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+157,1719,2,15,15,2355,33.683429,129.265417,12,9,1261,926,Shinkai,oil-tanker,10,9.0,146,south,refined petroleum,Japan,update-target,ais-sensor,false,none,Tsushima
+157,1720,2,15,15,2355,33.635429,129.256667,12,9,1258,947,Seabreeze,oil-tanker,10,18.0,313,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Nagasaki
+158,1730,2,15,30,2370,33.649143,129.294583,12,9,1271,941,Shinkai,oil-tanker,10,18.0,146,south,refined petroleum,Japan,update-target,ais-sensor,false,none,Tsushima
+158,1731,2,15,30,2370,33.662857,129.21875,12,9,1245,935,Seabreeze,oil-tanker,10,18.0,313,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Nagasaki
+159,1749,2,15,45,2385,33.690286,129.180833,12,9,1232,923,Seabreeze,oil-tanker,10,18.0,313,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Nagasaki
+159,1750,2,15,45,2385,33.614857,129.32375,12,9,1281,956,Shinkai,oil-tanker,10,18.0,146,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+160,1759,2,16,0,2400,33.717714,129.142917,12,9,1219,911,Seabreeze,oil-tanker,10,18.0,313,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Nagasaki
+160,1760,2,16,0,2400,33.580571,129.352917,12,9,1291,971,Shinkai,oil-tanker,10,18.0,146,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+161,1769,2,16,15,2415,33.745143,129.105,12,8,1206,899,Seabreeze,oil-tanker,10,18.0,313,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Nagasaki
+161,1770,2,16,15,2415,33.546286,129.382083,13,9,1301,986,Shinkai,oil-tanker,10,18.0,146,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+162,1779,2,16,30,2430,33.772571,129.067083,11,8,1193,887,Seabreeze,oil-tanker,10,18.0,313,west,crude oil,South Korea,update-target,ais-sensor,false,Tsushima,Nagasaki
+162,1780,2,16,30,2430,33.537143,129.39375,13,9,1305,990,Shinkai,oil-tanker,10,3.0,142,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+163,1789,2,16,45,2445,33.525714,129.405417,13,9,1309,995,Shinkai,oil-tanker,10,6.0,142,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+163,1790,2,16,45,2445,33.788571,129.020417,11,8,1177,880,Seabreeze,oil-tanker,10,9.0,274,west,crude oil,South Korea,update-target,ais-sensor,false,none,Nagasaki
+164,1800,2,17,0,2460,33.514286,129.417083,13,10,1313,1000,Shinkai,oil-tanker,10,6.0,142,south,refined petroleum,Japan,update-target,ais-sensor,false,Nagasaki,Tsushima
+164,1801,2,17,0,2460,33.790857,128.967917,11,8,1159,879,Seabreeze,oil-tanker,10,18.0,274,west,crude oil,South Korea,update-target,ais-sensor,false,none,Nagasaki
+165,1820,2,17,15,2475,33.793143,128.915417,11,8,1141,878,Seabreeze,oil-tanker,10,18.0,274,west,crude oil,South Korea,update-target,ais-sensor,false,Jeju-si,Nagasaki
+165,1821,2,17,15,2475,33.514286,129.417083,13,10,1313,1000,Shinkai,oil-tanker,10,0.0,142,south,refined petroleum,Japan,update-target,ais-sensor,true,Nagasaki,Tsushima
+166,1828,2,17,30,2490,33.514286,129.417083,13,10,1313,1000,Shinkai,oil-tanker,10,0.0,142,south,refined petroleum,Japan,update-target,ais-sensor,true,Nagasaki,Tsushima
+166,1829,2,17,30,2490,33.795429,128.862917,11,8,1123,877,Seabreeze,oil-tanker,10,18.0,274,west,crude oil,South Korea,update-target,ais-sensor,false,Jeju-si,Nagasaki
+167,1836,2,17,45,2505,33.797714,128.810417,11,8,1105,876,Seabreeze,oil-tanker,10,18.0,274,west,crude oil,South Korea,update-target,ais-sensor,false,Jeju-si,Nagasaki
+167,1837,2,17,45,2505,33.514286,129.417083,13,10,1313,1000,Shinkai,oil-tanker,10,0.0,142,south,refined petroleum,Japan,update-target,ais-sensor,true,Nagasaki,Tsushima
+168,1844,2,18,0,2520,33.8,128.757917,10,8,1087,875,Seabreeze,oil-tanker,10,18.0,274,west,crude oil,South Korea,update-target,ais-sensor,false,Jeju-si,Nagasaki
+168,1845,2,18,0,2520,33.514286,129.417083,13,10,1313,1000,Shinkai,oil-tanker,10,0.0,142,south,refined petroleum,Japan,update-target,ais-sensor,true,Nagasaki,Tsushima
+169,1852,2,18,15,2535,33.514286,129.417083,13,10,1313,1000,Shinkai,oil-tanker,10,0.0,142,south,refined petroleum,Japan,update-target,ais-sensor,true,Nagasaki,Tsushima
+169,1853,2,18,15,2535,33.804571,128.670417,10,8,1057,873,Seabreeze,oil-tanker,10,30.0,274,west,crude oil,South Korea,update-target,ais-sensor,false,Jeju-si,Nagasaki
+170,1861,2,18,30,2550,33.809143,128.582917,10,8,1027,871,Seabreeze,oil-tanker,10,30.0,274,west,crude oil,South Korea,update-target,ais-sensor,false,Jeju-si,Nagasaki
+170,1862,2,18,30,2550,33.512,129.431667,13,10,1318,1001,Shinkai,oil-tanker,10,3.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,none,Nagasaki
+171,1872,2,18,45,2565,33.516571,129.449167,13,9,1324,999,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,none,Nagasaki
+171,1873,2,18,45,2565,33.813714,128.495417,9,8,997,869,Seabreeze,oil-tanker,10,30.0,274,west,crude oil,South Korea,update-target,ais-sensor,false,Jeju-si,Nagasaki
+172,1891,2,19,0,2580,33.818286,128.407917,9,8,967,867,Seabreeze,oil-tanker,10,30.0,274,west,crude oil,South Korea,update-target,ais-sensor,false,Jeju-si,Nagasaki
+172,1892,2,19,0,2580,33.521143,129.466667,13,9,1330,997,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+173,1901,2,19,15,2595,33.525714,129.484167,13,9,1336,995,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+173,1902,2,19,15,2595,33.822857,128.320417,9,8,937,865,Seabreeze,oil-tanker,10,30.0,274,west,crude oil,South Korea,update-target,ais-sensor,false,Jeju-si,Nagasaki
+174,1911,2,19,30,2610,33.827429,128.232917,9,8,907,863,Seabreeze,oil-tanker,10,30.0,274,west,crude oil,South Korea,update-target,ais-sensor,false,Jeju-si,Nagasaki
+174,1912,2,19,30,2610,33.530286,129.501667,13,9,1342,993,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+175,1921,2,19,45,2625,33.534857,129.519167,13,9,1348,991,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+175,1922,2,19,45,2625,33.832,128.145417,8,8,877,861,Seabreeze,oil-tanker,10,30.0,274,west,crude oil,South Korea,update-target,ais-sensor,false,Jeju-si,Nagasaki
+176,1931,2,20,0,2640,33.539429,129.536667,13,9,1354,989,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+176,1932,2,20,0,2640,33.836571,128.057917,8,8,847,859,Seabreeze,oil-tanker,10,30.0,274,west,crude oil,South Korea,update-target,ais-sensor,false,Jeju-si,Nagasaki
+177,1941,2,20,15,2655,33.841143,127.970417,8,8,817,857,Seabreeze,oil-tanker,10,30.0,274,west,crude oil,South Korea,update-target,ais-sensor,false,Jeju-si,Nagasaki
+177,1942,2,20,15,2655,33.544,129.554167,13,9,1360,987,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+178,1951,2,20,30,2670,33.548571,129.571667,13,9,1366,985,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+178,1952,2,20,30,2670,33.845714,127.882917,7,8,787,855,Seabreeze,oil-tanker,10,30.0,274,west,crude oil,South Korea,update-target,ais-sensor,false,Jeju-si,Nagasaki
+179,1961,2,20,45,2685,33.850286,127.795417,7,8,757,853,Seabreeze,oil-tanker,10,30.0,274,west,crude oil,South Korea,update-target,ais-sensor,false,Jeju-si,Nagasaki
+179,1962,2,20,45,2685,33.553143,129.589167,13,9,1372,983,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+180,1971,2,21,0,2700,33.557714,129.606667,13,9,1378,981,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+180,1972,2,21,0,2700,33.854857,127.707917,7,8,727,851,Seabreeze,oil-tanker,10,30.0,274,west,crude oil,South Korea,update-target,ais-sensor,false,Jeju-si,Nagasaki
+181,1981,2,21,15,2715,33.859429,127.620417,6,8,697,849,Seabreeze,oil-tanker,10,30.0,274,west,crude oil,South Korea,update-target,ais-sensor,false,Jeju-si,Nagasaki
+181,1982,2,21,15,2715,33.562286,129.624167,13,9,1384,979,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+182,1991,2,21,30,2730,33.566857,129.641667,13,9,1390,977,Shinkai,oil-tanker,10,6.0,69,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+182,1992,2,21,30,2730,33.848,127.535833,6,8,668,854,Seabreeze,oil-tanker,10,15.0,248,west,crude oil,South Korea,update-target,ais-sensor,false,none,Nagasaki
+183,2002,2,21,45,2745,33.571429,129.659167,13,9,1396,975,Shinkai,oil-tanker,10,3.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+183,2003,2,21,45,2745,33.822857,127.454167,6,8,640,865,Seabreeze,oil-tanker,10,30.0,248,west,crude oil,South Korea,update-target,ais-sensor,false,none,Nagasaki
+184,2021,2,22,0,2760,33.578286,129.67375,14,9,1401,972,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+184,2022,2,22,0,2760,33.797714,127.3725,6,8,612,876,Seabreeze,oil-tanker,10,30.0,248,west,crude oil,South Korea,update-target,ais-sensor,false,Jeju-si,Nagasaki
+185,2031,2,22,15,2775,33.772571,127.290833,5,8,584,887,Seabreeze,oil-tanker,10,30.0,248,west,crude oil,South Korea,update-target,ais-sensor,false,Jeju-si,Nagasaki
+185,2032,2,22,15,2775,33.585143,129.688333,14,9,1406,969,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+186,2041,2,22,30,2790,33.756571,127.24125,5,8,567,894,Seabreeze,oil-tanker,10,18.0,248,west,crude oil,South Korea,update-target,ais-sensor,false,Jeju-si,Nagasaki
+186,2042,2,22,30,2790,33.592,129.702917,14,9,1411,966,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+187,2051,2,22,45,2805,33.598857,129.7175,14,9,1416,963,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+187,2052,2,22,45,2805,33.740571,127.191667,5,9,550,901,Seabreeze,oil-tanker,10,18.0,248,west,crude oil,South Korea,update-target,ais-sensor,false,Jeju-si,Nagasaki
+188,2061,2,23,0,2820,33.724571,127.145,5,9,534,908,Seabreeze,oil-tanker,10,9.0,244,west,crude oil,South Korea,update-target,ais-sensor,false,Jeju-si,Nagasaki
+188,2062,2,23,0,2820,33.605714,129.732083,14,9,1421,960,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+189,2071,2,23,15,2835,33.706286,127.098333,5,9,518,916,Seabreeze,oil-tanker,10,18.0,244,west,crude oil,South Korea,update-target,ais-sensor,false,Jeju-si,Nagasaki
+189,2072,2,23,15,2835,33.612571,129.746667,14,9,1426,957,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+190,2081,2,23,30,2850,33.619429,129.76125,14,9,1431,954,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+190,2082,2,23,30,2850,33.688,127.051667,5,9,502,924,Seabreeze,oil-tanker,10,18.0,244,west,crude oil,South Korea,update-target,ais-sensor,false,Jeju-si,Nagasaki
+191,2091,2,23,45,2865,33.626286,129.775833,14,9,1436,951,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+191,2092,2,23,45,2865,33.669714,127.005,4,9,486,932,Seabreeze,oil-tanker,10,18.0,244,west,crude oil,South Korea,update-target,ais-sensor,false,Jeju-si,Nagasaki
+192,2102,3,0,0,2880,33.669714,127.005,4,9,486,932,Seabreeze,oil-tanker,10,0.0,244,west,crude oil,South Korea,update-target,ais-sensor,true,Jeju-si,Nagasaki
+192,2103,3,0,0,2880,33.633143,129.790417,14,9,1441,948,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+193,2110,3,0,15,2895,33.64,129.805,14,9,1446,945,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+193,2111,3,0,15,2895,33.669714,127.005,4,9,486,932,Seabreeze,oil-tanker,10,0.0,244,west,crude oil,South Korea,update-target,ais-sensor,true,Jeju-si,Nagasaki
+194,2118,3,0,30,2910,33.669714,127.005,4,9,486,932,Seabreeze,oil-tanker,10,0.0,244,west,crude oil,South Korea,update-target,ais-sensor,true,Jeju-si,Nagasaki
+194,2119,3,0,30,2910,33.646857,129.819583,14,9,1451,942,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+195,2126,3,0,45,2925,33.653714,129.834167,14,9,1456,939,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+195,2127,3,0,45,2925,33.669714,127.005,4,9,486,932,Seabreeze,oil-tanker,10,0.0,244,west,crude oil,South Korea,update-target,ais-sensor,true,Jeju-si,Nagasaki
+196,2134,3,1,0,2940,33.660571,129.84875,14,9,1461,936,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+196,2135,3,1,0,2940,33.669714,127.005,4,9,486,932,Seabreeze,oil-tanker,10,0.0,244,west,crude oil,South Korea,update-target,ais-sensor,true,Jeju-si,Nagasaki
+197,2143,3,1,15,2955,33.667429,129.863333,14,9,1466,933,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+197,2144,3,1,15,2955,33.667429,127.005,4,9,486,933,Seabreeze,oil-tanker,10,3.0,96,east,crude oil,South Korea,update-target,ais-sensor,false,none,Jeju-si
+198,2154,3,1,30,2970,33.665143,127.0225,4,9,492,934,Seabreeze,oil-tanker,10,6.0,96,east,crude oil,South Korea,update-target,ais-sensor,false,none,Jeju-si
+198,2155,3,1,30,2970,33.674286,129.877917,14,9,1471,930,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+199,2173,3,1,45,2985,33.662857,127.04,4,9,498,935,Seabreeze,oil-tanker,10,6.0,96,east,crude oil,South Korea,update-target,ais-sensor,false,Nagasaki,Jeju-si
+199,2174,3,1,45,2985,33.681143,129.8925,14,9,1476,927,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+200,2183,3,2,0,3000,33.688,129.907083,14,9,1481,924,Shinkai,oil-tanker,10,6.0,65,east,refined petroleum,Japan,update-target,ais-sensor,false,Fukuoka,Nagasaki
+200,2184,3,2,0,3000,33.660571,127.0575,5,9,504,936,Seabreeze,oil-tanker,10,6.0,96,east,crude oil,South Korea,update-target,ais-sensor,false,Nagasaki,Jeju-si
