@@ -798,20 +798,25 @@ class LLM:
         temperature = config["temperature"]
         model = config["model"]
         num_results = config["number-of-results"]
-        # if model == "gpt-4o": #use specific model for stability
-        #     model = "gpt-4o-2024-08-06"
+        #more advanced models (gpt-5, o1, o3, o3-mini, etc.) cannot accept temperature setting
         print ("Model:" + model)
         if config["response-type"] == "json":
-            llm = ChatOpenAI(model_name=model, temperature=temperature).bind(response_format={"type": "json_object"})
+            if model == "gpt-4o" or model == "gpt-4o-2024-08-06" or model == "gpt-4.1" or model == "gpt-4.1-mini":
+                llm = ChatOpenAI(model_name=model, temperature=temperature).bind(response_format={"type": "json_object"})
+            else:
+                llm = ChatOpenAI(model_name=model).bind(response_format={"type": "json_object"})
         else:
             if num_results == 1:
-                if model == "gpt-4o":
+                if model == "gpt-4o" or model == "gpt-4o-2024-08-06" or model == "gpt-4.1" or model == "gpt-4.1-mini":
                     llm = ChatOpenAI(model_name=model, temperature=temperature) #.bind(logprobs=True) 
                 else:
                     llm = ChatOpenAI(model_name=model)# reasoning_effort="low")#
             else:
-                llm = ChatOpenAI(model_name=model, temperature=temperature).bind(logprobs=True).bind(top_logprobs=num_results)
-
+                if model == "gpt-4o" or model == "gpt-4o-2024-08-06" or model == "gpt-4.1" or model == "gpt-4.1-mini":
+                    llm = ChatOpenAI(model_name=model, temperature=temperature).bind(logprobs=True).bind(top_logprobs=num_results)
+                else:
+                    llm = ChatOpenAI(model_name=model).bind(logprobs=True).bind(top_logprobs=num_results)
+                
         system_input = system_prompt
         user_input = user_prompt
 
