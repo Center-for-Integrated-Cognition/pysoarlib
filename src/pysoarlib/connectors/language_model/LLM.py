@@ -802,19 +802,25 @@ class LLM:
         print ("Model:" + model)
         if config["response-type"] == "json":
             if model == "gpt-4o" or model == "gpt-4o-2024-08-06" or model == "gpt-4.1" or model == "gpt-4.1-mini":
+                print("Using model " + model + " with temperature setting")
                 llm = ChatOpenAI(model_name=model, temperature=temperature).bind(response_format={"type": "json_object"})
             else:
+                print("Using model " + model + " without temperature setting")
                 llm = ChatOpenAI(model_name=model).bind(response_format={"type": "json_object"})
         else:
             if num_results == 1:
                 if model == "gpt-4o" or model == "gpt-4o-2024-08-06" or model == "gpt-4.1" or model == "gpt-4.1-mini":
+                    print("Using model" + model + " with temperature setting")
                     llm = ChatOpenAI(model_name=model, temperature=temperature) #.bind(logprobs=True) 
                 else:
+                    print("Using model " + model + " without temperature setting")
                     llm = ChatOpenAI(model_name=model)# reasoning_effort="low")#
             else:
                 if model == "gpt-4o" or model == "gpt-4o-2024-08-06" or model == "gpt-4.1" or model == "gpt-4.1-mini":
+                    print("Using model " + model + " with temperature setting")
                     llm = ChatOpenAI(model_name=model, temperature=temperature).bind(logprobs=True).bind(top_logprobs=num_results)
                 else:
+                    print("Using model " + model + " without temperature setting")
                     llm = ChatOpenAI(model_name=model).bind(logprobs=True).bind(top_logprobs=num_results)
                 
         system_input = system_prompt
