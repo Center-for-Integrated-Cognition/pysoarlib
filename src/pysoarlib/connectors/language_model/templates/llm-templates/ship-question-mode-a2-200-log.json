@@ -6,7 +6,7 @@
         "how-many-north-A2",
         "speed-of-bluesky-kph-A2",
         "distance-apart-km-A2",
-        "message-log-200_trimmed-2-csv"
+        "EVAL_200_Port-IO_test-log-csv"
     ],
     "domain": "ship",
     "system-prompt": "succinct",
