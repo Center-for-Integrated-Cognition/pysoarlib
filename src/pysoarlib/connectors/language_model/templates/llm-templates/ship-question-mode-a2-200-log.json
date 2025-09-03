@@ -6,6 +6,7 @@
         "how-many-north-A2",
         "speed-of-bluesky-kph-A2",
         "distance-apart-km-A2",
+        "A2-Log+Examples-1",
         "EVAL_200_Port-IO_test-log-csv"
     ],
     "domain": "ship",
