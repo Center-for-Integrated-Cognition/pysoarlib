@@ -28,16 +28,27 @@ meta_template = "?examples?world-context?soar-context?history-context?repair-pro
 
 class LLM:
 
-    def __init__(self, world_connector, temperature=0, model="gpt-4", api="langchain"):
+    def __init__(self, world_connector, templates_root, temperature=0, model="gpt-4", api="langchain"):
         #self.connector = connector
         self.response = None
         self.model = model
         #print(model)
         self.temperature = temperature
         self.world_connector = world_connector
+        self.templates_root = templates_root
         self.api = api
         self.command_history = ""
         self.test_mode = False # This can be set to True to inhibit printouts
+
+        """ Calculate path to templates folder """
+        if not self.templates_root:
+            self.templates_root = "templates/"
+            dirname = os.path.dirname(__file__)
+            self.templates_root = os.path.join(dirname, self.templates_root)
+        else:
+            if not self.templates_root.endswith("/"):
+                self.templates_root = self.templates_root + "/"
+
 
     def get_str_from_file(self, filename):
         """ strip text from file given filename
@@ -54,11 +65,11 @@ class LLM:
         """
         get template from folder for prompt given type
         """
-        dir ="templates/" + type + "/config.json"
-        dirname = os.path.dirname(__file__)
-        filename = os.path.join(dirname, dir)
+        cwd = os.getcwd()
+        file = self.templates_root + type + "/config.json"
+        path = os.path.join(cwd, file)
         
-        with open(filename) as file:
+        with open(path) as file:
             config = json.load(file)
 
         return config
@@ -67,11 +78,10 @@ class LLM:
         """
         get template from folder for prompt given type
         """
-        dir ="templates/llm-templates/" + type + ".json"
-        dirname = os.path.dirname(__file__)
-        filename = os.path.join(dirname, dir)
-        
-        with open(filename) as file:
+        cwd = os.getcwd()
+        file = self.templates_root + "llm-templates/" + type + ".json"
+        path = os.path.join(cwd, file)
+        with open(path) as file:
             template_config = json.load(file)
 
         return template_config
@@ -80,30 +90,30 @@ class LLM:
         """
         get template from folder for prompt given type
         """
-        dir ="templates/" + type + "/user.txt"
-        dirname = os.path.dirname(__file__)
-        filename = os.path.join(dirname, dir)
-        template = self.get_str_from_file(filename)
+        cwd = os.getcwd()
+        file = self.templates_root + type + "/user.txt"
+        path = os.path.join(cwd, file)
+        template = self.get_str_from_file(path)
         return template
 
     def get_system_prompt(self, type):
         """
         return system prompt template given type
         """
-        dir ="templates/" + type + "/system.txt"
-        dirname = os.path.dirname(__file__)
-        filename = os.path.join(dirname, dir)
-        prompt = self.get_str_from_file(filename)
+        cwd = os.getcwd()
+        file = self.templates_root + type + "/system.txt"
+        path = os.path.join(cwd, file)
+        prompt = self.get_str_from_file(path)
         return prompt
     
     def get_response_type(self, type):
         """
         return response type (string, int) given template type
         """
-        dir ="templates/" + type + "/response_type.txt"
-        dirname = os.path.dirname(__file__)
-        filename = os.path.join(dirname, dir)
-        type = self.get_str_from_file(filename)
+        cwd = os.getcwd()
+        file = self.templates_root + type + "/response_type.txt"
+        path = os.path.join(cwd, file)
+        type = self.get_str_from_file(path)
 
         return type
 
@@ -663,43 +673,43 @@ class LLM:
         examples = ""
 
         if "example-context" in config:
-            dir ="templates/examples/" + config["domain"] + "/" + config["example-context"] + ".txt"
-            dirname = os.path.dirname(__file__)
-            filename = os.path.join(dirname, dir)
+            cwd = os.getcwd()
+            file = self.templates_root + "examples/" + config["domain"] + "/" + config["example-context"] + ".txt"
+            path = os.path.join(cwd, file)
 
-            examples += self.get_str_from_file(filename) + "\n"
+            examples += self.get_str_from_file(path) + "\n"
         
         if config["examples"] and config["domain"]:
             first = True
             for example in config["examples"]:
                 #print("example:" + example)
-                dir ="templates/examples/" + config["domain"] + "/" + example + ".txt"
-                dirname = os.path.dirname(__file__)
-                filename = os.path.join(dirname, dir)
+                cwd = os.getcwd()
+                file = self.templates_root + "examples/" + config["domain"] + "/" + example + ".txt"
+                path = os.path.join(cwd, file)
                 if not first:
                     examples += "\n"
                 first = False
-                examples += self.get_str_from_file(filename)
+                examples += self.get_str_from_file(path)
         return examples
     
     def get_prompt_template(self, type):
         """
         get template from folder for prompt given type
         """
-        dir ="templates/prompt-templates/" + type + ".txt"
-        dirname = os.path.dirname(__file__)
-        filename = os.path.join(dirname, dir)
-        template = self.get_str_from_file(filename)
+        cwd = os.getcwd()
+        file = self.templates_root + "prompt-templates/" + type + ".txt"
+        path = os.path.join(cwd, file)
+        template = self.get_str_from_file(path)
         return template
     
     def get_output_template(self, type):
         """
         get template from folder for prompt given type
         """
-        dir ="templates/output-template/" + type + ".txt"
-        dirname = os.path.dirname(__file__)
-        filename = os.path.join(dirname, dir)
-        template = self.get_str_from_file(filename)
+        cwd = os.getcwd()
+        file = self.templates_root + "output-template/" + type + ".txt"
+        path = os.path.join(cwd, file)
+        template = self.get_str_from_file(path)
         return template
     
     def instantiate_prompt(self, config, arguments):
@@ -720,10 +730,10 @@ class LLM:
         """
         return system prompt template given type
         """
-        dir ="templates/system-prompts/" + type + ".txt"
-        dirname = os.path.dirname(__file__)
-        filename = os.path.join(dirname, dir)
-        prompt = self.get_str_from_file(filename)
+        cwd = os.getcwd()
+        file = self.templates_root + "system-prompts/" + type + ".txt"
+        path = os.path.join(cwd, file)
+        prompt = self.get_str_from_file(path)
         return prompt
 
     def instantiate_llm_template(self, type, arguments, config, soar_state_context):
