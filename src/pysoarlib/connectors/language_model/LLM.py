@@ -39,6 +39,7 @@ class LLM:
         self.api = api
         self.command_history = ""
         self.test_mode = False # This can be set to True to inhibit printouts
+        self.examples = None # Example prompts for testing, set in test mode
 
         """ Calculate path to templates folder """
         if not self.templates_root:
@@ -679,10 +680,13 @@ class LLM:
 
             examples += self.get_str_from_file(path) + "\n"
         
-        if config["examples"] and config["domain"]:
+        """ Get a list of examples either directly from the config or as given by the test """
+        config_examples = config["examples"] if "examples" in config else None
+        examples_list = self.examples if self.test_mode and self.examples else config_examples
+        if examples_list and config["domain"]:
             first = True
-            for example in config["examples"]:
-                #print("example:" + example)
+            for example in examples_list:
+                print("example:" + example)
                 cwd = os.getcwd()
                 file = self.templates_root + "examples/" + config["domain"] + "/" + example + ".txt"
                 path = os.path.join(cwd, file)
@@ -690,6 +694,24 @@ class LLM:
                     examples += "\n"
                 first = False
                 examples += self.get_str_from_file(path)
+        # elif config_examples_file and config["domain"]:
+        #     """ Allow a pointer to file with a list of examples """
+        #     examples_file = config["examples-file"]
+        #     cwd = os.getcwd()
+        #     file = self.templates_root + "examples/" + config["domain"] + "/" + examples_file + ".txt"
+        #     path = os.path.join(cwd, file)
+        #     examples_list = self.get_str_from_file(path).splitlines()
+        #     print("Examples from file:", examples_list)
+        #     first = True
+        #     for example in examples_list:
+        #         #print("example:" + example)
+        #         cwd = os.getcwd()
+        #         file = self.templates_root + "examples/" + config["domain"] + "/" + example + ".txt"
+        #         path = os.path.join(cwd, file)
+        #         if not first:
+        #             examples += "\n"
+        #         first = False
+        #         examples += self.get_str_from_file(path)
         return examples
     
     def get_prompt_template(self, type):

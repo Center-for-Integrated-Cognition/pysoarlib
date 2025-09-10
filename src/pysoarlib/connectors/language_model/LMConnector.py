@@ -33,10 +33,11 @@ class LMConnector(QueryConnector):
     """
     This method is called by the Tester to set things in test mode.
     """
-    def set_test_mode(self, callback):
+    def set_test_mode(self, callback, examples = None):
         self.test_mode = True
         self.test_callback = callback
         self.lm.test_mode = True
+        self.lm.examples = examples
 
     def on_init_soar(self):
         """
