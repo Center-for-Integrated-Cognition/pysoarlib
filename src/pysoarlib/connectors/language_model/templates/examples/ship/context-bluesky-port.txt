@@ -27,5 +27,13 @@ World context:
             "id": "port-A",
             "category": "port"
         },
+        {
+            "current-time": "Day 3, Time: 02:0:00",
+            "day": 3,
+            "hour": 2,
+            "minute": 0,
+            "total-elapsed-minutes": 3000,
+            "category": "time"
+        }
     ]
 }
