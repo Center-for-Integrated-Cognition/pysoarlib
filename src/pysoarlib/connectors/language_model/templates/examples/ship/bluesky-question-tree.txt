@@ -1482,3 +1482,137 @@ Input: Which port is closest to the Bluesky?
         }
     }
 }
+Input: In the last 24 hours was the Oceanic going north?
+Output:
+{
+    "node": "node1",
+    "type": "equal",
+    "argument-count": 2,
+    "negation": false,
+    "answer-node": true,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "attribute-of",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": {
+                "node": "node4",
+                "type": "during",
+                "argument-count": 2,
+                "negation": false,
+                "results": {
+                    "node": "node4-results"
+                },
+                "argument1": {
+                    "node": "node5",
+                    "type": "apply-property",
+                    "argument-count": 3,
+                    "negation": false,
+                    "results": {
+                        "node": "node5-results"
+                    },
+                    "argument1": "STATE",
+                    "argument2": "total-elapsed-minutes",
+                    "argument3": 1560
+                },
+                "argument2": {
+                    "node": "node6",
+                    "type": "apply-property",
+                    "argument-count": 3,
+                    "negation": false,
+                    "results": {
+                        "node": "node6-results"
+                    },
+                    "argument1": "STATE",
+                    "argument2": "total-elapsed-minutes",
+                    "argument3": 3000
+                }
+            },
+            "argument2": "id",
+            "argument3": "Oceanic"
+        },
+        "argument2": "direction"
+    },
+    "argument2": "north"
+}
+Input: In the last hour was the Oceanic going south?
+Output:
+{
+    "node": "node1",
+    "type": "equal",
+    "argument-count": 2,
+    "negation": false,
+    "answer-node": true,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "attribute-of",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": {
+                "node": "node4",
+                "type": "during",
+                "argument-count": 2,
+                "negation": false,
+                "results": {
+                    "node": "node4-results"
+                },
+                "argument1": {
+                    "node": "node5",
+                    "type": "apply-property",
+                    "argument-count": 3,
+                    "negation": false,
+                    "results": {
+                        "node": "node5-results"
+                    },
+                    "argument1": "STATE",
+                    "argument2": "total-elapsed-minutes",
+                    "argument3": 2940
+                },
+                "argument2": {
+                    "node": "node6",
+                    "type": "apply-property",
+                    "argument-count": 3,
+                    "negation": false,
+                    "results": {
+                        "node": "node6-results"
+                    },
+                    "argument1": "STATE",
+                    "argument2": "total-elapsed-minutes",
+                    "argument3": 3000
+                }
+            },
+            "argument2": "id",
+            "argument3": "Oceanic"
+        },
+        "argument2": "direction"
+    },
+    "argument2": "south"
+}
