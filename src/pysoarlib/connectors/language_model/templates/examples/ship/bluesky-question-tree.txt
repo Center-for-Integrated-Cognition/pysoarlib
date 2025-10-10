@@ -445,7 +445,7 @@ Output:
     },
     "argument2": 200
 }
-Input: What's the ETA/when will Bluesky get to port-A (make sure it is traveling there)?
+Input: When is Bluesky expected to reach port-B, assuming current speed holds?
 Output:
 {
     "node": "node1",
@@ -658,7 +658,7 @@ Output:
                         "argument2": "id",
                         "argument3": "Bluesky"
                     },
-                    "argument2": "current-port",
+                    "argument2": "left-port",
                     "argument3": "port-A"
                 }
             },
@@ -711,7 +711,7 @@ Output:
                         "argument2": "id",
                         "argument3": "Bluesky"
                     },
-                    "argument2": "current-port",
+                    "argument2": "entered-port",
                     "argument3": "port-B"
                 }
             },
@@ -1482,7 +1482,7 @@ Input: Which port is closest to the Bluesky?
         }
     }
 }
-Input: In the last 24 hours was the Oceanic going north?
+Input: In the last 4 hours was the Oceanic going north?
 Output:
 {
     "node": "node1",
@@ -1526,8 +1526,8 @@ Output:
                         "node": "node5-results"
                     },
                     "argument1": "STATE",
-                    "argument2": "total-elapsed-minutes",
-                    "argument3": 1560
+                    "argument2": "current-time",
+                    "argument3": "Day 2, Time: 22:00:00"
                 },
                 "argument2": {
                     "node": "node6",
@@ -1538,8 +1538,8 @@ Output:
                         "node": "node6-results"
                     },
                     "argument1": "STATE",
-                    "argument2": "total-elapsed-minutes",
-                    "argument3": 3000
+                    "argument2": "current-time",
+                    "argument3": "Day 3, Time: 02:00:00"
                 }
             },
             "argument2": "id",
@@ -1549,7 +1549,7 @@ Output:
     },
     "argument2": "north"
 }
-Input: In the last hour was the Oceanic going south?
+Input: Was the Oceanic ever going south today?
 Output:
 {
     "node": "node1",
@@ -1593,8 +1593,8 @@ Output:
                         "node": "node5-results"
                     },
                     "argument1": "STATE",
-                    "argument2": "total-elapsed-minutes",
-                    "argument3": 2940
+                    "argument2": "current-time",
+                    "argument3": "Day 3, Time: 00:00:00"
                 },
                 "argument2": {
                     "node": "node6",
@@ -1605,8 +1605,8 @@ Output:
                         "node": "node6-results"
                     },
                     "argument1": "STATE",
-                    "argument2": "total-elapsed-minutes",
-                    "argument3": 3000
+                    "argument2": "current-time",
+                    "argument3": "Day 3, Time: 02:00:00"
                 }
             },
             "argument2": "id",
@@ -1615,4 +1615,404 @@ Output:
         "argument2": "direction"
     },
     "argument2": "south"
+}
+Input: When did the Bluesky last dock at port-A?
+Output:
+{
+    "node": "node1",
+    "type": "attribute-of",
+    "argument-count": 2,
+    "negation": false,
+    "answer-node": true,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "apply-property",
+        "argument-count": 3,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "when",
+            "argument-count": 1,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": {
+                "node": "node4",
+                "type": "apply-property",
+                "argument-count": 3,
+                "negation": false,
+                "results": {
+                    "node": "node4-results"
+                },
+                "argument1": {
+                    "node": "node5",
+                    "type": "apply-property",
+                    "argument-count": 3,
+                    "negation": false,
+                    "results": {
+                        "node": "node5-results"
+                    },
+                    "argument1": "STATE",
+                    "argument2": "id",
+                    "argument3": "Bluesky"
+                },
+                "argument2": "entered-port",
+                "argument3": "port-A"
+            }
+        },
+        "argument2": "category",
+        "argument3": "time"
+    },
+    "argument2": "current-time"
+}
+Input: When did the Bluesky leave port-A?
+Output:
+{
+    "node": "node1",
+    "type": "attribute-of",
+    "argument-count": 2,
+    "negation": false,
+    "answer-node": true,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "apply-property",
+        "argument-count": 3,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "when",
+            "argument-count": 1,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": {
+                "node": "node4",
+                "type": "apply-property",
+                "argument-count": 3,
+                "negation": false,
+                "results": {
+                    "node": "node4-results"
+                },
+                "argument1": {
+                    "node": "node5",
+                    "type": "apply-property",
+                    "argument-count": 3,
+                    "negation": false,
+                    "results": {
+                        "node": "node5-results"
+                    },
+                    "argument1": "STATE",
+                    "argument2": "id",
+                    "argument3": "Bluesky"
+                },
+                "argument2": "left-port",
+                "argument3": "port-A"
+            }
+        },
+        "argument2": "category",
+        "argument3": "time"
+    },
+    "argument2": "current-time"
+}
+Input: How far has the Bluesky gone since it left port?
+Output:
+{
+    "node": "node1",
+    "type": "haversine-formula",
+    "argument-count": 2,
+    "negation": false,
+    "answer-node": true,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "apply-property",
+        "argument-count": 3,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "when",
+            "argument-count": 1,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": {
+                "node": "node4",
+                "type": "apply-property",
+                "argument-count": 3,
+                "negation": false,
+                "results": {
+                    "node": "node4-results"
+                },
+                "argument1": {
+                    "node": "node5",
+                    "type": "apply-property",
+                    "argument-count": 3,
+                    "negation": false,
+                    "results": {
+                        "node": "node5-results"
+                    },
+                    "argument1": "STATE",
+                    "argument2": "id",
+                    "argument3": "Bluesky"
+                },
+                "argument2": "left-port",
+                "argument3": "port-A"
+            }
+        },
+        "argument2": "id",
+        "argument3": "Bluesky"
+    },
+    "argument2": {
+        "node": "node6",
+        "type": "apply-property",
+        "argument-count": 3,
+        "negation": false,
+        "results": {
+            "node": "node6-results"
+        },
+        "argument1": "STATE",
+        "argument2": "id",
+        "argument3": "Bluesky"
+    }
+}
+Input: What is the average time Bluesky has spent in port at port-A?
+Output:
+{
+    "node": "node1",
+    "type": "difference",
+    "argument-count": 2,
+    "negation": false,
+    "answer-node": true,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "attribute-of",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1":{
+                "node": "node4",
+                "type": "when",
+                "argument-count": 1,
+                "negation": false,
+                "results": {
+                    "node": "node4-results"
+                },
+                "argument1": {
+                    "node": "node5",
+                    "type": "apply-property",
+                    "argument-count": 3,
+                    "negation": false,
+                    "results": {
+                        "node": "node5-results"
+                    },
+                    "argument1": {
+                        "node": "node6",
+                        "type": "apply-property",
+                        "argument-count": 3,
+                        "negation": false,
+                        "results": {
+                            "node": "node6-results"
+                        },
+                        "argument1": "STATE",
+                        "argument2": "id",
+                        "argument3": "Bluesky"
+                    },
+                    "argument2": "entered-port",
+                    "argument3": "port-A"
+                }
+            },
+            "argument2": "category",
+            "argument3": "time"
+        },
+        "argument2": "total-elapsed-minutes"
+    },
+    "argument2": {
+        "node": "node7",
+        "type": "attribute-of",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node7-results"
+        },
+        "argument1": {
+            "node": "node8",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node8-results"
+            },
+            "argument1":{
+                "node": "node9",
+                "type": "when",
+                "argument-count": 1,
+                "negation": false,
+                "results": {
+                    "node": "node9-results"
+                },
+                "argument1": {
+                    "node": "node10",
+                    "type": "apply-property",
+                    "argument-count": 3,
+                    "negation": false,
+                    "results": {
+                        "node": "node10-results"
+                    },
+                    "argument1": {
+                        "node": "node11",
+                        "type": "apply-property",
+                        "argument-count": 3,
+                        "negation": false,
+                        "results": {
+                            "node": "node11-results"
+                        },
+                        "argument1": "STATE",
+                        "argument2": "id",
+                        "argument3": "Bluesky"
+                    },
+                    "argument2": "left-port",
+                    "argument3": "port-A"
+                }
+            },
+            "argument2": "category",
+            "argument3": "time"
+        },
+        "argument2": "total-elapsed-minutes"
+    }
+}
+Input: At what time did Bluesky last depart from a port?
+Output:
+{
+    "node": "node1",
+    "type": "attribute-of",
+    "argument-count": 2,
+    "negation": false,
+    "answer-node": true,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "apply-property",
+        "argument-count": 3,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "when",
+            "argument-count": 1,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": {
+                "node": "node4",
+                "type": "apply-property",
+                "argument-count": 3,
+                "negation": false,
+                "results": {
+                    "node": "node4-results"
+                },
+                "argument1": {
+                    "node": "node5",
+                    "type": "apply-property",
+                    "argument-count": 3,
+                    "negation": false,
+                    "results": {
+                        "node": "node5-results"
+                    },
+                    "argument1": "STATE",
+                    "argument2": "id",
+                    "argument3": "Bluesky"
+                },
+                "argument2": "left-port",
+                "argument3": "port-A
+            }
+        },
+        "argument2": "category",
+        "argument3": "time"
+    },
+    "argument2": "current-time"
+}
+Input: Did a ship stop at port-A in the last 24 hours?
+Output:
+{
+    "node": "node1",
+    "type": "apply-property",
+    "argument-count": 3,
+    "negation": false,
+    "answer-node": true,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "during",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": "STATE",
+            "argument2": "current-time",
+            "argument3": "Day 2, Time: 02:00:00"
+        },
+        "argument2": {
+            "node": "node4",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node4-results"
+            },
+            "argument1": "STATE",
+            "argument2": "current-time",
+            "argument3": "Day 3, Time: 02:00:00"
+        }
+    },
+    "argument2": "current-port",
+    "argument3": "port-A"
 }

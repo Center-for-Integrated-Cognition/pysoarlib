@@ -11,6 +11,10 @@ World context:
             "heading" : 0,
             "speed" : 10.0,
             "speed-units": "knots",
+            "entered-port" "false",
+            "left-port": "false",
+            "previous-port": "port-A",
+            "next-port": "none".
             "priority" : 0,
             "type" : "oil-tanker",
             "id" : "Bluesky",
@@ -28,7 +32,7 @@ World context:
             "category": "port"
         },
         {
-            "current-time": "Day 3, Time: 02:0:00",
+            "current-time": "Day 3, Time: 02:00:00",
             "day": 3,
             "hour": 2,
             "minute": 0,
