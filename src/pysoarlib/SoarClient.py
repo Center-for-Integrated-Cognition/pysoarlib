@@ -47,8 +47,22 @@ class SoarClient:
         self.init_agent_callback_id = -1
 
         if self.config.remote_connection:
-            logger.info("Creating remote Soar kernel connection...")
-            self.kernel = sml.Kernel.CreateRemoteConnection()
+            """ Connect to a remote Soar kernel """
+            #logger.info("Creating remote Soar kernel connection...")
+            # self.kernel = sml.Kernel.CreateRemoteConnection()
+            """ Keep trying to connect until successful """
+            """
+            This only solves part of the problem.
+            If the remote kernel is restarted, the connection will be lost
+            and this won't reconnect.
+            """
+            OK = False
+            while not OK:
+                logger.info("Creating remote Soar kernel connection...")
+                self.kernel = sml.Kernel.CreateRemoteConnection()
+                OK = not self.kernel.HadError()  # type: ignore
+                if not OK:
+                    sleep(1)
         else:
             logger.info("Creating Soar kernel in new thread...")
             self.kernel = sml.Kernel.CreateKernelInNewThread()
