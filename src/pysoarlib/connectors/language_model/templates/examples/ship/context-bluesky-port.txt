@@ -14,7 +14,7 @@ World context:
             "entered-port" "false",
             "left-port": "false",
             "previous-port": "port-A",
-            "next-port": "none".
+            "next-port": "none",
             "priority" : 0,
             "type" : "oil-tanker",
             "id" : "Bluesky",
