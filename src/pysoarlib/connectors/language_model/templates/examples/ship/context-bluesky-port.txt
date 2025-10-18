@@ -4,7 +4,7 @@ World context:
         {
             "next-port" : "port-A",
             "previous-port" : "port-B",
-            "port-achieved" : False,
+            "port-achieved" : "false",
             "source-sensor" : "ais-sensor",
             "source-agent" : "C1",
             "direction" : "north",

@@ -2088,3 +2088,203 @@ Output:
     "argument2": "source-sensor",
     "argument3": "none"
 }
+Input: While Bluesky was waiting at port-A, was Oceanic in a port?
+Output:
+{
+    "node": "node1",
+    "type": "equal",
+    "argument-count": 2,
+    "negation": false,
+    "answer-node": true,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "attribute-of",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": {
+                "node": "node4",
+                "type": "while",
+                "argument-count": 1,
+                "negation": false,
+                "results": {
+                    "node": "node4-results"
+                },
+                "argument1": {
+                    "node": "node5",
+                    "type": "apply-property",
+                    "argument-count": 3,
+                    "negation": false,
+                    "results": {
+                        "node": "node5-results"
+                    },
+                    "argument1": {
+                        "node": "node6",
+                        "type": "apply-property",
+                        "argument-count": 3,
+                        "negation": false,
+                        "results": {
+                            "node": "node6-results"
+                        },
+                        "argument1": "STATE",
+                        "argument2": "id",
+                        "argument3": "Bluesky"
+                    },
+                    "argument2": "current-port",
+                    "argument3": "port-A"
+                }
+            },
+            "argument2": "id",
+            "argument3": "Oceanic"
+        },
+        "argument2": "port-achieved"
+    },
+    "argument2": "true"
+}
+Input: What is the distance between the two ships?
+Output:
+{
+    "node": "node1",
+    "type": "haversine-formula",
+    "argument-count": 2,
+    "negation": false,
+    "answer-node": true,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "apply-property",
+        "argument-count": 3,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": "STATE",
+        "argument2": "id",
+        "argument3": "Bluesky"
+    },
+    "argument2": {
+        "node": "node3",
+        "type": "apply-property",
+        "argument-count": 3,
+        "negation": false,
+        "results": {
+            "node": "node3-results"
+        },
+        "argument1": "STATE",
+        "argument2": "id",
+        "argument3": "Oceanic"
+    }
+}
+Input: How far did Bluesky travel while Oceanic was at port-A?
+Output:
+{
+    "node": "node1",
+    "type": "haversine-formula",
+    "argument-count": 2,
+    "negation": false,
+    "answer-node": true,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "apply-property",
+        "argument-count": 3,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "when",
+            "argument-count": 1,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": {
+                "node": "node4",
+                "type": "apply-property",
+                "argument-count": 3,
+                "negation": false,
+                "results": {
+                    "node": "node4-results"
+                },
+                "argument1": {
+                    "node": "node5",
+                    "type": "apply-property",
+                    "argument-count": 3,
+                    "negation": false,
+                    "results": {
+                        "node": "node5-results"
+                    },
+                    "argument1": "STATE",
+                    "argument2": "id",
+                    "argument3": "Oceanic"
+                },
+                "argument2": "entered-port",
+                "argument3": "port-A"
+            }
+        },
+        "argument2": "id",
+        "argument3": "Bluesky"
+    },
+    "argument2": {
+        "node": "node6",
+        "type": "apply-property",
+        "argument-count": 3,
+        "negation": false,
+        "results": {
+            "node": "node6-results"
+        },
+        "argument1": {
+            "node": "node7",
+            "type": "when",
+            "argument-count": 1,
+            "negation": false,
+            "results": {
+                "node": "node7-results"
+            },
+            "argument1": {
+                "node": "node8",
+                "type": "apply-property",
+                "argument-count": 3,
+                "negation": false,
+                "results": {
+                    "node": "node8-results"
+                },
+                "argument1": {
+                    "node": "node9",
+                    "type": "apply-property",
+                    "argument-count": 3,
+                    "negation": false,
+                    "results": {
+                        "node": "node9-results"
+                    },
+                    "argument1": "STATE",
+                    "argument2": "id",
+                    "argument3": "Oceanic"
+                },
+                "argument2": "left-port",
+                "argument3": "port-A"
+            }
+        },
+        "argument2": "id",
+        "argument3": "Bluesky"
+    }
+}
