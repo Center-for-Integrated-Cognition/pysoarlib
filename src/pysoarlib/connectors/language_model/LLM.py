@@ -904,7 +904,7 @@ class LLM:
 
 
     #def process_request(self, query, type, arguments, sequence_number, soar_state_context):
-    def process_request(self, query):
+    def process_request(self, query, test_system_prompt):
         """
         handle LLM request by constructing prompt and getting response from LLM
         return LMResponse with response
@@ -929,8 +929,11 @@ class LLM:
             type = selected_type
             template_config = self.get_llm_template(selected_type)
 
+        """ Select the right system prompt file """
+        system_prompt_file = test_system_prompt if test_system_prompt else template_config["system-prompt"]
+
         user_prompt = self.instantiate_llm_template(query.type, query.arguments, template_config, query.context)
-        system_prompt = self.get_template_system_prompt(template_config["system-prompt"])
+        system_prompt = self.get_template_system_prompt(system_prompt_file)
 
         
         #if config["api"] == "langchain": all langchain for now

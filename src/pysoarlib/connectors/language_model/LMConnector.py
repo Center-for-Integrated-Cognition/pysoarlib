@@ -29,15 +29,17 @@ class LMConnector(QueryConnector):
         self.lm_failsafe = 0 #to prevent accidental exhaustion of tokens
 
         self.test_mode = False
+        self.system_prompt = None
 
     """
     This method is called by the Tester to set things in test mode.
     """
-    def set_test_mode(self, callback, examples = None):
+    def set_test_mode(self, callback, examples = None, system_prompt = None):
         self.test_mode = True
         self.test_callback = callback
         self.lm.test_mode = True
         self.lm.examples = examples
+        self.system_prompt = system_prompt
 
     def on_init_soar(self):
         """
@@ -179,7 +181,7 @@ class LMConnector(QueryConnector):
         print("Running request for type " + query.type + " with argument " + str(query.arguments))
 
         #self.response = self.lm.process_request(query,request_type, arguments, sequence_number, context)
-        self.response = self.lm.process_request(query)
+        self.response = self.lm.process_request(query, self.system_prompt)
         self.lm_failsafe += 1
         self.remember_response(self.response)
         root_id.CreateStringWME("status", "complete")
