@@ -24,7 +24,7 @@ import openai
 #     from langsmith import Client
 # except ImportError:
 #     pass
-meta_template = "?examples?world-context?soar-context?history-context?repair-prompt?prompt?output"
+meta_template = "?examples?world-context?soar-context?history-context?history-log?repair-prompt?prompt?output"
 
 class LLM:
 
@@ -740,7 +740,7 @@ class LLM:
         prompt = self.get_str_from_file(path)
         return prompt
 
-    def instantiate_llm_template(self, type, arguments, config, soar_state_context):
+    def instantiate_llm_template(self, query, config, soar_state_context):
         """
         instantiate llm templates based on config
         """
@@ -749,9 +749,16 @@ class LLM:
         world_context = ""
         soar_context = ""
         history_context = ""
+        history_log = ""
         repair_prompt = ""
-        prompt = "\n" + self.instantiate_prompt(config, arguments)
+        prompt = "\n" + self.instantiate_prompt(config, query.arguments)
         output = "\n" + self.get_output_template(config["output-template"])
+
+        """ Find the query's categories, if any """
+        """ A user query should have categories as its second argument if it has any """
+        categories = None
+        if query.argument_count > 1 and query.arguments[1].startswith('{"category"'):
+            categories = json.loads(query.arguments[1])
 
         if config["world-context"]:
             json_context = self.world_connector.get_json_world_representation()
@@ -764,11 +771,21 @@ class LLM:
         if config["history-context"]:
             history_context = self.command_history #TODO specify different ways to record history (dialog, actions, messages)
 
+        """ Get history log from file if specified and query category has history """
+        history_log_file = config["history-log"] if "history-log" in config else None
+        if history_log_file and categories and "history" in categories['category']:
+            """ Read history log from file """
+            cwd = os.getcwd()
+            file = history_log_file + ".txt"
+            path = os.path.join(cwd, file)
+            history_log = "\n\nHistory Log:\n" + self.get_str_from_file(path)
+
         #replace all template variables
         template = template.replace("?examples", examples)
         template = template.replace("?world-context", world_context)
         template = template.replace("?soar-context", soar_context)
         template = template.replace("?history-context", history_context)
+        template = template.replace("?history-log", history_log)
         template = template.replace("?repair-prompt", repair_prompt)
         template = template.replace("?prompt", prompt)
         template = template.replace("?output", output)
@@ -932,7 +949,7 @@ class LLM:
         """ Select the right system prompt file """
         system_prompt_file = test_system_prompt if test_system_prompt else template_config["system-prompt"]
 
-        user_prompt = self.instantiate_llm_template(query.type, query.arguments, template_config, query.context)
+        user_prompt = self.instantiate_llm_template(query, template_config, query.context)
         system_prompt = self.get_template_system_prompt(system_prompt_file)
 
         

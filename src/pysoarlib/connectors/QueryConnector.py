@@ -4,11 +4,13 @@ Adds helper functions for processing queries, storing and removing queries
 Queries have sequence-numbers for each QueryConnector
 """
 
+import json
 import traceback
 
 from pysoarlib import AgentConnector
 from pysoarlib.connectors.Query import Query
 from pysoarlib.util.sml import sml
+from pysoarlib.util.soar_identifier_to_json import soar_identifier_to_json
 
 
 class QueryConnector(AgentConnector):
@@ -198,7 +200,8 @@ class QueryConnector(AgentConnector):
                 case "double":
                     argument = arg.ConvertToFloatElement().GetValue()
                 case "id":
-                    argument = arg.ConvertToIdentifier()
+                    # argument = arg.ConvertToIdentifier()
+                    argument = json.dumps(soar_identifier_to_json(arg.ConvertToIdentifier()))
             arguments.append(argument)
             i+=1
         # print(arguments)
