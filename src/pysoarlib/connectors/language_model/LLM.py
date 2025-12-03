@@ -375,7 +375,9 @@ class LLM:
         return results
 
 
-    def soar_identifier_to_json(self, soar_id):
+    def soar_identifier_to_json(self, soar_id, depth=0):
+        """ Convert a Soar Identifier and its WMEs to a JSON object """
+        # print("Converting Soar ID to JSON at depth " + str(depth) + ": " + soar_id.GetIdentifierName())
         json_object = {}
 
         for index in range(soar_id.GetNumberChildren()):
@@ -402,10 +404,11 @@ class LLM:
                     processed_value = None
                 else:
                     processed_value = str_value             
-            elif value_type == "id":
+            elif value_type == "id" and depth < 2:
+                """ Limit the depth of recursion to avoid excessive nesting """
                 # Convert to identifier and recurse
                 child_id = wme.ConvertToIdentifier()
-                processed_value = self.soar_identifier_to_json(child_id)
+                processed_value = self.soar_identifier_to_json(child_id, depth + 1)
             else:
                 # For other types, get string representation
                 processed_value = wme.GetValueAsString()
@@ -421,6 +424,8 @@ class LLM:
             else:
                 # First occurrence of this attribute
                 json_object[attr] = processed_value
+        # if depth <= 2:
+        #     print("Converted JSON at depth " + str(depth) + ": " + str(json_object))
         return json_object
     
     def parse_user_question_mode_a(self, query, type, arguments):

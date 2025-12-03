@@ -2,12 +2,13 @@
     "llm-template": "context-history-desired",
     "example-context": "context-pot-counter",
     "examples": [
+        "go-to-pot",
         "clean-pot-counter"
     ],
     "domain": "thor-soar",
     "system-prompt": "json-goals",
-    "world-context": true,
-    "soar-context": false,
+    "world-context": false,
+    "soar-context": true,
     "history-context": [
         "state",
         "dialog"
