@@ -29,6 +29,7 @@ meta_template = "?examples?world-context?soar-context?history-context?history-lo
 class LLM:
 
     def __init__(self, world_connector, templates_root, temperature=0, model="gpt-4", api="langchain"):
+        self.show_templates = True
         #self.connector = connector
         self.response = None
         self.model = model
@@ -72,6 +73,8 @@ class LLM:
         
         with open(path) as file:
             config = json.load(file)
+        if self.show_templates:
+            print("get_config: " + str(path))
 
         return config
     
@@ -84,6 +87,8 @@ class LLM:
         path = os.path.join(cwd, file)
         with open(path) as file:
             template_config = json.load(file)
+        if self.show_templates:
+            print("get_llm_template: " + str(path))
 
         return template_config
     
@@ -95,6 +100,8 @@ class LLM:
         file = self.templates_root + type + "/user.txt"
         path = os.path.join(cwd, file)
         template = self.get_str_from_file(path)
+        if self.show_templates:
+            print("get_template: " + str(path))
         return template
 
     def get_system_prompt(self, type):
@@ -105,6 +112,8 @@ class LLM:
         file = self.templates_root + type + "/system.txt"
         path = os.path.join(cwd, file)
         prompt = self.get_str_from_file(path)
+        if self.show_templates:
+            print("get_system_prompt: " + str(path))
         return prompt
     
     def get_response_type(self, type):
@@ -115,6 +124,8 @@ class LLM:
         file = self.templates_root + type + "/response_type.txt"
         path = os.path.join(cwd, file)
         type = self.get_str_from_file(path)
+        if self.show_templates:
+            print("get_response_type: " + str(path))
 
         return type
 
@@ -684,6 +695,8 @@ class LLM:
             path = os.path.join(cwd, file)
 
             examples += self.get_str_from_file(path) + "\n"
+            if self.show_templates:
+                print("get_examples: " + str(path))
         
         """ Get a list of examples either directly from the config or as given by the Tester """
         config_examples = config["examples"] if "examples" in config else None
@@ -691,7 +704,7 @@ class LLM:
         if examples_list and config["domain"]:
             first = True
             for example in examples_list:
-                print("example:" + example)
+                # print("example:" + example)
                 cwd = os.getcwd()
                 file = self.templates_root + "examples/" + config["domain"] + "/" + example + ".txt"
                 path = os.path.join(cwd, file)
@@ -699,6 +712,8 @@ class LLM:
                     examples += "\n"
                 first = False
                 examples += self.get_str_from_file(path)
+                if self.show_templates:
+                    print("get_examples: " + str(path))
         return examples
     
     def get_prompt_template(self, type):
@@ -709,6 +724,8 @@ class LLM:
         file = self.templates_root + "prompt-templates/" + type + ".txt"
         path = os.path.join(cwd, file)
         template = self.get_str_from_file(path)
+        if self.show_templates:
+            print("get_prompt_template: " + str(path))
         return template
     
     def get_output_template(self, type):
@@ -719,6 +736,8 @@ class LLM:
         file = self.templates_root + "output-template/" + type + ".txt"
         path = os.path.join(cwd, file)
         template = self.get_str_from_file(path)
+        if self.show_templates:
+            print("get_output_template: " + str(path))
         return template
     
     def instantiate_prompt(self, config, arguments):
@@ -743,6 +762,10 @@ class LLM:
         file = self.templates_root + "system-prompts/" + type + ".txt"
         path = os.path.join(cwd, file)
         prompt = self.get_str_from_file(path)
+        if self.show_templates:
+            print("get_template_system_prompt: " + str(path))
+            """ That's all the templates, so turn off the print flag """
+            self.show_templates = False
         return prompt
 
     def instantiate_llm_template(self, query, config, soar_state_context):
