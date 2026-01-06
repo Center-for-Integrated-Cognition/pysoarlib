@@ -20,7 +20,7 @@ class Config:
     source_output = full|summary|none (default=summary)
         Determines how much output is printed when sourcing files
 
-    watch_level = [int] (default=1)
+    watch_level = [int] (default=None)
         The watch level to use (controls amount of info printed, 0=none, 5=all)
 
     start_running = true|false (default=false)
@@ -61,7 +61,7 @@ class Config:
     agent_source: Optional[Path] = None
     smem_source: Optional[Path] = None
     source_output: Literal["summary"] | Literal["none"] | Literal["full"] = "summary"
-    watch_level: Literal[1] | Literal[2] | Literal[3] | Literal[4] | Literal[5] = 1
+    watch_level: Optional[int] = None 
     remote_connection: bool = False
     source_remote_agent: bool = False
     label_dialog_source: bool = False

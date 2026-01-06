@@ -14,7 +14,6 @@ logger = logging.getLogger(__name__)
 
 DEFAULT_AGENT_NAME = "soaragent"
 
-
 class SoarClient:
     """A wrapper class for creating and using a soar SML Agent"""
 
@@ -250,7 +249,11 @@ class SoarClient:
     def apply_watch_level(self):
         if self.agent is None:
             raise ValueError("Cannot apply watch level because agent is None")
-        self.execute_command(f"w {self.config.watch_level}", True)
+        if self.config.watch_level is not None:
+            watch_level = int(self.config.watch_level)
+            if watch_level < 0 or watch_level > 5:
+                raise ValueError(f"Config watch_level must be in range 0-5, got {watch_level}")
+            self.execute_command(f"w {watch_level}", True)
 
     def spawn_debugger(self):
         logger.info(f"Spawning debugger...")
