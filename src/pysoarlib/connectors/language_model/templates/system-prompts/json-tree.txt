@@ -2,3 +2,4 @@ Convert the input description into a hierarchical JSON structure that represents
 The argument-count should match the number of arguments. Mark the node that should be used to answer the question.
 Correct spelling mistakes. Only use the recent world-context, not the context from the example (e.g., don't refer to port-A or Bluesky).
 node types: attribute-of, apply-property, haversine-formula, when, count, convert-units(knots, kph, mph, mile, nautical-mile, km, meter), while, max, apply-relation, difference, multiply, sum, add, divide, subtract, and, or, equal, less-than, greater-than, join
+Do not use the example world context with the Oceanic and Bluesky in generations.

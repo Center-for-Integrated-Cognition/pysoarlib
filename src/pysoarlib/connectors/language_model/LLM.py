@@ -374,7 +374,7 @@ class LLM:
 
         return results
 
-
+    #TODO remove and replace
     def soar_identifier_to_json(self, soar_id):
         json_object = {}
 
@@ -862,11 +862,11 @@ class LLM:
             ("human", user_input),
         ]
 
-        if not self.test_mode:
-            print("System prompt:")
-            print(system_input)
-            print("User prompt:")
-            print(user_input)
+        #if not self.test_mode:
+        print("System prompt:")
+        print(system_input)
+        print("User prompt:")
+        print(user_input)
 
         response = llm.invoke(message)
 
@@ -877,8 +877,8 @@ class LLM:
         results = []
         if config["response-type"] == "json":
             json_object = json.loads(content)
-            if not self.test_mode:
-                print(json.dumps(json_object, indent=4))
+            #if not self.test_mode:
+            print(json.dumps(json_object, indent=4))
             
             result = LMResult(json_object, "json", 1.0, 1)
             results.append(result)
@@ -889,8 +889,8 @@ class LLM:
             if "state" in config["history-context"]:
                 self.command_history = self.command_history + "World update: " + str(json_object).replace("desired", "relation")
         elif num_results == 1:
-            if not self.test_mode:
-                print("Response:" + content)
+            #if not self.test_mode:
+            print("Response:" + content)
 
             if "dialog" in config["history-context"]:
                 self.command_history = self.command_history + "\nQuestion:" + dialog + "\n" #fix generality

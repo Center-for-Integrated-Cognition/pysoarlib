@@ -1,0 +1,359 @@
+Question: How close did Oceanic get to Bluesky while it was travelling North?
+Logic graph:
+{
+    "node": "node1",
+    "type": "min",
+    "argument-count": 1,
+    "negation": false,
+    "answer-node": true,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "haversine-formula",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": {
+                "node": "node4",
+                "type": "while",
+                "argument-count": 1,
+                "negation": false,
+                "results": {
+                    "node": "node4-results"
+                },
+                "argument1": {
+                    "node": "node5",
+                    "type": "apply-property",
+                    "argument-count": 3,
+                    "negation": false,
+                    "results": {
+                        "node": "node5-results"
+                    },
+                    "argument1": {
+                        "node": "node6",
+                        "type": "apply-property",
+                        "argument-count": 3,
+                        "negation": false,
+                        "results": {
+                            "node": "node6-results"
+                        },
+                        "argument1": "STATE",
+                        "argument2": "id",
+                        "argument3": "Oceanic"
+                    },
+                    "argument2": "direction",
+                    "argument3": "north"
+                }
+            },
+            "argument2": "id",
+            "argument3": "Oceanic"
+        },
+        "argument2": {
+            "node": "node7",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node7-results"
+            },
+            "argument1": "node4",
+            "argument2": "id",
+            "argument3": "Bluesky"
+        }
+    }
+}
+Logic calculation result:
+{
+    "final-answer": 62.734887,
+    "node1": 62.734887,
+    "node2": 62.734887,
+    "node3": {
+      "area": "Tsushima Strait",
+      "cargo": "crude oil",
+      "category": "ship",
+      "country": "South Korea",
+      "day": 1,
+      "direction": "north",
+      "entered-port": false,
+      "heading": 30,
+      "heading-units": "degrees",
+      "hour": 2,
+      "id": "Oceanic",
+      "latitude": 34.421714,
+      "left-port": "none",
+      "longitude": 128.819167,
+      "minute": 30,
+      "move-count-update": 10,
+      "next-port": "Busan",
+      "port-achieved": false,
+      "previous-port": "none",
+      "priority": 10,
+      "source-agent": "C11",
+      "source-sensor": "ais-sensor",
+      "speed": 30.0,
+      "speed-units": "knots",
+      "total-minute": 150,
+      "type": "oil-tanker",
+      "x": 11,
+      "x-100": 1108,
+      "y": 6,
+      "y-100": 603
+    },
+    "node4": {
+      "agents": "A189",
+      "agents-for-llm": "A190",
+      "contacts": "C180",
+      "day": 1,
+      "domain": "drone-soar",
+      "hour": 2,
+      "minute": 30,
+      "mission-list": "M54",
+      "move-count": 10,
+      "name": "ground-station",
+      "ports": "P163",
+      "queries": "Q82",
+      "scene": "I195",
+      "sequence-numbers": "I196",
+      "status-request": "I197",
+      "stored-lm-response-1": "I198",
+      "stored-lm-response-2": "I199",
+      "superstate": null,
+      "targets": "T110",
+      "total-minute": 150,
+      "type": "state"
+    },
+    "node7": {
+      "area": "Tsushima Strait",
+      "cargo": "refined petroleum",
+      "category": "ship",
+      "country": "Japan",
+      "day": 1,
+      "direction": "west",
+      "entered-port": false,
+      "heading": 270,
+      "heading-units": "degrees",
+      "hour": 2,
+      "id": "Bluesky",
+      "latitude": 34.085714,
+      "left-port": "none",
+      "longitude": 129.3675,
+      "minute": 30,
+      "move-count-update": 10,
+      "next-port": "Tsushima",
+      "port-achieved": false,
+      "previous-port": "none",
+      "priority": 10,
+      "source-agent": "C11",
+      "source-sensor": "ais-sensor",
+      "speed": 6.0,
+      "speed-units": "knots",
+      "total-minute": 150,
+      "type": "oil-tanker",
+      "x": 12,
+      "x-100": 1296,
+      "y": 7,
+      "y-100": 750
+    }
+}
+Answer: On Day 1 at 2:30 the Oceanic (128.8'N, 34.4'E) was 62.73 km from the Bluesky (129.3'N, 34.1'E).
+Question: When is Bluesky expected to reach port-C?
+Logic graph:
+{
+    "node": "node1",
+    "type": "divide",
+    "argument-count": 2,
+    "negation": false,
+    "answer-node": true,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "haversine-formula",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": {
+                "node": "node4",
+                "type": "apply-property",
+                "argument-count": 3,
+                "negation": false,
+                "results": {
+                    "node": "node4-results"
+                },
+                "argument1": "STATE",
+                "argument2": "id",
+                "argument3": "Bluesky"
+            },
+            "argument2": "next-port",
+            "argument3": "port-C"
+        },
+        "argument2": {
+            "node": "node5",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node5-results"
+            },
+            "argument1": "STATE",
+            "argument2": "id",
+            "argument3": "port-C"
+        }
+    },
+    "argument2": {
+        "node": "node6",
+        "type": "convert-units",
+        "argument-count": 3,
+        "negation": false,
+        "results": {
+            "node": "node6-results"
+        },
+        "argument1": {
+            "node": "node7",
+            "type": "attribute-of",
+            "argument-count": 2,
+            "negation": false,
+            "results": {
+                "node": "node7-results"
+            },
+            "argument1": {
+                "node": "node3",
+                "type": "apply-property",
+                "argument-count": 3,
+                "negation": false,
+                "results": {
+                    "node": "node3-results"
+                },
+                "argument1": {
+                    "node": "node4",
+                    "type": "apply-property",
+                    "argument-count": 3,
+                    "negation": false,
+                    "results": {
+                        "node": "node4-results"
+                    },
+                    "argument1": "STATE",
+                    "argument2": "id",
+                    "argument3": "Bluesky"
+                },
+                "argument2": "next-port",
+                "argument3": "port-C"
+            },
+            "argument2": "speed"
+        },
+        "argument2": "knots",
+        "argument3": "kph"
+    }
+}
+Logic calculation result:
+{
+    "no-match-for": "node3",
+    "final-answer": "no-match"
+}
+Answer: The Bluesky is not headed to port-C.
+Question: Where was Bluesky when the battleship arrived at port-A?
+Logic graph:
+{
+    "node": "node1",
+    "type": "join",
+    "argument-count": 2,
+    "negation": false,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "attribute-of",
+        "argument-count": 2,
+        "negation": false,
+        "answer-node": true,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": {
+                "node": "node4",
+                "type": "when",
+                "argument-count": 1,
+                "negation": false,
+                "results": {
+                    "node": "node4-results"
+                },
+                "argument1": {
+                    "node": "node5",
+                    "type": "apply-property",
+                    "argument-count": 3,
+                    "negation": false,
+                    "results": {
+                        "node": "node5-results"
+                    },
+                    "argument1": {
+                        "node": "node6",
+                        "type": "apply-property",
+                        "argument-count": 3,
+                        "negation": false,
+                        "results": {
+                            "node": "node6-results"
+                        },
+                        "argument1": "STATE",
+                        "argument2": "type",
+                        "argument3": "battleship"
+                    },
+                    "argument2": "current-port",
+                    "argument3": "port-A"
+                }
+            },
+            "argument2": "id",
+            "argument3": "Bluesky"
+        },
+        "argument2": "latitude"
+    },
+    argument2: {
+        "node": "node7",
+        "type": "attribute-of",
+        "argument-count": 2,
+        "negation": false,
+        "answer-node": true,
+        "results": {
+            "node": "node7-results"
+        },
+        "argument1": "node3",
+        "argument2": "longitude"
+    }
+}
+Logic calculation result:
+{
+    "no-match-for": "node4",
+    "final-answer": "no-match"
+}
+Answer: There is no battleship visible in the provided data.
