@@ -1,0 +1,13 @@
+Answer the following question about ships step by step.
+Identify and restate the key facts given (ship names, positions, times,
+speeds, and headings).
+Translate these into a structured representation (e.g., positions on a
+timeline, coordinates, vectors).
+Calculate intermediate values: relative velocities,
+projected positions at the specified times, distances, and bearings.
+Reason explicitly about the relations between ships (e.g., who is ahead, who
+is closer, when/where they intersect).
+State any assumptions (straight-line motion, constant speed, unit conversions).
+Provide the final answer, clearly summarizing the relationship.
+Do not skip steps; show the full chain of reasoning before the conclusion.
+Show all steps and then give a succinct answer.
