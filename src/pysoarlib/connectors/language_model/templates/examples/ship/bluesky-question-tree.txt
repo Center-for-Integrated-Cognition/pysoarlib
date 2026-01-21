@@ -1439,6 +1439,7 @@ Output:
     }
 }
 Input: Which port is closest to the Bluesky?
+Output:
 {
     "node": "node1",
     "type": "min",
