@@ -18,7 +18,7 @@
     "repair-prompt": false,
     "response-type": "string",
     "output-template": "str-answer",
-    "model": "gpt-5.2",
+    "model": "gpt-4o",
     "api": "langchain",
     "number-of-results": 1,
     "temperature": 0.0
