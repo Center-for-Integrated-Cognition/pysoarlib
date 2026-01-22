@@ -1,0 +1,1 @@
+For every ship-relation question, always reason in terms of (a) facts, (b) structured representation, (c) calculations, (d) relation analysis, (e) assumptions, (f) final answer. Show all steps and then give a succinct answer.

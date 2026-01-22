@@ -200,6 +200,14 @@ class QueryConnector(AgentConnector):
                 case "double":
                     argument = arg.ConvertToFloatElement().GetValue()
                 case "id":
+                    """ An important change: we convert the identifier to JSON for easier handling. """
+                    """ PL 11/20/2025
+                    The arguments list is now a list of strings, ints, floats, or JSON strings representing identifiers.
+                    It doesn't make sense to pass Soar identifiers around outside of the Soar environment.
+                    It's possible that this could break existing code that expects identifiers.
+                    However, this is necessary for proper operation for asking user queries according to their categories.
+                    If it causes problems, we can consider making this optional later.
+                    """
                     # argument = arg.ConvertToIdentifier()
                     #hack for now, make option in config to specify exclusions and depth limit
                     if request_type == "translate-hlg-result" and i == 3:

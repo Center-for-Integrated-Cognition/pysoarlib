@@ -70,7 +70,7 @@ class LMConnector(QueryConnector):
             self.response.add_to_wm(self.lm_id)
             current_time = time.time()
             self.lm_time = current_time - self.elapsed_time
-            print("Lm elapse timed: " + str(self.lm_time) + " seconds")
+            print("Lm elapsed time: " + str(self.lm_time) + " seconds")
             self.response = None
             self.elapsed_time = time.time()
 

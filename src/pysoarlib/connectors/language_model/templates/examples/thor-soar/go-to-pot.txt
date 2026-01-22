@@ -1,0 +1,10 @@
+Input: Go to the pot.
+Output JSON goal desireds:
+{
+    "desired-count" : 1,
+    "desireds": [
+    	{
+			"object": {"object-handle": "Pot49", "reachable": true}
+		}
+	]
+}
