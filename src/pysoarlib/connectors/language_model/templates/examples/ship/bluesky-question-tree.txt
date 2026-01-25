@@ -363,6 +363,7 @@ Output:
             "argument2": "id",
             "argument3": "port-A"
         }
+    }
 }
 Input: Which ships going faster than 20 knots?
 Output:
@@ -486,7 +487,7 @@ Output:
             },
             "argument2": "next-port",
             "argument3": "port-A"
-        }
+        },
         "argument2": {
             "node": "node5",
             "type": "apply-property",
@@ -1962,7 +1963,7 @@ Output:
                     "argument3": "Bluesky"
                 },
                 "argument2": "left-port",
-                "argument3": "port-A
+                "argument3": "port-A"
             }
         },
         "argument2": "category",
