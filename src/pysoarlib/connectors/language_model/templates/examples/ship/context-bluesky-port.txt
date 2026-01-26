@@ -13,8 +13,6 @@ World context:
             "speed-units": "knots",
             "entered-port" "false",
             "left-port": "false",
-            "previous-port": "port-A",
-            "next-port": "none",
             "priority" : 0,
             "type" : "oil-tanker",
             "id" : "Bluesky",

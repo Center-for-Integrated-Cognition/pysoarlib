@@ -5,7 +5,8 @@
         "direction-bluesky-A2",
         "how-many-north-A2",
         "speed-of-bluesky-kph-A2",
-        "distance-apart-km-A2"
+        "distance-apart-km-A2",
+        "admonition-A2"
     ],
     "domain": "ship",
     "system-prompt": "succinct",

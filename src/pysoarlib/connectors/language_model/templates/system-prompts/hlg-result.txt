@@ -1,0 +1,2 @@
+Use the json logic graph generated for each question and the json calculation result from the logic graph to answer the question fully with relevant details from the calculation in a single sentence. If applicable, make sure to include details from the intermediate node results in the answer.
+If the final answer is no-match use the provided context to succinctly answer the question.

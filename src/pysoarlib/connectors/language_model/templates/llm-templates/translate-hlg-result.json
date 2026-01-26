@@ -1,18 +1,18 @@
 {
-    "llm-template": "ship-question-dag",
+    "llm-template": "translate-hlg-result",
     "example-context": "context-bluesky-port",
     "examples": [
-        "bluesky-question-tree"
+        "hlg-result-translation"
     ],
     "domain": "ship",
-    "system-prompt": "json-tree",
+    "system-prompt": "hlg-result",
     "world-context": false,
     "soar-context": true,
     "history-context": [],
-    "prompt-template": "input-1-argument",
+    "prompt-template": "translate-hlg-3-arguments",
     "repair-prompt": false,
-    "response-type": "json",
-    "output-template": "output",
+    "response-type": "string",
+    "output-template": "str-answer",
     "model": "gpt-4o",
     "api": "langchain",
     "number-of-results": 1,

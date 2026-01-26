@@ -11,7 +11,7 @@ from pysoarlib import AgentConnector
 from pysoarlib.connectors.Query import Query
 from pysoarlib.util.sml import sml
 from pysoarlib.util.soar_identifier_to_json import soar_identifier_to_json
-
+from pysoarlib.util.soar_identifier_to_json import soar_identifier_to_json_limited
 
 class QueryConnector(AgentConnector):
     """Base Class for Query Connectors based on agent connector
@@ -209,7 +209,11 @@ class QueryConnector(AgentConnector):
                     If it causes problems, we can consider making this optional later.
                     """
                     # argument = arg.ConvertToIdentifier()
-                    argument = json.dumps(soar_identifier_to_json(arg.ConvertToIdentifier()))
+                    #hack for now, make option in config to specify exclusions and depth limit
+                    if request_type == "translate-hlg-result" and i == 3:
+                        argument = json.dumps(soar_identifier_to_json_limited(arg.ConvertToIdentifier(), exclusions=["argument1", "argument2", "argument3", "argument4", "node-result"], depth_limit=2), indent=4)
+                    else:
+                        argument = json.dumps(soar_identifier_to_json(arg.ConvertToIdentifier()), indent=4)
             arguments.append(argument)
             i+=1
         # print(arguments)

@@ -1,9 +1,5 @@
 {
-    "llm-template": "ship-question-dag",
-    "example-context": "context-bluesky-port",
-    "examples": [
-        "bluesky-question-tree"
-    ],
+    "llm-template": "ship-question-dag-finetune",
     "domain": "ship",
     "system-prompt": "json-tree",
     "world-context": false,
@@ -13,7 +9,7 @@
     "repair-prompt": false,
     "response-type": "json",
     "output-template": "output",
-    "model": "gpt-4o",
+    "model": "ft:gpt-4o-2024-08-06:cic:hlg-v-2:Ci3I68CE",
     "api": "langchain",
     "number-of-results": 1,
     "temperature": 0.0
