@@ -12,6 +12,7 @@
         "dialog"
     ],
     "prompt-template": "question-1-argument",
+    "print-template": "?prompt?output",
     "repair-prompt": false,
     "response-type": "string",
     "output-template": "str-answer",

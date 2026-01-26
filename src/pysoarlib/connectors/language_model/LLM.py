@@ -41,6 +41,7 @@ class LLM:
         self.command_history = ""
         self.test_mode = False # This can be set to True to inhibit printouts
         self.examples = None # Example prompts for testing, set in test mode
+        self.print_template = None # If set, will print this template instead of prompts
 
         """ Calculate path to templates folder """
         if not self.templates_root:
@@ -818,6 +819,18 @@ class LLM:
         template = template.replace("?prompt", prompt)
         template = template.replace("?output", output)
 
+        """ Compute instantiated template for printout """
+        self.print_template = config["print-template"] if "print-template" in config else None
+        if self.print_template:
+            self.print_template = self.print_template.replace("?examples", examples)
+            self.print_template = self.print_template.replace("?world-context", world_context)
+            self.print_template = self.print_template.replace("?soar-context", soar_context)
+            self.print_template = self.print_template.replace("?history-context", history_context)
+            self.print_template = self.print_template.replace("?history-log", history_log)
+            self.print_template = self.print_template.replace("?repair-prompt", repair_prompt)
+            self.print_template = self.print_template.replace("?prompt", prompt)
+            self.print_template = self.print_template.replace("?output", output)
+
         return template
     
     
@@ -889,12 +902,15 @@ class LLM:
             ("system", system_input),
             ("human", user_input),
         ]
-
+        
         if not self.test_mode:
             print("System prompt:")
             print(system_input)
-            print("User prompt:")
-            print(user_input)
+            if not self.print_template:
+                print("User prompt:")
+                print(user_input)
+            else:
+                print("Instantiated Print Template:" + self.print_template)
 
         response = llm.invoke(message)
 
