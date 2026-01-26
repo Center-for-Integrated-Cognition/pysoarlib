@@ -903,14 +903,13 @@ class LLM:
             ("human", user_input),
         ]
         
-        if not self.test_mode:
-            print("System prompt:")
-            print(system_input)
-            if not self.print_template:
-                print("User prompt:")
-                print(user_input)
-            else:
-                print("Instantiated Print Template:" + self.print_template)
+        print("System prompt:")
+        print(system_input)
+        if not self.print_template:
+            print("User prompt:")
+            print(user_input)
+        else:
+            print("Instantiated Print Template:" + self.print_template)
 
         response = llm.invoke(message)
 
