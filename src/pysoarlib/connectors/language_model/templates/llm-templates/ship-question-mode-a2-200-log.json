@@ -7,7 +7,7 @@
         "speed-of-bluesky-kph-A2",
         "distance-apart-km-A2",
         "A2-Log+Examples-2",
-        "DEMO_v03_log-csv"
+        "EVAL@200_10-01-2025_history-log-csv"
     ],
     "domain": "ship",
     "system-prompt": "succinct",
@@ -15,6 +15,7 @@
     "soar-context": true,
     "history-context": [],
     "prompt-template": "question-1-argument",
+    "print-template": "?prompt?output",
     "repair-prompt": false,
     "response-type": "string",
     "output-template": "str-answer",

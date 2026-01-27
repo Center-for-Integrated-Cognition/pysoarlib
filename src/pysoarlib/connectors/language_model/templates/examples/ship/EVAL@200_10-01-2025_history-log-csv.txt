@@ -1,0 +1,403 @@
+move,date,time,entered-port,left-port,latitude,longitude,id,entity-type,speed,heading,direction,cargo,country,port-achieved,next-port,previous-port
+0,2025-10-01,00:00,none,none,33.857143,128.358333,Seabreeze,oil-tanker,0.0,90,east,crude oil,South Korea,false,none,none
+0,2025-10-01,00:00,none,none,34.085714,129.525,Shinkai,oil-tanker,0.0,90,east,refined petroleum,Japan,false,none,none
+1,2025-10-01,00:15,none,none,34.085714,129.525,Shinkai,oil-tanker,3.0,270,west,refined petroleum,Japan,false,none,none
+1,2025-10-01,00:15,none,none,33.886857,128.425417,Seabreeze,oil-tanker,15.0,30,north,crude oil,South Korea,false,none,none
+2,2025-10-01,00:30,none,none,33.946286,128.469167,Seabreeze,oil-tanker,30.0,30,north,crude oil,South Korea,false,none,none
+2,2025-10-01,00:30,none,none,34.085714,129.5075,Shinkai,oil-tanker,6.0,270,west,refined petroleum,Japan,false,none,none
+3,2025-10-01,00:45,false,none,34.085714,129.49,Shinkai,oil-tanker,6.0,270,west,refined petroleum,Japan,false,Tsushima,none
+3,2025-10-01,00:45,false,none,34.005714,128.512917,Seabreeze,oil-tanker,30.0,30,north,crude oil,South Korea,false,Busan,none
+4,2025-10-01,01:00,false,none,34.065143,128.556667,Seabreeze,oil-tanker,30.0,30,north,crude oil,South Korea,false,Busan,none
+4,2025-10-01,01:00,false,none,34.085714,129.4725,Shinkai,oil-tanker,6.0,270,west,refined petroleum,Japan,false,Tsushima,none
+5,2025-10-01,01:15,false,none,34.124571,128.600417,Seabreeze,oil-tanker,30.0,30,north,crude oil,South Korea,false,Busan,none
+5,2025-10-01,01:15,false,none,34.085714,129.455,Shinkai,oil-tanker,6.0,270,west,refined petroleum,Japan,false,Tsushima,none
+6,2025-10-01,01:30,false,none,34.085714,129.4375,Shinkai,oil-tanker,6.0,270,west,refined petroleum,Japan,false,Tsushima,none
+6,2025-10-01,01:30,false,none,34.184,128.644167,Seabreeze,oil-tanker,30.0,30,north,crude oil,South Korea,false,Busan,none
+7,2025-10-01,01:45,false,none,34.243429,128.687917,Seabreeze,oil-tanker,30.0,30,north,crude oil,South Korea,false,Busan,none
+7,2025-10-01,01:45,false,none,34.085714,129.42,Shinkai,oil-tanker,6.0,270,west,refined petroleum,Japan,false,Tsushima,none
+8,2025-10-01,02:00,false,none,34.085714,129.4025,Shinkai,oil-tanker,6.0,270,west,refined petroleum,Japan,false,Tsushima,none
+8,2025-10-01,02:00,false,none,34.302857,128.731667,Seabreeze,oil-tanker,30.0,30,north,crude oil,South Korea,false,Busan,none
+9,2025-10-01,02:15,false,none,34.085714,129.385,Shinkai,oil-tanker,6.0,270,west,refined petroleum,Japan,false,Tsushima,none
+9,2025-10-01,02:15,false,none,34.362286,128.775417,Seabreeze,oil-tanker,30.0,30,north,crude oil,South Korea,false,Busan,none
+10,2025-10-01,02:30,false,none,34.421714,128.819167,Seabreeze,oil-tanker,30.0,30,north,crude oil,South Korea,false,Busan,none
+10,2025-10-01,02:30,false,none,34.085714,129.3675,Shinkai,oil-tanker,6.0,270,west,refined petroleum,Japan,false,Tsushima,none
+11,2025-10-01,02:45,false,none,34.458286,128.845417,Seabreeze,oil-tanker,18.0,30,north,crude oil,South Korea,false,Busan,none
+11,2025-10-01,02:45,Tsushima,none,34.085714,129.3675,Shinkai,oil-tanker,0.0,270,west,refined petroleum,Japan,true,Tsushima,none
+12,2025-10-01,03:00,false,none,34.494857,128.871667,Seabreeze,oil-tanker,18.0,30,north,crude oil,South Korea,false,Busan,none
+12,2025-10-01,03:00,false,none,34.085714,129.3675,Shinkai,oil-tanker,0.0,270,west,refined petroleum,Japan,true,Tsushima,none
+13,2025-10-01,03:15,false,none,34.531429,128.897917,Seabreeze,oil-tanker,18.0,30,north,crude oil,South Korea,false,Busan,none
+13,2025-10-01,03:15,false,none,34.085714,129.3675,Shinkai,oil-tanker,0.0,270,west,refined petroleum,Japan,true,Tsushima,none
+14,2025-10-01,03:30,false,none,34.085714,129.3675,Shinkai,oil-tanker,0.0,270,west,refined petroleum,Japan,true,Tsushima,none
+14,2025-10-01,03:30,false,none,34.568,128.924167,Seabreeze,oil-tanker,18.0,30,north,crude oil,South Korea,false,Busan,none
+15,2025-10-01,03:45,false,none,34.604571,128.950417,Seabreeze,oil-tanker,18.0,30,north,crude oil,South Korea,false,Busan,none
+15,2025-10-01,03:45,false,none,34.085714,129.3675,Shinkai,oil-tanker,0.0,270,west,refined petroleum,Japan,true,Tsushima,none
+16,2025-10-01,04:00,false,none,34.641143,128.976667,Seabreeze,oil-tanker,18.0,30,north,crude oil,South Korea,false,Busan,none
+16,2025-10-01,04:00,none,Tsushima,34.078857,129.355833,Shinkai,oil-tanker,3.0,193,south,refined petroleum,Japan,false,none,Tsushima
+17,2025-10-01,04:15,false,none,34.677714,129.002917,Seabreeze,oil-tanker,18.0,30,north,crude oil,South Korea,false,Busan,none
+17,2025-10-01,04:15,none,none,34.065143,129.352917,Shinkai,oil-tanker,6.0,193,south,refined petroleum,Japan,false,none,Tsushima
+18,2025-10-01,04:30,false,none,34.051429,129.35,Shinkai,oil-tanker,6.0,193,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+18,2025-10-01,04:30,false,none,34.689143,129.011667,Seabreeze,oil-tanker,6.0,30,north,crude oil,South Korea,false,Busan,none
+19,2025-10-01,04:45,false,none,34.037714,129.347083,Shinkai,oil-tanker,6.0,193,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+19,2025-10-01,04:45,false,none,34.700571,129.020417,Seabreeze,oil-tanker,6.0,30,north,crude oil,South Korea,false,Busan,none
+20,2025-10-01,05:00,false,none,34.712,129.029167,Seabreeze,oil-tanker,6.0,30,north,crude oil,South Korea,false,Busan,none
+20,2025-10-01,05:00,false,none,34.024,129.344167,Shinkai,oil-tanker,6.0,193,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+21,2025-10-01,05:15,false,none,34.010286,129.34125,Shinkai,oil-tanker,6.0,193,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+21,2025-10-01,05:15,false,none,34.723429,129.037917,Seabreeze,oil-tanker,6.0,30,north,crude oil,South Korea,false,Busan,none
+22,2025-10-01,05:30,false,none,33.996571,129.338333,Shinkai,oil-tanker,6.0,193,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+22,2025-10-01,05:30,false,none,34.734857,129.046667,Seabreeze,oil-tanker,6.0,30,north,crude oil,South Korea,false,Busan,none
+23,2025-10-01,05:45,false,none,33.982857,129.335417,Shinkai,oil-tanker,6.0,193,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+23,2025-10-01,05:45,false,none,34.746286,129.055417,Seabreeze,oil-tanker,6.0,30,north,crude oil,South Korea,false,Busan,none
+24,2025-10-01,06:00,false,none,33.969143,129.3325,Shinkai,oil-tanker,6.0,193,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+24,2025-10-01,06:00,false,none,34.757714,129.064167,Seabreeze,oil-tanker,6.0,30,north,crude oil,South Korea,false,Busan,none
+25,2025-10-01,06:15,false,none,33.928,129.320833,Shinkai,oil-tanker,18.0,193,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+25,2025-10-01,06:15,false,none,34.769143,129.072917,Seabreeze,oil-tanker,6.0,30,north,crude oil,South Korea,false,Busan,none
+26,2025-10-01,06:30,false,none,34.780571,129.081667,Seabreeze,oil-tanker,6.0,30,north,crude oil,South Korea,false,Busan,none
+26,2025-10-01,06:30,false,none,33.886857,129.309167,Shinkai,oil-tanker,18.0,193,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+27,2025-10-01,06:45,false,none,33.845714,129.2975,Shinkai,oil-tanker,18.0,193,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+27,2025-10-01,06:45,false,none,34.792,129.090417,Seabreeze,oil-tanker,6.0,30,north,crude oil,South Korea,false,Busan,none
+28,2025-10-01,07:00,false,none,33.804571,129.285833,Shinkai,oil-tanker,18.0,193,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+28,2025-10-01,07:00,false,none,34.828571,129.116667,Seabreeze,oil-tanker,18.0,30,north,crude oil,South Korea,false,Busan,none
+29,2025-10-01,07:15,false,none,34.865143,129.142917,Seabreeze,oil-tanker,18.0,30,north,crude oil,South Korea,false,Busan,none
+29,2025-10-01,07:15,false,none,33.763429,129.274167,Shinkai,oil-tanker,18.0,193,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+30,2025-10-01,07:30,false,none,34.901714,129.169167,Seabreeze,oil-tanker,18.0,30,north,crude oil,South Korea,false,Busan,none
+30,2025-10-01,07:30,false,none,33.722286,129.2625,Shinkai,oil-tanker,18.0,193,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+31,2025-10-01,07:45,none,none,33.683429,129.27125,Shinkai,oil-tanker,9.0,147,south,refined petroleum,Japan,false,none,Tsushima
+31,2025-10-01,07:45,Busan,none,34.901714,129.169167,Seabreeze,oil-tanker,0.0,30,north,crude oil,South Korea,true,Busan,none
+32,2025-10-01,08:00,false,none,34.901714,129.169167,Seabreeze,oil-tanker,0.0,30,north,crude oil,South Korea,true,Busan,none
+32,2025-10-01,08:00,none,none,33.649143,129.300417,Shinkai,oil-tanker,18.0,147,south,refined petroleum,Japan,false,none,Tsushima
+33,2025-10-01,08:15,false,none,33.614857,129.329583,Shinkai,oil-tanker,18.0,147,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+33,2025-10-01,08:15,false,none,34.901714,129.169167,Seabreeze,oil-tanker,0.0,30,north,crude oil,South Korea,true,Busan,none
+34,2025-10-01,08:30,false,none,33.580571,129.35875,Shinkai,oil-tanker,18.0,147,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+34,2025-10-01,08:30,false,none,34.901714,129.169167,Seabreeze,oil-tanker,0.0,30,north,crude oil,South Korea,true,Busan,none
+35,2025-10-01,08:45,false,none,33.546286,129.387917,Shinkai,oil-tanker,18.0,147,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+35,2025-10-01,08:45,false,none,34.901714,129.169167,Seabreeze,oil-tanker,0.0,30,north,crude oil,South Korea,true,Busan,none
+36,2025-10-01,09:00,none,Busan,34.908571,129.18375,Seabreeze,oil-tanker,3.0,82,east,crude oil,South Korea,false,none,Busan
+36,2025-10-01,09:00,false,none,33.534857,129.399583,Shinkai,oil-tanker,3.0,143,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+37,2025-10-01,09:15,false,none,33.523429,129.41125,Shinkai,oil-tanker,6.0,143,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+37,2025-10-01,09:15,none,none,34.910857,129.20125,Seabreeze,oil-tanker,6.0,82,east,crude oil,South Korea,false,none,Busan
+38,2025-10-01,09:30,false,none,34.913143,129.21875,Seabreeze,oil-tanker,6.0,82,east,crude oil,South Korea,false,Fukuoka,Busan
+38,2025-10-01,09:30,false,none,33.512,129.422917,Shinkai,oil-tanker,6.0,143,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+39,2025-10-01,09:45,Nagasaki,none,33.512,129.422917,Shinkai,oil-tanker,0.0,143,south,refined petroleum,Japan,true,Nagasaki,Tsushima
+39,2025-10-01,09:45,false,none,34.915429,129.23625,Seabreeze,oil-tanker,6.0,82,east,crude oil,South Korea,false,Fukuoka,Busan
+40,2025-10-01,10:00,false,none,34.917714,129.25375,Seabreeze,oil-tanker,6.0,82,east,crude oil,South Korea,false,Fukuoka,Busan
+40,2025-10-01,10:00,false,none,33.512,129.422917,Shinkai,oil-tanker,0.0,143,south,refined petroleum,Japan,true,Nagasaki,Tsushima
+41,2025-10-01,10:15,false,none,33.512,129.422917,Shinkai,oil-tanker,0.0,143,south,refined petroleum,Japan,true,Nagasaki,Tsushima
+41,2025-10-01,10:15,false,none,34.92,129.27125,Seabreeze,oil-tanker,6.0,82,east,crude oil,South Korea,false,Fukuoka,Busan
+42,2025-10-01,10:30,false,none,34.922286,129.28875,Seabreeze,oil-tanker,6.0,82,east,crude oil,South Korea,false,Fukuoka,Busan
+42,2025-10-01,10:30,false,none,33.512,129.422917,Shinkai,oil-tanker,0.0,143,south,refined petroleum,Japan,true,Nagasaki,Tsushima
+43,2025-10-01,10:45,false,none,34.924571,129.30625,Seabreeze,oil-tanker,6.0,82,east,crude oil,South Korea,false,Fukuoka,Busan
+43,2025-10-01,10:45,false,none,33.512,129.422917,Shinkai,oil-tanker,0.0,143,south,refined petroleum,Japan,true,Nagasaki,Tsushima
+44,2025-10-01,11:00,false,none,34.926857,129.32375,Seabreeze,oil-tanker,6.0,82,east,crude oil,South Korea,false,Fukuoka,Busan
+44,2025-10-01,11:00,none,Nagasaki,33.512,129.4375,Shinkai,oil-tanker,3.0,57,east,refined petroleum,Japan,false,none,Nagasaki
+45,2025-10-01,11:15,none,none,33.518857,129.452083,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,none,Nagasaki
+45,2025-10-01,11:15,false,none,34.929143,129.34125,Seabreeze,oil-tanker,6.0,82,east,crude oil,South Korea,false,Fukuoka,Busan
+46,2025-10-01,11:30,false,none,34.931429,129.35875,Seabreeze,oil-tanker,6.0,82,east,crude oil,South Korea,false,Fukuoka,Busan
+46,2025-10-01,11:30,false,none,33.525714,129.466667,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+47,2025-10-01,11:45,false,none,33.532571,129.48125,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+47,2025-10-01,11:45,false,none,34.933714,129.37625,Seabreeze,oil-tanker,6.0,82,east,crude oil,South Korea,false,Fukuoka,Busan
+48,2025-10-01,12:00,false,none,34.936,129.39375,Seabreeze,oil-tanker,6.0,82,east,crude oil,South Korea,false,Fukuoka,Busan
+48,2025-10-01,12:00,false,none,33.539429,129.495833,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+49,2025-10-01,12:15,false,none,34.942857,129.44625,Seabreeze,oil-tanker,18.0,82,east,crude oil,South Korea,false,Fukuoka,Busan
+49,2025-10-01,12:15,false,none,33.546286,129.510417,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+50,2025-10-01,12:30,false,none,33.553143,129.525,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+50,2025-10-01,12:30,false,none,34.949714,129.49875,Seabreeze,oil-tanker,18.0,82,east,crude oil,South Korea,false,Fukuoka,Busan
+51,2025-10-01,12:45,false,none,33.56,129.539583,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+51,2025-10-01,12:45,false,none,34.956571,129.55125,Seabreeze,oil-tanker,18.0,82,east,crude oil,South Korea,false,Fukuoka,Busan
+52,2025-10-01,13:00,false,none,33.566857,129.554167,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+52,2025-10-01,13:00,false,none,34.963429,129.60375,Seabreeze,oil-tanker,18.0,82,east,crude oil,South Korea,false,Fukuoka,Busan
+53,2025-10-01,13:15,false,none,33.573714,129.56875,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+53,2025-10-01,13:15,false,none,34.970286,129.65625,Seabreeze,oil-tanker,18.0,82,east,crude oil,South Korea,false,Fukuoka,Busan
+54,2025-10-01,13:30,false,none,33.580571,129.583333,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+54,2025-10-01,13:30,false,none,34.977143,129.70875,Seabreeze,oil-tanker,18.0,82,east,crude oil,South Korea,false,Fukuoka,Busan
+55,2025-10-01,13:45,false,none,34.986286,129.79625,Seabreeze,oil-tanker,30.0,82,east,crude oil,South Korea,false,Fukuoka,Busan
+55,2025-10-01,13:45,false,none,33.587429,129.597917,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+56,2025-10-01,14:00,false,none,33.594286,129.6125,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+56,2025-10-01,14:00,false,none,34.993143,129.88375,Seabreeze,oil-tanker,15.0,86,east,crude oil,South Korea,false,Fukuoka,Busan
+57,2025-10-01,14:15,false,none,34.997714,129.97125,Seabreeze,oil-tanker,30.0,86,east,crude oil,South Korea,false,Fukuoka,Busan
+57,2025-10-01,14:15,false,none,33.601143,129.627083,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+58,2025-10-01,14:30,none,none,34.972571,130.04125,Seabreeze,oil-tanker,15.0,143,south,crude oil,South Korea,false,none,Busan
+58,2025-10-01,14:30,false,none,33.608,129.641667,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+59,2025-10-01,14:45,none,none,34.917714,130.09375,Seabreeze,oil-tanker,30.0,143,south,crude oil,South Korea,false,none,Busan
+59,2025-10-01,14:45,false,none,33.614857,129.65625,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+60,2025-10-01,15:00,false,none,34.860571,130.143333,Seabreeze,oil-tanker,15.0,147,south,crude oil,South Korea,false,Fukuoka,Busan
+60,2025-10-01,15:00,false,none,33.621714,129.670833,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+61,2025-10-01,15:15,false,none,34.803429,130.19,Seabreeze,oil-tanker,30.0,147,south,crude oil,South Korea,false,Fukuoka,Busan
+61,2025-10-01,15:15,false,none,33.628571,129.685417,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+62,2025-10-01,15:30,false,none,33.635429,129.7,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+62,2025-10-01,15:30,false,none,34.746286,130.236667,Seabreeze,oil-tanker,30.0,147,south,crude oil,South Korea,false,Fukuoka,Busan
+63,2025-10-01,15:45,false,none,34.689143,130.283333,Seabreeze,oil-tanker,30.0,147,south,crude oil,South Korea,false,Fukuoka,Busan
+63,2025-10-01,15:45,false,none,33.642286,129.714583,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+64,2025-10-01,16:00,false,none,33.649143,129.729167,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+64,2025-10-01,16:00,false,none,34.632,130.33,Seabreeze,oil-tanker,30.0,147,south,crude oil,South Korea,false,Fukuoka,Busan
+65,2025-10-01,16:15,false,none,33.656,129.74375,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+65,2025-10-01,16:15,none,none,34.568,130.35625,Seabreeze,oil-tanker,15.0,175,south,crude oil,South Korea,false,none,Busan
+66,2025-10-01,16:30,false,none,33.662857,129.758333,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+66,2025-10-01,16:30,none,none,34.499429,130.365,Seabreeze,oil-tanker,30.0,175,south,crude oil,South Korea,false,none,Busan
+67,2025-10-01,16:45,false,none,33.669714,129.772917,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+67,2025-10-01,16:45,false,none,34.430857,130.37375,Seabreeze,oil-tanker,30.0,175,south,crude oil,South Korea,false,Fukuoka,Busan
+68,2025-10-01,17:00,false,none,33.676571,129.7875,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+68,2025-10-01,17:00,false,none,34.362286,130.3825,Seabreeze,oil-tanker,30.0,175,south,crude oil,South Korea,false,Fukuoka,Busan
+69,2025-10-01,17:15,false,none,34.321143,130.388333,Seabreeze,oil-tanker,18.0,175,south,crude oil,South Korea,false,Fukuoka,Busan
+69,2025-10-01,17:15,false,none,33.683429,129.802083,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+70,2025-10-01,17:30,false,none,33.690286,129.816667,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+70,2025-10-01,17:30,false,none,34.28,130.394167,Seabreeze,oil-tanker,18.0,175,south,crude oil,South Korea,false,Fukuoka,Busan
+71,2025-10-01,17:45,false,none,34.238857,130.397083,Seabreeze,oil-tanker,9.0,179,south,crude oil,South Korea,false,Fukuoka,Busan
+71,2025-10-01,17:45,false,none,33.699429,129.83125,Shinkai,oil-tanker,3.0,53,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+72,2025-10-01,18:00,false,none,34.197714,130.397083,Seabreeze,oil-tanker,18.0,179,south,crude oil,South Korea,false,Fukuoka,Busan
+72,2025-10-01,18:00,false,none,33.708571,129.845833,Shinkai,oil-tanker,6.0,53,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+73,2025-10-01,18:15,false,none,33.717714,129.860417,Shinkai,oil-tanker,6.0,53,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+73,2025-10-01,18:15,false,none,34.156571,130.397083,Seabreeze,oil-tanker,18.0,179,south,crude oil,South Korea,false,Fukuoka,Busan
+74,2025-10-01,18:30,false,none,34.115429,130.397083,Seabreeze,oil-tanker,18.0,179,south,crude oil,South Korea,false,Fukuoka,Busan
+74,2025-10-01,18:30,false,none,33.726857,129.875,Shinkai,oil-tanker,6.0,53,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+75,2025-10-01,18:45,false,none,34.074286,130.397083,Seabreeze,oil-tanker,18.0,179,south,crude oil,South Korea,false,Fukuoka,Busan
+75,2025-10-01,18:45,false,none,33.736,129.889583,Shinkai,oil-tanker,6.0,53,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+76,2025-10-01,19:00,false,none,33.745143,129.904167,Shinkai,oil-tanker,6.0,53,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+76,2025-10-01,19:00,false,none,34.033143,130.397083,Seabreeze,oil-tanker,18.0,179,south,crude oil,South Korea,false,Fukuoka,Busan
+77,2025-10-01,19:15,false,none,33.992,130.397083,Seabreeze,oil-tanker,18.0,179,south,crude oil,South Korea,false,Fukuoka,Busan
+77,2025-10-01,19:15,false,none,33.754286,129.91875,Shinkai,oil-tanker,6.0,53,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+78,2025-10-01,19:30,false,none,33.950857,130.397083,Seabreeze,oil-tanker,18.0,179,south,crude oil,South Korea,false,Fukuoka,Busan
+78,2025-10-01,19:30,false,none,33.763429,129.933333,Shinkai,oil-tanker,6.0,53,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+79,2025-10-01,19:45,false,none,33.772571,129.947917,Shinkai,oil-tanker,6.0,53,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+79,2025-10-01,19:45,Fukuoka,none,33.950857,130.397083,Seabreeze,oil-tanker,0.0,179,south,crude oil,South Korea,true,Fukuoka,Busan
+80,2025-10-01,20:00,false,none,33.781714,129.9625,Shinkai,oil-tanker,6.0,53,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+80,2025-10-01,20:00,false,none,33.950857,130.397083,Seabreeze,oil-tanker,0.0,179,south,crude oil,South Korea,true,Fukuoka,Busan
+81,2025-10-01,20:15,none,none,33.788571,129.977083,Shinkai,oil-tanker,3.0,77,east,refined petroleum,Japan,false,none,Nagasaki
+81,2025-10-01,20:15,false,none,33.950857,130.397083,Seabreeze,oil-tanker,0.0,179,south,crude oil,South Korea,true,Fukuoka,Busan
+82,2025-10-01,20:30,none,none,33.790857,129.994583,Shinkai,oil-tanker,6.0,77,east,refined petroleum,Japan,false,none,Nagasaki
+82,2025-10-01,20:30,false,none,33.950857,130.397083,Seabreeze,oil-tanker,0.0,179,south,crude oil,South Korea,true,Fukuoka,Busan
+83,2025-10-01,20:45,false,none,33.950857,130.397083,Seabreeze,oil-tanker,0.0,179,south,crude oil,South Korea,true,Fukuoka,Busan
+83,2025-10-01,20:45,false,none,33.793143,130.012083,Shinkai,oil-tanker,6.0,77,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+84,2025-10-01,21:00,none,Fukuoka,33.948571,130.388333,Seabreeze,oil-tanker,3.0,301,west,crude oil,South Korea,false,none,Fukuoka
+84,2025-10-01,21:00,false,none,33.795429,130.029583,Shinkai,oil-tanker,6.0,77,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+85,2025-10-01,21:15,false,none,33.797714,130.047083,Shinkai,oil-tanker,6.0,77,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+85,2025-10-01,21:15,none,none,33.955429,130.37375,Seabreeze,oil-tanker,6.0,301,west,crude oil,South Korea,false,none,Fukuoka
+86,2025-10-01,21:30,false,none,33.8,130.064583,Shinkai,oil-tanker,6.0,77,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+86,2025-10-01,21:30,false,none,33.962286,130.359167,Seabreeze,oil-tanker,6.0,301,west,crude oil,South Korea,false,Busan,Fukuoka
+87,2025-10-01,21:45,false,none,33.802286,130.082083,Shinkai,oil-tanker,6.0,77,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+87,2025-10-01,21:45,false,none,33.969143,130.344583,Seabreeze,oil-tanker,6.0,301,west,crude oil,South Korea,false,Busan,Fukuoka
+88,2025-10-01,22:00,false,none,33.976,130.33,Seabreeze,oil-tanker,6.0,301,west,crude oil,South Korea,false,Busan,Fukuoka
+88,2025-10-01,22:00,false,none,33.804571,130.099583,Shinkai,oil-tanker,6.0,77,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+89,2025-10-01,22:15,false,none,33.996571,130.28625,Seabreeze,oil-tanker,18.0,301,west,crude oil,South Korea,false,Busan,Fukuoka
+89,2025-10-01,22:15,false,none,33.806857,130.117083,Shinkai,oil-tanker,6.0,77,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+90,2025-10-01,22:30,false,none,33.809143,130.134583,Shinkai,oil-tanker,6.0,77,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+90,2025-10-01,22:30,false,none,34.017143,130.2425,Seabreeze,oil-tanker,18.0,301,west,crude oil,South Korea,false,Busan,Fukuoka
+91,2025-10-01,22:45,false,none,33.811429,130.152083,Shinkai,oil-tanker,6.0,77,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+91,2025-10-01,22:45,none,none,34.037714,130.160833,Seabreeze,oil-tanker,15.0,275,west,crude oil,South Korea,false,none,Fukuoka
+92,2025-10-01,23:00,none,none,34.044571,130.073333,Seabreeze,oil-tanker,30.0,275,west,crude oil,South Korea,false,none,Fukuoka
+92,2025-10-01,23:00,false,none,33.813714,130.169583,Shinkai,oil-tanker,6.0,77,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+93,2025-10-01,23:15,false,none,34.051429,129.985833,Seabreeze,oil-tanker,30.0,275,west,crude oil,South Korea,false,Tsushima,Fukuoka
+93,2025-10-01,23:15,false,none,33.816,130.187083,Shinkai,oil-tanker,6.0,77,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+94,2025-10-01,23:30,false,none,34.058286,129.898333,Seabreeze,oil-tanker,30.0,275,west,crude oil,South Korea,false,Tsushima,Fukuoka
+94,2025-10-01,23:30,false,none,33.818286,130.204583,Shinkai,oil-tanker,6.0,77,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+95,2025-10-01,23:45,false,none,34.062857,129.845833,Seabreeze,oil-tanker,18.0,275,west,crude oil,South Korea,false,Tsushima,Fukuoka
+95,2025-10-01,23:45,false,none,33.820571,130.222083,Shinkai,oil-tanker,6.0,77,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+96,2025-10-02,00:00,false,none,34.067429,129.793333,Seabreeze,oil-tanker,18.0,275,west,crude oil,South Korea,false,Tsushima,Fukuoka
+96,2025-10-02,00:00,false,none,33.822857,130.239583,Shinkai,oil-tanker,6.0,77,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+97,2025-10-02,00:15,false,none,33.825143,130.257083,Shinkai,oil-tanker,6.0,77,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+97,2025-10-02,00:15,false,none,34.072,129.740833,Seabreeze,oil-tanker,18.0,275,west,crude oil,South Korea,false,Tsushima,Fukuoka
+98,2025-10-02,00:30,false,none,34.076571,129.688333,Seabreeze,oil-tanker,18.0,275,west,crude oil,South Korea,false,Tsushima,Fukuoka
+98,2025-10-02,00:30,Fukuoka,none,33.825143,130.257083,Shinkai,oil-tanker,0.0,77,east,refined petroleum,Japan,true,Fukuoka,Nagasaki
+99,2025-10-02,00:45,false,none,33.825143,130.257083,Shinkai,oil-tanker,0.0,77,east,refined petroleum,Japan,true,Fukuoka,Nagasaki
+99,2025-10-02,00:45,false,none,34.081143,129.635833,Seabreeze,oil-tanker,18.0,275,west,crude oil,South Korea,false,Tsushima,Fukuoka
+100,2025-10-02,01:00,false,none,34.081143,129.618333,Seabreeze,oil-tanker,3.0,271,west,crude oil,South Korea,false,Tsushima,Fukuoka
+100,2025-10-02,01:00,false,none,33.825143,130.257083,Shinkai,oil-tanker,0.0,77,east,refined petroleum,Japan,true,Fukuoka,Nagasaki
+101,2025-10-02,01:15,false,none,34.081143,129.600833,Seabreeze,oil-tanker,6.0,271,west,crude oil,South Korea,false,Tsushima,Fukuoka
+101,2025-10-02,01:15,false,none,33.825143,130.257083,Shinkai,oil-tanker,0.0,77,east,refined petroleum,Japan,true,Fukuoka,Nagasaki
+102,2025-10-02,01:30,false,none,33.825143,130.257083,Shinkai,oil-tanker,0.0,77,east,refined petroleum,Japan,true,Fukuoka,Nagasaki
+102,2025-10-02,01:30,false,none,34.081143,129.583333,Seabreeze,oil-tanker,6.0,271,west,crude oil,South Korea,false,Tsushima,Fukuoka
+103,2025-10-02,01:45,false,none,34.081143,129.565833,Seabreeze,oil-tanker,6.0,271,west,crude oil,South Korea,false,Tsushima,Fukuoka
+103,2025-10-02,01:45,none,Fukuoka,33.834286,130.262917,Shinkai,oil-tanker,3.0,336,north,refined petroleum,Japan,false,none,Fukuoka
+104,2025-10-02,02:00,none,none,33.845714,130.257083,Shinkai,oil-tanker,6.0,336,north,refined petroleum,Japan,false,none,Fukuoka
+104,2025-10-02,02:00,false,none,34.081143,129.548333,Seabreeze,oil-tanker,6.0,271,west,crude oil,South Korea,false,Tsushima,Fukuoka
+105,2025-10-02,02:15,false,none,33.857143,130.25125,Shinkai,oil-tanker,6.0,336,north,refined petroleum,Japan,false,Busan,Fukuoka
+105,2025-10-02,02:15,false,none,34.081143,129.530833,Seabreeze,oil-tanker,6.0,271,west,crude oil,South Korea,false,Tsushima,Fukuoka
+106,2025-10-02,02:30,false,none,34.081143,129.513333,Seabreeze,oil-tanker,6.0,271,west,crude oil,South Korea,false,Tsushima,Fukuoka
+106,2025-10-02,02:30,false,none,33.868571,130.245417,Shinkai,oil-tanker,6.0,336,north,refined petroleum,Japan,false,Busan,Fukuoka
+107,2025-10-02,02:45,false,none,33.88,130.239583,Shinkai,oil-tanker,6.0,336,north,refined petroleum,Japan,false,Busan,Fukuoka
+107,2025-10-02,02:45,false,none,34.081143,129.495833,Seabreeze,oil-tanker,6.0,271,west,crude oil,South Korea,false,Tsushima,Fukuoka
+108,2025-10-02,03:00,false,none,34.081143,129.478333,Seabreeze,oil-tanker,6.0,271,west,crude oil,South Korea,false,Tsushima,Fukuoka
+108,2025-10-02,03:00,false,none,33.891429,130.23375,Shinkai,oil-tanker,6.0,336,north,refined petroleum,Japan,false,Busan,Fukuoka
+109,2025-10-02,03:15,false,none,33.902857,130.227917,Shinkai,oil-tanker,6.0,336,north,refined petroleum,Japan,false,Busan,Fukuoka
+109,2025-10-02,03:15,false,none,34.081143,129.460833,Seabreeze,oil-tanker,6.0,271,west,crude oil,South Korea,false,Tsushima,Fukuoka
+110,2025-10-02,03:30,false,none,33.914286,130.222083,Shinkai,oil-tanker,6.0,336,north,refined petroleum,Japan,false,Busan,Fukuoka
+110,2025-10-02,03:30,false,none,34.081143,129.443333,Seabreeze,oil-tanker,6.0,271,west,crude oil,South Korea,false,Tsushima,Fukuoka
+111,2025-10-02,03:45,false,none,33.925714,130.21625,Shinkai,oil-tanker,6.0,336,north,refined petroleum,Japan,false,Busan,Fukuoka
+111,2025-10-02,03:45,false,none,34.081143,129.425833,Seabreeze,oil-tanker,6.0,271,west,crude oil,South Korea,false,Tsushima,Fukuoka
+112,2025-10-02,04:00,false,none,34.081143,129.408333,Seabreeze,oil-tanker,6.0,271,west,crude oil,South Korea,false,Tsushima,Fukuoka
+112,2025-10-02,04:00,false,none,33.937143,130.210417,Shinkai,oil-tanker,6.0,336,north,refined petroleum,Japan,false,Busan,Fukuoka
+113,2025-10-02,04:15,false,none,33.950857,130.204583,Shinkai,oil-tanker,3.0,332,north,refined petroleum,Japan,false,Busan,Fukuoka
+113,2025-10-02,04:15,false,none,34.081143,129.390833,Seabreeze,oil-tanker,6.0,271,west,crude oil,South Korea,false,Tsushima,Fukuoka
+114,2025-10-02,04:30,false,none,33.962286,130.195833,Shinkai,oil-tanker,6.0,332,north,refined petroleum,Japan,false,Busan,Fukuoka
+114,2025-10-02,04:30,false,none,34.081143,129.373333,Seabreeze,oil-tanker,6.0,271,west,crude oil,South Korea,false,Tsushima,Fukuoka
+115,2025-10-02,04:45,false,none,33.973714,130.187083,Shinkai,oil-tanker,6.0,332,north,refined petroleum,Japan,false,Busan,Fukuoka
+115,2025-10-02,04:45,Tsushima,none,34.081143,129.373333,Seabreeze,oil-tanker,0.0,271,west,crude oil,South Korea,true,Tsushima,Fukuoka
+116,2025-10-02,05:00,none,none,34.008,130.122917,Shinkai,oil-tanker,15.0,279,west,refined petroleum,Japan,false,none,Fukuoka
+116,2025-10-02,05:00,false,none,34.081143,129.373333,Seabreeze,oil-tanker,0.0,271,west,crude oil,South Korea,true,Tsushima,Fukuoka
+117,2025-10-02,05:15,none,none,34.019429,130.035417,Shinkai,oil-tanker,30.0,279,west,refined petroleum,Japan,false,none,Fukuoka
+117,2025-10-02,05:15,false,none,34.081143,129.373333,Seabreeze,oil-tanker,0.0,271,west,crude oil,South Korea,true,Tsushima,Fukuoka
+118,2025-10-02,05:30,false,none,34.030857,129.947917,Shinkai,oil-tanker,30.0,279,west,refined petroleum,Japan,false,Tsushima,Fukuoka
+118,2025-10-02,05:30,false,none,34.081143,129.373333,Seabreeze,oil-tanker,0.0,271,west,crude oil,South Korea,true,Tsushima,Fukuoka
+119,2025-10-02,05:45,false,none,34.037714,129.895417,Shinkai,oil-tanker,18.0,279,west,refined petroleum,Japan,false,Tsushima,Fukuoka
+119,2025-10-02,05:45,false,none,34.081143,129.373333,Seabreeze,oil-tanker,0.0,271,west,crude oil,South Korea,true,Tsushima,Fukuoka
+120,2025-10-02,06:00,false,none,34.044571,129.842917,Shinkai,oil-tanker,18.0,279,west,refined petroleum,Japan,false,Tsushima,Fukuoka
+120,2025-10-02,06:00,none,Tsushima,34.074286,129.361667,Seabreeze,oil-tanker,3.0,194,south,crude oil,South Korea,false,none,Tsushima
+121,2025-10-02,06:15,none,none,34.060571,129.35875,Seabreeze,oil-tanker,6.0,194,south,crude oil,South Korea,false,none,Tsushima
+121,2025-10-02,06:15,false,none,34.049143,129.790417,Shinkai,oil-tanker,9.0,275,west,refined petroleum,Japan,false,Tsushima,Fukuoka
+122,2025-10-02,06:30,false,none,34.046857,129.355833,Seabreeze,oil-tanker,6.0,194,south,crude oil,South Korea,false,Nagasaki,Tsushima
+122,2025-10-02,06:30,false,none,34.053714,129.737917,Shinkai,oil-tanker,18.0,275,west,refined petroleum,Japan,false,Tsushima,Fukuoka
+123,2025-10-02,06:45,false,none,34.058286,129.685417,Shinkai,oil-tanker,18.0,275,west,refined petroleum,Japan,false,Tsushima,Fukuoka
+123,2025-10-02,06:45,false,none,34.033143,129.352917,Seabreeze,oil-tanker,6.0,194,south,crude oil,South Korea,false,Nagasaki,Tsushima
+124,2025-10-02,07:00,false,none,34.062857,129.632917,Shinkai,oil-tanker,18.0,275,west,refined petroleum,Japan,false,Tsushima,Fukuoka
+124,2025-10-02,07:00,false,none,34.019429,129.35,Seabreeze,oil-tanker,6.0,194,south,crude oil,South Korea,false,Nagasaki,Tsushima
+125,2025-10-02,07:15,false,none,34.065143,129.615417,Shinkai,oil-tanker,6.0,275,west,refined petroleum,Japan,false,Tsushima,Fukuoka
+125,2025-10-02,07:15,false,none,34.005714,129.347083,Seabreeze,oil-tanker,6.0,194,south,crude oil,South Korea,false,Nagasaki,Tsushima
+126,2025-10-02,07:30,false,none,33.992,129.344167,Seabreeze,oil-tanker,6.0,194,south,crude oil,South Korea,false,Nagasaki,Tsushima
+126,2025-10-02,07:30,false,none,34.067429,129.597917,Shinkai,oil-tanker,6.0,275,west,refined petroleum,Japan,false,Tsushima,Fukuoka
+127,2025-10-02,07:45,false,none,33.978286,129.34125,Seabreeze,oil-tanker,6.0,194,south,crude oil,South Korea,false,Nagasaki,Tsushima
+127,2025-10-02,07:45,false,none,34.069714,129.580417,Shinkai,oil-tanker,6.0,275,west,refined petroleum,Japan,false,Tsushima,Fukuoka
+128,2025-10-02,08:00,false,none,34.072,129.562917,Shinkai,oil-tanker,6.0,275,west,refined petroleum,Japan,false,Tsushima,Fukuoka
+128,2025-10-02,08:00,false,none,33.964571,129.338333,Seabreeze,oil-tanker,6.0,194,south,crude oil,South Korea,false,Nagasaki,Tsushima
+129,2025-10-02,08:15,false,none,34.074286,129.545417,Shinkai,oil-tanker,6.0,275,west,refined petroleum,Japan,false,Tsushima,Fukuoka
+129,2025-10-02,08:15,false,none,33.925714,129.326667,Seabreeze,oil-tanker,18.0,194,south,crude oil,South Korea,false,Nagasaki,Tsushima
+130,2025-10-02,08:30,false,none,33.886857,129.315,Seabreeze,oil-tanker,18.0,194,south,crude oil,South Korea,false,Nagasaki,Tsushima
+130,2025-10-02,08:30,false,none,34.076571,129.527917,Shinkai,oil-tanker,6.0,275,west,refined petroleum,Japan,false,Tsushima,Fukuoka
+131,2025-10-02,08:45,false,none,34.078857,129.510417,Shinkai,oil-tanker,6.0,275,west,refined petroleum,Japan,false,Tsushima,Fukuoka
+131,2025-10-02,08:45,false,none,33.848,129.303333,Seabreeze,oil-tanker,18.0,194,south,crude oil,South Korea,false,Nagasaki,Tsushima
+132,2025-10-02,09:00,false,none,34.081143,129.492917,Shinkai,oil-tanker,6.0,275,west,refined petroleum,Japan,false,Tsushima,Fukuoka
+132,2025-10-02,09:00,false,none,33.809143,129.291667,Seabreeze,oil-tanker,18.0,194,south,crude oil,South Korea,false,Nagasaki,Tsushima
+133,2025-10-02,09:15,false,none,33.770286,129.28,Seabreeze,oil-tanker,18.0,194,south,crude oil,South Korea,false,Nagasaki,Tsushima
+133,2025-10-02,09:15,false,none,34.083429,129.475417,Shinkai,oil-tanker,6.0,275,west,refined petroleum,Japan,false,Tsushima,Fukuoka
+134,2025-10-02,09:30,false,none,34.083429,129.457917,Shinkai,oil-tanker,3.0,271,west,refined petroleum,Japan,false,Tsushima,Fukuoka
+134,2025-10-02,09:30,false,none,33.731429,129.268333,Seabreeze,oil-tanker,18.0,194,south,crude oil,South Korea,false,Nagasaki,Tsushima
+135,2025-10-02,09:45,none,none,33.692571,129.277083,Seabreeze,oil-tanker,9.0,148,south,crude oil,South Korea,false,none,Tsushima
+135,2025-10-02,09:45,false,none,34.083429,129.440417,Shinkai,oil-tanker,6.0,271,west,refined petroleum,Japan,false,Tsushima,Fukuoka
+136,2025-10-02,10:00,false,none,34.083429,129.422917,Shinkai,oil-tanker,6.0,271,west,refined petroleum,Japan,false,Tsushima,Fukuoka
+136,2025-10-02,10:00,none,none,33.658286,129.30625,Seabreeze,oil-tanker,18.0,148,south,crude oil,South Korea,false,none,Tsushima
+137,2025-10-02,10:15,false,none,33.624,129.335417,Seabreeze,oil-tanker,18.0,148,south,crude oil,South Korea,false,Nagasaki,Tsushima
+137,2025-10-02,10:15,false,none,34.083429,129.405417,Shinkai,oil-tanker,6.0,271,west,refined petroleum,Japan,false,Tsushima,Fukuoka
+138,2025-10-02,10:30,false,none,34.083429,129.387917,Shinkai,oil-tanker,6.0,271,west,refined petroleum,Japan,false,Tsushima,Fukuoka
+138,2025-10-02,10:30,false,none,33.589714,129.364583,Seabreeze,oil-tanker,18.0,148,south,crude oil,South Korea,false,Nagasaki,Tsushima
+139,2025-10-02,10:45,false,none,33.555429,129.39375,Seabreeze,oil-tanker,18.0,148,south,crude oil,South Korea,false,Nagasaki,Tsushima
+139,2025-10-02,10:45,false,none,34.083429,129.370417,Shinkai,oil-tanker,6.0,271,west,refined petroleum,Japan,false,Tsushima,Fukuoka
+140,2025-10-02,11:00,false,none,33.544,129.4025,Seabreeze,oil-tanker,6.0,148,south,crude oil,South Korea,false,Nagasaki,Tsushima
+140,2025-10-02,11:00,Tsushima,none,34.083429,129.370417,Shinkai,oil-tanker,0.0,271,west,refined petroleum,Japan,true,Tsushima,Fukuoka
+141,2025-10-02,11:15,false,none,33.532571,129.41125,Seabreeze,oil-tanker,6.0,148,south,crude oil,South Korea,false,Nagasaki,Tsushima
+141,2025-10-02,11:15,false,none,34.083429,129.370417,Shinkai,oil-tanker,0.0,271,west,refined petroleum,Japan,true,Tsushima,Fukuoka
+142,2025-10-02,11:30,false,none,33.521143,129.42,Seabreeze,oil-tanker,6.0,148,south,crude oil,South Korea,false,Nagasaki,Tsushima
+142,2025-10-02,11:30,false,none,34.083429,129.370417,Shinkai,oil-tanker,0.0,271,west,refined petroleum,Japan,true,Tsushima,Fukuoka
+143,2025-10-02,11:45,false,none,34.083429,129.370417,Shinkai,oil-tanker,0.0,271,west,refined petroleum,Japan,true,Tsushima,Fukuoka
+143,2025-10-02,11:45,false,none,33.509714,129.42875,Seabreeze,oil-tanker,6.0,148,south,crude oil,South Korea,false,Nagasaki,Tsushima
+144,2025-10-02,12:00,false,none,34.083429,129.370417,Shinkai,oil-tanker,0.0,271,west,refined petroleum,Japan,true,Tsushima,Fukuoka
+144,2025-10-02,12:00,Nagasaki,none,33.509714,129.42875,Seabreeze,oil-tanker,0.0,148,south,crude oil,South Korea,true,Nagasaki,Tsushima
+145,2025-10-02,12:15,none,Tsushima,34.076571,129.35875,Shinkai,oil-tanker,3.0,194,south,refined petroleum,Japan,false,none,Tsushima
+145,2025-10-02,12:15,false,none,33.509714,129.42875,Seabreeze,oil-tanker,0.0,148,south,crude oil,South Korea,true,Nagasaki,Tsushima
+146,2025-10-02,12:30,none,none,34.062857,129.355833,Shinkai,oil-tanker,6.0,194,south,refined petroleum,Japan,false,none,Tsushima
+146,2025-10-02,12:30,false,none,33.509714,129.42875,Seabreeze,oil-tanker,0.0,148,south,crude oil,South Korea,true,Nagasaki,Tsushima
+147,2025-10-02,12:45,false,none,33.509714,129.42875,Seabreeze,oil-tanker,0.0,148,south,crude oil,South Korea,true,Nagasaki,Tsushima
+147,2025-10-02,12:45,false,none,34.049143,129.352917,Shinkai,oil-tanker,6.0,194,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+148,2025-10-02,13:00,false,none,33.509714,129.42875,Seabreeze,oil-tanker,0.0,148,south,crude oil,South Korea,true,Nagasaki,Tsushima
+148,2025-10-02,13:00,false,none,34.035429,129.35,Shinkai,oil-tanker,6.0,194,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+149,2025-10-02,13:15,false,none,34.021714,129.347083,Shinkai,oil-tanker,6.0,194,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+149,2025-10-02,13:15,none,Nagasaki,33.507429,129.42875,Seabreeze,oil-tanker,3.0,313,west,crude oil,South Korea,false,none,Nagasaki
+150,2025-10-02,13:30,none,none,33.516571,129.417083,Seabreeze,oil-tanker,6.0,313,west,crude oil,South Korea,false,none,Nagasaki
+150,2025-10-02,13:30,false,none,34.008,129.344167,Shinkai,oil-tanker,6.0,194,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+151,2025-10-02,13:45,false,none,33.525714,129.405417,Seabreeze,oil-tanker,6.0,313,west,crude oil,South Korea,false,Tsushima,Nagasaki
+151,2025-10-02,13:45,false,none,33.994286,129.34125,Shinkai,oil-tanker,6.0,194,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+152,2025-10-02,14:00,false,none,33.534857,129.39375,Seabreeze,oil-tanker,6.0,313,west,crude oil,South Korea,false,Tsushima,Nagasaki
+152,2025-10-02,14:00,false,none,33.980571,129.338333,Shinkai,oil-tanker,6.0,194,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+153,2025-10-02,14:15,false,none,33.544,129.382083,Seabreeze,oil-tanker,6.0,313,west,crude oil,South Korea,false,Tsushima,Nagasaki
+153,2025-10-02,14:15,false,none,33.966857,129.335417,Shinkai,oil-tanker,6.0,194,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+154,2025-10-02,14:30,false,none,33.928,129.32375,Shinkai,oil-tanker,18.0,194,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+154,2025-10-02,14:30,false,none,33.553143,129.370417,Seabreeze,oil-tanker,6.0,313,west,crude oil,South Korea,false,Tsushima,Nagasaki
+155,2025-10-02,14:45,false,none,33.889143,129.312083,Shinkai,oil-tanker,18.0,194,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+155,2025-10-02,14:45,false,none,33.580571,129.3325,Seabreeze,oil-tanker,18.0,313,west,crude oil,South Korea,false,Tsushima,Nagasaki
+156,2025-10-02,15:00,false,none,33.850286,129.300417,Shinkai,oil-tanker,18.0,194,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+156,2025-10-02,15:00,false,none,33.608,129.294583,Seabreeze,oil-tanker,18.0,313,west,crude oil,South Korea,false,Tsushima,Nagasaki
+157,2025-10-02,15:15,false,none,33.635429,129.256667,Seabreeze,oil-tanker,18.0,313,west,crude oil,South Korea,false,Tsushima,Nagasaki
+157,2025-10-02,15:15,false,none,33.811429,129.28875,Shinkai,oil-tanker,18.0,194,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+158,2025-10-02,15:30,false,none,33.772571,129.277083,Shinkai,oil-tanker,18.0,194,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+158,2025-10-02,15:30,false,none,33.662857,129.21875,Seabreeze,oil-tanker,18.0,313,west,crude oil,South Korea,false,Tsushima,Nagasaki
+159,2025-10-02,15:45,false,none,33.733714,129.265417,Shinkai,oil-tanker,18.0,194,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+159,2025-10-02,15:45,false,none,33.690286,129.180833,Seabreeze,oil-tanker,18.0,313,west,crude oil,South Korea,false,Tsushima,Nagasaki
+160,2025-10-02,16:00,false,none,33.717714,129.142917,Seabreeze,oil-tanker,18.0,313,west,crude oil,South Korea,false,Tsushima,Nagasaki
+160,2025-10-02,16:00,none,none,33.694857,129.274167,Shinkai,oil-tanker,9.0,148,south,refined petroleum,Japan,false,none,Tsushima
+161,2025-10-02,16:15,none,none,33.660571,129.303333,Shinkai,oil-tanker,18.0,148,south,refined petroleum,Japan,false,none,Tsushima
+161,2025-10-02,16:15,false,none,33.745143,129.105,Seabreeze,oil-tanker,18.0,313,west,crude oil,South Korea,false,Tsushima,Nagasaki
+162,2025-10-02,16:30,false,none,33.772571,129.067083,Seabreeze,oil-tanker,18.0,313,west,crude oil,South Korea,false,Tsushima,Nagasaki
+162,2025-10-02,16:30,false,none,33.626286,129.3325,Shinkai,oil-tanker,18.0,148,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+163,2025-10-02,16:45,false,none,33.592,129.361667,Shinkai,oil-tanker,18.0,148,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+163,2025-10-02,16:45,none,none,33.788571,129.020417,Seabreeze,oil-tanker,9.0,274,west,crude oil,South Korea,false,none,Nagasaki
+164,2025-10-02,17:00,false,none,33.557714,129.390833,Shinkai,oil-tanker,18.0,148,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+164,2025-10-02,17:00,none,none,33.790857,128.967917,Seabreeze,oil-tanker,18.0,274,west,crude oil,South Korea,false,none,Nagasaki
+165,2025-10-02,17:15,false,none,33.546286,129.399583,Shinkai,oil-tanker,6.0,148,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+165,2025-10-02,17:15,false,none,33.793143,128.915417,Seabreeze,oil-tanker,18.0,274,west,crude oil,South Korea,false,Jeju-si,Nagasaki
+166,2025-10-02,17:30,false,none,33.534857,129.408333,Shinkai,oil-tanker,6.0,148,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+166,2025-10-02,17:30,false,none,33.795429,128.862917,Seabreeze,oil-tanker,18.0,274,west,crude oil,South Korea,false,Jeju-si,Nagasaki
+167,2025-10-02,17:45,false,none,33.523429,129.417083,Shinkai,oil-tanker,6.0,148,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+167,2025-10-02,17:45,false,none,33.797714,128.810417,Seabreeze,oil-tanker,18.0,274,west,crude oil,South Korea,false,Jeju-si,Nagasaki
+168,2025-10-02,18:00,false,none,33.512,129.425833,Shinkai,oil-tanker,6.0,148,south,refined petroleum,Japan,false,Nagasaki,Tsushima
+168,2025-10-02,18:00,false,none,33.8,128.757917,Seabreeze,oil-tanker,18.0,274,west,crude oil,South Korea,false,Jeju-si,Nagasaki
+169,2025-10-02,18:15,Nagasaki,none,33.512,129.425833,Shinkai,oil-tanker,0.0,148,south,refined petroleum,Japan,true,Nagasaki,Tsushima
+169,2025-10-02,18:15,false,none,33.804571,128.670417,Seabreeze,oil-tanker,30.0,274,west,crude oil,South Korea,false,Jeju-si,Nagasaki
+170,2025-10-02,18:30,false,none,33.809143,128.582917,Seabreeze,oil-tanker,30.0,274,west,crude oil,South Korea,false,Jeju-si,Nagasaki
+170,2025-10-02,18:30,false,none,33.512,129.425833,Shinkai,oil-tanker,0.0,148,south,refined petroleum,Japan,true,Nagasaki,Tsushima
+171,2025-10-02,18:45,false,none,33.512,129.425833,Shinkai,oil-tanker,0.0,148,south,refined petroleum,Japan,true,Nagasaki,Tsushima
+171,2025-10-02,18:45,false,none,33.813714,128.495417,Seabreeze,oil-tanker,30.0,274,west,crude oil,South Korea,false,Jeju-si,Nagasaki
+172,2025-10-02,19:00,false,none,33.512,129.425833,Shinkai,oil-tanker,0.0,148,south,refined petroleum,Japan,true,Nagasaki,Tsushima
+172,2025-10-02,19:00,false,none,33.818286,128.407917,Seabreeze,oil-tanker,30.0,274,west,crude oil,South Korea,false,Jeju-si,Nagasaki
+173,2025-10-02,19:15,false,none,33.822857,128.320417,Seabreeze,oil-tanker,30.0,274,west,crude oil,South Korea,false,Jeju-si,Nagasaki
+173,2025-10-02,19:15,false,none,33.512,129.425833,Shinkai,oil-tanker,0.0,148,south,refined petroleum,Japan,true,Nagasaki,Tsushima
+174,2025-10-02,19:30,none,Nagasaki,33.509714,129.440417,Shinkai,oil-tanker,3.0,57,east,refined petroleum,Japan,false,none,Nagasaki
+174,2025-10-02,19:30,false,none,33.827429,128.232917,Seabreeze,oil-tanker,30.0,274,west,crude oil,South Korea,false,Jeju-si,Nagasaki
+175,2025-10-02,19:45,false,none,33.832,128.145417,Seabreeze,oil-tanker,30.0,274,west,crude oil,South Korea,false,Jeju-si,Nagasaki
+175,2025-10-02,19:45,none,none,33.516571,129.455,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,none,Nagasaki
+176,2025-10-02,20:00,false,none,33.523429,129.469583,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+176,2025-10-02,20:00,false,none,33.836571,128.057917,Seabreeze,oil-tanker,30.0,274,west,crude oil,South Korea,false,Jeju-si,Nagasaki
+177,2025-10-02,20:15,false,none,33.530286,129.484167,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+177,2025-10-02,20:15,false,none,33.841143,127.970417,Seabreeze,oil-tanker,30.0,274,west,crude oil,South Korea,false,Jeju-si,Nagasaki
+178,2025-10-02,20:30,false,none,33.537143,129.49875,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+178,2025-10-02,20:30,false,none,33.845714,127.882917,Seabreeze,oil-tanker,30.0,274,west,crude oil,South Korea,false,Jeju-si,Nagasaki
+179,2025-10-02,20:45,false,none,33.850286,127.795417,Seabreeze,oil-tanker,30.0,274,west,crude oil,South Korea,false,Jeju-si,Nagasaki
+179,2025-10-02,20:45,false,none,33.544,129.513333,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+180,2025-10-02,21:00,false,none,33.854857,127.707917,Seabreeze,oil-tanker,30.0,274,west,crude oil,South Korea,false,Jeju-si,Nagasaki
+180,2025-10-02,21:00,false,none,33.550857,129.527917,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+181,2025-10-02,21:15,false,none,33.557714,129.5425,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+181,2025-10-02,21:15,false,none,33.859429,127.620417,Seabreeze,oil-tanker,30.0,274,west,crude oil,South Korea,false,Jeju-si,Nagasaki
+182,2025-10-02,21:30,false,none,33.564571,129.557083,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+182,2025-10-02,21:30,none,none,33.848,127.535833,Seabreeze,oil-tanker,15.0,248,west,crude oil,South Korea,false,none,Nagasaki
+183,2025-10-02,21:45,none,none,33.822857,127.454167,Seabreeze,oil-tanker,30.0,248,west,crude oil,South Korea,false,none,Nagasaki
+183,2025-10-02,21:45,false,none,33.571429,129.571667,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+184,2025-10-02,22:00,false,none,33.578286,129.58625,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+184,2025-10-02,22:00,false,none,33.797714,127.3725,Seabreeze,oil-tanker,30.0,248,west,crude oil,South Korea,false,Jeju-si,Nagasaki
+185,2025-10-02,22:15,false,none,33.772571,127.290833,Seabreeze,oil-tanker,30.0,248,west,crude oil,South Korea,false,Jeju-si,Nagasaki
+185,2025-10-02,22:15,false,none,33.585143,129.600833,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+186,2025-10-02,22:30,false,none,33.756571,127.24125,Seabreeze,oil-tanker,18.0,248,west,crude oil,South Korea,false,Jeju-si,Nagasaki
+186,2025-10-02,22:30,false,none,33.592,129.615417,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+187,2025-10-02,22:45,false,none,33.740571,127.191667,Seabreeze,oil-tanker,18.0,248,west,crude oil,South Korea,false,Jeju-si,Nagasaki
+187,2025-10-02,22:45,false,none,33.598857,129.63,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+188,2025-10-02,23:00,false,none,33.605714,129.644583,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+188,2025-10-02,23:00,false,none,33.724571,127.145,Seabreeze,oil-tanker,9.0,244,west,crude oil,South Korea,false,Jeju-si,Nagasaki
+189,2025-10-02,23:15,false,none,33.706286,127.098333,Seabreeze,oil-tanker,18.0,244,west,crude oil,South Korea,false,Jeju-si,Nagasaki
+189,2025-10-02,23:15,false,none,33.612571,129.659167,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+190,2025-10-02,23:30,false,none,33.619429,129.67375,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+190,2025-10-02,23:30,false,none,33.688,127.051667,Seabreeze,oil-tanker,18.0,244,west,crude oil,South Korea,false,Jeju-si,Nagasaki
+191,2025-10-02,23:45,false,none,33.669714,127.005,Seabreeze,oil-tanker,18.0,244,west,crude oil,South Korea,false,Jeju-si,Nagasaki
+191,2025-10-02,23:45,false,none,33.626286,129.688333,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+192,2025-10-03,00:00,Jeju-si,none,33.669714,127.005,Seabreeze,oil-tanker,0.0,244,west,crude oil,South Korea,true,Jeju-si,Nagasaki
+192,2025-10-03,00:00,false,none,33.633143,129.702917,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+193,2025-10-03,00:15,false,none,33.64,129.7175,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+193,2025-10-03,00:15,false,none,33.669714,127.005,Seabreeze,oil-tanker,0.0,244,west,crude oil,South Korea,true,Jeju-si,Nagasaki
+194,2025-10-03,00:30,false,none,33.669714,127.005,Seabreeze,oil-tanker,0.0,244,west,crude oil,South Korea,true,Jeju-si,Nagasaki
+194,2025-10-03,00:30,false,none,33.646857,129.732083,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+195,2025-10-03,00:45,false,none,33.653714,129.746667,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+195,2025-10-03,00:45,false,none,33.669714,127.005,Seabreeze,oil-tanker,0.0,244,west,crude oil,South Korea,true,Jeju-si,Nagasaki
+196,2025-10-03,01:00,false,none,33.669714,127.005,Seabreeze,oil-tanker,0.0,244,west,crude oil,South Korea,true,Jeju-si,Nagasaki
+196,2025-10-03,01:00,false,none,33.660571,129.76125,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+197,2025-10-03,01:15,none,Jeju-si,33.667429,127.005,Seabreeze,oil-tanker,3.0,96,east,crude oil,South Korea,false,none,Jeju-si
+197,2025-10-03,01:15,false,none,33.667429,129.775833,Shinkai,oil-tanker,6.0,57,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+198,2025-10-03,01:30,false,none,33.676571,129.790417,Shinkai,oil-tanker,3.0,53,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+198,2025-10-03,01:30,none,none,33.665143,127.0225,Seabreeze,oil-tanker,6.0,96,east,crude oil,South Korea,false,none,Jeju-si
+199,2025-10-03,01:45,false,none,33.662857,127.04,Seabreeze,oil-tanker,6.0,96,east,crude oil,South Korea,false,Nagasaki,Jeju-si
+199,2025-10-03,01:45,false,none,33.685714,129.805,Shinkai,oil-tanker,6.0,53,east,refined petroleum,Japan,false,Fukuoka,Nagasaki
+200,2025-10-03,02:00,false,none,33.660571,127.0575,Seabreeze,oil-tanker,6.0,96,east,crude oil,South Korea,false,Nagasaki,Jeju-si
+200,2025-10-03,02:00,false,none,33.694857,129.819583,Shinkai,oil-tanker,6.0,53,east,refined petroleum,Japan,false,Fukuoka,Nagasaki

@@ -10,6 +10,7 @@
     "soar-context": true,
     "history-context": [],
     "prompt-template": "input-1-argument",
+    "print-template": "?prompt?output",
     "repair-prompt": false,
     "response-type": "json",
     "output-template": "output",
