@@ -1,0 +1,20 @@
+{
+    "llm-template": "causal-discrepency-hypothesis",
+    "example-context": "simple-context",
+    "examples": [
+        "simple"
+    ],
+    "domain": "factorio",
+    "system-prompt": "hypothesis",
+    "world-context": false,
+    "soar-context": false,
+    "history-context": [],
+    "prompt-template": "input-1-argument",
+    "repair-prompt": false,
+    "response-type": "json",
+    "output-template": "output",
+    "model": "gpt-4o",
+    "api": "langchain",
+    "number-of-results": 1,
+    "temperature": 0.0
+}

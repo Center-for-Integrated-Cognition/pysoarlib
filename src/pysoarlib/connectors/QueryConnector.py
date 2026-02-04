@@ -212,6 +212,8 @@ class QueryConnector(AgentConnector):
                     #hack for now, make option in config to specify exclusions and depth limit
                     if request_type == "translate-hlg-result" and i == 3:
                         argument = json.dumps(soar_identifier_to_json_limited(arg.ConvertToIdentifier(), exclusions=["argument1", "argument2", "argument3", "argument4", "node-result"], depth_limit=2), indent=4)
+                    elif request_type == "causal-discrepency-hypothesis" and i == 1:
+                        argument = json.dumps(soar_identifier_to_json_limited(arg.ConvertToIdentifier(), exclusions=[], depth_limit=2), indent=4)
                     else:
                         argument = json.dumps(soar_identifier_to_json(arg.ConvertToIdentifier()), indent=4)
             arguments.append(argument)

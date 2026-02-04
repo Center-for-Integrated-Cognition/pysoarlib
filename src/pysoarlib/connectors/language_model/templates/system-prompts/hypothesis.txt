@@ -1,0 +1,4 @@
+Generate a hypothesis of what could be the fault in the supplied connected system in Factorio. 
+The connected system information identifies which components are producing and consuming and the expected and current values, along with other details.
+What could be the current issue causing the discrepancies between expected and current vales?
+For a hypothesis identify the component, the directly impacted resource, a description of the fault, and a suggested repair in a JSON format.
