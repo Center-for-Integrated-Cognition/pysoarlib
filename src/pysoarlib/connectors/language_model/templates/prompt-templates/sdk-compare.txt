@@ -1,0 +1,11 @@
+The current system being analyzed is ?argument1
+The current status components in the system is ?argument2
+To get an image of the current system take a screenshot with command gnome-screenshot -w <dir>/current_factory_troubleshooting.png.
+Replace <dir> with the current directory.
+Now you should have an image of the current factory along with the current status of components.
+Find in the system_models subfolders data for this Factory when it was working.
+Compare this data, the working image of the system and the json status of components with the current troubleshooting data to determine what is different and how to fix it.
+Inspect the images carefully and analyze the differences.
+What is wrong in the current system?
+Finally generate a succinct response in json format with the following structure: { 'faulty-component': 'name-of-component', 'fault': 'very brief description of fault', 'fault-repair': 'Action Component' }
+Read .md files in the MetaCALM project to find proper repair syntax.

@@ -180,6 +180,9 @@ class LMConnector(QueryConnector):
 
         print("Running request for type " + query.type + " with argument " + str(query.arguments))
 
+        # TODO might need to check here for async running and return before getting response, 
+        # then add response to WM when it comes back with sequence number check to make sure it's the right one
+
         #self.response = self.lm.process_request(query,request_type, arguments, sequence_number, context)
         self.response = self.lm.process_request(query, self.system_prompt)
         self.lm_failsafe += 1

@@ -1,0 +1,18 @@
+{
+    "llm-template": "sdk-factory-compare",
+    "examples": [],
+    "domain": "factorio",
+    "world-context": false,
+    "soar-context": false,
+    "history-context": [],
+    "prompt-template": "sdk-compare",
+    "repair-prompt": false,
+    "response-type": "json",
+    "model": "claude-opus-4-6",
+    "api": "agent-sdk",
+    "permission-mode": "acceptEdits",
+    "max-budget-usd": "1.50",
+    "allowed-tools": ["Read", "Write", "Edit", "Glob", "Grep", "Bash"],
+    "number-of-results": 1,
+    "temperature": 0.0
+}

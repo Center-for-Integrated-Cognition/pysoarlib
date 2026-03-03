@@ -5,7 +5,6 @@
 
 import json
 from pysoarlib.connectors.language_model.LMResponse import LMResponse
-#from LanguageModelConnector.LMResult import LMResult
 from pysoarlib.connectors.language_model.LMResult import LMResult
 
 
@@ -14,6 +13,19 @@ from langchain_openai import ChatOpenAI
 from langchain_openai import OpenAI
 import numpy as np
 import openai
+
+import asyncio
+import json
+import re
+from pathlib import Path
+
+from claude_agent_sdk import (
+    AssistantMessage,
+    ClaudeAgentOptions,
+    UserMessage,
+    ResultMessage,
+    query,
+)
 
 #TODO disable for now
 #from langchain_anthropic import ChatAnthropic
@@ -781,7 +793,9 @@ class LLM:
         history_log = ""
         repair_prompt = ""
         prompt = "\n" + self.instantiate_prompt(config, query.arguments)
-        output = "\n" + self.get_output_template(config["output-template"])
+        #set output to "" if no "output-template" in config to avoid template variables not being replaced
+        output = "\n" + self.get_output_template(config["output-template"]) if "output-template" in config else ""
+        #output = "\n" + self.get_output_template(config["output-template"])
 
         """ Find the query's categories, if any """
         """ A user query should have categories as its second argument if it has any """
@@ -865,6 +879,138 @@ class LLM:
     #     #print("Response:" + response.content)
 
     #     return response
+
+    async def agent_sdk_prompt(self, user_prompt, model):
+        #get current directory for agent SDK
+        cwd = os.getcwd()
+        #get path from current directory
+        curr_dir = Path(cwd)
+        # print directory
+        print("Current directory for agent SDK: " + str(curr_dir))
+        options = ClaudeAgentOptions(
+            cwd=str(curr_dir),
+            allowed_tools=["Read", "Write", "Edit", "Glob", "Grep", "Bash"],
+            permission_mode="acceptEdits",
+            model="claude-opus-4-6",
+            max_budget_usd=1.50,
+        )
+        print("Starting Claude agent...\n" + "=" * 60)
+        turn = 0
+        async for message in query(prompt=user_prompt, options=options):
+            if isinstance(message, AssistantMessage):
+                turn += 1
+                print(f"\n{'=' * 60}")
+                if message.error:
+                    print(f"  ERROR: {message.error}")
+                for i, block in enumerate(message.content):
+                    if hasattr(block, "thinking"):
+                        print(f"\n [Thinking]")
+                        print(f"    {block.thinking}")
+                    elif hasattr(block, "text"):
+                        print(f"\n [Text]")
+                        print(f"    {block.text}")
+                    elif hasattr(block, "name"):
+                        print(f"\n [ToolUse]")
+                        print(f"    tool: {block.name}")
+                        for key, val in block.input.items():
+                            val_str = str(val)
+                            print(f"    input.{key}: {val_str}")
+                    elif hasattr(block, "tool_use_id"):
+                        print(f"\n  [block {i}: ToolResult] tool_use_id={block.tool_use_id} is_error={block.is_error}")
+                        content_str = str(block.content) if block.content else "(empty)"
+                        if len(content_str) > 800:
+                            content_str = content_str[:800] + "..."
+                        print(f"    content: {content_str}")
+                    else:
+                        print(f"\n  [block {i}: Unknown] {block}")
+
+            elif isinstance(message, UserMessage):
+                # Only print if content contains a ToolResultBlock
+                content = message.content
+                if isinstance(content, list):
+                    tool_result_blocks = [block for block in content if hasattr(block, "tool_use_id")]
+                    if tool_result_blocks:
+                        print(f"\n{'- ' * 30}")
+                        print(f"[UserMessage]")
+                        for block in tool_result_blocks:
+                            #print(f"\n [ToolResult] tool_use_id={block.tool_use_id} is_error={block.is_error}")
+                            if not isinstance(block.content, list):
+                                #Not working ignore for now
+                                # for item in block.content:
+                                #     if hasattr(item, 'type'):
+                                #         if item.type == 'image':
+                                #             print("Image processing...")
+                                #         elif item.type == 'text':
+                                #             print(item.text)
+                                #         else:
+                                #             print(str(item))
+                                #     else:
+                                #         print(str(item))
+                                content_str = str(block.content) if block.content else "(empty)"
+                                if len(content_str) > 1200:
+                                    content_str = content_str[:1200] + "..."
+                                print(content_str)
+
+            elif isinstance(message, ResultMessage):
+                print(f"\n{'=' * 60}")
+                print(f"[ResultMessage]")
+                print(f"  subtype:        {message.subtype}")
+                print(f"  is_error:       {message.is_error}")
+                print(f"  num_turns:      {message.num_turns}")
+                print(f"  duration_ms:    {message.duration_ms}")
+                print(f"  duration_api_ms:{message.duration_api_ms}")
+                print(f"  total_cost_usd: {message.total_cost_usd}")
+                print(f"  session_id:     {message.session_id}")
+                if message.usage:
+                    print(f"  usage:          {message.usage}")
+                if message.result:
+                    result_str = message.result
+                    json_object = None
+                    json_match = re.search(r'```json\s*(\{.*?\})\s*```', result_str, re.DOTALL)
+                    if json_match:
+                        try:
+                            json_object = json.loads(json_match.group(1))
+                        except json.JSONDecodeError:
+                            json_object = None
+                        result_str = result_str[:json_match.start()] + result_str[json_match.end():]
+                    #print(result_str.strip())
+                    if json_object:
+                        #print(f"\n  Extracted JSON:\n{json.dumps(json_object, indent=2)}")
+                        return json_object
+                    
+        return ""
+
+        
+    async def run_agent_sdk(self, user_prompt, model):
+        response = await self.agent_sdk_prompt(user_prompt, model)
+        return response
+
+    def prompt_agent_sdk(self, user_prompt, query, config, sequence_number, dialog):
+        model = config["model"]
+
+        print ("Model:" + model)
+
+        print("User prompt:")
+        print(user_prompt)
+        
+        results = []
+        
+        result = asyncio.run(self.run_agent_sdk(user_prompt, model))
+        #print(response)
+        json_object = result
+        #if not self.test_mode:
+        print(json.dumps(json_object, indent=4))
+        
+        result = LMResult(json_object, "json", 1.0, 1)
+        results.append(result)
+
+        if "dialog" in config["history-context"]:
+            self.command_history = self.command_history + "\nInput:" + dialog + "\n"
+        
+        if "state" in config["history-context"]:
+            self.command_history = self.command_history + "World update: " + str(json_object).replace("desired", "relation")
+        
+        return LMResponse(query, results, sequence_number)
 
     def prompt_langchain(self, user_prompt, system_prompt, query, config, sequence_number, dialog):
         temperature = config["temperature"]
@@ -989,15 +1135,19 @@ class LLM:
             type = selected_type
             template_config = self.get_llm_template(selected_type)
 
-        """ Select the right system prompt file """
-        system_prompt_file = test_system_prompt if test_system_prompt else template_config["system-prompt"]
+        
 
         user_prompt = self.instantiate_llm_template(query, template_config, query.context)
-        system_prompt = self.get_template_system_prompt(system_prompt_file)
+        
 
         
-        #if config["api"] == "langchain": all langchain for now
-        #todo change to just pass query
-        self.response = self.prompt_langchain(user_prompt, system_prompt, query, template_config, query.sequence_number, query.arguments[0])
+        if template_config["api"] == "langchain":
+            """ Select the right system prompt file """
+            system_prompt_file = test_system_prompt if test_system_prompt else template_config["system-prompt"]
+            system_prompt = self.get_template_system_prompt(system_prompt_file)
+            self.response = self.prompt_langchain(user_prompt, system_prompt, query, template_config, query.sequence_number, query.arguments[0])
+        elif template_config["api"] == "agent-sdk":
+            self.response = self.prompt_agent_sdk(user_prompt, query, template_config, query.sequence_number, query.arguments[0])
+
         return self.response;
 
