@@ -1528,8 +1528,8 @@ Output:
                         "node": "node5-results"
                     },
                     "argument1": "STATE",
-                    "argument2": "current-time",
-                    "argument3": "Day 2, Time: 22:00:00"
+                    "argument2": "date-time",
+                    "argument3": "2025-01-02 22:00"
                 },
                 "argument2": {
                     "node": "node6",
@@ -1540,8 +1540,8 @@ Output:
                         "node": "node6-results"
                     },
                     "argument1": "STATE",
-                    "argument2": "current-time",
-                    "argument3": "Day 3, Time: 02:00:00"
+                    "argument2": "date-time",
+                    "argument3": "2025-01-03 02:00"
                 }
             },
             "argument2": "id",
@@ -1595,8 +1595,8 @@ Output:
                         "node": "node5-results"
                     },
                     "argument1": "STATE",
-                    "argument2": "current-time",
-                    "argument3": "Day 3, Time: 00:00:00"
+                    "argument2": "date-time",
+                    "argument3": "2025-01-03 00:00"
                 },
                 "argument2": {
                     "node": "node6",
@@ -1607,8 +1607,8 @@ Output:
                         "node": "node6-results"
                     },
                     "argument1": "STATE",
-                    "argument2": "current-time",
-                    "argument3": "Day 3, Time: 02:00:00"
+                    "argument2": "date-time",
+                    "argument3": "2025-01-03 02:00"
                 }
             },
             "argument2": "id",
@@ -1672,7 +1672,7 @@ Output:
         "argument2": "category",
         "argument3": "time"
     },
-    "argument2": "current-time"
+    "argument2": "date-time"
 }
 Input: When did the Bluesky leave port-A?
 Output:
@@ -1728,7 +1728,7 @@ Output:
         "argument2": "category",
         "argument3": "time"
     },
-    "argument2": "current-time"
+    "argument2": "date-time"
 }
 Input: How far has the Bluesky gone since it left port?
 Output:
@@ -1969,7 +1969,7 @@ Output:
         "argument2": "category",
         "argument3": "time"
     },
-    "argument2": "current-time"
+    "argument2": "date-time"
 }
 Input: Did a ship stop at port-A in the last 24 hours?
 Output:
@@ -1999,8 +1999,8 @@ Output:
                 "node": "node3-results"
             },
             "argument1": "STATE",
-            "argument2": "current-time",
-            "argument3": "Day 2, Time: 02:00:00"
+            "argument2": "date-time",
+            "argument3": "2025-01-02 02:00"
         },
         "argument2": {
             "node": "node4",
@@ -2011,8 +2011,8 @@ Output:
                 "node": "node4-results"
             },
             "argument1": "STATE",
-            "argument2": "current-time",
-            "argument3": "Day 3, Time: 02:00:00"
+            "argument2": "date-time",
+            "argument3": "2025-01-03 02:00"
         }
     },
     "argument2": "current-port",
@@ -2071,8 +2071,8 @@ Output:
                 "node": "node3-results"
             },
             "argument1": "STATE",
-            "argument2": "current-time",
-            "argument3": "Day 2, Time: 14:00:00"
+            "argument2": "date-time",
+            "argument3": "2025-01-02 14:00"
         },
         "argument2": {
             "node": "node4",
@@ -2083,8 +2083,8 @@ Output:
                 "node": "node4-results"
             },
             "argument1": "STATE",
-            "argument2": "current-time",
-            "argument3": "Day 3, Time: 02:00:00"
+            "argument2": "date-time",
+            "argument3": "2025-01-03 02:00"
         }
     },
     "argument2": "source-sensor",

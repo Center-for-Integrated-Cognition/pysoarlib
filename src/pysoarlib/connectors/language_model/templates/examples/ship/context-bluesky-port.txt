@@ -30,9 +30,11 @@ World context:
             "category": "port"
         },
         {
-            "current-time": "Day 3, Time: 02:00:00",
+            "date-time": "2025-01-03 02:00",
             "day": 3,
             "hour": 2,
+            "year": 2025,
+            "month": 1,
             "minute": 0,
             "total-elapsed-minutes": 3000,
             "category": "time"
