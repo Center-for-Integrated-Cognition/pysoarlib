@@ -41,6 +41,9 @@ class Config:
     remote_connection = true|false (default=false)
         If true, will connect to a remote kernel instead of creating a new one
 
+    kernel_port = int (default = Soar's default of 12121)
+        Gives the port number to use when creating the kernel or connecting to remote
+
     source_remote_agent = true|false (default=false)
         If remote_connection is true, setting this to true will source the
         remote agent with the agent source, smem source, etc.
@@ -63,6 +66,7 @@ class Config:
     source_output: Literal["summary"] | Literal["none"] | Literal["full"] = "summary"
     watch_level: Optional[int] = None 
     remote_connection: bool = False
+    kernel_port: int = 12121
     source_remote_agent: bool = False
     label_dialog_source: bool = False
     connect_language_model: bool = False

@@ -57,14 +57,14 @@ class SoarClient:
             """
             OK = False
             while not OK:
-                logger.info("Creating remote Soar kernel connection...")
-                self.kernel = sml.Kernel.CreateRemoteConnection()
+                logger.info(f"Creating remote Soar kernel connection on port {self.config.kernel_port}...")
+                self.kernel = sml.Kernel.CreateRemoteConnection(True, None, self.config.kernel_port)
                 OK = not self.kernel.HadError()  # type: ignore
                 if not OK:
                     sleep(1)
         else:
-            logger.info("Creating Soar kernel in new thread...")
-            self.kernel = sml.Kernel.CreateKernelInNewThread()
+            logger.info(f"Creating Soar kernel in new thread on port {self.config.kernel_port}...")
+            self.kernel = sml.Kernel.CreateKernelInNewThread(self.config.kernel_port)
             self.kernel.SetAutoCommit(False)
 
         if self.config.use_time_connector:
