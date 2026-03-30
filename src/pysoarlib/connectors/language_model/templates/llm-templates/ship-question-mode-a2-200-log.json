@@ -7,7 +7,7 @@
         "speed-of-bluesky-kph-A2",
         "distance-apart-km-A2",
         "A2-Log+Examples-2",
-        "EVAL1@200_2026-03-18_history-log-csv"
+        "EVAL2@200_2026-03-27_history-log-csv"
     ],
     "domain": "ship",
     "system-prompt": "succinct",
