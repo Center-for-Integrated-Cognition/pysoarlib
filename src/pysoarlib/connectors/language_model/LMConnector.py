@@ -9,7 +9,7 @@ from pysoarlib.connectors.language_model.LLM import LLM
 
 #AgentConnetcor
 class LMConnector(QueryConnector):
-    def __init__(self, client, world_connector = None, model = "gpt-4o", templates_root = None):
+    def __init__(self, client, world_connector = None, model = "gpt-4o", templates_root = None, llm_request_mode = None):
         #AgentConnector.__init__(self, client)
         QueryConnector.__init__(self, client)
         #new output commands
@@ -27,6 +27,9 @@ class LMConnector(QueryConnector):
 
         self.lm_id = None
         self.lm_failsafe = 0 #to prevent accidental exhaustion of tokens
+
+        self.llm_request_mode = llm_request_mode
+        self.llm_request_mode_wme = None
 
         self.test_mode = False
         self.system_prompt = None
@@ -64,6 +67,8 @@ class LMConnector(QueryConnector):
         if self.needs_setup:
             self.identifier = self.lm_id.CreateIdWME("responses")
             self.needs_setup = False
+        if self.llm_request_mode is not None and self.llm_request_mode_wme == None:
+            self.llm_request_mode_wme = self.lm_id.CreateStringWME("request-mode", self.llm_request_mode)
 
         if self.response != None:# and not self.response.is_added():
             #print("adding input")
