@@ -4,6 +4,5 @@ Output:
     "component": "electric-pump",
     "resource": "power",
     "fault-hypothesis": "The electric pump is unpowered",
-    "fault-type": "unpowered",
-    "suggested-repair": "Move to powered location near power pole"
+    "fault-type": "unpowered"
 }

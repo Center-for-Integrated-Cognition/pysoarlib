@@ -77,7 +77,7 @@ class LMConnector(QueryConnector):
 
     def on_output_event(self, command_name, root_id):
         """
-        Handle output link events, commands for LM requets
+        Handle output link events, commands for LM requests
         """
         if command_name == "language-model":#"lm-request":
             if self.response != None:

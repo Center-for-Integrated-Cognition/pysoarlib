@@ -1,0 +1,9 @@
+Example:
+Input: {"component": "boiler", "resource": "coal", "fault-hypothesis": "The boiler is not receiving coal fuel", "fault-type": "lacking-input"}
+Output:
+{
+    "repair-description": "Insert coal into the boiler to restore its fuel supply and enable energy production",
+    "component": "boiler",
+    "repair": "refuel",
+    "python-repair": "insert_item(Prototype.coal, get_entity(Prototype.boiler, Position(x=15.0, y=10.0)), quantity=5)"
+}

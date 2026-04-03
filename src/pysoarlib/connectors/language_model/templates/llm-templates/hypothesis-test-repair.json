@@ -1,0 +1,20 @@
+{
+    "llm-template": "hypothesis-test-repair",
+    "example-context": "simple-context",
+    "examples": [
+        "repair-simple"
+    ],
+    "domain": "factorio",
+    "system-prompt": "hypothesis-test-repair",
+    "world-context": false,
+    "soar-context": false,
+    "history-context": [],
+    "prompt-template": "discrepancy-hypothesis",
+    "repair-prompt": false,
+    "response-type": "json",
+    "output-template": "output",
+    "model": "gpt-4o",
+    "api": "langchain",
+    "number-of-results": 1,
+    "temperature": 0.0
+}
