@@ -6,10 +6,11 @@ from pysoarlib import WMInterface
 from pysoarlib.util.sml import sml
 
 class Query(WMInterface):
-    def __init__(self, sequence_number, type, arguments, context = None, config = None):
+    def __init__(self, sequence_number, type, template, arguments, context = None, config = None):
         WMInterface.__init__(self)
         self.sequence_number = sequence_number
         self.type = type
+        self.template = template
         self.argument_count = len(arguments)
         self.arguments = arguments
         self.context = context
@@ -19,6 +20,7 @@ class Query(WMInterface):
         self.identifier = parent_id.CreateIdWME("query") # or x-query
         self.identifier.CreateIntWME("sequence-number", self.sequence_number)
         self.identifier.CreateStringWME("type", self.type)
+        self.identifier.CreateStringWME("template", self.template)
         self.identifier.CreateIntWME("argument-count", self.argument_count)
         arg = 1
 

@@ -167,6 +167,7 @@ class QueryConnector(AgentConnector):
 
         #Get request type
         request_type = query_id.FindByAttribute("type", 0).GetValueAsString()
+        request_template = query_id.FindByAttribute("template", 0).GetValueAsString() if query_id.FindByAttribute("template", 0) else None
         # print(request_type)
         if not request_type:
             root_id.CreateStringWME("status", "error")
@@ -219,7 +220,7 @@ class QueryConnector(AgentConnector):
         # print(arguments)
 
         """  Create Query """
-        query = Query(sequence_number, request_type, arguments, context)
+        query = Query(sequence_number, request_type, request_template, arguments, context)
         view = "Query {}: {}, {}, {}, {}".format(request_type, sequence_number, argument_count, arguments, context)
         print(view)
 

@@ -79,12 +79,14 @@ class LLM:
 
         return config
     
-    def get_llm_template(self, type):
+    def get_llm_template(self, query):
+        """ get llm template based on query type and template fields """
+        template_name = query.template if query.template else query.type
         """
         get template from folder for prompt given type
         """
         cwd = os.getcwd()
-        file = self.templates_root + "llm-templates/" + type + ".json"
+        file = self.templates_root + "llm-templates/" + template_name + ".json"
         path = os.path.join(cwd, file)
         with open(path) as file:
             template_config = json.load(file)
@@ -689,10 +691,11 @@ class LLM:
         get prompt examples from file(s) specified by config
         """
         examples = ""
+        domain = config["domain"] if "domain" in config else ""
 
         if "example-context" in config:
             cwd = os.getcwd()
-            file = self.templates_root + "examples/" + config["domain"] + "/" + config["example-context"] + ".txt"
+            file = self.templates_root + "examples/" + domain + "/" + config["example-context"] + ".txt"
             path = os.path.join(cwd, file)
 
             examples += self.get_str_from_file(path) + "\n"
@@ -702,12 +705,12 @@ class LLM:
         """ Get a list of examples either directly from the config or as given by the Tester """
         config_examples = config["examples"] if "examples" in config else None
         examples_list = self.examples if self.test_mode and self.examples else config_examples
-        if examples_list and config["domain"]:
+        if examples_list:
             first = True
             for example in examples_list:
                 # print("example:" + example)
                 cwd = os.getcwd()
-                file = self.templates_root + "examples/" + config["domain"] + "/" + example + ".txt"
+                file = self.templates_root + "examples/" + domain + "/" + example + ".txt"
                 path = os.path.join(cwd, file)
                 if not first:
                     examples += "\n"
@@ -969,7 +972,7 @@ class LLM:
         handle LLM request by constructing prompt and getting response from LLM
         return LMResponse with response
         """
-        template_config = self.get_llm_template(query.type)
+        template_config = self.get_llm_template(query)
 
         #Special case: multiple possible modes
         #in the future prompt llm for best way to treat (or try multiple)

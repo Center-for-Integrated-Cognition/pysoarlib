@@ -9,7 +9,7 @@ from pysoarlib.connectors.language_model.LLM import LLM
 
 #AgentConnetcor
 class LMConnector(QueryConnector):
-    def __init__(self, client, world_connector = None, model = "gpt-4o", templates_root = None, llm_request_mode = None):
+    def __init__(self, config, client, world_connector = None, model = "gpt-4o"):
         #AgentConnector.__init__(self, client)
         QueryConnector.__init__(self, client)
         #new output commands
@@ -17,10 +17,15 @@ class LMConnector(QueryConnector):
         self.add_output_command("delete-lm-response")
         #self.add_output_command("lm-request")
 
+        """ Gather parameters for LLM from config file """
+        self.templates_root = config["templates_root"] if "templates_root" in config.keys() else None
+        self.llm_request_mode = config["llm_request_mode"] if "llm_request_mode" in config.keys() else None
+        self.llm_template = config["llm_template"] if "llm_template" in config.keys() else None
+
         self.response = None
         self.temperature = 0
         self.model = model
-        self.lm = LLM(world_connector, templates_root, self.temperature, self.model)
+        self.lm = LLM(world_connector, self.templates_root, self.temperature, self.model)
 
         self.elapsed_time = 0
         self.lm_time = 0
@@ -28,8 +33,9 @@ class LMConnector(QueryConnector):
         self.lm_id = None
         self.lm_failsafe = 0 #to prevent accidental exhaustion of tokens
 
-        self.llm_request_mode = llm_request_mode
-        self.llm_request_mode_wme = None
+        """ Create wme variables """
+        self.request_mode_wme = None
+        self.template_wme = None
 
         self.test_mode = False
         self.system_prompt = None
@@ -67,8 +73,12 @@ class LMConnector(QueryConnector):
         if self.needs_setup:
             self.identifier = self.lm_id.CreateIdWME("responses")
             self.needs_setup = False
-        if self.llm_request_mode is not None and self.llm_request_mode_wme == None:
-            self.llm_request_mode_wme = self.lm_id.CreateStringWME("request-mode", self.llm_request_mode)
+
+        """ Create wmes for parameters for LLM """
+        if self.llm_request_mode is not None and self.request_mode_wme == None:
+            self.request_mode_wme = self.lm_id.CreateStringWME("request-mode", self.llm_request_mode)
+        if self.llm_template is not None and self.template_wme == None:
+            self.template_wme = self.lm_id.CreateStringWME("template", self.llm_template)
 
         if self.response != None:# and not self.response.is_added():
             #print("adding input")
