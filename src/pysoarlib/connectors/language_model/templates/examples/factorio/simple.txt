@@ -4,5 +4,6 @@ Output:
     "component": "electric-pump",
     "resource": "power",
     "fault-hypothesis": "The electric pump is unpowered",
-    "fault-type": "unpowered"
+    "fault-type": "unpowered",
+    "probability": 0.75
 }
