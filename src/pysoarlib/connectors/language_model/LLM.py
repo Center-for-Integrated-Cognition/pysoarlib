@@ -906,9 +906,10 @@ class LLM:
             ("human", user_input),
         ]
         
-        print("System prompt:")
-        print(system_input)
+        """ Print the instantiated template if no print template specified in config, otherwise print both prompts """
         if not self.print_template:
+            print("System prompt:")
+            print(system_input)
             print("User prompt:")
             print(user_input)
         else:
