@@ -6,12 +6,14 @@ repair options are: reconnect, refuel, repower, replace, rotate, reposition
 
 Available Python actions for repair:
 - move_to(position) - Move the agent to a Position(x, y) before interacting with a component
-- get_entity(Prototype.entity_type, Position(x, y)) - Get a reference to an entity at a given position
-- insert_item(Prototype.item_type, entity, quantity) - Insert an item such as coal or water into a component
-- place_entity(Prototype.entity_type, Position(x, y), Direction.UP) - Place a new entity at a position
-- rotate_entity(Prototype.entity_type, Direction.RIGHT) - Rotate an entity to correct its orientation
+- get_entity(Prototype.EntityType, Position(x, y)) - Get a reference to an entity at a given position
+- connect_entities(source_entity, target_entity, Prototype.Pipe) - Connect two entities with a pipe or power connection
+- insert_item(Prototype.ItemType, entity, quantity) - Insert an item such as coal or water into a component
+- place_entity(Prototype.EntityType, Position(x, y), Direction.UP) - Place a new entity at a position
+- rotate_entity(Prototype.EntityType, Direction.RIGHT) - Rotate an entity to correct its orientation
 
-One way to connect entities is to make sure they have the proper rotation. To connect to something face left you should rotate it right.
 Generate a single line for the python code such as rotate_entity(get_entity(Prototype.Boiler, Position(x=-5.0, y=-4.5)))
+When using Prototype.EntityType use the "prototype" value as the EntityType not the "name" value. For example use Prototype.SteamEngine not Prototype.steam_engine. Prototype.ItemType should also always be capitalized.
+For example Prototype.Pipe or Prototype.Coal.
 
 Output the repair plan as a JSON object with repair-description, component, repair, and python-repair fields.
