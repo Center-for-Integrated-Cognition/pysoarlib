@@ -1,9 +1,20 @@
 Example:
 Output:
 {
-    "component": "electric-pump",
-    "resource": "power",
-    "fault-hypothesis": "The electric pump is unpowered",
-    "fault-type": "unpowered",
-    "probability": 0.75
+    "hypotheses": [
+        {
+            "component": "boiler",
+            "resource": "water",
+            "fault-hypothesis": "The boiler might be lacking water input, affecting steam production.",
+            "fault-type": "lacking-input",
+            "probability": 0.6
+        },
+        {
+            "component": "electric-pump",
+            "resource": "power",
+            "fault-hypothesis": "The electric pump is unpowered",
+            "fault-type": "unpowered",
+            "probability": 0.75
+        }
+    ]
 }

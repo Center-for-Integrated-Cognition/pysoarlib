@@ -2,8 +2,20 @@ Example:
 Input: {"component": "boiler", "resource": "coal", "fault-hypothesis": "The boiler is not receiving coal fuel", "fault-type": "lacking-input"}
 Output:
 {
-    "repair-description": "Insert coal into the boiler to restore its fuel supply and enable energy production",
-    "component": "boiler",
-    "repair": "refuel",
-    "python-repair": "insert_item(Prototype.Coal, get_entity(Prototype.Boiler, Position(x=15.0, y=10.0)), quantity=5)"
+    "repairs": [
+        {
+            "repair-description": "Rotate the boiler to reconnect so that it gets coal input from inserter",
+            "component": "boiler",
+            "repair": "reconnect",
+            "python-repair": "rotate_item(get_entity(Prototype.Boiler, Position(x=15.0, y=10.0)), Direction.RIGHT)",
+            "probability": 0.7
+        },
+        {
+            "repair-description": "Insert coal into the boiler to restore its fuel supply and enable energy production",
+            "component": "boiler",
+            "repair": "refuel",
+            "python-repair": "insert_item(Prototype.Coal, get_entity(Prototype.Boiler, Position(x=15.0, y=10.0)), quantity=5)",
+            "probability": 0.55
+        }
+    ]
 }
