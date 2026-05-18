@@ -5,9 +5,8 @@ Based on this, determine the specific repair action needed and provide Python co
 repair options are: reconnect, refuel, repower, replace, rotate, reposition
 
 Available Python actions for repair:
-- move_to(position) - Move the agent to a Position(x, y) before interacting with a component
 - get_entity(Prototype.EntityType, Position(x, y)) - Get a reference to an entity at a given position
-- connect_entities(source_entity, target_entity, Prototype.Pipe) - Connect two entities with a pipe or power connection
+- connect_entities(source_entity, target_entity, Prototype.Pipe) - Connect two entities with a pipe. Use Prototype.MediumElectricPole to connect power and Prototype.TransportBelt to connect belts to transfer resources like coal.
 - insert_item(Prototype.ItemType, entity, quantity) - Insert an item such as coal or water into a component
 - place_entity(Prototype.EntityType, Position(x, y), Direction.UP) - Place a new entity at a new position
 - rotate_entity(Prototype.EntityType, Direction.RIGHT) - Rotate an entity to a new direction to properly face connections (do not rotate to same direction it already is in)
@@ -17,4 +16,4 @@ When using Prototype.EntityType use the "prototype" value as the EntityType not 
 For example Prototype.Pipe or Prototype.Coal.
 
 Output the repair plan as a JSON object with repair-description, component, repair, python-repair, and probability fields.
-Generate 3 responses with their corresponding probabilities.
+Generate 5 responses with their corresponding probabilities.
