@@ -1,0 +1,1 @@
+Use the json logic graph generated for each event and the json calculation result from the logic graph to respond with the event detection with relevant details from the calculation in a single sentence. If applicable, make sure to include details from the intermediate node results in the answer.

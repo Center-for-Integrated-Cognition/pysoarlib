@@ -1,0 +1,21 @@
+{
+    "llm-template": "hlg-event-detection",
+    "example-context": "context-bluesky-port",
+    "examples": [
+        "hlg-events"
+    ],
+    "domain": "ship",
+    "system-prompt": "event-hlg",
+    "world-context": false,
+    "soar-context": true,
+    "history-context": [],
+    "prompt-template": "input-1-argument",
+    "print-template": "?prompt?output",
+    "repair-prompt": false,
+    "response-type": "json",
+    "output-template": "output",
+    "model": "gpt-4o",
+    "api": "langchain",
+    "number-of-results": 1,
+    "temperature": 0.0
+}

@@ -907,13 +907,13 @@ class LLM:
         ]
         
         """ Print the instantiated template if no print template specified in config, otherwise print both prompts """
-        if not self.print_template:
-            print("System prompt:")
-            print(system_input)
-            print("User prompt:")
-            print(user_input)
-        else:
-            print("Instantiated Print Template:" + self.print_template)
+        #if not self.print_template:
+        print("System prompt:")
+        print(system_input)
+        print("User prompt:")
+        print(user_input)
+        #else:
+        #    print("Instantiated Print Template:" + self.print_template)
 
         response = llm.invoke(message)
 
@@ -924,8 +924,8 @@ class LLM:
         results = []
         if config["response-type"] == "json":
             json_object = json.loads(content)
-            if not self.test_mode:
-                print(json.dumps(json_object, indent=4))
+            #if not self.test_mode:
+            print(json.dumps(json_object, indent=4))
             
             result = LMResult(json_object, "json", 1.0, 1)
             results.append(result)
@@ -936,8 +936,8 @@ class LLM:
             if "state" in config["history-context"]:
                 self.command_history = self.command_history + "World update: " + str(json_object).replace("desired", "relation")
         elif num_results == 1:
-            if not self.test_mode:
-                print("Response:" + content)
+            #if not self.test_mode:
+            print("Response:" + content)
 
             if "dialog" in config["history-context"]:
                 self.command_history = self.command_history + "\nQuestion:" + dialog + "\n" #fix generality

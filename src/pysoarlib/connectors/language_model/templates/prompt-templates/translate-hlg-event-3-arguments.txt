@@ -1,0 +1,5 @@
+Event: ?argument1
+Logic graph:
+?argument2
+Logic calculation result:
+?argument3
