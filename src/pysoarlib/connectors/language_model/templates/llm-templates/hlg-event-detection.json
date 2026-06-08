@@ -1,6 +1,6 @@
 {
     "llm-template": "hlg-event-detection",
-    "example-context": "context-bluesky-port",
+    "example-context": "context-bluesky-oceanic-port",
     "examples": [
         "hlg-events"
     ],
