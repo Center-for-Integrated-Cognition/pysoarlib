@@ -2,16 +2,20 @@ Given a fault hypothesis for a connected system in Factorio, generate a repair p
 The hypothesis includes the component, the affected resource, a description of the fault, and the fault type.
 Based on this, determine the specific repair action needed and provide Python code to execute it.
 
-repair options are: reconnect, refuel, repower, replace, rotate, reposition
+repair options are: reconnect, refuel, repower, replace, rotate, reposition, downgrade
 
 Available Python actions for repair:
+- move_to(Position(x, y));
 - get_entity(Prototype.EntityType, Position(x, y)) - Get a reference to an entity at a given position
 - connect_entities(source_entity, target_entity, Prototype.Pipe) - Connect two entities with a pipe. Use Prototype.MediumElectricPole to connect power and Prototype.TransportBelt to connect belts to transfer resources like coal.
 - insert_item(Prototype.ItemType, entity, quantity) - Insert an item such as coal or water into a component
 - place_entity(Prototype.EntityType, Position(x, y), Direction.UP) - Place a new entity at a new position
 - rotate_entity(Prototype.EntityType, Direction.RIGHT) - Rotate an entity to a new direction to properly face connections (do not rotate to same direction it already is in)
+- set_entity_recipe(get_entity(Prototype.EntityType, Position(x, y)), Prototype.ItemType)
 
 Generate a single line for the python code such as rotate_entity(get_entity(Prototype.Boiler, Position(x=-5.0, y=-4.5)))
+Multiple lines can be combined with a ;
+Before place or getting entities it must move nearby, but moving by itself while not accomplish anything.
 When using Prototype.EntityType use the "prototype" value as the EntityType not the "name" value. For example use Prototype.SteamEngine not Prototype.steam_engine. Prototype.ItemType should also always be capitalized.
 For example Prototype.Pipe or Prototype.Coal.
 

@@ -1,5 +1,11 @@
-Example:
-Input: {"component": "boiler", "resource": "coal", "fault-hypothesis": "The boiler is not receiving coal fuel", "fault-type": "lacking-input"}
+Examples:
+Input: 
+{
+    "component": "boiler", 
+    "resource": "coal", 
+    "fault-hypothesis": "The boiler is not receiving coal fuel", 
+    "fault-type": "lacking-input"
+}
 Output:
 {
     "repairs": [
@@ -16,6 +22,25 @@ Output:
             "repair": "refuel",
             "python-repair": "insert_item(Prototype.Coal, get_entity(Prototype.Boiler, Position(x=15.0, y=10.0)), quantity=5)",
             "probability": 0.55
+        }
+    ]
+}
+Input: 
+{
+    "component": "assembling-machine-3", 
+    "resource": "iron-gear", 
+    "fault-hypothesis": "The assembling machine is producing more iron gears than it should and using more energy.", 
+    "fault-type": "overuse"
+}
+Output:
+{
+    "repairs": [
+        {
+            "repair-description": "Downgrade the level of the assembler to reduce its consumption and production by moving near to it and replacing it and resetting the recipe.",
+            "component": "assembling-machine-3",
+            "repair": "downgrade",
+            "python-repair": "move_to(Position(x=42.5, y=12.5));pickup_entity(Prototype.AssemblingMachine3, position=Position(x=44.5, y=12.5));place_entity(Prototype.AssemblingMachine2, position=Position(x=44.5, y=12.5), direction=Direction.UP);set_entity_recipe(get_entity(Prototype.AssemblingMachine2, Position(x=44.5, y=12.5)), Prototype.IronGear)",
+            "probability": 0.8
         }
     ]
 }

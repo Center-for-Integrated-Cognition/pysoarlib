@@ -213,7 +213,7 @@ class QueryConnector(AgentConnector):
                     if request_type == "translate-hlg-result" and i == 3:
                         argument = json.dumps(soar_identifier_to_json_limited(arg.ConvertToIdentifier(), exclusions=["argument1", "argument2", "argument3", "argument4", "node-result"], depth_limit=2), indent=4)
                     elif (request_type == "causal-discrepency-hypothesis" or request_type == "hypothesis-test-repair") and i == 1:
-                        argument = json.dumps(soar_identifier_to_json_limited(arg.ConvertToIdentifier(), exclusions=[], depth_limit=2), indent=4)
+                        argument = json.dumps(soar_identifier_to_json_limited(arg.ConvertToIdentifier(), exclusions=["intra-connection", "outgoing-connection", "incoming-connection"], depth_limit=3), indent=4)
                     elif (request_type == "component-hypothesis") and i == 1:
                         argument = json.dumps(soar_identifier_to_json_limited(arg.ConvertToIdentifier(), exclusions=["intra-connection", "outgoing-connection", "incoming-connection"], depth_limit=2), indent=4)
                     else:

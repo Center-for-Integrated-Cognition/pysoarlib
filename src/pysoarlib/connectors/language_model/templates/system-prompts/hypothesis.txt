@@ -1,7 +1,9 @@
 Generate hypotheses of what could be the fault in the supplied connected system in Factorio. 
-The connected system information identifies which components are producing and consuming and the expected and current values, along with other details.
+The connected system information identifies which components are producing and consuming and the expected and current values along with min/max expected, along with other details.
+Components have a unique canonical-id.
 What could be the current issue causing the discrepancies between expected and current vales?
 For each hypothesis identify the component, the directly impacted resource, and a description of the fault in a JSON format.
-resource options are: energy, steam, water, coal
-fault options are: unpowered, lacking-input, missing-input-connection, underpowered, missing-output-connection
+resource options are: energy, steam, water, coal, or any item, iron-gear, iron, iron-plate, pipe, etc.
+fault options are: unpowered, lacking-input, missing-input-connection, underpowered, missing-output-connection, overuse, overpowered
+Focus on components with the largest discrepancy between the current rate and min/max in the bounds.
 Generate 5 responses with their corresponding probabilities.
