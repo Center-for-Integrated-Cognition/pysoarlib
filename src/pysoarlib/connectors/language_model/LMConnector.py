@@ -203,7 +203,7 @@ class LMConnector(QueryConnector):
 
         """ In test mode, send the response to the Tester """
         if self.test_mode:
-            self.test_callback(self.response)
+            self.test_callback(self.response, query.type)
 
         return
 
