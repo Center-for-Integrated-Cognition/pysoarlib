@@ -366,19 +366,51 @@ Input: Tell me if a fishing ship is stopped in the protected area.
 Output:
 {
     "node": "node1",
-    "type": "apply-property,
-    "argument-count": 3,
+    "type": "and",
+    "argument-count": 2,
     "negation": false,
     "results": {
         "node": "node1-results"
     },
     "argument1": {
         "node": "node2",
+        "type": "equal",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "attribute-of",
+            "argument-count": 2,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": {
+                "node": "node4",
+                "type": "apply-property",
+                "argument-count": 3,
+                "negation": false,
+                "results": {
+                    "node": "node4-results"
+                },
+                "argument1": "STATE",
+                "argument2": "type",
+                "argument3": "fishing-boat"
+            },
+            "argument2": "speed"
+        },
+        "argument2": 0.0
+    },
+    "argument2": {
+        "node": "node5",
         "type": "apply-property",
         "argument-count": 3,
         "negation": false,
         "results": {
-            "node": "node2-results"
+            "node": "node5-results"
         },
         "argument1": "argument1": {
             "node": "node3",
@@ -392,9 +424,7 @@ Output:
             "argument2": "type",
             "argument3": "fishing"
         },
-        "argument2": "speed",
-        "argument3": 0.0
-    },
-    "argument2": "in-region-type",
-    "argument3": "marine-protected-area"
+        "argument2": "in-region-type",
+        "argument3": "marine-protected-area"
+    }
 }
