@@ -907,13 +907,13 @@ class LLM:
         ]
         
         """ Print the instantiated template if no print template specified in config, otherwise print both prompts """
-        #if not self.print_template:
-        print("System prompt:")
-        print(system_input)
-        print("User prompt:")
-        print(user_input)
-        #else:
-        #    print("Instantiated Print Template:" + self.print_template)
+        if not self.print_template:
+            print("System prompt:")
+            print(system_input)
+            print("User prompt:")
+            print(user_input)
+        else:
+            print("Instantiated Print Template:" + self.print_template)
 
         response = llm.invoke(message)
 
