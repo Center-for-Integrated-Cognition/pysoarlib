@@ -412,18 +412,7 @@ Output:
         "results": {
             "node": "node5-results"
         },
-        "argument1": "argument1": {
-            "node": "node3",
-            "type": "apply-property",
-            "argument-count": 3,
-            "negation": false,
-            "results": {
-                "node": "node3-results"
-            },
-            "argument1": "STATE",
-            "argument2": "type",
-            "argument3": "fishing"
-        },
+        "argument1": "node4",
         "argument2": "in-region-type",
         "argument3": "marine-protected-area"
     }
