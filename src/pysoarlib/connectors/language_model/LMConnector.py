@@ -43,12 +43,15 @@ class LMConnector(QueryConnector):
     """
     This method is called by the Tester to set things in test mode.
     """
-    def set_test_mode(self, callback, examples = None, system_prompt = None):
+    def set_test_mode(self, examples = None, system_prompt = None):
         self.test_mode = True
-        self.test_callback = callback
         self.lm.test_mode = True
         self.lm.examples = examples
         self.system_prompt = system_prompt
+
+    """ This sets up a listener for the response, so that the caller can handle the response appropriately. """
+    def set_response_callback(self, callback):
+        self.response_callback = callback
 
     def on_init_soar(self):
         """
@@ -201,9 +204,11 @@ class LMConnector(QueryConnector):
         self.remember_response(self.response)
         root_id.CreateStringWME("status", "complete")
 
-        """ In test mode, send the response to the Tester """
-        if self.test_mode:
-            self.test_callback(self.response, query.type)
+        """ Send the response to the listener if a callback is set.
+            This is useful for testing, where the Tester can handle the response appropriately.
+        """
+        if self.response_callback is not None:
+            self.response_callback(self.response, query.type)
 
         return
 
