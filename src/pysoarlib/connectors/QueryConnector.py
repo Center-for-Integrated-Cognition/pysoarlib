@@ -154,7 +154,7 @@ class QueryConnector(AgentConnector):
         else:
             print("Error trying to delete sequence number " + str(sequence_number))
 
-    def process_query_command(self, root_id):
+    def process_query_command(self, root_id) -> Query:
         """
         Processes query from output-link command
         result is query structure
@@ -173,7 +173,7 @@ class QueryConnector(AgentConnector):
             root_id.CreateStringWME("status", "error")
             root_id.CreateStringWME("error-info", "query has no type")
             self.client.print_handler("Error - outputlink query has no type")
-            return
+            return None # pyright: ignore[reportReturnType]
 
         #Use sequence-number as unique id of response
         sequence_number = query_id.FindByAttribute("sequence-number", 0).ConvertToIntElement().GetValue()
