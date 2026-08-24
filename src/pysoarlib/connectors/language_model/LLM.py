@@ -94,6 +94,21 @@ class LLM:
             print("get_llm_template: " + str(path))
 
         return template_config
+
+    def get_llm_template_type(self, type):
+            """ get llm template based on type """
+            """
+            get template from folder for prompt given type
+            """
+            cwd = os.getcwd()
+            file = self.templates_root + "llm-templates/" + type + ".json"
+            path = os.path.join(cwd, file)
+            with open(path) as file:
+                template_config = json.load(file)
+            if self.show_templates:
+                print("get_llm_template: " + str(path))
+    
+            return template_config
     
     def get_template(self, type):
         """
@@ -989,9 +1004,14 @@ class LLM:
                     selected_type = "context-history-desireds"
                 if template == "thor-goal-dag" and query.arguments[0][-1] != "?":
                     selected_type = "thor-goal-dag"
+                #get first word of argument[0] and check if it is "Track"
+                if template == "mission-command" and query.arguments[0].split()[0].lower() == "track":
+                    selected_type = "mission-command"
+                if template == "hlg-event-detection" and query.arguments[0].split()[0].lower() != "track":
+                    selected_type = "hlg-event-detection"
         if selected_type:
             type = selected_type
-            template_config = self.get_llm_template(selected_type)
+            template_config = self.get_llm_template_type(selected_type)
 
         """ Select the right system prompt file """
         system_prompt_file = test_system_prompt if test_system_prompt else template_config["system-prompt"]
