@@ -417,3 +417,146 @@ Output:
         "argument3": "marine-protected-area"
     }
 }
+Input: Tell me when the Bluesky arrives at port-A.
+Output:
+{
+    "node": "node1",
+    "type": "equal",
+    "argument-count": 2,
+    "negation": false,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "attribute-of",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": "STATE",
+            "argument2": "id",
+            "argument3": "Bluesky"
+        },
+        "argument2": "current-port"
+    },
+    "argument2": "port-A"
+}
+Input: Tell me if a ship is at a port.
+Output:
+{
+    "node": "node1",
+    "type": "equal",
+    "argument-count": 2,
+    "negation": false,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "attribute-of",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": "STATE",
+            "argument2": "category",
+            "argument3": "ship"
+        },
+        "argument2": "port-achieved"
+    },
+    "argument2": "true"
+}
+Input: Tell me if a ship traveling 5 knots is within 3 km of a port.
+Output:
+{
+    "node": "node1",
+    "type": "and",
+    "argument-count": 2,
+    "negation": false,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "equal",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "attribute-of",
+            "argument-count": 2,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": {
+                "node": "node4",
+                "type": "apply-property",
+                "argument-count": 3,
+                "negation": false,
+                "results": {
+                    "node": "node4-results"
+                },
+                "argument1": "STATE",
+                "argument2": "category",
+                "argument3": "ship"
+            },
+            "argument2": "speed"
+        },
+        "argument2": 5.0
+    },
+    "argument2": {
+        "node": "node5",
+        "type": "less-than",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node5-results"
+        },
+        "argument1": {
+            "node": "node6",
+            "type": "haversine-formula",
+            "argument-count": 2,
+            "negation": false,
+            "results": {
+                "node": "node6-results"
+            },
+            "argument1": "node4"
+            "argument2": {
+                "node": "node8",
+                "type": "apply-property",
+                "argument-count": 3,
+                "negation": false,
+                "results": {
+                    "node": "node8-results"
+                },
+                "argument1": "STATE",
+                "argument2": "category",
+                "argument3": "port"
+            }
+        },
+        "argument2": 3
+    }
+}
