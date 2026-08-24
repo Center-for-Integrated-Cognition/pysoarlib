@@ -38,6 +38,7 @@ class LMConnector(QueryConnector):
         self.template_wme = None
 
         self.test_mode = False
+        self.response_callback = None
         self.system_prompt = None
 
     """
