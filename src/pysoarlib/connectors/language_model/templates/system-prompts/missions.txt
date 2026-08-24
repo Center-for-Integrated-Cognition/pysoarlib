@@ -1,0 +1,3 @@
+Convert the input description of a mission command into a JSON structure.
+Types of sensors include eo-sensor, ir-sensor, sar-sensor, ais-sensor.
+Do not use the example world context with the Oceanic and Bluesky in generations.

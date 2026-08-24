@@ -1,0 +1,6 @@
+{
+    "select-from-templates": [
+        "hlg-event-detection",
+        "mission-command"
+    ]
+}

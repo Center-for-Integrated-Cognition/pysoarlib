@@ -1,0 +1,37 @@
+Input: Track Bluesky with IR sensor.
+Output:
+{
+    "message": {
+        "subject": "user-command",
+        "from": "user",
+        "content": {
+            "command": "track-target",
+            "name": "Bluesky",
+            "sensor": "ir-sensor"
+        }
+    }
+}
+Input: Track Bluesky and Oceanic with IR sensor.
+Output:
+{
+    "messages": [
+        {
+            "subject": "user-command",
+            "from": "user",
+            "content": {
+                "command": "track-target",
+                "name": "Bluesky",
+                "sensor": "ir-sensor"
+            }
+        },
+        {
+            "subject": "user-command",
+            "from": "user",
+            "content": {
+                "command": "track-target",
+                "name": "Oceanic",
+                "sensor": "ir-sensor"
+            }
+        }
+    ]
+}
