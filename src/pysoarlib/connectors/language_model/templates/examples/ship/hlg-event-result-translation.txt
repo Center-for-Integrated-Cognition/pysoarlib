@@ -76,7 +76,7 @@ Logic calculation result:
         "category": "port"
     }
 }
-Response: Event detected: The Bluesky is within 200 km of port-A (198 km).
+Response: Event detected (AIS): The Bluesky is within 200 km of port-A (198 km).
 Event: Report when the Bluesky exceeds 7 knots?
 Output:
 {
@@ -120,7 +120,7 @@ Logic calculation result:
         "next-port" : "port-A",
         "previous-port" : "port-B",
         "port-achieved" : "false",
-        "source-sensor" : "ais-sensor",
+        "source-sensor" : "DR",
         "source-agent" : "C1",
         "direction" : "north",
         "heading" : 0,
@@ -133,7 +133,8 @@ Logic calculation result:
         "id" : "Bluesky",
         "latitude" : 30.0,
         "longitude" : 127.0,
-        "category" : "ship"
+        "category" : "ship",
+        "data-source": "prediction"
     }
 }
 Response: Event predicted: The Bluesky is is going faster than 7 knots (10).
