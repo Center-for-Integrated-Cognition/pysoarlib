@@ -560,3 +560,37 @@ Output:
         "argument2": 3
     }
 }
+Input: Tell me if the Oceanic and Bluesky are rafted together.
+Output:
+{
+    "node": "node1",
+    "type": "equal",
+    "argument-count": 2,
+    "negation": false,
+    "results": {
+        "node": "node1-results"
+    },
+    "argument1": {
+        "node": "node2",
+        "type": "attribute-of",
+        "argument-count": 2,
+        "negation": false,
+        "results": {
+            "node": "node2-results"
+        },
+        "argument1": {
+            "node": "node3",
+            "type": "apply-property",
+            "argument-count": 3,
+            "negation": false,
+            "results": {
+                "node": "node3-results"
+            },
+            "argument1": "STATE",
+            "argument2": "id",
+            "argument3": "Oceanic"
+        },
+        "argument2": "rafted-with"
+    },
+    "argument2": "Bluesky"
+}
