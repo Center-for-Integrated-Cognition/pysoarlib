@@ -590,7 +590,7 @@ Output:
             "argument2": "id",
             "argument3": "Oceanic"
         },
-        "argument2": "rafted-with"
+        "argument2": "rafting-with"
     },
     "argument2": "Bluesky"
 }
