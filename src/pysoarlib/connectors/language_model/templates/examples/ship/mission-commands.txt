@@ -11,6 +11,20 @@ Output:
         }
     }
 }
+Input: If detected, track Bluesky with IR sensor.
+Output:
+{
+    "message": {
+        "subject": "user-command",
+        "from": "user",
+        "condition" : "event-detected",
+        "content": {
+            "command": "track-target",
+            "name": "Bluesky",
+            "sensor": "ir-sensor"
+        }
+    }
+}
 Input: Track Bluesky and Oceanic with IR sensor.
 Output:
 {

@@ -1004,10 +1004,10 @@ class LLM:
                     selected_type = "context-history-desireds"
                 if template == "thor-goal-dag" and query.arguments[0][-1] != "?":
                     selected_type = "thor-goal-dag"
-                #get first word of argument[0] and check if it is "Track"
-                if template == "mission-command" and query.arguments[0].split()[0].lower() == "track":
+                #get first word of argument[0] and check if it is "[Command]"
+                if template == "mission-command" and query.arguments[0].split()[0].lower() == "[cmd]":
                     selected_type = "mission-command"
-                if template == "hlg-event-detection" and query.arguments[0].split()[0].lower() != "track":
+                if template == "hlg-event-detection" and query.arguments[0].split()[0].lower() != "[cmd]":
                     selected_type = "hlg-event-detection"
         if selected_type:
             type = selected_type
